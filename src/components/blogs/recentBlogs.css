@@ -1,0 +1,6 @@
+.blog-title{
+    transition: all 0.3s ease;
+}
+.blog-title:hover{
+    text-decoration: underline!important;
+}

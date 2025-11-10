@@ -1,0 +1,159 @@
+.navbar-custom {
+  background-color: #fcf68a;
+  height: 89px;
+  opacity: 1;
+  z-index: 50;
+  transition: height 0.2s ease;
+}
+
+.navbar-inner-container {
+  max-width: 1400px;
+  padding: 0 60px;
+}
+
+.navbar-toggler-custom {
+  border: none;
+  padding: 6px 0;
+  display: none;
+}
+
+.navbar-toggler-custom:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #000000;
+  margin: 5px 0;
+  transition: transform 0.2s ease;
+}
+
+.navbar-custom .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.navbar-custom .nav-item {
+  position: relative;
+  min-width: 92px;
+  height: 32px;
+  text-align: center;
+}
+
+.navbar-custom .nav-item.career-lab {
+  min-width: 120px;
+}
+
+.navbar-custom .nav-link {
+  color: #000000;
+  white-space: nowrap;
+  padding: 0;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #000000;
+}
+
+.navbar-custom .nav-link-active {
+  font-weight: 600;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 4px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+  width: 135.999px;
+  height: 24px;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1199.98px) {
+  .navbar-inner-container {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar-custom.fixed-top {
+    position: static;
+  }
+
+  .navbar-custom {
+    height: auto;
+    padding: 16px 0;
+  }
+
+  .navbar-inner-container {
+    padding: 0 24px;
+  }
+
+  .navbar-toggler-custom {
+    display: block;
+  }
+
+  .navbar-custom .navbar-collapse {
+    background-color: #fcf68a;
+    padding: 16px 0 8px;
+  }
+
+  .navbar-custom .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .navbar-custom .nav-item,
+  .navbar-custom .nav-item.career-lab {
+    min-width: auto;
+    height: auto;
+  }
+
+  .navbar-custom .nav-link-active {
+    border-bottom: none;
+    padding-bottom: 0;
+    font-weight: 600;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+    gap: 24px;
+    width: auto;
+    height: auto;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-inner-container {
+    padding: 0 16px;
+  }
+
+  .navbar-custom .nav-links {
+    gap: 16px;
+  }
+
+  .social-icons {
+    gap: 20px;
+  }
+}
+

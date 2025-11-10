@@ -1,0 +1,152 @@
+"use client";
+
+import { useState } from "react";
+import "./coursePage.css"; // adjust path based on where you place the CSS
+
+const CoursesPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categories = ["All", "Development", "Testing", "Healthcare"];
+
+  const courses = [
+    {
+      id: 1,
+      title: "React Native Fullstack",
+      category: "Development",
+      description:
+        "React Native Fullstack development combines React Native for mobile apps with Node.js, Express, and databases like MongoDB or PostgreSQL on the backend.",
+      img: "/courses/reactNative.webp",
+    },
+    {
+      id: 2,
+      title: "Software Testing",
+      category: "Testing",
+      description:
+        "Software Testing is the process of evaluating software to identify defects and ensure it meets the required quality standards.",
+      img: "/courses/softwareTesting.webp",
+    },
+    {
+      id: 3,
+      title: "JAVA Fullstack Development",
+      category: "Development",
+      description:
+        "Java Full Stack Development is the process of developing both front-end and back-end web applications using Java technologies.",
+      img: "/courses/javaFullstack.webp",
+    },
+    {
+      id: 4,
+      title: "MERN Stack Development",
+      category: "Development",
+      description:
+        "MERN Stack Development combines MongoDB, Express, React, and Node.js to build powerful full-stack web applications.",
+      img: "/courses/mern.webp",
+    },
+    {
+      id: 5,
+      title: "AWS",
+      category: "Development",
+      description:
+        "AWS is a secure cloud platform offering computing power, database storage, and content delivery services on demand.",
+      img: "/courses/aws.webp",
+    },
+    {
+      id: 6,
+      title: "Business Intelligence",
+      category: "Development",
+      description:
+        "Business Intelligence (BI) transforms raw data into meaningful insights for strategic decisions and performance measurement.",
+      img: "/courses/business.webp",
+    },
+    {
+      id: 7,
+      title: "Cisco Certified Network Associate",
+      category: "Development",
+      description:
+        "The Cisco Certified Network Associate (CCNA) Certification validates essential networking skills for configuring and troubleshooting networks.",
+      img: "/courses/ccna.webp",
+    },
+    {
+      id: 8,
+      title: "Medical Billing",
+      category: "Healthcare",
+      description:
+        "Medical Billing involves processing and managing healthcare claims to ensure accurate reimbursement for medical services provided.",
+      img: "/courses/medicalBilling.webp",
+    },
+  ];
+
+  const filteredCourses =
+    selectedCategory === "All"
+      ? courses
+      : courses.filter((c) => c.category === selectedCategory);
+
+  return (
+    <div>
+
+      {/* Hero Section */}
+      <div
+        className="text-center text-white py-5 position-relative mb-5"
+        style={{
+          backgroundImage: "url('/courses/Hero.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "320px",
+        }}
+      >
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
+        ></div>
+        <div className="position-relative">
+          <h1 className="display-4 fw-bold mt-5">Courses</h1>
+          <p className="lead">Exploring paths to learn, grow, and achieve more.</p>
+        </div>
+      </div>
+
+      {/* Filter Buttons */}
+      <div className="text-center">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            className={`btn m-md-3 btn-cat py-md-2 px-md-4 ${
+              selectedCategory === cat ? "btn-dark" : "btn-outline-dark"
+            }`}
+            onClick={() => setSelectedCategory(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Course Cards */}
+      <div className="container pb-5 mb-5">
+        <div className="row g-5 mt-md-3 mt-1">
+          {filteredCourses.map((course) => (
+            <div className="col-md-4" key={course.id}>
+              <div className="card course-card h-100 shadow-sm border-0 p-3">
+                <div className="circle"></div>
+                <img
+                  src={course.img}
+                  className="card-img-top course-image"
+                  alt={course.title}
+                  style={{ height: "220px", objectFit: "cover" }}
+                />
+                <div className="card-body d-flex flex-column">
+                  <h5 className="card-title fw-bold">{course.title}</h5>
+                  <p className="card-text text-muted">{course.description}</p>
+                  <div className="mt-auto">
+                    <div className="text-warning mb-2">{"★".repeat(5)}</div>
+                    <button className="btn btn-dark w-100">Download Brochure</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
+export default CoursesPage;
