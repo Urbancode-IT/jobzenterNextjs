@@ -1,3 +1,7 @@
-export default function Interview() {
-  return <h1>Bootcamps Page</h1>;
+import InterviewPage from "@/components/interview/Interview";
+
+export default function InterviewStudy() {
+  return <> 
+    <InterviewPage />
+  </>;
 }
