@@ -26,7 +26,7 @@ const BlogCard = ({ image, date, title, description, tags,link }) => {
             <span key={i} className="badge bg-dark">{tag}</span>
           ))}
         </div>
-        <div><a href={link} className="btn btn-sm btn-warning" >Read More</a></div>
+        <div><a href={link} className="btn btn-sm border-dark" >Read More</a></div>
         </div>
       </div>
     </div>

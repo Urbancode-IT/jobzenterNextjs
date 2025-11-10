@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import "./coursePage.css"; // adjust path based on where you place the CSS
-
+import EnquiryFormModal from "../enquiryForm/EnquiryFormModal";
 const CoursesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = ["All", "Development", "Testing", "Healthcare"];
-
+  const [selectedCourse, setSelectedCourse] = useState(null);
   const courses = [
     {
       id: 1,
@@ -136,7 +136,14 @@ const CoursesPage = () => {
                   <p className="card-text text-muted">{course.description}</p>
                   <div className="mt-auto">
                     <div className="text-warning mb-2">{"★".repeat(5)}</div>
-                    <button className="btn btn-dark w-100">Download Brochure</button>
+                    <button className="btn btn-dark w-100" onClick={() => setSelectedCourse(course)}>Download Brochure</button>
+                    {selectedCourse && (
+                        <EnquiryFormModal
+                          isOpen={!!selectedCourse}
+                          onClose={() => setSelectedCourse(null)}
+                          courseName={selectedCourse.title}
+                        />
+                      )}
                   </div>
                 </div>
               </div>
