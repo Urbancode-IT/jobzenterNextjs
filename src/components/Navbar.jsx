@@ -30,7 +30,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-custom fixed-top shadow-sm">
+    <nav className="navbar navbar-expand-lg navbar-custom shadow-sm">
       <div className="container-fluid navbar-inner-container h-100">
         <Link href="/" className="navbar-brand d-flex align-items-center">
           <Image
