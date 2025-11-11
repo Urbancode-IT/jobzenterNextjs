@@ -4,10 +4,8 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  
+  padding: 0;
+  margin: 0;
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,3 +22,6 @@ a {
   text-decoration: none!important;
 }
 
+button {
+  font-family:'Inter'!important;
+}

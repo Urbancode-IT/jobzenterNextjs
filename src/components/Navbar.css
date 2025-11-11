@@ -1,9 +1,8 @@
 .navbar-custom {
-  position: relative;
-  top: 0;
-  left: 0;
-  background-color: #fcf68a;
-  height: 89px;
+  background-color:  #f9f697;
+
+  min-height: 89px;
+  height: auto;
   opacity: 1;
   z-index: 50;
   transition: height 0.2s ease;
@@ -46,9 +45,46 @@
 
 .navbar-custom .nav-item {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 92px;
-  height: 32px;
+  height: auto;
   text-align: center;
+  overflow: visible;
+}
+
+.navbar-custom .nav-link-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.dropdown-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  line-height: 0;
+  margin-left: 2px;
+}
+
+.dropdown-toggle-button:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+.dropdown-icon {
+  transition: transform 0.2s ease;
+}
+
+.navbar-custom .nav-item.dropdown-open .dropdown-icon {
+  transform: rotate(180deg);
 }
 
 .navbar-custom .nav-item.career-lab {
@@ -56,34 +92,142 @@
 }
 
 .navbar-custom .nav-link {
+  position: relative;
   color: #000000;
   white-space: nowrap;
   padding: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .navbar-custom .nav-link:hover {
   color: #000000;
+  transform: scale(1.05);
+}
+
+.navbar-custom .nav-link:focus-visible {
+  outline: none;
+  transform: scale(1.05);
+}
+
+.navbar-custom .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: #fcf68a;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
 }
 
 .navbar-custom .nav-link-active {
   font-weight: 600;
-  border-bottom: 2px solid #000000;
-  padding-bottom: 4px;
+}
+
+.dropdown-menu-custom {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  transform: translateY(-10px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 220px;
+  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+  list-style: none;
+  margin: 0;
+}
+
+.dropdown-menu-custom.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-item-custom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 14px;
+  color: #000000;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.dropdown-item-custom:hover,
+.dropdown-item-custom:focus-visible {
+  background-color: rgba(252, 246, 138, 0.4);
+  transform: translateY(-1px);
+}
+
+.dropdown-item-custom.active {
+  font-weight: 600;
+}
+
+.mobile-dropdown-overlay {
+  display: none;
+}
+
+.mobile-dropdown-panel {
+  display: none;
+}
+
+.navbar-custom .nav-link:hover::after,
+.navbar-custom .nav-link:focus-visible::after,
+.navbar-custom .nav-link-active::after {
+  transform: scaleX(1);
+  background-color: #fcf68a;
 }
 
 .social-icons {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 40px;
-  width: 135.999px;
-  height: 24px;
+  gap: 16px;
+  width: auto;
+  height: auto;
 }
 
 .social-icon {
   width: 24px;
   height: 24px;
   transition: transform 0.2s ease-in-out;
+}
+
+.social-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.social-icon-button:hover {
+  transform: translateY(-2px);
+}
+
+.social-icon-button:focus-visible {
+  outline: none;
+  transform: translateY(-2px);
 }
 
 .social-icon:hover {
@@ -115,7 +259,7 @@
   }
 
   .navbar-custom .navbar-collapse {
-    background-color: #fcf68a;
+    background-color: #ffffff;
     padding: 16px 0 8px;
   }
 
@@ -137,9 +281,113 @@
     font-weight: 600;
   }
 
+  .navbar-custom .nav-link-wrapper {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .navbar-custom .nav-item {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .dropdown-menu-custom {
+    display: none;
+  }
+
+  .mobile-dropdown-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: 190;
+    display: none;
+    animation: dropdownOverlayFade 0.2s ease forwards;
+  }
+
+  .mobile-dropdown-overlay.show {
+    display: block;
+  }
+
+  .mobile-dropdown-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    margin-left: 0;
+    width: min(220px, calc(100vw - 48px));
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+    padding: 12px;
+    z-index: 210;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+    animation: dropdownPanelFade 0.2s ease forwards;
+  }
+
+  .mobile-dropdown-panel.show {
+    display: flex;
+  }
+
+  .mobile-dropdown-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .mobile-dropdown-item {
+    font-size: 15px;
+    color: #000000;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .mobile-dropdown-item:hover,
+  .mobile-dropdown-item:focus-visible {
+    background-color: rgba(252, 246, 138, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .mobile-dropdown-item.active {
+    font-weight: 600;
+    background-color: rgba(252, 246, 138, 0.25);
+  }
+
+  @keyframes dropdownPanelFade {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes dropdownOverlayFade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .social-icons {
     justify-content: flex-start;
-    gap: 24px;
+    gap: 16px;
     width: auto;
     height: auto;
     margin-top: 16px;

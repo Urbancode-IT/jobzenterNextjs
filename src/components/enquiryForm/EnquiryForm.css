@@ -12,7 +12,7 @@
 .enquiry-modal {
  max-width: 600px;
   width: 90%;
-  background: linear-gradient(180deg, #eee18d 0%, #e5e5deef 100%);
+  background: linear-gradient(180deg, #eee18d 0%, #FFF 100%);
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   padding: 24px;

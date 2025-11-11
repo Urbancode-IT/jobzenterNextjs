@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="hero d-flex flex-column align-items-center justify-content-center text-center">
       <div className="container">
-        <h1 className="hero-title">Interview Preparation</h1>
+        <h1 className=" display-2 fw-bold">Interview Preparation</h1>
         <p className="hero-text">
           Ready to ace your interview? Join our free preparation course and gain the confidence to impress recruiters. Learn top strategies from experts and secure your dream role today
         </p>
@@ -25,7 +25,7 @@ const Hero = () => {
           </div>
 
           <div className="program-img">
-            <img src="/bootcamp/InterviewHero.png" alt="Java Program Illustration" />
+            <img src="/bootcamp/image.png" alt="Java Program Illustration" />
           </div>
         </div>
       </div>

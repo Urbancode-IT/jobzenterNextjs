@@ -10,7 +10,7 @@ const ReachUs = () => {
       <section className="reach-header">
         <div className="overlay"></div>
         <div className="content">
-          <h1>Reach Us</h1>
+          <h1 className="display-4 fw-bold mt-5">Reach Us</h1>
           <p>We’re here to answer your questions and guide you every step of the way.</p>
         </div>
       </section>

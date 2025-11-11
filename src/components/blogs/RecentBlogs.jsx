@@ -39,10 +39,10 @@ const RecentBlogs = () => {
           <div className="row flex-column gap-4">
 
           {recentBlogs.slice(1, 3).map((blog) => (
-            <div key={blog.title} className="col-md-12 d-md-flex d-sm-block gap-3">
+            <div key={blog.title} className="col-md-12 d-md-flex  d-sm-block gap-3">
               <img
                 src={blog.image}
-                className="rounded"
+                className="rounded w-sm-100 w-md-50"
                 style={{ objectFit: "cover",maxHeight:"300px", width: "100%" }}
                 alt={blog.title}
               />
