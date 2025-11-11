@@ -71,8 +71,8 @@ const HeroSection = () => {
               <Image
                 src="/Girl.png"
                 alt="Student"
-                width={420}
-                height={420}
+                width={500}
+                height={500}
                 className="hero-main-image"
               />
               
