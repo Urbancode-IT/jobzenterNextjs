@@ -29,10 +29,10 @@
 .footer-surface::before {
   content: "";
   position: absolute;
-  top: -220px;
+  top: -200px;
   left: 50%;
   width: 2200px;
-  height: 440px;
+  height: 340px;
   transform: translateX(-50%);
   background: #ffffff;
   border-radius: 50%;
