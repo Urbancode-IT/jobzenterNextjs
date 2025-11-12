@@ -1,0 +1,146 @@
+/* ===== GLOBAL ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* ===== WRAPPER ===== */
+.terms-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  padding: 80px 0;
+}
+
+/* ===== CONTAINER ===== */
+.terms-container {
+  width: 90%;
+  max-width: 1000px;
+  color: #222;
+}
+
+.terms-container h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+/* ===== SECTION ===== */
+.terms-section {
+  margin-bottom: 50px;
+  padding-bottom: 35px;
+  position: relative;
+}
+
+/* gradient line between sections */
+.terms-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, #9e9e9e, #ffcc00); /* grey → yellow */
+  z-index: 1;
+}
+
+/* left diamond (grey) */
+.terms-section::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  bottom: -4px;
+  width: 10px;
+  height: 10px;
+  background-color: #9e9e9e;
+  transform: rotate(45deg);
+  z-index: 2;
+}
+
+/* right diamond (yellow) */
+.diamond-right {
+  position: absolute;
+  right: -7px;
+  bottom: -4px;
+  width: 10px;
+  height: 10px;
+  background-color: #ffcc00;
+  transform: rotate(45deg);
+  z-index: 2;
+}
+
+/* ===== TEXT STYLES ===== */
+.terms-section h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.terms-section p,
+.terms-section li {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.terms-section ul {
+  padding-left: 25px;
+  margin-top: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .terms-wrapper {
+    padding: 60px 0;
+  }
+  .terms-container {
+    width: 92%;
+  }
+  .terms-container h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .terms-wrapper {
+    padding: 50px 0;
+  }
+  .terms-container {
+    width: 94%;
+  }
+  .terms-container h1 {
+    font-size: 1.8rem;
+  }
+  .terms-section h2 {
+    font-size: 1.2rem;
+  }
+  .terms-section p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-wrapper {
+    padding: 40px 0;
+  }
+  .terms-container h1 {
+    font-size: 1.6rem;
+  }
+  .terms-section h2 {
+    font-size: 1.1rem;
+  }
+  .terms-section p,
+  .terms-section li {
+    font-size: 0.9rem;
+  }
+}

@@ -1,16 +1,15 @@
-
-// export default TopRatedCourses;
 'use client';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TopRatedCourse.css";
 import EnquiryFormModal from "./enquiryForm/EnquiryFormModal";
 import { IoChevronForward, IoChevronBack } from "react-icons/io5";
+
 const TopRatedCourses = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState(null);
-   
+  const [cardsPerPage, setCardsPerPage] = useState(3);
 
- const courses = [
+  const courses = [
     {
       id: 1,
       title: "React Native Fullstack",
@@ -76,16 +75,37 @@ const TopRatedCourses = () => {
       img: "/courses/medicalBilling.webp",
     },
     {
-        id: 9,
-        title: "Software Testing",
-        category: "Testing",
-        description:
-          "Software Testing is the process of evaluating software to identify defects and ensure it meets the required quality standards.", 
-        img: "/courses/softwareTesting.webp",
+      id: 9,
+      title: "Software Testing",
+      category: "Testing",
+      description:
+        "Software Testing is the process of evaluating software to identify defects and ensure it meets the required quality standards.", 
+      img: "/courses/softwareTesting.webp",
     }
   ];
 
-  const cardsPerPage = 3;
+  // Handle responsive cards per page
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setCardsPerPage(1); // 1 card on mobile
+      } else if (window.innerWidth < 992) {
+        setCardsPerPage(2); // 2 cards on tablet
+      } else {
+        setCardsPerPage(3); // 3 cards on desktop
+      }
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const totalPages = Math.ceil(courses.length / cardsPerPage);
   const startIndex = currentPage * cardsPerPage;
   const visibleCourses = courses.slice(startIndex, startIndex + cardsPerPage);
@@ -105,6 +125,11 @@ const TopRatedCourses = () => {
   const isFirstPage = currentPage === 0;
   const isLastPage = currentPage === totalPages - 1;
 
+  // Reset current page when cardsPerPage changes
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [cardsPerPage]);
+
   return (
     <section className="top-rated-section d-flex justify-content-center">
       <div className="top-rated-container position-relative">
@@ -117,7 +142,10 @@ const TopRatedCourses = () => {
 
         <div className="top-rated-cards d-flex justify-content-center">
           {visibleCourses.map((course) => (
-            <div className="col-md-4" key={course.id}>
+            <div 
+              className={`col-${12 / cardsPerPage} col-md-${12 / cardsPerPage}`} 
+              key={course.id}
+            >
               <div className="card course-card h-100 shadow-sm border-0 p-3">
                 <div className="circle"></div>
                 <img
@@ -131,14 +159,19 @@ const TopRatedCourses = () => {
                   <p className="card-text text-muted">{course.description}</p>
                   <div className="mt-auto">
                     <div className="text-warning mb-2">{"★".repeat(5)}</div>
-                    <button className="btn btn-dark w-100" onClick={() => setSelectedCourse(course)}>Download Brochure</button>
+                    <button 
+                      className="btn btn-dark w-100" 
+                      onClick={() => setSelectedCourse(course)}
+                    >
+                      Download Brochure
+                    </button>
                     {selectedCourse && (
-                        <EnquiryFormModal
-                          isOpen={!!selectedCourse}
-                          onClose={() => setSelectedCourse(null)}
-                          courseName={selectedCourse.title}
-                        />
-                      )}
+                      <EnquiryFormModal
+                        isOpen={!!selectedCourse}
+                        onClose={() => setSelectedCourse(null)}
+                        courseName={selectedCourse.title}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
@@ -156,7 +189,7 @@ const TopRatedCourses = () => {
             <IoChevronBack/>
           </button>
 
-          <div className="top-rated-dots d-flex align-items-center">
+          <div className="top-rated-dots d-flex align-items-center ">
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}

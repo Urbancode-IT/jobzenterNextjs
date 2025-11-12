@@ -38,24 +38,46 @@ const reviews = [
   {
     name: "Manisha",
     role: "Data Analyst",
-    text: "Jobzenter’s Power BI course helped me land a data analytics role. The project-focused approach gave me strong visualization and DAX skills.",
+    text: "Jobzenter's Power BI course helped me land a data analytics role. The project-focused approach gave me strong visualization and DAX skills.",
     img: "/feed6.png",
   },
 ];
 
 const StudentReviews = () => {
   const [index, setIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // track mobile to change step behavior (1 on mobile, 2 on desktop)
+  React.useEffect(() => {
+    function update() {
+      setIsMobile(window.innerWidth <= 575);
+    }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const nextReviews = () => {
-    if (index + 2 < reviews.length) setIndex(index + 2);
+    const step = isMobile ? 1 : 2;
+    if (index + step < reviews.length && !isAnimating) {
+      setIsAnimating(true);
+      setIndex((i) => i + step);
+      setTimeout(() => setIsAnimating(false), 600);
+    }
   };
 
   const prevReviews = () => {
-    if (index > 0) setIndex(index - 2);
+    const step = isMobile ? 1 : 2;
+    if (index - step >= 0 && !isAnimating) {
+      setIsAnimating(true);
+      setIndex((i) => i - step);
+      setTimeout(() => setIsAnimating(false), 600);
+    }
   };
 
   return (
-    <section className="student-reviews-section d-flex flex-column align-items-center bg-white">
+    <section className="student-reviews-section d-flex flex-column align-items-center bg-white position-relative" >
       <div className="student-reviews-header text-center">
         <h2 className="student-reviews-title">What Our Students Says</h2>
         <p className="student-reviews-subtitle">
@@ -63,72 +85,84 @@ const StudentReviews = () => {
         </p>
       </div>
 
-      {index > 0 && (
-        <button
-          onClick={prevReviews}
-          className="student-reviews-arrow student-reviews-arrow-up"
-          aria-label="Show previous reviews"
-        >
-          <IoChevronUp />
-        </button>
-      )}
+      <div className="student-reviews-container">
+        <div className={`student-reviews-slider ${isAnimating ? 'sliding' : ''}`}>
+          {reviews.map((review, i) => (
+            <div
+              key={i}
+              className="student-review-slide"
+              style={{
+                transform: `translateY(-${index * (isMobile ? 100 : 100)}%)`
+              }}
+            >
+              <div className="student-review-card">
+                <div className="student-review-surface">
+                  <div className="student-review-stars d-flex align-items-center">
+                    {Array(5)
+                      .fill()
+                      .map((_, j) => (
+                        <FaStar key={j} />
+                      ))}
+                  </div>
 
-      <div className="student-reviews-list w-100 d-flex flex-column align-items-center gap-4">
-        {reviews.slice(index, index + 2).map((r, i) => (
-          <div key={i} className="student-review-card " >
-            <div className="student-review-surface " style={{marginTop: i === 0 ? '0' : '24px'}}>
-              <div className="student-review-stars d-flex align-items-center">
-                {Array(5)
-                  .fill()
-                  .map((_, j) => (
-                    <FaStar key={j} />
-                  ))}
-              </div>
+                  <p className="student-review-text">{review.text}</p>
 
-              <p className="student-review-text">{r.text}</p>
+                  <div className="student-review-footer">
+                    <img
+                      src={review.img}
+                      alt={review.name}
+                      className="student-review-avatar"
+                    />
 
-              <div className="student-review-footer">
-                <img
-                  src={r.img}
-                  alt={r.name}
-                  className="student-review-avatar"
-                />
-
-                <div className="student-review-meta">
-                  <h4 className="student-review-name">{r.name}</h4>
-                  <p className="student-review-role">{r.role}</p>
-                  <div className="student-review-actions">
-                    <button
-                      type="button"
-                      className="student-review-action student-review-like"
-                      aria-label="Like review"
-                    >
-                      <FaThumbsUp />
-                    </button>
-                    <button
-                      type="button"
-                      className="student-review-action student-review-dislike"
-                      aria-label="Dislike review"
-                    >
-                      <FaThumbsDown />
-                    </button>
+                    <div className="student-review-meta">
+                      <h4 className="student-review-name">{review.name}</h4>
+                      <p className="student-review-role">{review.role}</p>
+                      <div className="student-review-actions">
+                        <button
+                          type="button"
+                          className="student-review-action student-review-like"
+                          aria-label="Like review"
+                        >
+                          <FaThumbsUp />
+                        </button>
+                        <button
+                          type="button"
+                          className="student-review-action student-review-dislike"
+                          aria-label="Dislike review"
+                        >
+                          <FaThumbsDown />
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      {index + 2 < reviews.length && (
-        <button
-          onClick={nextReviews}
-          className="student-reviews-arrow student-reviews-arrow-down"
-          aria-label="Show next reviews"
-        >
-          <IoChevronDown />
-        </button>
-      )}
+      <div className="student-reviews-controls">
+       
+          <button
+            onClick={prevReviews}
+            className="student-reviews-arrow student-reviews-arrow-up"
+            aria-label="Show previous reviews"
+            disabled={isAnimating}
+          >
+            <IoChevronUp />
+          </button>
+        
+          <button
+            onClick={nextReviews}
+            className="student-reviews-arrow student-reviews-arrow-down"
+            aria-label="Show next reviews"
+            disabled={isAnimating}
+          >
+            <IoChevronDown />
+          </button>
+      
+      </div>
     </section>
   );
 };

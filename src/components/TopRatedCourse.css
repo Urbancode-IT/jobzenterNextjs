@@ -92,7 +92,7 @@
 }
 
 .top-rated-dots {
-  gap: 10px;
+  gap: 5px;
 }
 
 .top-rated-dot {
@@ -235,4 +235,103 @@
 .btn-cat{
     border-radius: 20px;    
     
+}
+/* Add these styles to your TopRatedCourse.css file */
+
+.top-rated-cards {
+  width: 100%;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.top-rated-cards .col-12,
+.top-rated-cards .col-md-6,
+.top-rated-cards .col-md-4 {
+  padding: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.course-card {
+  margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .top-rated-cards {
+    justify-content: flex-start;
+    transition: transform 0.3s ease;
+  }
+  
+  .top-rated-cards .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .top-rated-cards .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .top-rated-cards .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+/* Ensure cards are properly centered on mobile */
+@media (max-width: 767.98px) {
+  .top-rated-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .top-rated-cards {
+    padding: 0 15px;
+  }
+}
+
+/* Smooth transitions for card changes */
+.course-card {
+  transition: all 0.3s ease;
+}
+
+/* Pagination dots adjustment for mobile */
+@media (max-width: 767.98px) {
+  .top-rated-dots {
+    margin: 0 -10px;
+  }
+  
+  .top-rated-dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+  }
+}
+
+/* Navigation buttons */
+.top-rated-control-btn {
+  background: #f8f9fa;
+  color: #212529;
+  border: 1px solid #212529;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.top-rated-control-btn:hover:not(:disabled) {
+  background: #e9ecef;
+  transform: scale(1.05);
+}
+
+.top-rated-control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

@@ -45,24 +45,25 @@
 
 .hero-image-wrap {
   margin-top: 40px;
+  
+}
+.hero-main-image {
+  object-fit: contain; /* or 'cover' depending on your layout */
+  height: auto;
+  width: 100%;
 }
 
 .hero-image-container {
   position: relative;
   display: inline-block;
   top: -40px;
+  width: 100%;
+  max-width: 500px; /* optional, to limit size on large screens */
+  aspect-ratio: 1 / 1; /* keeps image square and responsive */
+  margin: 0 auto;
 }
 
-.hero-circle-bg {
-  width: 380px;
-  height: 380px;
-  background: #f8d47b;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
 
 .hero-main-image {
   position: relative;
@@ -105,6 +106,16 @@
   .hero-main-image{
     margin-top: 40px;
   }
+  .circle-image-up {
+    width:calc(50px);
+    height:calc(50px);
+    top: 20px !important;
+    right:20px !important;
+    
+  }
+  .circle-image-down{
+    display:none;
+  }
 }
 .circle-image-down {
   position: absolute;
@@ -112,6 +123,7 @@
   left:0px;
   z-index:10;
 }
+
 .circle-image-up {
   position: absolute;
   top:-20px;

@@ -151,7 +151,7 @@
 }
 
 .contact-page .info-item a {
-  text-decoration: underline;
+  text-decoration: underline!important;
    text-underline-offset: 5px;
   color: #585858;
   margin-left:15px;
