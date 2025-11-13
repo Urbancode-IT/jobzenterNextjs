@@ -32,7 +32,7 @@ const AboutSection = () => {
 
             <div className="about-img-container">
               <Image
-                src="/place1.png"
+                src="/place1.webp"
                 alt="Team Meeting"
                 fill
                 className="about-img"
@@ -41,7 +41,7 @@ const AboutSection = () => {
 
             <div className="about-img-container">
               <Image
-                src="/place2.png"
+                src="/place2.webp"
                 alt="Mentor Teaching"
                 fill
                 className="about-img"

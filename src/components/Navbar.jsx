@@ -146,7 +146,7 @@ const Navbar = () => {
       <div className="container-fluid navbar-inner-container h-100">
         <Link href="/" className="navbar-brand d-flex align-items-center">
           <img
-            src="/logo.png"
+            src="/logo.webp"
             alt="Jobzenter Logo"
             className="img-fluid"
             style={{ width: "227px", height: "52px", objectFit: "contain" }}

@@ -40,28 +40,28 @@ const HeroSection = () => {
           <div className="col-lg-6 col-md-6 col-12 text-center hero-image-wrap">
             <div className="hero-image-container position-relative">
               <Image
-                src="/circle.png"
+                src="/circle.webp"
                 alt="Background Shape"
                 width={100}
                 height={100}
                 className="circle-image-down position-absolute "
               />
               <Image
-                src="/outlineCircle.png"
+                src="/outlineCircle.webp"
                 alt="Background Shape"
                 width={100}
                 height={100}
                 className="circle-image-down position-absolute rotating "
               />
               <Image
-                src="/circle.png"
+                src="/circle.webp"
                 alt="Background Shape"
                 width={120}
                 height={120}
                 className="circle-image-up position-absolute"
               />
               <Image
-                src="/outlineCircle.png"
+                src="/outlineCircle.webp"
                 alt="Background Shape"
                 width={120}
                 height={120}
@@ -69,7 +69,7 @@ const HeroSection = () => {
               />
 
               <Image
-                src="/Girl.png"
+                src="/Girl.webp"
                 alt="Student image-fluid"
                 fill
                 className="hero-main-image"
