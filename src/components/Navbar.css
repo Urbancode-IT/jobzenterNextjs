@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 .navbar-custom {
   background-color:  #f9f697;
 
@@ -38,9 +40,10 @@
   align-items: center;
   gap: 40px;
   font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 300!important;
   line-height: 1;
+  color: #000;
 }
 
 .navbar-custom .nav-item {
@@ -122,9 +125,7 @@
   transition: transform 0.2s ease;
 }
 
-.navbar-custom .nav-link-active {
-  font-weight: 600;
-}
+
 
 .dropdown-menu-custom {
   position: absolute;
@@ -408,3 +409,6 @@
   }
 }
 
+.navbar-custom .nav-link-active {
+  font-weight: 300 !important;
+}
