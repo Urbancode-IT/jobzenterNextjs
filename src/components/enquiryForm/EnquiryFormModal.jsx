@@ -1,10 +1,12 @@
 'use client';
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import "./EnquiryForm.css";
 
-
 const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
+  const formRef = useRef(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,9 +16,10 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
     message: "",
     mode: "",
   });
+
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState({ type: "", message: "" }); // ✅ new
+  const [status, setStatus] = useState({ type: "", message: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,40 +44,52 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setLoading(true);
     setStatus({ type: "loading", message: "Sending your enquiry..." });
 
-    try {
-      // const response = await submitEnquiryForm(formData);
-      setStatus({ type: "success", message: response.message || "Enquiry submitted successfully! Our team will get back to you soon with brochure and details." });
+    emailjs
+      .sendForm(
+        "service_0wkmlio",
+        "template_x4qt8gf",
+        formRef.current,
+        "Hc5Ps23TXZCn7mO0B"
+      )
+      .then(
+        () => {
+          setStatus({
+            type: "success",
+            message:
+              "Enquiry submitted successfully! Our team will get back to you soon.",
+          });
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        pin: "",
-        course: courseName || "",
-        message: "",
-        mode: "",
-      });
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            pin: "",
+            course: courseName || "",
+            message: "",
+            mode: "",
+          });
 
-      setTimeout(() => {
-        setStatus({ type: "", message: "" });
-        onClose();
-      }, 1500);
-    } catch (error) {
-      console.error("Enquiry Form Error:", error);
-      setStatus({
-        type: "error",
-        message: "Failed to submit enquiry. Please try again later.",
-      });
-    } finally {
-      setLoading(false);
-    }
+          setTimeout(() => {
+            setStatus({ type: "", message: "" });
+            onClose();
+          }, 1500);
+        },
+        () => {
+          setStatus({
+            type: "error",
+            message:
+              "Failed to submit enquiry. Please try again later.",
+          });
+        }
+      )
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -97,7 +112,7 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
               <button className="close-btn" onClick={onClose}>×</button>
             </div>
 
-            <form onSubmit={handleSubmit} className="container">
+            <form ref={formRef} onSubmit={handleSubmit} className="container">
               <div className="row g-3">
                 {/* Inputs */}
                 <div className="col-md-6">
@@ -195,7 +210,7 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
                   ></textarea>
                 </div>
 
-                {/* ✅ Status Message */}
+                {/* Status Message */}
                 {status.message && (
                   <div className={`status-message ${status.type}`}>
                     {status.message}
