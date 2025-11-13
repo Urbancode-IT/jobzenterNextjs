@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="hero d-flex flex-column align-items-center justify-content-center text-center">
       <div className="container">
-        <h1 className=" display-2 fw-bold">Mock Interviews</h1>
+        <h1 className="fw-bold">Mock Interviews</h1>
         <p className="hero-text">
           Ready to master Java programming? Join our bootcamp and gain the
           skills needed to build powerful applications. Learn from experts and

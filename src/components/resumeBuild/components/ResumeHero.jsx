@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="hero d-flex flex-column align-items-center justify-content-center text-center">
       <div className="container">
-        <h1 className=" display-2 fw-bold">Resume Building</h1>
+        <h1 className="fw-bold">Resume Building</h1>
         <p className="hero-text">
          Ready to build a standout resume? Join our expert-led resume building service and create a professional CV that gets noticed. Showcase your strengths and secure your dream job today!
         </p>
