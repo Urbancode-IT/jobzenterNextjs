@@ -34,43 +34,43 @@ const Footer = () => {
     },
     {
       label: "WhatsApp",
-      href: "https://wa.me/919000000000",
+      href: "https://wa.me/919057770577",
       icon: FaWhatsapp,
     },
   ];
 
   const courses = [
-    { label: "AWS", href: "/courses/aws" },
-    { label: "Software Testing", href: "/courses/software-testing" },
-    { label: "Fullstack Development", href: "/courses/fullstack-development" },
-    { label: "Business Intelligence", href: "/courses/business-intelligence" },
-    { label: "CCNA", href: "/courses/ccna" },
-    { label: "Medical Billing", href: "/courses/medical-billing" },
+    { label: "AWS", href: "/courses" },
+    { label: "Software Testing", href: "/courses" },
+    { label: "Fullstack Development", href: "/courses" },
+    { label: "Business Intelligence", href: "/courses" },
+    { label: "CCNA", href: "/courses" },
+    { label: "Medical Billing", href: "/courses" },
   ];
 
   const quickLinks = [
-    { label: "Terms and Conditions", href: "/terms" },
+    { label: "Terms and Conditions", href: "/terms-conditions" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Disclaimer", href: "/disclaimer" },
     { label: "Courses We Offer", href: "/courses" },
   ];
 
   const servicesLinks = [
-    { label: "Bootcamps", href: "/services/bootcamps" },
-    { label: "Resume Building", href: "/services/resume-building" },
-    { label: "Interview Preparation", href: "/services/interview-preparation" },
+    { label: "Bootcamps", href: "/career-lab/bootcamps" },
+    { label: "Resume Building", href: "/career-lab/resume-building" },
+    { label: "Interview Preparation", href: "/career-lab/interview-preparation" },
   ];
 
   const contactDetails = [
     {
       icon: Mail,
-      label: "support@jobzenter.com",
-      href: "mailto:support@jobzenter.com",
+      label: "admin@jobzenter.com",
+      href: "mailto:admin@jobzenter.com",
     },
     {
       icon: Phone,
-      label: "+91 90000 00000",
-      href: "tel:+919000000000",
+      label: "+91 9057770577",
+      href: "tel:+919057770577",
     },
     {
       icon: MapPin,
