@@ -25,8 +25,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   margin-top: 24px;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 
 .student-reviews-arrow {
@@ -43,6 +47,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   z-index: 10;
+  position: static;
 }
 
 .student-reviews-arrow:hover:not(:disabled) {
@@ -385,13 +390,117 @@
 }
 
 @media (max-width: 575.98px) {
+  .student-reviews-section {
+    padding: 40px 15px;
+  }
+
   .student-reviews-container {
-    height: 460px;
-    max-width: 340px;
+    height: 380px;
+    max-width: 100%;
+    padding: 0 10px;
   }
 
   .student-review-slide {
-    height: 230px;
+    height: 380px;
+    padding: 15px 0;
+  }
+
+  .student-review-card {
+    width: 95%;
+  }
+
+  .student-review-card::after {
+    left: 15px;
+    right: -10px;
+    bottom: -10px;
+    height: calc(100% - 20px);
+  }
+
+  .student-review-surface {
+    padding: 16px 14px 44px;
+    border-radius: 18px 6px 6px 6px;
+  }
+
+  .student-review-text {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .student-review-footer {
+    padding-left: 75px;
+    min-height: 60px;
+    margin-top: 12px;
+  }
+
+  .student-review-avatar {
+    width: 70px;
+    height: 70px;
+    left: -22px;
+    bottom: -28px;
+  }
+
+  .student-review-name {
+    font-size: 14px;
+  }
+
+  .student-review-role {
+    font-size: 11px;
+  }
+
+  .student-review-actions {
+    gap: 10px;
+  }
+
+  .student-review-action {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .student-reviews-arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .student-reviews-arrow svg {
+    font-size: 20px;
+  }
+
+  .student-reviews-arrow-up-top {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+
+  .student-reviews-arrow-up-top svg {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .student-reviews-section {
+    padding: 30px 10px;
+  }
+
+  .student-reviews-header {
+    margin-bottom: 24px;
+  }
+
+  .student-reviews-title {
+    font-size: 24px;
+  }
+
+  .student-reviews-subtitle {
+    font-size: 12px;
+  }
+
+  .student-reviews-container {
+    height: 360px;
+    padding: 0 5px;
+  }
+
+  .student-review-slide {
+    height: 360px;
     padding: 10px 0;
   }
 
@@ -400,88 +509,103 @@
   }
 
   .student-review-card::after {
-    left: 30px;
-    right: -6px;
-    bottom: -8px;
+    left: 10px;
+    right: -8px;
   }
 
   .student-review-surface {
-    padding: 18px 18px 38px;
-    border-radius: 20px 6px 6px 6px;
+    padding: 14px 12px 40px;
+    border-radius: 16px 4px 4px 4px;
   }
 
   .student-review-text {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 12px;
+    line-height: 18px;
   }
 
   .student-review-footer {
-    padding-left: 80px;
-    min-height: 65px;
+    padding-left: 65px;
+    min-height: 55px;
   }
 
   .student-review-avatar {
-    width: 75px;
-    height: 75px;
-    left: -30px;
-    bottom: -25px;
+    width: 65px;
+    height: 65px;
+    left: -18px;
+    bottom: -26px;
   }
 
   .student-review-name {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .student-review-role {
-    font-size: 12px;
+    font-size: 10px;
   }
 
-  .student-review-actions {
-    gap: 12px;
+  .student-reviews-arrow {
+    width: 44px;
+    height: 44px;
   }
 
-  .student-review-action {
-    width: 28px;
-    height: 28px;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 375px) {
-  .student-reviews-container {
-    height: 300px;
-    padding: 20px 0;
+  .student-reviews-arrow svg {
+    font-size: 18px;
   }
 
-  .student-review-slide {
-    height: 200px;
-    margin: 35px 0;
-  }
- 
-
-  .student-review-surface {
-    padding: 16px 16px 36px;
+  .student-reviews-arrow-up-top {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 10px;
   }
 
-  .student-review-footer {
-    padding-left: 70px;
-  }
-
-  .student-review-avatar {
-    width: 70px;
-    height: 70px;
-    left: -25px;
-    bottom: -22px;
+  .student-reviews-arrow-up-top svg {
+    font-size: 18px;
   }
 }
 .student-reviews-arrow-up{
- position: absolute;
-  top: 20% !important;
-  left:50%;
+  position: static;
   z-index: 20;
 }
 .student-reviews-arrow-down{
- position: absolute;
-  bottom: 10% !important;
-  left:50%;
+  position: static;
   z-index: 20;
+}
+
+.student-reviews-arrow-up-top {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f4f4f6;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  color: #222222;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  z-index: 10;
+  position: static;
+  margin-bottom: 16px;
+}
+
+.student-reviews-arrow-up-top:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: #e8e8ec;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.student-reviews-arrow-up-top:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: scale(0.95);
+}
+
+.student-reviews-arrow-up-top svg {
+  font-size: 26px;
+  transition: transform 0.3s ease;
+}
+
+.student-reviews-arrow-up-top:active:not(:disabled) {
+  transform: scale(0.95);
 }

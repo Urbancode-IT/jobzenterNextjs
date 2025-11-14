@@ -85,6 +85,15 @@ const StudentReviews = () => {
         </p>
       </div>
 
+      <button
+        onClick={prevReviews}
+        className="student-reviews-arrow student-reviews-arrow-up-top"
+        aria-label="Show previous reviews"
+        disabled={isAnimating}
+      >
+        <IoChevronUp />
+      </button>
+
       <div className="student-reviews-container">
         <div className={`student-reviews-slider ${isAnimating ? 'sliding' : ''}`}>
           {reviews.map((review, i) => (
@@ -92,7 +101,7 @@ const StudentReviews = () => {
               key={i}
               className="student-review-slide"
               style={{
-                transform: `translateY(-${index * (isMobile ? 100 : 100)}%)`
+                transform: `translateY(-${index * 100}%)`
               }}
             >
               <div className="student-review-card">
@@ -144,15 +153,6 @@ const StudentReviews = () => {
 
       <div className="student-reviews-controls">
        
-          <button
-            onClick={prevReviews}
-            className="student-reviews-arrow student-reviews-arrow-up"
-            aria-label="Show previous reviews"
-            disabled={isAnimating}
-          >
-            <IoChevronUp />
-          </button>
-        
           <button
             onClick={nextReviews}
             className="student-reviews-arrow student-reviews-arrow-down"

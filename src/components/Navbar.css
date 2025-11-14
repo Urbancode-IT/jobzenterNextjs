@@ -207,32 +207,13 @@
 .social-icon {
   width: 24px;
   height: 24px;
-  transition: transform 0.2s ease-in-out;
-}
-
-.social-icon-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  transition: transform 0.2s ease-in-out;
-}
-
-.social-icon-button:hover {
-  transform: translateY(-2px);
-}
-
-.social-icon-button:focus-visible {
-  outline: none;
-  transform: translateY(-2px);
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  color: #636161ff;
 }
 
 .social-icon:hover {
   transform: scale(1.1);
+  color: #000000;
 }
 
 @media (max-width: 1199.98px) {

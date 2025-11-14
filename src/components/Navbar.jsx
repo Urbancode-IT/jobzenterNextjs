@@ -23,7 +23,7 @@ const Navbar = () => {
       dropdownItems: [
         { label: "Interview Preparation", path: "/career-lab/interview-preparation" },
         { label: "Resume Building", path: "/career-lab/resume-building" },
-        { label: "Bootcamps", path: "/career-lab/bootcamps" },
+        { label: "Mock Interviews", path: "/career-lab/mock-interviews" },
       ],
     },
     { label: "Tech Blogs", path: "/blogs", hasDropdown: false },
@@ -291,7 +291,7 @@ const Navbar = () => {
               aria-label="Follow Jobzenter on Twitter"
               className="social-icon-button"
             >
-              <FaTwitter className="social-icon" style={{ color: "#1DA1F2" }} />
+              <FaTwitter className="social-icon" />
             </a>
             <a
               href="https://facebook.com/jobzenter"
@@ -300,7 +300,7 @@ const Navbar = () => {
               aria-label="Follow Jobzenter on Facebook"
               className="social-icon-button"
             >
-              <FaFacebookF className="social-icon" style={{ color: "#1877F2" }} />
+              <FaFacebookF className="social-icon" />
             </a>
             <a
               href="https://www.instagram.com/jobzenter_official?igsh=dWVwdGs1bWM4ZnBp"
@@ -309,7 +309,7 @@ const Navbar = () => {
               aria-label="Follow Jobzenter on Instagram"
               className="social-icon-button"
             >
-              <FaInstagram className="social-icon" style={{ color: "#E4405F" }} />
+              <FaInstagram className="social-icon" />
             </a>
           </div>
         </div>
