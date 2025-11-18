@@ -8,11 +8,11 @@
   align-items: center;
 }
 
-.hero-title {
+.hero-title-about {
   font-family: Inter, sans-serif;
   font-weight: 700;
   font-size: 40px;
-  color: #fff;
+  color: #fff!important;
   margin-bottom: 15px;
 }
 
