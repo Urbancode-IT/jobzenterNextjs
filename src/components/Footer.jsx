@@ -86,7 +86,7 @@ const Footer = () => {
           <div className="footer-grid">
             <div className="footer-brand">
               <img
-                src="/logo.webp"
+                src="/logoo.png"
                 alt="Jobzenter Logo"
                 className="footer-logo"
               />

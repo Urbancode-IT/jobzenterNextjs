@@ -1,0 +1,170 @@
+.who-should-attend {
+  background-color: #fff;
+  font-family: 'Inter', sans-serif;
+  padding: 80px 0;
+}
+
+/* Left section */
+.info-section h2 {
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 33px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.info-section p {
+  font-size: 18px;
+  line-height: 26px;
+  color: #000;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.info-section .btn {
+  border: 2px solid #000;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  padding: 8px 25px;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.info-section .btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Card Grid */
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 232px);
+  grid-template-rows: repeat(2, 179px);
+  gap: 75px 40px; /* Row gap, Column gap */
+  justify-content: center;
+  margin-left: 90px;
+}
+
+.attend-card {
+  width: 232px;
+  height: 199px;
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 4px 4px 9.4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  overflow: hidden;
+  padding-top: 15px;
+  transition: transform 0.2s ease;
+}
+
+.attend-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: #f4ea17;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.icon-circle {
+  width: 65px;
+  height: 65px;
+  background: rgba(110, 107, 107, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #000;
+  margin: 25px auto 10px auto;
+}
+
+.attend-card h5 {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 6px;
+  line-height: 19px;
+}
+
+.attend-card p {
+  font-size: 12px;
+  color: #000;
+  line-height: 15px;
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+/* -------- RESPONSIVE BREAKPOINTS -------- */
+
+/* Tablets (below 992px) */
+@media (max-width: 991px) {
+  .who-should-attend {
+    padding: 60px 20px;
+  }
+
+  .info-section {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .info-section p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-wrapper {
+    margin-left: 0;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 40px 25px;
+    justify-content: center;
+  }
+}
+
+/* Mobile landscape (below 768px) */
+@media (max-width: 768px) {
+  .card-wrapper {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    justify-items: center;
+  }
+
+  .attend-card {
+    width: 260px;
+    height: auto;
+  }
+}
+
+/* Small phones (below 480px) */
+@media (max-width: 480px) {
+  .info-section h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .info-section p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .attend-card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .icon-circle {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+  }
+}

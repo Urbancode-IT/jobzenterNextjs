@@ -1,35 +1,36 @@
-'use client';
+"use client";
 import React, { useState } from "react";
+import Image from 'next/image';
 import "./ResumeLearn.css";
 
 const cards = [
   {
-    img: "/bootcamp/learncards/learn1.jpg",
+    img: "/Mockinterviews/learncards/learn1.jpg",
     title: "Master Core Java Concepts",
     desc: "Understand the building blocks of Java, from object-oriented programming to classes, objects, and essential syntax, laying a solid foundation for your development journey.",
   },
   {
-    img: "/bootcamp/learncards/learn2.jpg",
+    img: "/Mockinterviews/learncards/learn2.jpg",
     title: "Work on Real-World Projects",
     desc: "Apply your knowledge to practical projects, solving real-world problems that will help you gain confidence and experience in Java programming.",
   },
   {
-    img: "/bootcamp/learncards/learn3.jpg",
+    img: "/Mockinterviews/learncards/learn3.jpg",
     title: "Dive Into Advanced Java Topics",
     desc: "Explor_e advanced concepts like multithreading, collections, and exception handling, empowering you to create scalable and efficient applications.",
   },
   {
-    img: "/bootcamp/learncards/learn4.jpg",
+    img: "/Mockinterviews/learncards/learn4.jpg",
     title: "Develop Web Applications Using Java",
     desc: "Learn to build dynamic web applications with Java frameworks like Spring and Hibernate, equipping you with in-demand skills for modern web development.",
   },
   {
-    img: "/bootcamp/learncards/learn5.jpg",
+    img: "/Mockinterviews/learncards/learn5.jpg",
     title: "Prepare for Java Certifications",
     desc: "Our bootcamp aligns with certification standards, ensuring you’re prepared to pass Java certifications and enhance your career prospects.",
   },
   {
-    img: "/bootcamp/learncards/learn6.jpg",
+    img: "/Mockinterviews/learncards/learn6.jpg",
     title: "Receive Career Support and Job Assistance",
     desc: "Benefit from expert guidance on building a strong portfolio, preparing for technical interviews, and landing your dream job in Java development.",
   },
@@ -79,7 +80,17 @@ const LearnSection = () => {
                   fillOpacity="0.3"
                 />
               </svg>
-              <img src={card.img} alt={card.title} />
+              <Image
+                src={card.img}
+                alt={card.title}
+                width={395}
+                height={188}
+                className="feature-img"
+                onError={(e) => {
+                  // In case of client-side load error, hide the broken image
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
               <h3 className="feature-title">{card.title}</h3>
               <p className="feature-desc">{card.desc}</p>
             </div>

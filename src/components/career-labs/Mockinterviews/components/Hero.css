@@ -1,0 +1,230 @@
+/* Hero Section */
+.hero {
+  text-align: center;
+  background: linear-gradient(180deg, #f9f697ac 0%, #FFFFFF 78.85%);
+  padding-top: 160px;
+  padding-bottom: 80px;
+}
+
+
+
+.hero-title {
+  font-weight: 700;
+  font-size: 40px;
+  color: #000;
+}
+
+.hero-text {
+  max-width: 700px;
+  margin: 20px auto;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #000;
+}
+
+/* Register Button */
+.btn-register {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #F4EA17 17.79%, #FFFFFF 100%);
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+  padding: 8px 25px;
+  border: none;
+  transition: 0.3s;
+  margin-right: 70px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.btn-register::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-25deg);
+}
+
+.btn-register:hover::before {
+  animation: shine 1s linear infinite;
+}
+
+/* Discover Button */
+.btn-discover {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500!important;
+  font-size: 16px;
+  color: #000;
+  padding: 8px 25px;
+  transition: 0.3s;
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+
+.btn-discover:hover {
+  background: #F4EA17;
+}
+
+/* Program Card */
+.program-card {
+  background: #fff;
+  box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  width: 754px;
+  height: 184px;
+  margin: 60px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 22px rgba(30,163,255,0.08);
+}
+
+/* SVG background */
+.program-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='160' viewBox='0 0 1200 160' fill='none'><path d='M1200 159.7C1100 60 1030 170 900 68C770 -34 610 68 470 68C330 68 270 -60 170 40C70 140 50 68 0 159.7L600 159.7H1200Z' fill='%23FAF58B' fill-opacity='0.32'/></svg>") no-repeat center bottom;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.program-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.program-title {
+  font-size: 23px;
+  font-weight: 700;
+  color: #0f1724;
+  margin-bottom: 6px;
+  line-height: 1.05;
+}
+
+.program-desc {
+  font-size: 15px;
+  margin: 0;
+  color: #334155;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* Enroll Button */
+.btn-enroll {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #F6E94A 10%, #F4EA17 100%);
+  border-radius: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #0b0b0b;
+  border: none;
+  padding: 14px 36px;
+  margin-top: 6px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(244,234,23,0.15);
+}
+
+.btn-enroll::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 2s linear infinite;
+}
+
+.btn-enroll:hover,
+.btn-enroll:focus,
+.btn-enroll:active {
+  background: #F4EA17 !important;
+  color: #000 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.program-img {
+  flex-shrink: 0;
+  width: 257px;
+  height: 177px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.program-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .program-card {
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    text-align: center;
+    padding: 25px 20px;
+  }
+
+  .program-img {
+    margin-top: 20px;
+    width: 200px;
+    height: auto;
+  }
+
+  .program-card::before {
+    width: 100%;
+    height: 80px;
+    background-size: cover;
+  }
+
+  .program-desc {
+    white-space: normal;
+  }
+}
+
+/* Shine Animation */
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
