@@ -91,9 +91,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 35px;
+  padding: 30px 40px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 6px 22px rgba(30,163,255,0.08);
 }
 
 /* SVG background */
@@ -102,11 +103,10 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 728px;
-  height: 98px;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='728' height='98' viewBox='0 0 728 98' fill='none'><path d='M728 97.7215C669 39.2217 648.325 109.047 582.5 43.2217C516.675 -22.6036 409.091 43.2216 316 43.2216C222.909 43.2216 181.825 -40.6036 116 25.2216C50.1747 91.0469 32.5 43.2215 0 97.7216L364 97.7215H728Z' fill='%23FAF58B' fill-opacity='0.3'/></svg>")
-    no-repeat center bottom;
-  background-size: contain;
+  width: 100%;
+  height: 120px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='160' viewBox='0 0 1200 160' fill='none'><path d='M1200 159.7C1100 60 1030 170 900 68C770 -34 610 68 470 68C330 68 270 -60 170 40C70 140 50 68 0 159.7L600 159.7H1200Z' fill='%23FAF58B' fill-opacity='0.32'/></svg>") no-repeat center bottom;
+  background-size: cover;
   pointer-events: none;
   z-index: 0;
 }
@@ -117,37 +117,36 @@
 }
 
 .program-title {
-  font-size: 28px;
+  font-size: 23px;
   font-weight: 700;
-  color: #000;
-  margin-bottom: 4px;
-  line-height: 1.1;
+  color: #0f1724;
+  margin-bottom: 6px;
+  line-height: 1.05;
 }
 
 .program-desc {
-  font-size: 16px;
+  font-size: 15px;
   margin: 0;
-  color: #000;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.5;
+  color: #334155;
+  max-width: 520px;
+  line-height: 1.6;
 }
 
 /* Enroll Button */
 .btn-enroll {
   position: relative;
   overflow: hidden;
-  background: #F4EA17;
-  border-radius: 10px;
+  background: linear-gradient(90deg, #F6E94A 10%, #F4EA17 100%);
+  border-radius: 16px;
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 19px;
-  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+  color: #0b0b0b;
   border: none;
-  padding: 10px 30px;
-  margin-top: 15px;
+  padding: 14px 36px;
+  margin-top: 6px;
   cursor: pointer;
+  box-shadow: 0 6px 18px rgba(244,234,23,0.15);
 }
 
 .btn-enroll::before {

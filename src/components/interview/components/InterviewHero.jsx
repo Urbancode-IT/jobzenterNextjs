@@ -25,7 +25,7 @@ const Hero = () => {
           </div>
 
           <div className="program-img">
-            <img src="/bootcamp/image.png" alt="Java Program Illustration" />
+            <img src="/Mockinterviews/image.png" alt="Java Program Illustration" />
           </div>
         </div>
       </div>

@@ -20,13 +20,13 @@ const reviews = [
   {
     name: "Akash",
     role: "QA Engineer",
-    text: "As a first-year student, I found Jobzenter for Software Testing and got real project exposure, improving my automation skills and employability.",
+    text: "Jobzenter offers a friendly and practical environment that made learning enjoyable. The hands-on experience was invaluable in preparing me for the real world..",
     img: "/feed3.png",
   },
   {
     name: "Deepak",
     role: "Backend Developer",
-    text: "I worked with mentors having industry expertise. Learned advanced Node.js concepts and debugging practices through real-time case studies.",
+    text: "I was working with a minimum package, but after joining Jobzenter's placement support, my salary doubled. I now earn 2X thanks to their career coaching..",
     img: "/feed4.png",
   },
   {
@@ -79,7 +79,7 @@ const StudentReviews = () => {
   return (
     <section className="student-reviews-section d-flex flex-column align-items-center bg-white position-relative" >
       <div className="student-reviews-header text-center">
-        <h2 className="student-reviews-title">What Our Students Says</h2>
+        <h2 className="student-reviews-title">What Our Students Say</h2>
         <p className="student-reviews-subtitle">
           Real stories from learners who transformed their careers with us.
         </p>
