@@ -38,12 +38,12 @@ const WhoWeAre = () => {
             <div className="col-lg-6 right-col">
               <div className="right-wrapper">
 
-                <img src="images/Who1.jpg" className="img-wide-1" alt="img1" />
+                <img src="/aboutus/Who1.png" className="img-wide-1" alt="img1" />
 
-                <img src="images/Who2.jpg" className="img-wide-2" alt="img2" />
+                <img src="aboutus/Who2.png" className="img-wide-2" alt="img2" />
 
                 <div className="small-wrapper">
-                  <img src="images/Who3.jpg" className="img-small" alt="img3" />
+                  <img src="aboutus/Who3.png" className="img-small" alt="img3" />
 
                   <div className="badge-box">
                     <h3>10+</h3>

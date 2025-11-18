@@ -15,6 +15,7 @@ const Navbar = () => {
   const navItems = [
     { label: "Home", path: "/", hasDropdown: false },
     { label: "Courses", path: "/courses", hasDropdown: false },
+    { label: "About Us", path: "/aboutus", hasDropdown: false },
 
     {
       label: "Career Lab",
@@ -203,13 +204,26 @@ const Navbar = () => {
                   onMouseLeave={(event) => item.hasDropdown && handleDropdownClose(event, item.label)}
                 >
                   <div className="nav-link-wrapper">
-                    <Link
-                      href={item.path}
-                      className={`nav-link text-dark ${isActive ? "active nav-link-active" : ""}`}
-                      onClick={(event) => handleNavLinkClick(event, item)}
-                    >
-                      {item.label}
-                    </Link>
+                    {item.hasDropdown ? (
+                      <Link
+                        href={item.path}
+                        className={`nav-link text-dark ${isActive ? "active nav-link-active" : ""}`}
+                        onClick={(event) => handleNavLinkClick(event, item)}
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        className={`nav-link text-dark btn-reset ${isActive ? "active nav-link-active" : ""}`}
+                        onClick={() => {
+                          setIsOpen(false);
+                          router.push(item.path);
+                        }}
+                      >
+                        {item.label}
+                      </button>
+                    )}
                     {item.hasDropdown && (
                       <button
                         type="button"

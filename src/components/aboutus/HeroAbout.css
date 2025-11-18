@@ -3,7 +3,7 @@
   padding: 80px 0;
   background:
     linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-    url("images/HeroAbout.webp") center/cover no-repeat;
+    url("/aboutus/abouthero.png") center/cover no-repeat;
   display: flex;
   align-items: center;
 }
