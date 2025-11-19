@@ -11,8 +11,8 @@ const Hero = () => {
         </p>
 
         <div className="d-flex justify-content-center gap-3 mt-4">
-          <button className="btn btn-register">Register</button>
-          <button className="btn btn-discover">Discover</button>
+  
+          
         </div>
 
         <div className="program-card mt-5">

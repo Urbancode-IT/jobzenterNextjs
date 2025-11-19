@@ -11,7 +11,7 @@ const Hero = () => {
         </p>
 
         <div className="d-flex justify-content-center gap-3 mt-4">
-          <button className="btn btn-register border">Register</button>
+
       
         </div>
 
