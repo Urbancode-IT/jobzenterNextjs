@@ -1,7 +1,9 @@
-'use client';
+"use client";
 import "./InterviewHero.css";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+  const router = useRouter();
   return (
     <section className="hero d-flex flex-column align-items-center justify-content-center text-center">
       <div className="container">
@@ -12,12 +14,17 @@ const Hero = () => {
 
         <div className="d-flex justify-content-center gap-3 mt-4">
           <button className="btn btn-register">Register</button>
-          <button className="btn btn-discover">Discover</button>
+          <button
+            className="btn btn-discover"
+            onClick={() => router.push('/career-lab/mock-interviews')}
+          >
+            Discover
+          </button>
         </div>
 
         <div className="program-card mt-5">
           <div className="program-text text-start">
-            <h3 className="program-title">Resume Building</h3>
+            <h3 className="program-title">Interview Prepartion</h3>
             <p className="program-desc">
               Java Essentials, Selenium, Hands-on Tasks, Expert Guidance
             </p>
@@ -25,7 +32,7 @@ const Hero = () => {
           </div>
 
           <div className="program-img">
-            <img src="/Mockinterviews/image.png" alt="Java Program Illustration" />
+            <img src="/Mockinterviews/interview.jpeg" alt="Java Program Illustration" />
           </div>
         </div>
       </div>
