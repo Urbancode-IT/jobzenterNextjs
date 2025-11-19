@@ -50,7 +50,7 @@ const LearnSection = () => {
   return (
     <section className="learn-section container-fluid text-center">
       <h2 className="section-title">
-        What Will You Learn In Our Free <br /> Building Classes?
+        Importance of Resume Building
       </h2>
       <p className="section-desc">
         Our Java Bootcamp is designed to take you from beginner to job-ready
