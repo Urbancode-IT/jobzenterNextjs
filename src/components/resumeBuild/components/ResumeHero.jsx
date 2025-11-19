@@ -12,7 +12,7 @@ const Hero = () => {
 
         <div className="d-flex justify-content-center gap-3 mt-4">
           <button className="btn btn-register border">Register</button>
-          <button className="btn btn-discover">Discover</button>
+      
         </div>
 
         <div className="program-card mt-5">
@@ -25,7 +25,7 @@ const Hero = () => {
           </div>
 
           <div className="program-img">
-            <img src="/Mockinterviews/image.png" alt="Java Program Illustration" />
+            <img src="/Mockinterviews/resume.jpeg" alt="Java Program Illustration" />
           </div>
         </div>
       </div>

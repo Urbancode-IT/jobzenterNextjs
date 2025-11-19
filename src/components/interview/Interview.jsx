@@ -11,7 +11,7 @@ function InterviewPage() {
     <>
       <InterviewHero />
       <InterviewRegister />
-      <InterviewLearn />
+      {/* <InterviewLearn /> */}
       <InterviewKey />
  
 

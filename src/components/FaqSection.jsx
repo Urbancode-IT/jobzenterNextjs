@@ -31,7 +31,7 @@ export default function FaqSection() {
   return (
     <section className="faq-section position-relative d-flex flex-column align-items-center">
       <h2 className="faq-title text-center">
-        Frequently Ask Questions
+        Frequently Asked Questions
       </h2>
 
       <div className="faq-row d-flex flex-wrap align-items-start justify-content-between">
