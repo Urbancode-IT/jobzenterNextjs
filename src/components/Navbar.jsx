@@ -24,6 +24,7 @@ const Navbar = () => {
       dropdownItems: [
         { label: "Interview Preparation", path: "/career-lab/interview-preparation" },
         { label: "Resume Building", path: "/career-lab/resume-building" },
+        { label: "Placement Preparation", path: "/career-lab/placement-preparation" },
       ],
     },
     { label: "Tech Blogs", path: "/blogs", hasDropdown: false },

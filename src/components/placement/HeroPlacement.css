@@ -1,0 +1,67 @@
+.placement-hero-bg {
+  padding: 120px 0 150px;
+  background: linear-gradient(180deg, #f7ee87 0%, #ffffff 100%);
+}
+
+.placement-hero-heading {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  color: #000;
+}
+
+.placement-hero-desc {
+  max-width: 780px;
+  margin-top: 18px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  color: #5B5B5B;
+  line-height: 1.5;
+}
+
+/* Centered Register Button */
+.placement-hero-register-btn {
+  margin-top: 35px;
+  padding: 10px 40px;
+  background: linear-gradient(90deg, #f4ea17 0%, #ffffff 90%);
+  border: none;
+  border-radius: 10px;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine Animation */
+.placement-hero-register-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 2.3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -120%;
+  }
+  60% {
+    left: 130%;
+  }
+  100% {
+    left: 130%;
+  }
+}
