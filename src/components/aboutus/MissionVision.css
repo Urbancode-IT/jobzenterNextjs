@@ -1,6 +1,6 @@
 .mv-section-new {
   background: #ffffff;
-  padding: 140px 0;
+  padding: 40px 0;
   position: relative;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .mv-heading-new {
-  font-size: 2.6rem;
+  font-size: 32px;
   font-weight: 600;
   letter-spacing: -0.5px;
   color: #111;
