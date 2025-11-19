@@ -15,7 +15,7 @@ function Career() {
       <Register />
        <LearnSection />
        {/* <WhoShouldAttend /> */}
-       {/* <KeyTakeaways /> */}
+       <KeyTakeaways />
 
     </>
   );
