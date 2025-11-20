@@ -487,6 +487,62 @@
   }
 }
 
+/* Mobile-specific layout fixes to prevent text overflow */
+@media (max-width: 575.98px) {
+  .student-review-text {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    overflow: visible;
+    margin: 0 0 12px 0;
+  }
+
+  .student-review-stars {
+    position: static;
+    margin: 0 0 8px 0;
+  }
+
+  .student-review-footer {
+    position: static;
+    bottom: auto;
+    left: auto;
+    padding-left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .student-review-avatar {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 12px;
+    transform: none;
+  }
+
+  .student-review-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .student-review-card::after {
+    /* keep decorative background but reduce offset to fit mobile */
+    left: 15px;
+    right: -8px;
+    bottom: -10px;
+    height: calc(100% - 20px);
+  }
+}
+
 @media (max-width: 375px) {
   .student-reviews-section {
     padding: 30px 10px;
