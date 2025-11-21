@@ -151,8 +151,7 @@
 }
 
 .contact-page .info-item a {
-  text-decoration: underline!important;
-   text-underline-offset: 5px;
+ 
   color: #585858;
   margin-left:15px;
 
@@ -161,7 +160,7 @@
 .contact-page .info-item span{
   margin-left: 15px;
   color: #585858;
-  text-decoration: underline;
+  
   
   text-underline-offset: 4px;
 }

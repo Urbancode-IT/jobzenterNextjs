@@ -23,7 +23,7 @@ const WhoIsThisFor = () => {
   return (
     <section className="who-wrapper">
       <div className="container">
-        <h2 className="who-title">Who Is This For?</h2>
+        <h2 className="who-title">Who is this for?</h2>
 
         <div className="row g-4 mt-2">
           {items.map((box, index) => (

@@ -62,7 +62,7 @@ const Register = () => {
   return (
     <section className="register-section">
       <div className="register-container">
-        <h2 className="register-title">Register Using The Form</h2>
+        <h2 className="register-title">Register using the form</h2>
         <p className="subtext">
           It’s easy to register for the bootcamp — just fill out the form and click submit.
           You’ll be registered for one of the best Java bootcamps in the industry.
@@ -122,7 +122,7 @@ const Register = () => {
               <label htmlFor="agree">
                 I’ve read and agree to Jobzenter’s{" "}
                 <a href="#" className="link">Privacy Policy</a> and{" "}
-                <a href="#" className="link">Terms & Conditions</a>.
+                <a href="#" className="link">Terms & conditions</a>.
               </label>
             </div>
 

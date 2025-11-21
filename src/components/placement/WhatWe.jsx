@@ -51,7 +51,7 @@ const WhatWeOffer = () => {
     <section className="offer-section">
       <div className="container">
 
-        <h2 className="offer-title">What We Offer</h2>
+        <h2 className="offer-title">What we offer</h2>
 
         <div className="row g-4 mt-4">
           {offerData.map((item, index) => (

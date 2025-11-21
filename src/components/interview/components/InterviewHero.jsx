@@ -14,12 +14,6 @@ const Hero = () => {
 
         <div className="d-flex justify-content-center gap-3 mt-4">
           <button className="btn btn-register">Register</button>
-          <button
-            className="btn btn-discover"
-            onClick={() => router.push('/career-lab/mock-interviews')}
-          >
-            Discover
-          </button>
         </div>
 
         <div className="program-card mt-5">
@@ -28,7 +22,7 @@ const Hero = () => {
             <p className="program-desc">
               Java Essentials, Selenium, Hands-on Tasks, Expert Guidance
             </p>
-            <button className="btn btn-enroll">Enroll now</button>
+            <button className="btn btn-enroll" onClick={() => router.push('/career-lab/mock-interviews')}>Mock Interview</button>
           </div>
 
           <div className="program-img">

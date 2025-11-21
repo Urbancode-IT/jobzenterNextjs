@@ -11,8 +11,8 @@ const AboutSection = () => {
           {/* LEFT TEXT */}
           <div className="col-lg-6">
             <h2 className="fw-bold about-heading mb-3">
-              Trusted by thousands, we help careers <br />
-              grow with confidence.
+              Trusted by thousands, we help careers 
+              grow with <br></br>confidence.
             </h2>
 
             <p className="about-text ">
