@@ -79,7 +79,7 @@ const StudentReviews = () => {
   return (
     <section className="student-reviews-section d-flex flex-column align-items-center bg-white position-relative" >
       <div className="student-reviews-header text-center">
-        <h2 className="student-reviews-title">What Our Students Say</h2>
+        <h2 className="student-reviews-title">What our students say</h2>
         <p className="student-reviews-subtitle">
           Real stories from learners who transformed their careers with us.
         </p>

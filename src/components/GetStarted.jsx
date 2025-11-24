@@ -6,7 +6,7 @@ const GetStarted = () => {
   return (
     <section className="get-started-section">
       <div className="get-started-card">
-        <h2 className="get-started-title">Find The Best Service You Need</h2>
+        <h2 className="get-started-title">Find the best service you need</h2>
         <div className="get-started-divider" />
 
         <div className="get-started-form">

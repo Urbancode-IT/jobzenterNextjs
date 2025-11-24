@@ -116,25 +116,14 @@ const ReachUs = () => {
                 </span>
               </div>
             </div>
-
-            <div className="social-icons">
-              <i className="bi bi-twitter"></i>
-
-              <a
-                href="https://www.facebook.com/p/Jobzenter-61565616456345/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="bi bi-facebook"></i>
-              </a>
-
-              <a
-                href="https://www.instagram.com/jobzenter_official/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="bi bi-instagram"></i>
-              </a>
+            {/* Map embed */}
+            <div className="map-wrap">
+              <iframe
+                title="Jobzenter Location"
+                src="https://www.google.com/maps?q=9/29,+5th+St,+Kamakoti+Nagar,+Pallikaranai,+Chennai+Tamil+Nadu+600100&output=embed"
+                allowFullScreen=""
+                loading="lazy"
+              ></iframe>
             </div>
           </div>
 
@@ -221,9 +210,32 @@ const ReachUs = () => {
                 {errors.message && <small style={{ color: "red" }}>{errors.message}</small>}
               </div>
 
-              <button type="submit" className="btn-send">
-                Send Message
-              </button>
+              <div className="form-actions">
+                <button type="submit" className="btn-send">
+                  Send Message
+                </button>
+              </div>
+
+              {/* social icons moved here to sit below the button on the right */}
+              <div className="form-bottom-social">
+                <i className="bi bi-twitter"></i>
+
+                <a
+                  href="https://www.facebook.com/p/Jobzenter-61565616456345/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="bi bi-facebook"></i>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/jobzenter_official/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="bi bi-instagram"></i>
+                </a>
+              </div>
 
             </form>
           </div>
