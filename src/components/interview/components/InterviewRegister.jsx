@@ -60,7 +60,7 @@ const Register = () => {
   };
 
   return (
-    <section className="register-section">
+    <section id="interview-register" className="register-section">
       <div className="register-container">
         <h2 className="register-title">Register using the form</h2>
         <p className="subtext">

@@ -5,6 +5,7 @@ import { IoChevronDownSharp } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
+import ChatbotWidget from "./common/ChatbotWidget";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -328,6 +329,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <ChatbotWidget />
     </nav>
   );
 };

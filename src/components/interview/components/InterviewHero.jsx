@@ -13,7 +13,20 @@ const Hero = () => {
         </p>
 
         <div className="d-flex justify-content-center gap-3 mt-4">
-          <button className="btn btn-register">Register</button>
+          <button
+            type="button"
+            className="btn btn-register"
+            onClick={() => {
+              const el = document.getElementById("interview-register");
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+              } else {
+                router.push('/career-lab');
+              }
+            }}
+          >
+            Register
+          </button>
         </div>
 
         <div className="program-card mt-5">
