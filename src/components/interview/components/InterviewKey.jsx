@@ -47,7 +47,7 @@ const takeaways = [
 const KeyTakeaways = () => {
   return (
     <section className={styles.section}>
-      <h2 className={styles.title}>Key Takeaways</h2>
+      <h2 className={styles.title}>Key takeaways</h2>
       <p className={styles.description}>
         Here are the main topics that will be covered in the Java bootcamp
         training. You’ll learn everything from Java basics to advanced

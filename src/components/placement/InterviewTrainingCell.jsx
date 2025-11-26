@@ -11,7 +11,7 @@ const InterviewTrainingCell = () => {
           {/* LEFT CONTENT */}
           <div className="col-lg-6">
             <h2 className="interview-training-title">
-              Interview Training Cell
+              Interview placement Cell
             </h2>
 
             <p className="interview-training-desc">

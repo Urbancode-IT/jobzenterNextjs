@@ -17,7 +17,7 @@ const HeroSection = () => {
             <h1 className=" fw-bold display-3 mb-5 line" >
               Learn, Upskill & <br/>
               <span className="animate-line">
-   <span className="highlight-animate">Get Placed</span>
+   <span className="highlight-animate">Get placed</span>
 </span>
             </h1>
 
@@ -27,7 +27,7 @@ const HeroSection = () => {
 
             <div className="d-flex gap-3 mt-5">
               <Link href="/courses" className="btn hero-btn-primary">
-                Explore Courses
+                Explore courses
               </Link>
 
               <Link href="/reach-us" className="btn hero-btn-secondary">

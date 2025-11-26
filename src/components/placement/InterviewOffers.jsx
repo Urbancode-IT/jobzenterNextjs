@@ -6,7 +6,7 @@ import "./InterviewOffers.css";
 const InterviewOffers = () => {
   const data = [
     {
-      title: "1. HR Interview Training",
+      title: "1. HR Interview placement",
       content: [
         "Self-introduction",
         "Personality-based questions",
@@ -90,7 +90,7 @@ const InterviewOffers = () => {
     <section className="interview-offers-wrapper">
       <div className="container">
         <h2 className="interview-offers-title">
-          What Our Interview Training Cell Offers
+          What our interview placement cell offers
         </h2>
 
         <div className="row g-3 mt-3">

@@ -19,7 +19,7 @@ const Hero = () => {
           <div className="program-text text-start">
             <h3 className="program-title">Resume Building</h3>
             <p className="program-desc">
-              Java Essentials, Selenium, Hands-on Tasks, Expert Guidance
+              Java essentials, selenium, hands-on tasks, expert guidance
             </p>
             <button className="btn btn-enroll">Enroll now</button>
           </div>
