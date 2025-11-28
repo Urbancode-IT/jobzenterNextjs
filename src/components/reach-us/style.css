@@ -8,16 +8,15 @@
   background: linear-gradient(
     180deg,
     #fffef9 0%,
-    #fffbe9 25%,
-    #fff8d7 55%,
-    #fffdf5 85%,
+    #fffdf2 25%,
+    #fffbed 55%,
+    #fffdf8 85%,
     #ffffff 100%
   );
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .hero-container {
   width: 100%;
@@ -32,7 +31,7 @@
 /* LEFT SIDE CONTENT */
 .hero-left {
   flex: 1;
-  margin-left: 190px;
+  margin-left: 70px;
 }
 
 .hero-eyebrow {
@@ -44,7 +43,7 @@
 }
 
 .hero-title {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   font-weight: 600;
   color: #2f2f2f;
   margin-bottom: 12px;
@@ -57,7 +56,7 @@
   max-width: 420px;
 }
 
-/* Badges under text */
+/* Badges */
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
@@ -85,12 +84,13 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  margin-left: 0; /* FIXED: remove hard push */
 }
 
 .hero-right img {
-  width: 70%;           /* smaller image */
-  max-width: 260px;     /* controls maximum size */
-  border-radius: 24px;  /* rounded corners */
+  width: 80%;
+  max-width: 300px;
+  border-radius: 24px;
   object-fit: cover;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
@@ -98,6 +98,12 @@
 /* ======================= */
 /* RESPONSIVE HERO         */
 /* ======================= */
+
+@media (max-width: 1100px) {
+  .hero-left {
+    margin-left: 40px;
+  }
+}
 
 @media (max-width: 900px) {
   .reach-hero {
@@ -107,7 +113,7 @@
   .hero-container {
     flex-direction: column-reverse;
     text-align: center;
-    gap: 24px;
+    gap: 28px;
   }
 
   .hero-left {
@@ -127,20 +133,36 @@
   }
 
   .hero-right img {
-    width: 75%;
-    max-width: 240px;
+    width: 70%;
+    max-width: 260px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .hero-title {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 
   .hero-sub {
     font-size: 0.95rem;
   }
+
+  .hero-right img {
+    width: 75%;
+    max-width: 230px;
+  }
 }
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .hero-container {
+    gap: 22px;
+  }
+}
+
 
 
 .contact-page .overlay {

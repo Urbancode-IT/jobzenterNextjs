@@ -1,6 +1,5 @@
 'use client';
 
-import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { IoChevronDownSharp } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -30,7 +29,6 @@ const Navbar = () => {
     },
     { label: "Tech Blogs", path: "/blogs", hasDropdown: false },
     { label: "Reach Us", path: "/reach-us", hasDropdown: false },
-    
   ];
 
   const toggleMenu = () => {
@@ -83,9 +81,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    if (!isOpen) {
-      setOpenDropdown(null);
-    }
+    if (!isOpen) setOpenDropdown(null);
   }, [isOpen]);
 
   useEffect(() => {
@@ -151,7 +147,7 @@ const Navbar = () => {
             src="/logo.png"
             alt="Jobzenter Logo"
             className="img-fluid"
-            style={{ width: "227px", height: "52px", objectFit: "contain" }}
+            style={{ width: 227, height: 52, objectFit: "contain" }}
           />
         </Link>
 
@@ -182,9 +178,7 @@ const Navbar = () => {
             }}
             onMouseLeave={() => {
               if (!isDesktop) return;
-              if (closeDropdownTimer.current) {
-                clearTimeout(closeDropdownTimer.current);
-              }
+              if (closeDropdownTimer.current) clearTimeout(closeDropdownTimer.current);
               closeDropdownTimer.current = setTimeout(() => {
                 setOpenDropdown(null);
                 closeDropdownTimer.current = null;
@@ -194,6 +188,7 @@ const Navbar = () => {
             {navItems.map((item) => {
               const isActive = pathname === item.path;
               const isDropdownOpen = openDropdown === item.label;
+
               return (
                 <li
                   key={item.path}
@@ -225,6 +220,7 @@ const Navbar = () => {
                         {item.label}
                       </button>
                     )}
+
                     {item.hasDropdown && (
                       <button
                         type="button"
@@ -234,20 +230,17 @@ const Navbar = () => {
                         aria-label={`${item.label} menu`}
                         onClick={() => handleDropdownToggle(item.label)}
                       >
-                        <IoChevronDownSharp
-                          size={14}
-                          className={`dropdown-icon text-dark ${isDropdownOpen ? "open" : ""}`}
-                        />
+                        <IoChevronDownSharp size={14} className={`dropdown-icon text-dark ${isDropdownOpen ? "open" : ""}`} />
                       </button>
                     )}
                   </div>
+
                   {item.hasDropdown && item.dropdownItems && (
                     <>
                       {isDesktop ? (
                         <ul
                           className={`dropdown-menu-custom ${isDropdownOpen ? "show" : ""}`}
                           data-dropdown={item.label}
-                          onMouseLeave={(event) => handleDropdownClose(event, item.label)}
                         >
                           {item.dropdownItems.map((dropdownItem) => {
                             const isDropdownActive = pathname === dropdownItem.path;
@@ -268,10 +261,9 @@ const Navbar = () => {
                         <>
                           <div
                             className={`mobile-dropdown-overlay ${isDropdownOpen ? "show" : ""}`}
-                            onClick={() => {
-                              setOpenDropdown(null);
-                            }}
+                            onClick={() => setOpenDropdown(null)}
                           />
+
                           <div className={`mobile-dropdown-panel ${isDropdownOpen ? "show" : ""}`} data-dropdown={item.label}>
                             <div className="mobile-dropdown-body">
                               {item.dropdownItems.map((dropdownItem) => {
@@ -298,37 +290,15 @@ const Navbar = () => {
             })}
           </ul>
 
-          <div className="social-icons ms-lg-4">
-            <a
-              href="https://twitter.com/jobzenter"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Jobzenter on Twitter"
-              className="social-icon-button"
-            >
-              <FaTwitter className="social-icon" />
-            </a>
-            <a
-              href="https://facebook.com/jobzenter"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Jobzenter on Facebook"
-              className="social-icon-button"
-            >
-              <FaFacebookF className="social-icon" />
-            </a>
-            <a
-              href="https://www.instagram.com/jobzenter_official?igsh=dWVwdGs1bWM4ZnBp"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Jobzenter on Instagram"
-              className="social-icon-button"
-            >
-              <FaInstagram className="social-icon" />
+          {/* CALL BUTTON (REPLACED SOCIAL ICONS) */}
+          <div className="ms-lg-4">
+            <a href="tel:+919057770577" className="call-button" aria-label="Call Jobzenter">
+              +91 90577 70577
             </a>
           </div>
         </div>
       </div>
+
       <ChatbotWidget />
     </nav>
   );

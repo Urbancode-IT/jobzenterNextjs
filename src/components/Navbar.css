@@ -393,3 +393,18 @@
 .navbar-custom .nav-link-active {
   font-weight: 300 !important;
 }
+
+.call-button {
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.call-button:hover {
+  background: #f2f2f2;
+}
