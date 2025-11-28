@@ -1,36 +1,59 @@
 .hero-section {
-  min-height: 346px;
   padding: 80px 0;
   background:
-    linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.8)),
+    linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
     url("/aboutus/abouthero.png") center/cover no-repeat;
   display: flex;
   align-items: center;
+
+  background: linear-gradient(
+    180deg,
+    #fffbe6 0%,
+    #fff3c9 30%,
+    #fff7dd 60%,
+    #ffffff 100%
+  );
 }
 
 .hero-title-about {
   font-family: Inter, sans-serif;
   font-weight: 700;
   font-size: 40px;
-  color: #fff!important;
+  color: #000;
   margin-bottom: 15px;
 }
 
 .hero-subtitle {
   font-family: Roboto, sans-serif;
-  font-size: 12px;
-  line-height: 1.5;
-  color: #fff;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
   max-width: 500px;
-  margin: 0 auto;
 }
 
+.hero-img {
+  width: 100%;
+  max-width: 450px; /* increased size */
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+
+/* MOBILE */
 @media (max-width: 576px) {
-  .hero-title {
+  .hero-title-about {
     font-size: 30px;
+    text-align: center;
   }
+
   .hero-subtitle {
-    font-size: 11px;
+    font-size: 13px;
+    text-align: center;
     padding: 0 10px;
+  }
+
+  .hero-img {
+    margin-top: 30px;
   }
 }

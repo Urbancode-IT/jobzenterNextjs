@@ -80,13 +80,39 @@ const ReachUs = () => {
   return (
     <div className="contact-page">
       {/* ===== REACH US HEADER ===== */}
-      <section className="reach-header">
-        <div className="overlay"></div>
-        <div className="content">
-          <h1 className="display-4 fw-bold mt-5">Reach Us</h1>
-          <p>We’re here to answer your questions and guide you every step of the way.</p>
-        </div>
-      </section>
+{/* ===== REACH US HEADER (NEW CLEAN HERO) ===== */}
+{/* ===== CLEAN HERO (TWO COLUMN) ===== */}
+<section className="reach-hero">
+  <div className="hero-container">
+    {/* LEFT SIDE CONTENT */}
+    <div className="hero-left">
+      <p className="hero-eyebrow">We’re here for you</p>
+      <h1 className="hero-title">Let’s talk about your next step</h1>
+      <p className="hero-sub">
+        Whether you’re looking for your first role or your next big move, our team is ready
+        to guide you, answer your questions, and connect you with the right opportunities.
+      </p>
+      <div className="hero-badges">
+        <span className="hero-badge">
+          <i className="bi bi-clock"></i> Response within 24 hours
+        </span>
+        <span className="hero-badge">
+          <i className="bi bi-whatsapp"></i> Support over call & chat
+        </span>
+      </div>
+    </div>
+
+    {/* RIGHT SIDE IMAGE */}
+    <div className="hero-right">
+      <img
+        src="/reach-us/reachushero.jpeg"
+        alt="Jobzenter team helping candidates in India"
+      />
+    </div>
+  </div>
+</section>
+
+
 
       {/* ===== CONTACT SECTION ===== */}
       <section className="contact-section">
