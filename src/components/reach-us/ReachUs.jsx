@@ -100,7 +100,7 @@ const ReachUs = () => {
             <div className="big-info">
               <div className="info-item">
                 <i className="bi bi-telephone-fill"></i>
-                <span>+91 9057770577</span>
+                <span>+91 90577 70577</span>
               </div>
 
               <div className="info-item" style={{ marginTop: "30px" }}>
