@@ -34,7 +34,7 @@ const Footer = () => {
     },
     {
       label: "WhatsApp",
-      href: "https://wa.me/919057770577",
+      href: "https://wa.me/9190577 70577",
       icon: FaWhatsapp,
     },
   ];
@@ -69,8 +69,8 @@ const Footer = () => {
     },
     {
       icon: Phone,
-      label: "+91 9057770577",
-      href: "tel:+919057770577",
+      label: "+91 90577 70577",
+      href: "tel:+9190577 70577",
     },
     {
       icon: MapPin,
