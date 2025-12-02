@@ -1,0 +1,321 @@
+.single-coursepage * {
+    box-sizing: border-box;
+}
+
+.single-coursepage .bg-gray {
+    background-color: #ebebeb !important;
+}
+
+.single-coursepage .custom-accordion-item {
+    border-radius: 16px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.single-coursepage .card {
+    border-radius: 16px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.single-coursepage .card-wyl {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.single-coursepage .card-wyl:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.single-coursepage .accordion-button:not(.collapsed) {
+    box-shadow: none !important;
+}
+
+.single-coursepage .gray-bg {
+    background-color: #ebebeb;
+}
+
+.single-coursepage .btn-dark {
+    background-color: hsl(0, 0%, 35%, 1) !important;
+}
+
+.single-coursepage h1,
+.single-coursepage h2,
+.single-coursepage h3,
+.single-coursepage h4,
+.single-coursepage h5,
+.single-coursepage h6 {
+    color: hsla(210, 29%, 24%, 1) !important;
+}
+
+/* Responsive typography */
+.single-coursepage h1 {
+    font-size: 1.75rem;
+}
+
+.single-coursepage h2 {
+    font-size: 1.5rem !important;
+}
+
+.single-coursepage .fs-7 {
+    font-size: 0.75rem;
+}
+
+.single-coursepage .fs-9 {
+    font-size: 0.875rem !important;
+}
+
+.single-coursepage .enroll-btn {
+    background: hsla(0, 0%, 52%, 1) !important;
+    border: none !important;
+    transition: all 1s ease;
+}
+
+.single-coursepage .enroll-btn:hover {
+    background: linear-gradient(135deg, #98dec4, #00a86b) !important;
+}
+
+.single-coursepage .dark-shine-btn {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: #111;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Glow and subtle lift on hover */
+.single-coursepage .dark-shine-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Diagonal shine streak */
+.single-coursepage .dark-shine-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0.7) 10%,
+            rgba(255, 255, 255, 0.2) 20%,
+            rgba(255, 255, 255, 0) 60%);
+    transform: skewX(-45deg);
+    opacity: 0.5;
+}
+
+/* Animate the streak only on hover */
+.single-coursepage .dark-shine-btn::before {
+    animation: dark-shine-move 1.5s linear alternate infinite;
+}
+
+@keyframes dark-shine-move {
+    0% {
+        left: -75%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+/* Better spacing utilities */
+.single-coursepage .section-spacing {
+    margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .single-coursepage .section-spacing {
+        margin-top: 3.5rem;
+    }
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 576px) {
+    .single-coursepage .bg-gray {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    .single-coursepage h1 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .single-coursepage h2 {
+        font-size: 1.25rem !important;
+    }
+
+    .single-coursepage .card-wyl {
+        margin-bottom: 0.5rem;
+    }
+
+    .single-coursepage .sticky-lg-top {
+        position: static !important;
+    }
+
+    .single-coursepage .section-spacing {
+        margin-top: 2rem !important;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    .single-coursepage h1 {
+        font-size: 2rem;
+    }
+
+    .single-coursepage h2 {
+        font-size: 1.625rem !important;
+    }
+
+    .single-coursepage .fs-md-9 {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+    .single-coursepage h1 {
+        font-size: 2.25rem;
+    }
+
+    .single-coursepage h2 {
+        font-size: 1.75rem !important;
+    }
+
+    .single-coursepage .sticky-lg-top {
+        position: sticky;
+        top: 2rem;
+    }
+
+    .single-coursepage .custom-accordion-item {
+        border-radius: 20px !important;
+    }
+}
+
+/* Large desktop styles */
+@media (min-width: 1200px) {
+    .single-coursepage h1 {
+        font-size: 2.5rem;
+    }
+
+    .single-coursepage h2 {
+        font-size: 2rem !important;
+    }
+
+    .single-coursepage .container {
+        max-width: 1140px;
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1400px) {
+    .single-coursepage .container {
+        max-width: 1320px;
+    }
+}
+
+/* Utility classes for better spacing */
+.single-coursepage .mh-135 {
+    min-height: 135px;
+}
+
+.single-coursepage .lh-base {
+    line-height: 1.5;
+}
+
+.single-coursepage .lh-sm {
+    line-height: 1.25;
+}
+
+/* Improve card shadows on different screens */
+@media (max-width: 768px) {
+    .single-coursepage .shadow-md-lg {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+/* Better accordion responsiveness */
+.single-coursepage .accordion-button {
+    font-size: inherit;
+    white-space: normal;
+}
+
+/* Tone down Bootstrap's blue focus/active indicator for accordion buttons.
+   Keep a subtle blue hint for affordance (accessible and visible but much softer). */
+.single-coursepage .accordion-button {
+    transition: box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.single-coursepage .accordion-button:focus,
+.single-coursepage .accordion-button:focus-visible {
+    outline: none !important;
+    /* Make the blue hint extremely subtle (near-invisible) for a cleaner look
+       while retaining a tiny visual cue for keyboard users. */
+    box-shadow: 0 0 0 0.08rem rgba(13, 110, 253, 0.02) !important;
+}
+
+.single-coursepage .accordion-button:not(.collapsed) {
+    border-color: rgba(13, 110, 253, 0.02);
+    box-shadow: inset 0 -2px 0 rgba(13, 110, 253, 0.01);
+    /* almost invisible bottom tint when opened */
+}
+
+.single-coursepage .accordion-button:active {
+    outline: none !important;
+    box-shadow: 0 0 0 0.08rem rgba(13, 110, 253, 0.02) !important;
+}
+
+/* Ensure images are responsive */
+.single-coursepage .img-fluid {
+    max-width: 100%;
+    height: 350px;
+}
+
+/* Lock CTA styling */
+.single-coursepage .lock-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #2b2b2b;
+    background: linear-gradient(180deg, #fff 0%, #f7f7f7 100%);
+    border: 1px solid rgba(43, 43, 43, 0.12);
+    padding: 10px 18px;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(12, 12, 12, 0.06);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.single-coursepage .lock-cta i.bi-lock-fill {
+    font-size: 0.95rem;
+    color: #6b6b6b;
+    background: rgba(0, 0, 0, 0.04);
+    padding: 6px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-coursepage .lock-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(12, 12, 12, 0.10);
+    background: linear-gradient(180deg, #fff 0%, #f1f9f4 100%);
+}
+
+/* Slightly smaller on mobile so it doesn't overwhelm */
+@media (max-width: 576px) {
+    .single-coursepage .lock-cta {
+        padding: 8px 14px;
+        font-size: 0.95rem;
+        gap: 0.4rem;
+    }
+}
