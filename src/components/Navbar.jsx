@@ -1,6 +1,6 @@
 'use client';
 
-import { IoChevronDownSharp } from "react-icons/io5";
+import { IoChevronDownSharp, IoCall } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
@@ -13,7 +13,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", path: "/", hasDropdown: false },
     { label: "Courses", path: "/courses", hasDropdown: false },
     { label: "About Us", path: "/aboutus", hasDropdown: false },
 
@@ -192,9 +191,8 @@ const Navbar = () => {
               return (
                 <li
                   key={item.path}
-                  className={`nav-item d-flex align-items-center ${item.hasDropdown ? "has-dropdown" : ""} ${
-                    item.label === "Career Lab" ? "career-lab" : ""
-                  } ${isDropdownOpen ? "dropdown-open" : ""}`}
+                  className={`nav-item d-flex align-items-center ${item.hasDropdown ? "has-dropdown" : ""} ${item.label === "Career Lab" ? "career-lab" : ""
+                    } ${isDropdownOpen ? "dropdown-open" : ""}`}
                   data-dropdown={item.label}
                   onMouseEnter={(event) => item.hasDropdown && handleDropdownOpen(item.label)}
                   onMouseLeave={(event) => item.hasDropdown && handleDropdownClose(event, item.label)}
@@ -293,7 +291,8 @@ const Navbar = () => {
           {/* CALL BUTTON (REPLACED SOCIAL ICONS) */}
           <div className="ms-lg-4">
             <a href="tel:+919057770577" className="call-button" aria-label="Call Jobzenter">
-              +91 90577 70577
+              <IoCall size={18} />
+              <span>+91 90577 70577</span>
             </a>
           </div>
         </div>
