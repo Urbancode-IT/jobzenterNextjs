@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import courses from '@/components/courses/coursesData';
 import EnquiryButton from './EnquiryButton';
+import CourseAccordion from './CourseAccordion';
 import './styles.css';
 
 // Force dynamic rendering if needed, or use generateStaticParams for SSG
@@ -188,47 +189,7 @@ export default async function CourseInternalPage({ params }) {
                 {course.courseContentData && (
                     <div className="section-spacing">
                         <h2 className="fw-semibold mb-3 mb-md-4 text-center text-lg-start">Course Content</h2>
-                        <div className="accordion" id="courseAccordion">
-                            {course.courseContentData.map((section) => (
-                                <div
-                                    className="accordion-item mb-2 mb-md-3 custom-accordion-item px-2 px-md-3 "
-                                    key={section.id}
-                                >
-                                    <h2 className="accordion-header" id={`heading${section.id}`}>
-                                        <button
-                                            className={`accordion-button bg-transparent box-shadow-none p-2 p-md-3 ${!section.defaultOpen ? "collapsed" : ""
-                                                }`}
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target={`#collapse${section.id}`}
-                                            aria-expanded={section.defaultOpen ? "true" : "false"}
-                                            aria-controls={`collapse${section.id}`}
-                                        >
-                                            <i
-                                                className={`${section.icon} m-0 me-2 me-md-3 gray-bg p-2 rounded-circle flex-shrink-0 fs-6`}
-                                            ></i>
-                                            <span className="text-start fs-6 fs-md-inherit">{section.title}</span>
-                                        </button>
-                                    </h2>
-
-                                    <div
-                                        id={`collapse${section.id}`}
-                                        className={`accordion-collapse collapse ${section.defaultOpen ? "show" : ""
-                                            }`}
-                                        aria-labelledby={`heading${section.id}`}
-                                        data-bs-parent="#courseAccordion"
-                                    >
-                                        <div className="accordion-body px-3 px-md-4">
-                                            <ul className="mb-0 ps-3">
-                                                {section.items.map((item, i) => (
-                                                    <li key={i} className="mb-1 lh-base">{item}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                        <CourseAccordion courseContentData={course.courseContentData} />
                         {/* Locked full syllabus CTA */}
                         {course.locked === true && (
                             <div className="text-center mt-3">
