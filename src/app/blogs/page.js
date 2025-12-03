@@ -11,7 +11,7 @@ const BlogsPage = () => {
       >
         <div className="overlay" style={{ background: "rgba(0, 0, 0, 0.6)", position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}></div>
 
-        <h1 className="fw-bold z-1  ">Find our all blogs from here</h1>
+        <h1 className="fw-bold z-1  ">get to know your tech updates <br></br>or find your reads here</h1>
       </div>
 
       <RecentBlogs />
