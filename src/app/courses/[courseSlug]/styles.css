@@ -319,3 +319,55 @@
         gap: 0.4rem;
     }
 }
+
+/* Course Navigation Links - Small text-based buttons with animated underline */
+.single-coursepage .course-nav-link {
+    position: relative;
+    display: inline-block;
+    color: #2c2c2c;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 4px;
+    transition: color 0.3s ease;
+}
+
+.single-coursepage .course-nav-link:hover {
+    color: #000;
+}
+
+/* Animated underline effect */
+.single-coursepage .course-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            transparent 30%,
+            #2c2c2c 50%,
+            transparent 70%,
+            transparent 100%);
+    background-size: 200% 100%;
+    animation: shine-underline 2s linear infinite;
+}
+
+@keyframes shine-underline {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+    .single-coursepage .course-nav-link {
+        font-size: 0.85rem;
+        padding: 6px 2px;
+    }
+}

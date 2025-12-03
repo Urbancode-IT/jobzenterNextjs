@@ -202,22 +202,22 @@ export default async function CourseInternalPage({ params }) {
 
                 {/* Bottom Navigation */}
                 <div className="section-spacing">
-                    <div className="row g-3">
-                        <div className="col-6">
+                    <div className="d-flex justify-content-between align-items-center">
+                        <div>
                             {courses.findIndex(c => c.slug === courseSlug) > 0 && (
                                 <Link
                                     href={`/courses/${courses[courses.findIndex(c => c.slug === courseSlug) - 1].slug}`}
-                                    className="btn btn-outline-dark w-100"
+                                    className="course-nav-link"
                                 >
                                     ← Previous Course
                                 </Link>
                             )}
                         </div>
-                        <div className="col-6">
+                        <div>
                             {courses.findIndex(c => c.slug === courseSlug) < courses.length - 1 && (
                                 <Link
                                     href={`/courses/${courses[courses.findIndex(c => c.slug === courseSlug) + 1].slug}`}
-                                    className="btn btn-dark w-100"
+                                    className="course-nav-link"
                                 >
                                     Next Course →
                                 </Link>
