@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import "./TopRatedCourse.css";
 import EnquiryFormModal from "./enquiryForm/EnquiryFormModal";
 import { IoChevronForward, IoChevronBack } from "react-icons/io5";
@@ -8,6 +9,7 @@ const TopRatedCourses = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [cardsPerPage, setCardsPerPage] = useState(3);
+  const router = useRouter();
 
   const courses = [
     {
@@ -17,6 +19,7 @@ const TopRatedCourses = () => {
       description:
         "React Native Fullstack development combines React Native for mobile apps with Node.js, Express, and databases like MongoDB or PostgreSQL on the backend.",
       img: "/courses/reactNative.webp",
+      slug: "react-native-fullstack",
     },
     {
       id: 2,
@@ -25,6 +28,7 @@ const TopRatedCourses = () => {
       description:
         "Software Testing is the process of evaluating software to identify defects and ensure it meets the required quality standards.",
       img: "/courses/softwareTesting.webp",
+      slug: "software-testing",
     },
     {
       id: 3,
@@ -33,6 +37,7 @@ const TopRatedCourses = () => {
       description:
         "Java Full Stack Development is the process of developing both front-end and back-end web applications using Java technologies.",
       img: "/courses/javaFullstack.webp",
+      slug: "java-fullstack-development",
     },
     {
       id: 4,
@@ -41,6 +46,7 @@ const TopRatedCourses = () => {
       description:
         "MERN Stack Development combines MongoDB, Express, React, and Node.js to build powerful full-stack web applications.",
       img: "/courses/mern.webp",
+      slug: "mern-stack-development",
     },
     {
       id: 5,
@@ -49,6 +55,7 @@ const TopRatedCourses = () => {
       description:
         "AWS is a secure cloud platform offering computing power, database storage, and content delivery services on demand.",
       img: "/courses/aws.webp",
+      slug: "aws",
     },
     {
       id: 6,
@@ -57,6 +64,7 @@ const TopRatedCourses = () => {
       description:
         "Business Intelligence (BI) transforms raw data into meaningful insights for strategic decisions and performance measurement.",
       img: "/courses/business.webp",
+      slug: "business-intelligence",
     },
     {
       id: 7,
@@ -65,6 +73,7 @@ const TopRatedCourses = () => {
       description:
         "The Cisco Certified Network Associate (CCNA) Certification validates essential networking skills for configuring and troubleshooting networks.",
       img: "/courses/ccna.webp",
+      slug: "cisco-certified-network-associate",
     },
     {
       id: 8,
@@ -73,14 +82,16 @@ const TopRatedCourses = () => {
       description:
         "Medical Billing involves processing and managing healthcare claims to ensure accurate reimbursement for medical services provided.",
       img: "/courses/medicalBilling.webp",
+      slug: "medical-billing",
     },
     {
       id: 9,
       title: "Software Testing",
       category: "Testing",
       description:
-        "Software Testing is the process of evaluating software to identify defects and ensure it meets the required quality standards.", 
+        "Software Testing is the process of evaluating software to identify defects and ensure it meets the required quality standards.",
       img: "/courses/softwareTesting.webp",
+      slug: "software-testing",
     }
   ];
 
@@ -130,6 +141,10 @@ const TopRatedCourses = () => {
     setCurrentPage(0);
   }, [cardsPerPage]);
 
+  const handleCardClick = (slug) => {
+    router.push(`/courses/${slug}`);
+  };
+
   return (
     <section className="top-rated-section d-flex justify-content-center">
       <div className="top-rated-container position-relative">
@@ -142,11 +157,15 @@ const TopRatedCourses = () => {
 
         <div className="top-rated-cards d-flex justify-content-center">
           {visibleCourses.map((course) => (
-            <div 
-              className={`col-${12 / cardsPerPage} col-md-${12 / cardsPerPage}`} 
+            <div
+              className={`col-${12 / cardsPerPage} col-md-${12 / cardsPerPage}`}
               key={course.id}
             >
-              <div className="card course-card h-100 shadow-sm border-0 p-3">
+              <div
+                className="card course-card h-100 shadow-sm border-0 p-3"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleCardClick(course.slug)}
+              >
                 <div className="circle"></div>
                 <img
                   src={course.img}
@@ -159,9 +178,12 @@ const TopRatedCourses = () => {
                   <p className="card-text text-muted">{course.description}</p>
                   <div className="mt-auto">
                     <div className="text-warning mb-2">{"★".repeat(5)}</div>
-                    <button 
-                      className="btn btn-dark w-100" 
-                      onClick={() => setSelectedCourse(course)}
+                    <button
+                      className="btn btn-dark w-100"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedCourse(course);
+                      }}
                     >
                       Download Brochure
                     </button>
@@ -186,7 +208,7 @@ const TopRatedCourses = () => {
             aria-label="previous"
             className="top-rated-control-btn"
           >
-            <IoChevronBack/>
+            <IoChevronBack />
           </button>
 
           <div className="top-rated-dots d-flex align-items-center ">
@@ -207,7 +229,7 @@ const TopRatedCourses = () => {
             aria-label="next"
             className="top-rated-control-btn"
           >
-            <IoChevronForward/>
+            <IoChevronForward />
           </button>
         </div>
       </div>
