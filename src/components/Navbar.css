@@ -338,8 +338,8 @@
 
   .mobile-dropdown-item:hover,
   .mobile-dropdown-item:focus-visible {
-    background-color: rgba(252, 246, 138, 0.4);
-    transform: translateY(-1px);
+    background-color: transparent;
+    transform: none;
   }
 
   .mobile-dropdown-item.active {
@@ -400,15 +400,32 @@
   font-weight: 600;
   color: #000;
   text-decoration: none;
-  padding: 8px 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 8px 0;
+  border: none;
+
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: 0.2s ease;
+
 }
 
 .call-button:hover {
-  background: #f2f2f2;
+  background: transparent;
+}
+
+@media (max-width: 991.98px) {
+  .call-button {
+    border: none !important;
+    padding: 8px 0;
+    transition: none !important;
+    background: transparent !important;
+  }
+
+  .call-button:hover,
+  .call-button:focus,
+  .call-button:active {
+    background: transparent !important;
+    transform: none !important;
+    color: #000 !important;
+  }
 }

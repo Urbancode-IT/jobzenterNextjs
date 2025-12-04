@@ -15,9 +15,9 @@ const GetStarted = () => {
               <option value="" disabled>
                 Type of service
               </option>
-              <option value="training">Software Training</option>
-              <option value="placement">Placement Support</option>
-              <option value="consulting">Consulting</option>
+              <option value="resume-building">Resume Building</option>
+              <option value="placement-preparation">Placement Preparation</option>
+              <option value="interview-preparation">Interview Preparation</option>
             </select>
             <IoChevronDown className="get-started-select-icon" />
           </div>
