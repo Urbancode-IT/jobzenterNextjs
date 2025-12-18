@@ -10,7 +10,7 @@ export default function EnquiryButton({ courseName, isLockCta = false }) {
         <>
             {isLockCta ? (
                 <button
-                    className="btn btn-outline-secondary rounded-pill px-3 py-2 lock-cta"
+                    className="btn rounded-pill px-3 py-2 lock-cta fw-bold btn-golden"
                     onClick={() => setIsOpen(true)}
                     title="Request full syllabus"
                 >

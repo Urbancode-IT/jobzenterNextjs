@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import courses from '@/components/courses/coursesData';
 import EnquiryButton from './EnquiryButton';
 import CourseAccordion from './CourseAccordion';
+import FAQAccordion from './FAQAccordion';
 import './styles.css';
 
 // Force dynamic rendering if needed, or use generateStaticParams for SSG
@@ -102,7 +103,9 @@ export default async function CourseInternalPage({ params }) {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <button className="btn btn-dark rounded-pill mt-3 px-4 py-2 enroll-btn w-sm-100 w-md-auto">
+                                    <button
+                                        className="btn rounded-pill mt-3 px-4 py-2 enroll-btn w-sm-100 w-md-auto fw-bold btn-golden"
+                                    >
                                         Enroll Today
                                     </button>
                                 </a>
@@ -199,6 +202,15 @@ export default async function CourseInternalPage({ params }) {
                     </div>
                 )}
                 {/* End of Course Content */}
+
+                {/* FAQ Section */}
+                {course.faqData && (
+                    <div className="section-spacing">
+                        <h2 className="fw-semibold mb-3 mb-md-4 text-center text-lg-start">Frequently Asked Questions</h2>
+                        <FAQAccordion faqData={course.faqData} />
+                    </div>
+                )}
+                {/* End of FAQ Section */}
 
                 {/* Bottom Navigation */}
                 <div className="section-spacing">

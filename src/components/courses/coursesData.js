@@ -48,6 +48,28 @@ const courses = [
                 icon: "bi bi-check2-circle",
                 items: ["Unit Testing with Jest", "E2E Testing", "App Store Publishing", "Play Store Deployment"]
             }
+        ],
+        faqData: [
+            {
+                question: "Do I need prior programming experience?",
+                answer: "No, this course starts from the basics of JavaScript and React, making it suitable for beginners as well as those with some coding background."
+            },
+            {
+                question: "What projects will I build?",
+                answer: "You will build real-world mobile apps, including a social media clone, an e-commerce app, and a task management system."
+            },
+            {
+                question: "Is backend development covered?",
+                answer: "Yes, the course covers Node.js, Express, and databases like MongoDB or PostgreSQL to help you become a full-stack mobile developer."
+            },
+            {
+                question: "Will I get a certificate?",
+                answer: "Yes, upon successful completion of the course and projects, you will receive a Jobzenter certification."
+            },
+            {
+                question: "How does the placement assistance work?",
+                answer: "We provide resume building, mock interviews, and direct referrals to our hiring partners to help you land a job."
+            }
         ]
     },
     {
@@ -98,6 +120,28 @@ const courses = [
                 title: "Advanced Topics",
                 icon: "bi bi-star",
                 items: ["CI/CD with Jenkins", "BDD with Cucumber", "Cross-Browser Testing", "Mobile Testing"]
+            }
+        ],
+        faqData: [
+            {
+                question: "What is the difference between manual and automation testing?",
+                answer: "Manual testing involves human intervention to find bugs, while automation testing uses tools like Selenium to execute test scripts automatically."
+            },
+            {
+                question: "Do I need coding skills for this course?",
+                answer: "For manual testing, no coding is required. For automation testing, we will teach you Java or Python from scratch."
+            },
+            {
+                question: "Which tools will I learn?",
+                answer: "You will learn industry-standard tools like Selenium WebDriver, JIRA, TestNG, Postman, and JMeter."
+            },
+            {
+                question: "Is this course suitable for non-IT graduates?",
+                answer: "Yes, software testing is one of the best entry points into IT for non-technical graduates."
+            },
+            {
+                question: "What kind of jobs can I apply for?",
+                answer: "You can apply for roles like QA Engineer, Test Automation Engineer, and Manual Tester."
             }
         ]
     },
@@ -192,6 +236,28 @@ const courses = [
                     "Microservices Architecture"
                 ]
             }
+        ],
+        faqData: [
+            {
+                question: "How deep does the course go into Java?",
+                answer: "The course covers Core Java in depth, including OOPs, collections, multithreading, and moves to advanced topics like Spring Boot and Microservices."
+            },
+            {
+                question: "Is this course good for freshers?",
+                answer: "Absolutely! Java Full Stack is a high-demand skill, and we start from the very basics to ensure you understand every concept."
+            },
+            {
+                question: "What databases are covered?",
+                answer: "We cover SQL databases like MySQL and integrate them using JDBC and Hibernate/JPA."
+            },
+            {
+                question: "Will I learn frontend technologies too?",
+                answer: "Yes, you will learn HTML, CSS, JavaScript, and a modern framework like React or Angular to build complete applications."
+            },
+            {
+                question: "Are there live projects?",
+                answer: "Yes, you will work on an end-to-end enterprise-grade application as your capstone project."
+            }
         ]
     },
     {
@@ -242,6 +308,28 @@ const courses = [
                 title: "Full Stack Integration & Deployment",
                 icon: "bi bi-cloud-arrow-up",
                 items: ["Authentication with JWT", "State Management", "Testing", "Cloud Deployment"]
+            }
+        ],
+        faqData: [
+            {
+                question: "Why choose MERN stack?",
+                answer: "MERN (MongoDB, Express, React, Node) is a popular, JavaScript-based stack that allows you to build fast, scalable, and modern web applications."
+            },
+            {
+                question: "Do I need to know JavaScript beforehand?",
+                answer: "Basic knowledge is helpful, but we cover modern JavaScript (ES6+) as part of the course curriculum."
+            },
+            {
+                question: "What is the duration of the course?",
+                answer: "The course typically takes 4-6 months, depending on your pace and the depth of the projects you undertake."
+            },
+            {
+                question: "Is deployment covered?",
+                answer: "Yes, we teach you how to deploy your applications to cloud platforms like Heroku, Vercel, or AWS."
+            },
+            {
+                question: "What support do I get if I get stuck?",
+                answer: "You get access to mentor support, doubt-clearing sessions, and a community of learners to help you out."
             }
         ]
     },
@@ -294,6 +382,28 @@ const courses = [
                 icon: "bi bi-diagram-3",
                 items: ["Lambda Functions", "CloudWatch Monitoring", "CloudFormation", "CI/CD with CodePipeline"]
             }
+        ],
+        faqData: [
+            {
+                question: "Do I need to know coding for AWS?",
+                answer: "While some basic scripting helps, AWS is largely about infrastructure and configuration. We teach you what you need to know."
+            },
+            {
+                question: "Does this course prepare me for certification?",
+                answer: "Yes, the curriculum is aligned with the AWS Certified Solutions Architect – Associate exam."
+            },
+            {
+                question: "Do I need an AWS account?",
+                answer: "Yes, we will guide you on setting up a free-tier AWS account to practice hands-on labs."
+            },
+            {
+                question: "What if I miss a class?",
+                answer: "All sessions are recorded, so you can watch them later at your convenience."
+            },
+            {
+                question: "What are the career prospects?",
+                answer: "Cloud computing is booming. You can work as a Cloud Architect, SysOps Administrator, or DevOps Engineer."
+            }
         ]
     },
     {
@@ -344,6 +454,28 @@ const courses = [
                 title: "ETL & Advanced Analytics",
                 icon: "bi bi-arrow-repeat",
                 items: ["ETL Processes", "Tableau Fundamentals", "Data Visualization Best Practices", "Dashboard Design"]
+            }
+        ],
+        faqData: [
+            {
+                question: "What tools will I learn in this BI course?",
+                answer: "You will master Power BI, Tableau, SQL, and Excel for data analysis and visualization."
+            },
+            {
+                question: "Is this course technical?",
+                answer: "It is a mix of technical skills (SQL) and analytical thinking. No heavy programming is required."
+            },
+            {
+                question: "Can I switch to BI from a non-tech background?",
+                answer: "Yes, BI is a great field for those with a business or math background who want to get into tech."
+            },
+            {
+                question: "What kind of projects will I do?",
+                answer: "You will build sales dashboards, financial reports, and customer analytics visualizations."
+            },
+            {
+                question: "Do you help with job placement?",
+                answer: "Yes, we provide interview preparation and connect you with companies looking for data analysts."
             }
         ]
     },
@@ -396,6 +528,28 @@ const courses = [
                 icon: "bi bi-shield-check",
                 items: ["ACLs", "VPN Configuration", "Network Security", "Diagnostic Tools"]
             }
+        ],
+        faqData: [
+            {
+                question: "Is this course updated for the latest CCNA exam?",
+                answer: "Yes, the course covers the latest CCNA 200-301 exam objectives."
+            },
+            {
+                question: "Do I need physical equipment to practice?",
+                answer: "No, we use simulation tools like Cisco Packet Tracer and GNS3 which mimic real hardware perfectly."
+            },
+            {
+                question: "What is the prerequisite for this course?",
+                answer: "Basic computer literacy is enough. We start from the very basics of networking."
+            },
+            {
+                question: "How long is the course?",
+                answer: "The course is designed to be completed in 2-3 months with regular study and practice."
+            },
+            {
+                question: "What roles can I get after CCNA?",
+                answer: "You can work as a Network Engineer, Network Administrator, or Technical Support Engineer."
+            }
         ]
     },
     {
@@ -446,6 +600,28 @@ const courses = [
                 title: "Compliance & Software",
                 icon: "bi bi-laptop",
                 items: ["Healthcare Compliance", "Billing Software Training", "Revenue Cycle", "Account Receivables"]
+            }
+        ],
+        faqData: [
+            {
+                question: "Do I need a medical background?",
+                answer: "No, a medical background is not required. We teach all necessary medical terminology and anatomy."
+            },
+            {
+                question: "Is this a good work-from-home career?",
+                answer: "Yes, many medical billing and coding jobs offer remote work opportunities."
+            },
+            {
+                question: "What certification does this prepare me for?",
+                answer: "It prepares you for industry-recognized certifications like CPC (Certified Professional Coder)."
+            },
+            {
+                question: "How is the job market for medical billing?",
+                answer: "The healthcare industry is growing, and there is a steady demand for skilled billers and coders."
+            },
+            {
+                question: "What software will I learn?",
+                answer: "You will get hands-on experience with popular medical billing software used in clinics and hospitals."
             }
         ]
     },
