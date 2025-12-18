@@ -56,8 +56,8 @@ const Footer = () => {
   ];
 
   const servicesLinks = [
-    { label: "Bootcamps", href: "/career-lab/bootcamps" },
     { label: "Resume Building", href: "/career-lab/resume-building" },
+    { label: "Placement Preparation", href: "/career-lab/placement-preparation" },
     { label: "Interview Preparation", href: "/career-lab/interview-preparation" },
   ];
 
