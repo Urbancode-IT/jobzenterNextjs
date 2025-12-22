@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import courses from '@/components/courses/coursesData';
 import EnquiryButton from './EnquiryButton';
 import CourseAccordion from './CourseAccordion';
-import FAQAccordion from './FAQAccordion';
+import Questions from '@/components/courses/Questions';
 import './styles.css';
 
 // Force dynamic rendering if needed, or use generateStaticParams for SSG
@@ -205,10 +205,7 @@ export default async function CourseInternalPage({ params }) {
 
                 {/* FAQ Section */}
                 {course.faqData && (
-                    <div className="section-spacing">
-                        <h2 className="fw-semibold mb-3 mb-md-4 text-center text-lg-start">Frequently Asked Questions</h2>
-                        <FAQAccordion faqData={course.faqData} />
-                    </div>
+                    <Questions data={course.faqData} />
                 )}
                 {/* End of FAQ Section */}
 

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ConditionalQuestions from "@/components/courses/ConditionalQuestions";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -127,6 +128,7 @@ export default function RootLayout({ children }) {
 
         <Navbar />
         <main>{children}</main>
+        <ConditionalQuestions />
         <Footer />
       </body>
     </html>

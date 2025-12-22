@@ -1,0 +1,138 @@
+.questions-outer-wrapper {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-bottom: 50px;
+    font-family: 'Inter', sans-serif;
+}
+
+.questions-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 5%;
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.questions-image-section {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questions-image-section img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    object-fit: contain;
+}
+
+.questions-accordion-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.accordion-item {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid #ebebeb;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-item:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    transform: translateY(-3px);
+    border-color: #ddd;
+}
+
+.accordion-header {
+    padding: 22px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.accordion-question {
+    font-size: 17px;
+    font-weight: 500;
+    color: #2d2d2d;
+    font-family: 'Inter', sans-serif;
+}
+
+.accordion-icon {
+    font-size: 24px;
+    color: #999;
+    font-weight: 300;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(45deg);
+    color: #333;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+    padding: 0 30px;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px;
+    padding: 0 30px 25px 30px;
+}
+
+.accordion-answer {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin-top: 5px;
+}
+
+@media (max-width: 1100px) {
+    .questions-container {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .questions-container {
+        flex-direction: column;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .questions-image-section {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .faq-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+
+    .accordion-header {
+        padding: 18px 25px;
+    }
+
+    .accordion-question {
+        text-align: left;
+    }
+}
