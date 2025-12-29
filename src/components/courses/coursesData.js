@@ -239,24 +239,24 @@ const courses = [
         ],
         faqData: [
             {
-                question: "How deep does the course go into Java?",
-                answer: "The course covers Core Java in depth, including OOPs, collections, multithreading, and moves to advanced topics like Spring Boot and Microservices."
+                question: "What skills will I learn in this Full Stack Development course?",
+                answer: "You'll master both frontend (HTML, CSS, JavaScript, React/Angular) and backend (Java, Spring Boot, RESTful APIs) technologies, along with databases and deployment practices."
             },
             {
-                question: "Is this course good for freshers?",
-                answer: "Absolutely! Java Full Stack is a high-demand skill, and we start from the very basics to ensure you understand every concept."
+                question: "How long does it take to complete the Full Stack Development course?",
+                answer: "The course typically spans 4-6 months, depending on your learning pace and the complexity of projects you undertake."
             },
             {
-                question: "What databases are covered?",
-                answer: "We cover SQL databases like MySQL and integrate them using JDBC and Hibernate/JPA."
+                question: "Do I need prior programming experience to enroll?",
+                answer: "No, we start from the fundamentals. However, basic computer literacy is helpful. We'll teach you everything you need to know."
             },
             {
-                question: "Will I learn frontend technologies too?",
-                answer: "Yes, you will learn HTML, CSS, JavaScript, and a modern framework like React or Angular to build complete applications."
+                question: "What real-world projects will I build during the course?",
+                answer: "You'll build multiple projects including a social media application, e-commerce platform, and an enterprise-level management system as your capstone project."
             },
             {
-                question: "Are there live projects?",
-                answer: "Yes, you will work on an end-to-end enterprise-grade application as your capstone project."
+                question: "Will I receive job assistance after completing the course?",
+                answer: "Yes, we provide 100% placement support including mock interviews, resume optimization, interview preparation, and job referrals."
             }
         ]
     },

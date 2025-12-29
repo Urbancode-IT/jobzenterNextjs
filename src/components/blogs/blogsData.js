@@ -53,6 +53,25 @@ export const recentBlogs = [
     description: "Launch your career in medical billing...",
     tags: ["Medical Billing"],
     link:"/blogs/medical-billing"
+  },
+   {
+    id:7,
+    image: "/blogs/fullstack.jpg",
+    date: "24 dec 2025",
+    title: "Full Stack Development: Trends to Watch in 2025",
+    description: "Explore the top full stack development trends...",
+    tags: ["Full Stack Development", "Web Development"],
+    link:"/blogs/full-stack-trends"
+  },
+     {
+    id:8,
+    image: "/blogs/breaking.jpg",
+    date: "24 dec 2025",
+    title: "Career Tips: Breaking Into the Tech Industry in 2025",
+    description: "Discover essential career tips for breaking into the tech industry in 2025...",
+    tags: ["career", "tech industry"],
+    link:"/blogs/breaking"
   }
+
 ];
 
