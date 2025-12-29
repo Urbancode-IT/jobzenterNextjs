@@ -36,7 +36,7 @@ const BlogPost = () => {
         style={{ width: "100%", height: "400px", position: "relative" }}
       >
         <Image
-          src="/blogs/breaking.jpg"
+          src="/blogs/Breaking.jpg"
           alt="Breaking into the Tech Industry in 2025"
           fill
           className="rounded"
