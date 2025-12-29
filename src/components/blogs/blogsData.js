@@ -65,7 +65,7 @@ export const recentBlogs = [
   },
      {
     id:8,
-    image: "/blogs/breaking.jpg",
+    image: "/blogs/Breaking.jpg",
     date: "24 dec 2025",
     title: "Career Tips: Breaking Into the Tech Industry in 2025",
     description: "Discover essential career tips for breaking into the tech industry in 2025...",
