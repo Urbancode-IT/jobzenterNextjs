@@ -21,7 +21,7 @@ const HeroSection = () => {
           {/* RIGHT SIDE — IMAGE */}
           <div className="col-md-6 text-center">
             <img 
-              src="/aboutus/abouthero.png"
+              src="courses/aboutus/abouthero.png"
               alt="About JobZenter"
               className="hero-img"
             />
