@@ -64,7 +64,7 @@ const CoursesPage = () => {
                     src={course.img}
                     className="card-img-top course-image"
                     alt={course.title}
-                    style={{ height: "220px", objectFit: "cover" }}
+                    style={{ height:"220px", objectFit: "cover" }}
                   />
                   <div className="card-body d-flex flex-column">
                     <h5 className="card-title fw-bold">{course.title}</h5>
