@@ -18,7 +18,7 @@ export const metadata = {
   authors: [{ name: "Jobzenter" }],
   robots: "index, follow",
   metadataBase: new URL("https://jobzenter.in"),
-  alternates: { canonical: "https://jobzenter.in" },
+  alternates: { canonical: "/" },
 
   openGraph: {
     title: "Jobzenter - Software Training And Placements",

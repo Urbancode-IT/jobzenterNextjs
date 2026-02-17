@@ -14,14 +14,11 @@ export const metadata = {
     "jobzenter resume",
     "download resume pdf",
   ],
-  alternates: {
-    canonical: "https://jobzenter.in/career-lab/resume-building",
-  },
   openGraph: {
     title: "Free Resume Builder – Jobzenter Resume Maker",
     description:
       "Build your resume in minutes with professional templates. Fully customizable and free to download.",
-    url: "https://jobzenter.in/career-lab/resume-building",
+    url: "https://jobzenter.in/interview-study",
     siteName: "Jobzenter",
     type: "website",
     images: [
@@ -55,7 +52,7 @@ export default function InterviewStudy() {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             name: "Jobzenter Resume Builder",
-            url: "https://jobzenter.in/career-lab/resume-building",
+            url: "https://jobzenter.in/interview-study",
             applicationCategory: "Resume Builder Tool",
             operatingSystem: "All",
             offers: {

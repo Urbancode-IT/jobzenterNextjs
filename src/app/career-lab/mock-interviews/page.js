@@ -15,9 +15,6 @@ export const metadata = {
     "interview coaching",
     "jobzenter mock interview",
   ],
-  alternates: {
-    canonical: "https://jobzenter.in/career-lab/mock-interviews",
-  },
   openGraph: {
     title: "Mock Interviews – Ace Your Technical & HR Interviews | Jobzenter",
     description:
