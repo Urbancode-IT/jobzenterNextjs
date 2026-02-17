@@ -28,6 +28,9 @@ export async function generateMetadata({ params }) {
     return {
         title: `${course.title} | Jobzenter`,
         description: course.description,
+        alternates: {
+            canonical: `https://jobzenter.in/courses/${courseSlug}`,
+        },
     };
 }
 

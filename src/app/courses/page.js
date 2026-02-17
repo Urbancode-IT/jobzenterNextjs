@@ -17,6 +17,9 @@ export const metadata = {
     "data science course",
     "software testing course",
   ],
+  alternates: {
+    canonical: "https://jobzenter.in/courses",
+  },
   openGraph: {
     title: "Jobzenter – Top IT Courses & Career Training",
     description:

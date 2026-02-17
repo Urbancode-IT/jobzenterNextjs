@@ -15,11 +15,14 @@ export const metadata = {
     "IT interview preparation",
     "jobzenter interview prep",
   ],
+  alternates: {
+    canonical: "https://jobzenter.in/career-lab/interview-preparation",
+  },
   openGraph: {
     title: "Interview Preparation Guide – HR + Technical + Coding | Jobzenter",
     description:
       "Prepare for job interviews with curated HR questions, coding exercises, technical round strategies, and real interview advice.",
-    url: "https://jobzenter.in/interview-study",
+    url: "https://jobzenter.in/career-lab/interview-preparation",
     siteName: "Jobzenter",
     type: "website",
     images: [
@@ -52,7 +55,7 @@ export default function InterviewStudy() {
             "@context": "https://schema.org",
             "@type": "WebPage",
             name: "Interview Preparation – Jobzenter",
-            url: "https://jobzenter.in/interview-study",
+            url: "https://jobzenter.in/career-lab/interview-preparation",
             description:
               "A complete guide for cracking job interviews including HR, technical, and coding rounds.",
             publisher: {

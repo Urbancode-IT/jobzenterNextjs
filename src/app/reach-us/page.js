@@ -15,6 +15,9 @@ export const metadata = {
     "training institute contact",
     "it training support",
   ],
+  alternates: {
+    canonical: "https://jobzenter.in/reach-us",
+  },
   openGraph: {
     title: "Reach Us – Contact Jobzenter",
     description:

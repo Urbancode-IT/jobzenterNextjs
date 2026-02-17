@@ -1,4 +1,12 @@
-import BlogPost from "@/components/blogs/Aws";
+import BlogPost from "@/components/blogs/AwsDevops";
+
+export const metadata = {
+  title: "AWS DevOps Trends | Jobzenter Blog",
+  description: "Explore why AWS DevOps is the future of efficient development and operations.",
+  alternates: {
+    canonical: "https://jobzenter.in/blogs/aws-devops",
+  },
+};
 
 const SingleBlogPage = () => {
   return (
