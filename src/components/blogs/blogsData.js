@@ -71,6 +71,15 @@ export const recentBlogs = [
     description: "Discover essential career tips for breaking into the tech industry in 2025...",
     tags: ["career", "tech industry"],
     link:"/blogs/breaking"
+  },
+   {
+    id:9,
+    image: "/blogs/automation.jpg",
+    date: "16 feb 2026",
+    title: "Automation Testing Certification – The Fastest Path to High-Demand Software Testing Careers in 2026",
+    description: "Boost your software testing career with Automation Testing Certification 2026...",
+    tags: ["career", "tech industry"],
+    link:"/blogs/automation-testing"
   }
 
 ];
