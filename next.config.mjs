@@ -1,7 +1,54 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
   reactCompiler: true,
+
+  async redirects() {
+    return [
+
+      // 1. Force www → non-www
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.jobzenter.in",
+          },
+        ],
+        destination: "https://jobzenter.in/:path*",
+        permanent: true,
+      },
+
+      // 2. Remove index.html
+      {
+        source: "/:path*/index.html",
+        destination: "/:path*",
+        permanent: true,
+      },
+
+      // 3. Old HTML → Real routes
+
+      { source: "/about.html", destination: "/aboutus", permanent: true },
+      { source: "/contact.html", destination: "/reach-us", permanent: true },
+      { source: "/service.html", destination: "/courses", permanent: true },
+      { source: "/courses.html", destination: "/courses", permanent: true },
+      { source: "/privacyolicy.html", destination: "/privacy-policy", permanent: true },
+      { source: "/terms.html", destination: "/terms-conditions", permanent: true },
+      { source: "/disclaimer.html", destination: "/disclaimer", permanent: true },
+      { source: "/index.html", destination: "/", permanent: true },
+
+      { source: "/bt/resumebuild.html", destination: "/career-lab/resume-building", permanent: true },
+      { source: "/bt/interviewprep.html", destination: "/career-lab/interview-preparation", permanent: true },
+      { source: "/resumebuild.html", destination: "/career-lab/resume-building", permanent: true },
+
+      // 4. Generic .html cleanup (keep LAST)
+      {
+        source: "/:path*.html",
+        destination: "/:path*",
+        permanent: true,
+      },
+
+    ];
+  },
 };
 
 export default nextConfig;
