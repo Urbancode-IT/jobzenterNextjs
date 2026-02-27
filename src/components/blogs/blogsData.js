@@ -80,7 +80,17 @@ export const recentBlogs = [
     description: "Boost your software testing career with Automation Testing Certification 2026...",
     tags: ["career", "tech industry"],
     link:"/blogs/automation-testing"
-  }
+  },
+  {
+  id: 10,
+  image: "/blogs/learning.jpg",
+  date: "27 feb 2026",
+  title: "How Personalized Learning Paths Improve Placement Outcomes",
+  description: "Discover how personalized learning paths, adaptive education, ...",
+  tags: ["education", "career growth"],
+  link: "/blogs/personalized-learning"
+}
+
 
 ];
 
