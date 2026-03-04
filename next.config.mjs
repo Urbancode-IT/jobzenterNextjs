@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: true,
-  trailingSlash: false, // Ensure URLs do not end with a slash
 
   async redirects() {
     return [
-
       // 1️⃣ Force www → non-www
       {
         source: "/:path*",
@@ -14,36 +12,20 @@ const nextConfig = {
         permanent: true,
       },
 
-      // 2️⃣ Remove index.html
-      {
-        source: "/:path*/index.html",
-        destination: "/:path*",
-        permanent: true,
-      },
-
-      // 3️⃣ Specific HTML page redirects (VERY IMPORTANT)
+      // 2️⃣ SPECIFIC MAPPINGS (Must be ABOVE generic rules)
+      { source: "/terms.html", destination: "/terms-conditions", permanent: true },
+      { source: "/privacy-policy.html", destination: "/privacy-policy", permanent: true },
       { source: "/about.html", destination: "/aboutus", permanent: true },
       { source: "/contact.html", destination: "/reach-us", permanent: true },
-      { source: "/service.html", destination: "/courses", permanent: true },
-      { source: "/courses.html", destination: "/courses", permanent: true },
-
-      { source: "/privacy-policy.html", destination: "/privacy-policy", permanent: true },
-      { source: "/terms.html", destination: "/terms-conditions", permanent: true },
-      { source: "/disclaimer.html", destination: "/disclaimer", permanent: true },
-
-      { source: "/blogjobz/index.html", destination: "/blogs", permanent: true },
-
       { source: "/bt/resumebuild.html", destination: "/career-lab/resume-building", permanent: true },
       { source: "/bt/interviewprep.html", destination: "/career-lab/interview-preparation", permanent: true },
-      { source: "/resumebuild.html", destination: "/career-lab/resume-building", permanent: true },
 
-      // 4️⃣ Generic .html cleanup (MUST BE LAST)
+      // 3️⃣ GENERIC CLEANUP (Must be LAST)
       {
         source: "/:path*.html",
         destination: "/:path*",
         permanent: true,
       },
-
     ];
   },
 };
