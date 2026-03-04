@@ -53,7 +53,12 @@ export default function RootLayout({ children }) {
           href="/logo.png"
           type="image/png"
         />
-
+  <link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Jobzenter Blog RSS"
+  href="/rss.xml"
+/>
         {/* Google Analytics */}
         <Script
           async
