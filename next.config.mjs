@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: true,
+  trailingSlash: false, // Ensure URLs do not end with a slash
 
   async redirects() {
     return [
