@@ -27,6 +27,7 @@ const Navbar = () => {
       ],
     },
     { label: "Tech Blogs", path: "/blogs", hasDropdown: false },
+    { label: "Study Abroad", path: "/study-abroad", hasDropdown: false },
     { label: "Reach Us", path: "/reach-us", hasDropdown: false },
   ];
 

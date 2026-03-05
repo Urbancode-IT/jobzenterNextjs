@@ -35,15 +35,17 @@ const AboutSection = () => {
                 src="/place1.jpg"
                 alt="Team Meeting"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="about-img"
               />
             </div>
 
             <div className="about-img-container">
               <Image
-                src="/place2.webp"
+                src="/Study-Abroad/Container.png"
                 alt="Mentor Teaching"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="about-img"
               />
             </div>

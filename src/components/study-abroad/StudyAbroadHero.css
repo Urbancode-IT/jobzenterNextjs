@@ -1,0 +1,243 @@
+.study-abroad-hero {
+  padding: 80px 0;
+  background: linear-gradient(
+    180deg,
+    #fffbe6 0%,
+    #fff3c9 30%,
+    #fff7dd 60%,
+    #ffffff 100%
+  );
+  font-family: "Inter", sans-serif;
+}
+
+.study-abroad-hero-title {
+  font-weight: 700;
+  font-size: 40px;
+  color: #2b2b2b;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.study-abroad-hero-highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.study-abroad-hero-highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 100%;
+  height: 6px;
+  background: #fdf001;
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.study-abroad-hero-subtext {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4f4f4f;
+  max-width: 520px;
+  margin-bottom: 24px;
+}
+
+.study-abroad-trusted {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.study-abroad-avatars {
+  display: flex;
+}
+
+.study-abroad-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  margin-left: -10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.study-abroad-avatar:first-child {
+  margin-left: 0;
+}
+
+.study-abroad-plus2k {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 200, 180, 0.6);
+  color: #333;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.study-abroad-trusted-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.study-abroad-hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.study-abroad-hero-img-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.study-abroad-hero-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.study-abroad-floating-card {
+  position: absolute;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.study-abroad-card-visa {
+  top: 16px;
+  right: 16px;
+  padding: 10px 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 140px;
+}
+
+.study-abroad-card-visa-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.study-abroad-card-visa-inner span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+.study-abroad-card-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.study-abroad-card-icon-green {
+  color: #22c55e;
+}
+
+.study-abroad-card-icon-yellow {
+  color: #fdf001;
+  font-size: 20px;
+}
+
+.study-abroad-card-visa-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #22c55e;
+  opacity: 0.5;
+  border-radius: 1px;
+  margin-top: 2px;
+}
+
+.study-abroad-card-rate {
+  bottom: 24px;
+  left: 16px;
+  padding: 12px 14px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 160px;
+}
+
+.study-abroad-card-rate-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.study-abroad-card-rate-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.study-abroad-card-rate-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2b2b2b;
+}
+
+@media (max-width: 991.98px) {
+  .study-abroad-hero-right {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .study-abroad-hero {
+    padding: 48px 0 60px;
+  }
+
+  .study-abroad-hero-title {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .study-abroad-hero-highlight::after {
+    height: 5px;
+    bottom: 2px;
+  }
+
+  .study-abroad-hero-subtext {
+    font-size: 14px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .study-abroad-trusted {
+    justify-content: center;
+  }
+
+  .study-abroad-card-rate-value {
+    font-size: 14px;
+  }
+
+  .study-abroad-floating-card {
+    padding: 8px 12px;
+  }
+
+  .study-abroad-card-visa .study-abroad-card-visa-inner span {
+    font-size: 13px;
+  }
+
+  .study-abroad-card-rate-label {
+    font-size: 11px;
+  }
+}

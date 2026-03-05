@@ -12,6 +12,7 @@ export default function sitemap() {
     "/career-lab/interview-preparation",
     "/career-lab/resume-building",
     "/blogs",
+    "/study-abroad",
     "/career-lab/mock-interview"
   ];
 

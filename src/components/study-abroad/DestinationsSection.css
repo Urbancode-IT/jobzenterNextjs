@@ -1,0 +1,129 @@
+.study-abroad-destinations {
+  background: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+.study-abroad-section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.study-abroad-section-subtitle {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.study-abroad-destination-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease;
+}
+
+.study-abroad-destination-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.study-abroad-destination-img-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f5f5f5;
+  border-radius: 12px 12px 0 0;
+}
+
+.study-abroad-destination-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.study-abroad-destination-content {
+  background: #fff;
+  padding: 20px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.study-abroad-destination-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin: 0;
+}
+
+.study-abroad-destination-desc {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.study-abroad-destination-universities-pill {
+  display: inline-block;
+  font-size: 13px;
+  color: #666;
+  background: #e8e8e8;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.study-abroad-destination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: #000;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 20px;
+  border: 2px solid #fdf001;
+  border-radius: 8px;
+  margin-top: auto;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.study-abroad-destination-btn:focus {
+  outline: none;
+}
+
+.study-abroad-destination-btn:hover {
+  background: #fdf001;
+  color: #000;
+  border-color: #fdf001;
+}
+
+.study-abroad-destination-btn i {
+  font-size: 14px;
+}
+
+@media (max-width: 576px) {
+  .study-abroad-section-title {
+    font-size: 26px;
+  }
+
+  .study-abroad-section-subtitle {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+}
