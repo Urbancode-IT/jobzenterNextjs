@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
+import { sendForm } from '../../lib/emailjsClient';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./style.css";
 
@@ -52,13 +52,7 @@ const ReachUs = () => {
 
     if (!validate()) return;
 
-    emailjs
-      .sendForm(
-        "service_0wkmlio",
-        "template_x4qt8gf",
-        formRef.current,
-        "Hc5Ps23TXZCn7mO0B"
-      )
+    sendForm(formRef.current)
       .then(
         () => {
           setSuccessMessage("Your message has been sent successfully!");
@@ -156,6 +150,14 @@ const ReachUs = () => {
           {/* Right Side: Contact Form */}
           <div className="contact-form">
             <form ref={formRef} onSubmit={handleSubmit}>
+              {/* Hidden fields to match EmailJS template variables */}
+              <input type="hidden" name="name" value={`${form.firstName} ${form.lastName}`.trim()} />
+              <input type="hidden" name="course" value="" />
+              <input type="hidden" name="pincode" value="" />
+              <input type="hidden" name="mode" value="" />
+              <input type="hidden" name="country" value="" />
+              <input type="hidden" name="education" value="" />
+              <input type="hidden" name="via" value="ReachUs" />
 
               {globalError && (
                 <p style={{ color: "red", marginBottom: "20px" }}>{globalError}</p>

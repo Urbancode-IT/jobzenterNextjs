@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import emailjs from "@emailjs/browser";
+import { sendEmail } from '../../lib/emailjsClient';
 import './chat.css';
 
 const courses = [
@@ -190,24 +190,26 @@ function Chatbot() {
         setSending(true);
         setError('');
 
-        // Send enquiry via EmailJS
+        // Send enquiry via EmailJS - include all template fields
         const enquiryData = {
-          name: name.trim(),
-          email: email.trim(),
-          course: course,
-          phone: formattedPhone,
+          name: name.trim() || '',
+          email: email.trim() || '',
+          phone: formattedPhone || '',
+          course: course || '',
+          pincode: '',
+          message: '',
+          mode: '',
+          country: '',
+          education: '',
+          via: 'Chatbot',
         };
 
         try {
-          const res = await emailjs.send(
-            "service_mcrexl2",     // Replace with actual service ID
-            "template_oog26vp",    // Replace with actual template ID
-            enquiryData,
-            "1OwKDaDRhiHaTIMt_"      // Replace with actual public key
-          );
-          console.log("Email Sent:", res);
+          // Use the centralized sendEmail wrapper which reads credentials from env vars
+          const res = await sendEmail(enquiryData);
+          console.log('Email Sent:', res);
         } catch (sendErr) {
-          console.error("EmailJS Error:", sendErr);
+          console.error('EmailJS Error:', sendErr);
           throw sendErr; // rethrow to be handled by outer catch
         }
       }

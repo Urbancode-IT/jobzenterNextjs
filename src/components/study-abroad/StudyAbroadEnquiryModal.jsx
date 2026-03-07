@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser";
+import { sendEmail } from '../../lib/emailjsClient';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./StudyAbroadEnquiryModal.css";
 
@@ -64,22 +64,19 @@ const StudyAbroadEnquiryModal = ({ isOpen, onClose, selectedCountry }) => {
     ].join("\n");
 
     const templateParams = {
-      name: formData.name,
-      from_name: formData.name,
-      email: formData.email,
-      reply_to: formData.email,
-      phone: formData.phone,
-      message: fullMessage,
-      subject: "Study Abroad Enquiry",
+      name: formData.name || '',
+      email: formData.email || '',
+      phone: formData.phone || '',
+      course: '',
+      pincode: '',
+      message: fullMessage || '',
+      mode: '',
+      country: formData.country || '',
+      education: formData.educationLevel || '',
+      via: 'StudyAbroadEnquiry',
     };
 
-    emailjs
-      .send(
-        "service_0wkmlio",
-        "template_x4qt8gf",
-        templateParams,
-        "Hc5Ps23TXZCn7mO0B"
-      )
+    sendEmail(templateParams)
       .then(
         () => {
           setStatus({

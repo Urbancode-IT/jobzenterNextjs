@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 import "./Register.css";
-import emailjs from "@emailjs/browser";
+import { sendEmail } from '../../../../lib/emailjsClient';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -37,18 +37,20 @@ const Register = () => {
       return;
     }
 
-    // ✅ Your actual EmailJS credentials
-    const serviceID = "service_0wkmlio";
-    const templateID = "template_x4qt8gf";
-    const publicKey = "Hc5Ps23TXZCn7mO0B";
-
     const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      mobile: formData.mobile,
+      name: formData.name || '',
+      email: formData.email || '',
+      phone: formData.mobile || '',
+      course: '',
+      pincode: '',
+      message: '',
+      mode: '',
+      country: '',
+      education: '',
+      via: 'MockInterviewRegister',
     };
 
-    emailjs.send(serviceID, templateID, templateParams, publicKey)
+    sendEmail(templateParams)
       .then(() => {
         setSuccess("✅ Registration successful! Email sent to admin.");
         setError("");

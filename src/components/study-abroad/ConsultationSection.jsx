@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
+import { sendEmail } from '../../lib/emailjsClient';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ConsultationSection.css";
 
@@ -60,22 +60,19 @@ const ConsultationSection = () => {
     ].join("\n");
 
     const templateParams = {
-      name: formData.name,
-      from_name: formData.name,
-      email: formData.email,
-      reply_to: formData.email,
-      phone: formData.phone,
-      message: fullMessage,
-      subject: "Study Abroad - Free Consultation",
+      name: formData.name || '',
+      email: formData.email || '',
+      phone: formData.phone || '',
+      course: '',
+      pincode: '',
+      message: fullMessage || '',
+      mode: '',
+      country: formData.preferredCountry || '',
+      education: formData.educationLevel || '',
+      via: 'Consultation Section Registration',
     };
 
-    emailjs
-      .send(
-        "service_0wkmlio",
-        "template_x4qt8gf",
-        templateParams,
-        "Hc5Ps23TXZCn7mO0B"
-      )
+    sendEmail(templateParams)
       .then(
         () => {
           setStatus({

@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser";
+import { sendForm } from '../../lib/emailjsClient';
 import "./EnquiryForm.css";
 
 const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
@@ -11,7 +11,7 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
     name: "",
     email: "",
     phone: "",
-    pin: "",
+    pincode: "",
     course: courseName || "",
     message: "",
     mode: "",
@@ -51,13 +51,7 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
     setLoading(true);
     setStatus({ type: "loading", message: "Sending your enquiry..." });
 
-    emailjs
-      .sendForm(
-        "service_0wkmlio",
-        "template_x4qt8gf",
-        formRef.current,
-        "Hc5Ps23TXZCn7mO0B"
-      )
+    sendForm(formRef.current)
       .then(
         () => {
           setStatus({
@@ -70,7 +64,7 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
             name: "",
             email: "",
             phone: "",
-            pin: "",
+            pincode: "",
             course: courseName || "",
             message: "",
             mode: "",
@@ -113,6 +107,9 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
             </div>
 
             <form ref={formRef} onSubmit={handleSubmit} className="container">
+              {/* include hidden template fields required by EmailJS template */}
+              <input type="hidden" name="via" value="Course page Enquiry" />
+
               <div className="row g-3">
                 {/* Inputs */}
                 <div className="col-md-6">
@@ -155,9 +152,9 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
                   <input
                     type="text"
                     className="form-control"
-                    name="pin"
+                    name="pincode"
                     placeholder="Enter your pin code"
-                    value={formData.pin}
+                    value={formData.pincode}
                     onChange={handleChange}
                   />
                 </div>

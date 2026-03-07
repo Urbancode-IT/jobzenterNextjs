@@ -88,7 +88,7 @@ const WhyChooseUs = () => {
       </div>
 
       {/* SUBSCRIBE SECTION */}
-      <div className="subscribe-section mt-5">
+      {/* <div className="subscribe-section mt-5">
         <div className="subscribe-box mx-auto">
 
           <h3 className="subscribe-title">Stay Updated</h3>
@@ -106,7 +106,7 @@ const WhyChooseUs = () => {
           </div>
 
         </div>
-      </div>
+      </div> */}
 
     </section>
   );
