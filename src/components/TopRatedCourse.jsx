@@ -187,19 +187,20 @@ const TopRatedCourses = () => {
                     >
                       Download Brochure
                     </button>
-                    {selectedCourse && (
-                      <EnquiryFormModal
-                        isOpen={!!selectedCourse}
-                        onClose={() => setSelectedCourse(null)}
-                        courseName={selectedCourse.title}
-                      />
-                    )}
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {selectedCourse && (
+          <EnquiryFormModal
+            isOpen={!!selectedCourse}
+            onClose={() => setSelectedCourse(null)}
+            courseName={selectedCourse.title}
+          />
+        )}
 
         <div className="top-rated-controls d-flex align-items-center justify-content-center">
           <button
