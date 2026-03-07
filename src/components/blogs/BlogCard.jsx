@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 
-const BlogCard = ({ image, date, title, description, tags,link }) => {
+const BlogCard = ({ image, date, title, description, tags, link }) => {
   return (
     <a href={link} style={{ textDecoration: "none", color: "inherit" }}>
       <div className="card border-0 shadow-sm h-100 d-flex" style={{ cursor: "pointer" }}>
@@ -21,7 +21,7 @@ const BlogCard = ({ image, date, title, description, tags,link }) => {
           <h5 className="card-title mt-2">{title}</h5>
           <p className="card-text text-secondary">{description}</p>
           <div className="d-flex flex-wrap gap-2">
-            {tags.map((tag, i) => (
+            {tags && tags.map((tag, i) => (
               <span key={i} className="badge bg-dark">{tag}</span>
             ))}
           </div>

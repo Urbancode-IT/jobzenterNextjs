@@ -6,6 +6,7 @@ import GetStarted from "@/components/GetStarted";
 import HeroSection from "@/components/HeroSection";
 import StudentReviews from "@/components/StudentReviews";
 import TopRatedCourses from "@/components/TopRatedCourse";
+import SpecialBanner from "@/components/SpecialBanner";
 import Script from "next/script";
 
 // ---------------- SEO Metadata ----------------
@@ -71,6 +72,7 @@ export default function Home() {
       />
       <HeroSection />
       <Carousel />
+      <SpecialBanner />
       <GetStarted />
       <AboutSection />
       <TopRatedCourses />

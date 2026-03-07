@@ -15,10 +15,7 @@ const ChatbotWidget = () => {
     const toggleChat = () => chatbotContainer.classList.toggle("active");
     const closeChat = () => chatbotContainer.classList.remove("active");
 
-    chatbotTrigger.addEventListener("click", toggleChat);
-    chatbotClose.addEventListener("click", closeChat);
-
-    document.addEventListener("click", (event) => {
+    const handleOutsideClick = (event) => {
       if (
         chatbotContainer.classList.contains("active") &&
         !chatbotContainer.contains(event.target) &&
@@ -26,11 +23,16 @@ const ChatbotWidget = () => {
       ) {
         closeChat();
       }
-    });
+    };
+
+    chatbotTrigger.addEventListener("click", toggleChat);
+    chatbotClose.addEventListener("click", closeChat);
+    document.addEventListener("click", handleOutsideClick);
 
     return () => {
       chatbotTrigger.removeEventListener("click", toggleChat);
       chatbotClose.removeEventListener("click", closeChat);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 
