@@ -5,7 +5,7 @@ If the "Get Free Consultation" or other forms show success but **no email arrive
 ## 1. Email Service – "To" address
 
 - Go to **Email Services** → open **service_0wkmlio** (or the service your forms use).
-- Ensure **To Email** is set to **your** email (e.g. `admin@jobzenter.com` or the inbox where you want leads).
+- Ensure **To Email** is set to **your** email (e.g. `admin@jobzenter.in` or the inbox where you want leads).
 - If it’s wrong or empty, update it and save.
 
 ## 2. Email service connection

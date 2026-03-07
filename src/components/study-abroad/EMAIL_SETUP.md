@@ -6,7 +6,7 @@ The Study Abroad **Get Free Consultation** and **Enquire Now** forms use **Email
 
 - Go to [https://dashboard.emailjs.com/](https://dashboard.emailjs.com/)
 - Open **Email Services** → click service **`service_0wkmlio`**
-- Set **To Email** to the address where you want to receive leads (e.g. `admin@jobzenter.com` or your Gmail).
+- Set **To Email** to the address where you want to receive leads (e.g. `admin@jobzenter.in` or your Gmail).
 - Save. Without this, emails have nowhere to be delivered.
 
 ## 2. Template variables (what the forms send)

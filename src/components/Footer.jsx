@@ -64,8 +64,8 @@ const Footer = () => {
   const contactDetails = [
     {
       icon: Mail,
-      label: "admin@jobzenter.com",
-      href: "mailto:admin@jobzenter.com",
+      label: "admin@jobzenter.in",
+      href: "mailto:admin@jobzenter.in",
     },
     {
       icon: Phone,
