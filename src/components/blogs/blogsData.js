@@ -89,8 +89,16 @@ export const recentBlogs = [
   description: "Discover how personalized learning paths, adaptive education, ...",
   tags: ["education", "career growth"],
   link: "/blogs/personalized-learning"
+},
+{
+  id: 11,
+  image: "/blogs/fobo.webp",
+  date: "12 mar 2026",
+  title: "Is FOBO (Fear of Becoming Obsolete) Fueling the Upskilling Race in 2026?",
+  description: "Explore how FOBO is pushing professionals to upskill faster,...",
+  tags: ["career growth", "future skills"],
+  link: "/blogs/fobo-upskilling-race"
 }
-
 
 ];
 
