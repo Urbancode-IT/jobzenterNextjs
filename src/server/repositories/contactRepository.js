@@ -45,7 +45,7 @@ export async function createContactMessage({
     // Connection / auth errors
     if (err.code === "ECONNREFUSED" || err.code === "28P01" || (err.message && /password|connect/i.test(err.message))) {
       const e = new Error(
-        "Database connection failed. Check PostgreSQL is running and .env.local has DB_HOST, DB_PORT, DB_PASSWORD, DB_NAME."
+        "Database connection failed. Check PostgreSQL is running and .env.local has DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME."
       );
       e.statusCode = 503;
       throw e;

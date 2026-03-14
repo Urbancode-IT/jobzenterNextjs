@@ -1,15 +1,27 @@
 /**
  * Database configuration from environment variables.
- * Used by the connection pool in lib/db/pool.js.
- *
- * Set these in .env.local (see .env.local.example).
+ * For local: .env.local. For deploy (e.g. Render): set DB_* or DATABASE_URL in the host's Environment.
+ * Cloud Postgres (Render, etc.) often requires SSL – we enable it when not connecting to localhost.
  */
 function getDbConfig() {
+  const connectionString = process.env.DATABASE_URL;
+
+  if (connectionString) {
+    return {
+      connectionString,
+      ssl: process.env.DB_SSL === "false" ? false : { rejectUnauthorized: false },
+      max: 20,
+      idleTimeoutMillis: 30000,
+      connectionTimeoutMillis: 10000,
+    };
+  }
+
   const host = process.env.DB_HOST ?? "localhost";
-  const port = parseInt(process.env.DB_PORT ?? "5434", 10);
+  const port = parseInt(process.env.DB_PORT ?? "5432", 10);
   const user = process.env.DB_USER ?? "postgres";
   const password = process.env.DB_PASSWORD ?? "";
   const database = process.env.DB_NAME ?? "Jobzenter";
+  const isLocalhost = host === "localhost" || host === "127.0.0.1";
 
   return {
     host,
@@ -17,10 +29,10 @@ function getDbConfig() {
     user,
     password,
     database,
-    // Optional: connection pool settings
+    ssl: isLocalhost || process.env.DB_SSL === "false" ? false : { rejectUnauthorized: false },
     max: 20,
     idleTimeoutMillis: 30000,
-    connectionTimeoutMillis: 5000,
+    connectionTimeoutMillis: 10000,
   };
 }
 

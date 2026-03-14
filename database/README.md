@@ -27,6 +27,13 @@
    - Enquiries: [http://localhost:3000/api/enquiries](http://localhost:3000/api/enquiries) (GET list, POST create)  
    - Contact: `POST /api/contact` – Reach Us and Study Abroad forms submit here (store in DB + email admin + confirmation to student).
 
+### Deploy (e.g. Render)
+
+- Set **Environment Variables** in your host (Render → Environment). Do not rely on `.env.local` (it is not deployed).
+- **Option A – DATABASE_URL:** If your host gives a Postgres URL (e.g. Render’s “Internal Database URL”), set `DATABASE_URL` only. SSL is enabled automatically.
+- **Option B – DB_*:** Set `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`. For cloud Postgres (non-localhost), SSL is enabled automatically. Use the host’s **internal** hostname and port (e.g. Render Postgres: port `5432`, host like `dpg-xxx.oregon-postgres.render.com`).
+- Run the same migrations on the deployed database (e.g. via Render Shell or a one-off job).
+
 ### Testing that mail is triggered
 
 1. **Test endpoint (no form submit)**  
