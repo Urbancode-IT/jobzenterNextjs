@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { sendEmail } from '../../lib/emailjsClient';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./StudyAbroadEnquiryModal.css";
 
@@ -47,7 +46,7 @@ const StudyAbroadEnquiryModal = ({ isOpen, onClose, selectedCountry }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
@@ -63,46 +62,53 @@ const StudyAbroadEnquiryModal = ({ isOpen, onClose, selectedCountry }) => {
       `Education Level: ${formData.educationLevel || "-"}`,
     ].join("\n");
 
-    const templateParams = {
-      name: formData.name || '',
-      email: formData.email || '',
-      phone: formData.phone || '',
-      course: '',
-      pincode: '',
-      message: fullMessage || '',
-      mode: '',
-      country: formData.country || '',
-      education: formData.educationLevel || '',
-      via: 'StudyAbroadEnquiry',
-    };
-
-    sendEmail(templateParams)
-      .then(
-        () => {
-          setStatus({
-            type: "success",
-            message: "Enquiry submitted successfully! We'll contact you soon.",
-          });
-          setFormData({
-            name: "",
-            phone: "",
-            country: "",
-            educationLevel: "",
-            email: "",
-          });
-          setTimeout(() => {
-            setStatus({ type: "", message: "" });
-            onClose();
-          }, 1500);
-        },
-        () => {
-          setStatus({
-            type: "error",
-            message: "Something went wrong. Please try again.",
-          });
-        }
-      )
-      .finally(() => setLoading(false));
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: formData.name,
+          last_name: "",
+          email: formData.email,
+          phone: formData.phone,
+          subject: "Study Abroad Enquiry",
+          message: fullMessage,
+          source: "StudyAbroadEnquiry",
+          country: formData.country || null,
+          education_level: formData.educationLevel || null,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setStatus({
+          type: "error",
+          message: data.error || data.errors?.join(" ") || "Something went wrong. Please try again.",
+        });
+        return;
+      }
+      setStatus({
+        type: "success",
+        message: "Enquiry submitted successfully! We'll contact you soon.",
+      });
+      setFormData({
+        name: "",
+        phone: "",
+        country: "",
+        educationLevel: "",
+        email: "",
+      });
+      setTimeout(() => {
+        setStatus({ type: "", message: "" });
+        onClose();
+      }, 1500);
+    } catch {
+      setStatus({
+        type: "error",
+        message: "Something went wrong. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const countries = [

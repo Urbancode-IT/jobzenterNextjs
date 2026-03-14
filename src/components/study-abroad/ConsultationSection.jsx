@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { sendEmail } from '../../lib/emailjsClient';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ConsultationSection.css";
 
@@ -39,7 +38,7 @@ const ConsultationSection = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
@@ -47,58 +46,63 @@ const ConsultationSection = () => {
     setStatus({ type: "loading", message: "Sending..." });
 
     const fullMessage = [
-      `Study Abroad - Free Consultation`,
+      "Study Abroad - Free Consultation",
       `Name: ${formData.name}`,
       `Email: ${formData.email}`,
       `Phone: ${formData.phone}`,
       `Preferred Country: ${formData.preferredCountry || "-"}`,
       `Education Level: ${formData.educationLevel || "-"}`,
       `Preferred Course: ${formData.preferredCourse || "-"}`,
-      ``,
-      `Message / Query:`,
+      "",
+      "Message / Query:",
       formData.message || "-",
     ].join("\n");
 
-    const templateParams = {
-      name: formData.name || '',
-      email: formData.email || '',
-      phone: formData.phone || '',
-      course: '',
-      pincode: '',
-      message: fullMessage || '',
-      mode: '',
-      country: formData.preferredCountry || '',
-      education: formData.educationLevel || '',
-      via: 'Consultation Section Registration',
-    };
-
-    sendEmail(templateParams)
-      .then(
-        () => {
-          setStatus({
-            type: "success",
-            message:
-              "Thank you! Our study abroad experts will contact you within 24 hours.",
-          });
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            preferredCountry: "",
-            educationLevel: "",
-            preferredCourse: "",
-            message: "",
-          });
-        },
-        () => {
-          setStatus({
-            type: "error",
-            message:
-              "Could not send. Check your connection or try again. If this continues, email us directly.",
-          });
-        }
-      )
-      .finally(() => setLoading(false));
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: formData.name,
+          last_name: "",
+          email: formData.email,
+          phone: formData.phone,
+          subject: "Study Abroad - Free Consultation",
+          message: fullMessage,
+          source: "consultation",
+          country: formData.preferredCountry || null,
+          education_level: formData.educationLevel || null,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setStatus({
+          type: "error",
+          message: data.error || data.errors?.join(" ") || "Could not send. Try again or email us directly.",
+        });
+        return;
+      }
+      setStatus({
+        type: "success",
+        message: "Thank you! Our study abroad experts will contact you within 24 hours.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        preferredCountry: "",
+        educationLevel: "",
+        preferredCourse: "",
+        message: "",
+      });
+    } catch {
+      setStatus({
+        type: "error",
+        message: "Could not send. Check your connection or try again. If this continues, email us directly.",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const bullets = [

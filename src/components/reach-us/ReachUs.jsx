@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { sendForm } from '../../lib/emailjsClient';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./style.css";
 
@@ -47,28 +46,50 @@ const ReachUs = () => {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!validate()) return;
 
-    sendForm(formRef.current)
-      .then(
-        () => {
-          setSuccessMessage("Your message has been sent successfully!");
-          setForm({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            subject: "",
-            message: "",
-          });
-        },
-        () => {
-          setGlobalError("Something went wrong. Try again later.");
-        }
-      );
+    setGlobalError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: form.firstName,
+          last_name: form.lastName,
+          email: form.email,
+          phone: form.phone,
+          subject: form.subject,
+          message: form.message,
+          source: "reach-us",
+        }),
+      });
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        setGlobalError(res.status === 500 ? "Server error. Check terminal for details and ensure database migration 002_contact_messages.sql is run in pgAdmin." : "Something went wrong. Try again later.");
+        return;
+      }
+      if (!res.ok) {
+        const msg = data.error || data.errors?.join(" ") || "Something went wrong. Try again later.";
+        const hint = data.hint ? ` — ${data.hint}` : "";
+        setGlobalError(msg + hint);
+        return;
+      }
+      setSuccessMessage("Your message has been sent successfully!");
+      setForm({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch {
+      setGlobalError("Network error. Check that the app is running and try again.");
+    }
   };
 
   return (
@@ -150,15 +171,6 @@ const ReachUs = () => {
           {/* Right Side: Contact Form */}
           <div className="contact-form">
             <form ref={formRef} onSubmit={handleSubmit}>
-              {/* Hidden fields to match EmailJS template variables */}
-              <input type="hidden" name="name" value={`${form.firstName} ${form.lastName}`.trim()} />
-              <input type="hidden" name="course" value="" />
-              <input type="hidden" name="pincode" value="" />
-              <input type="hidden" name="mode" value="" />
-              <input type="hidden" name="country" value="" />
-              <input type="hidden" name="education" value="" />
-              <input type="hidden" name="via" value="ReachUs" />
-
               {globalError && (
                 <p style={{ color: "red", marginBottom: "20px" }}>{globalError}</p>
               )}
