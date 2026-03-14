@@ -12,9 +12,11 @@ let pool = null;
 export function getPool() {
   if (pool === null) {
     const config = getDbConfig();
-    if (!config.password) {
+    const hasConnectionString = Boolean(config.connectionString);
+    const hasPassword = Boolean(config.password);
+    if (!hasConnectionString && !hasPassword) {
       throw new Error(
-        "DB_PASSWORD is not set. Add DB_* variables to .env.local (see .env.local.example)."
+        "Database not configured. Set DATABASE_URL or DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME in your host Environment (e.g. Render → Environment)."
       );
     }
     pool = new Pool(config);

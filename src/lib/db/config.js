@@ -17,7 +17,7 @@ function getDbConfig() {
   }
 
   const host = process.env.DB_HOST ?? "localhost";
-  const port = parseInt(process.env.DB_PORT ?? "5432", 10);
+  const port = parseInt(process.env.DB_PORT ?? "5434", 10);
   const user = process.env.DB_USER ?? "postgres";
   const password = process.env.DB_PASSWORD ?? "";
   const database = process.env.DB_NAME ?? "Jobzenter";
