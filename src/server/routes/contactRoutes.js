@@ -36,10 +36,10 @@ export async function handlePostContact(request) {
 
     const payload = errors ? { error: message, errors } : { error: message };
     if (msg.includes("Contact table not set up") || msg.includes("contact_messages") || msg.includes("does not exist")) {
-      payload.hint = "In pgAdmin: open database Jobzenter → Query Tool → run database/migrations/002_contact_messages.sql";
+      payload.hint = "In pgAdmin: open database (Jobzenter locally, jobzenter_db on Render) → Query Tool → run database/migrations/002_contact_messages.sql";
     } else if (msg.includes("Database connection failed") || msg.includes("connect") || msg.includes("ECONNREFUSED") || msg.includes("DB_PASSWORD") || msg.includes("authentication")) {
       payload.hint = process.env.NODE_ENV === "production"
-        ? "Set DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME (or DATABASE_URL) in your host's Environment. For Render Postgres use Internal URL and enable SSL."
+        ? "On Vercel: set DATABASE_URL (Render External URL or Connection Pooler URL). Enable SSL (we add sslmode=require). Prefer Render's pooler URL to avoid connection limits."
         : "Copy .env.local.example to .env.local and set DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME.";
     } else if (msg.toLowerCase().includes("smtp") || msg.toLowerCase().includes("email")) {
       payload.hint = "Check .env.local: SMTP_HOST, SMTP_USER, SMTP_PASSWORD.";

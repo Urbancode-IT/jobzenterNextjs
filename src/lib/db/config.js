@@ -1,18 +1,26 @@
 /**
  * Database configuration from environment variables.
- * For local: .env.local. For deploy (e.g. Render): set DB_* or DATABASE_URL in the host's Environment.
- * Cloud Postgres (Render, etc.) often requires SSL – we enable it when not connecting to localhost.
+ * For local: .env.local. For deploy (e.g. Vercel): set DATABASE_URL in the host's Environment.
+ * - Vercel + Render: use Render's External URL or (better) Connection Pooler URL to avoid exhausting connections.
+ * - Cloud Postgres (Render, etc.) requires SSL – we enable it and append sslmode=require when not present.
  */
 function getDbConfig() {
-  const connectionString = process.env.DATABASE_URL;
+  let connectionString = process.env.DATABASE_URL;
 
   if (connectionString) {
+    connectionString = connectionString.trim();
+    if (process.env.DB_SSL !== "false" && !connectionString.includes("sslmode=")) {
+      const separator = connectionString.includes("?") ? "&" : "?";
+      connectionString = `${connectionString}${separator}sslmode=require`;
+    }
+    // Serverless (e.g. Vercel) can spawn many instances; keep pool small to avoid exhausting Render connections.
+    const maxConnections = typeof process.env.VERCEL === "string" ? 5 : 20;
     return {
       connectionString,
       ssl: process.env.DB_SSL === "false" ? false : { rejectUnauthorized: false },
-      max: 20,
+      max: maxConnections,
       idleTimeoutMillis: 30000,
-      connectionTimeoutMillis: 10000,
+      connectionTimeoutMillis: 15000,
     };
   }
 

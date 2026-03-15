@@ -1,5 +1,5 @@
 -- Contact form submissions (Reach Us + Study Abroad)
--- Run in pgAdmin on database Jobzenter after 001_initial.sql
+-- Run in pgAdmin: local DB = Jobzenter; Render = jobzenter_db (after 001_initial.sql)
 
 CREATE TABLE IF NOT EXISTS contact_messages (
   id          SERIAL PRIMARY KEY,

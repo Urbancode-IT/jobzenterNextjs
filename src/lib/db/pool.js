@@ -15,9 +15,11 @@ export function getPool() {
     const hasConnectionString = Boolean(config.connectionString);
     const hasPassword = Boolean(config.password);
     if (!hasConnectionString && !hasPassword) {
-      throw new Error(
-        "Database not configured. Set DATABASE_URL or DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME in your host Environment (e.g. Render → Environment)."
-      );
+      const envHint =
+        process.env.NODE_ENV === "production"
+          ? " On Vercel: Project Settings > Environment Variables > add DATABASE_URL for Production, then Redeploy."
+          : " Use .env.local or set DATABASE_URL / DB_* in your host Environment.";
+      throw new Error("Database not configured. Set DATABASE_URL or DB_* variables." + envHint);
     }
     pool = new Pool(config);
   }
