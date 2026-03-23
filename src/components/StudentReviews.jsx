@@ -6,15 +6,15 @@ import "./StudentReviews.css";
 
 const reviews = [
   {
-    name: "Soya",
+    name: "Priyadarshin",
     role: "React Native Developer",
-    text: "At Jobzenter, I worked on a real-time project, which helped me secure a position as a React Native Developer in an MNC. The training was thorough and practical.",
+    text: "Your patience and termination to teach kids ows how passionate you towards teaching. Such a immendable teacher you , I wish you all success...",
     img: "/feed1.png",
   },
   {
-    name: "Priya",
+    name: "Mohamed Haleelulla",
     role: "Fullstack Developer",
-    text: "Jobzenter offers a friendly and practical environment that made learning enjoyable. The hands-on experience was invaluable in preparing me for the real world.",
+    text: "What impressed me most was the placement assistance. The team constantly shared job updates, arranged mock interviews, and helped me tailor my resume.Highly recommend for career changers!",
     img: "/feed2.png",
   },
   {
