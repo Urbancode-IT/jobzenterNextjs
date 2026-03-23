@@ -1,23 +1,34 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ConsultationSection.css";
 
 const ConsultationSection = () => {
   const formRef = useRef(null);
+  const cardRef = useRef(null);
+  const [cardVisible, setCardVisible] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    preferredCountry: "",
-    educationLevel: "",
-    preferredCourse: "",
-    message: "",
+    name: "", email: "", phone: "", preferredCountry: "",
+    educationLevel: "", preferredCourse: "", message: "",
   });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ type: "", message: "" });
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCardVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (cardRef.current) observer.observe(cardRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,8 +42,7 @@ const ConsultationSection = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Full name is required.";
     if (!formData.email.trim()) newErrors.email = "Email is required.";
-    else if (!/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = "Invalid email format.";
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Invalid email format.";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -41,10 +51,8 @@ const ConsultationSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-
     setLoading(true);
     setStatus({ type: "loading", message: "Sending..." });
-
     const fullMessage = [
       "Study Abroad - Free Consultation",
       `Name: ${formData.name}`,
@@ -53,69 +61,58 @@ const ConsultationSection = () => {
       `Preferred Country: ${formData.preferredCountry || "-"}`,
       `Education Level: ${formData.educationLevel || "-"}`,
       `Preferred Course: ${formData.preferredCourse || "-"}`,
-      "",
-      "Message / Query:",
-      formData.message || "-",
+      "", "Message / Query:", formData.message || "-",
     ].join("\n");
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          first_name: formData.name,
-          last_name: "",
-          email: formData.email,
-          phone: formData.phone,
+          first_name: formData.name, last_name: "",
+          email: formData.email, phone: formData.phone,
           subject: "Study Abroad - Free Consultation",
-          message: fullMessage,
-          source: "consultation",
+          message: fullMessage, source: "consultation",
           country: formData.preferredCountry || null,
           education_level: formData.educationLevel || null,
         }),
       });
       const data = await res.json();
       if (!res.ok) {
-        setStatus({
-          type: "error",
-          message: data.error || data.errors?.join(" ") || "Could not send. Try again or email us directly.",
-        });
+        setStatus({ type: "error", message: data.error || data.errors?.join(" ") || "Could not send. Try again." });
         return;
       }
-      setStatus({
-        type: "success",
-        message: "Thank you! Our study abroad experts will contact you within 24 hours.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        preferredCountry: "",
-        educationLevel: "",
-        preferredCourse: "",
-        message: "",
-      });
+      setStatus({ type: "success", message: "Thank you! Our study abroad experts will contact you within 24 hours." });
+      setFormData({ name: "", email: "", phone: "", preferredCountry: "", educationLevel: "", preferredCourse: "", message: "" });
     } catch {
-      setStatus({
-        type: "error",
-        message: "Could not send. Check your connection or try again. If this continues, email us directly.",
-      });
+      setStatus({ type: "error", message: "Could not send. Check your connection or try again." });
     } finally {
       setLoading(false);
     }
   };
 
-  const bullets = [
-    "Profile Evaluation",
-    "University Shortlisting",
-    "Scholarship Assessment",
-  ];
+  const bullets = ["Profile Evaluation", "University Shortlisting", "Scholarship Assessment"];
 
   return (
     <section className="study-abroad-consultation">
       <div className="container">
-        <div className="study-abroad-consultation-card">
-          <div className="study-abroad-consultation-left">
+        <div
+          ref={cardRef}
+          className="study-abroad-consultation-card"
+          style={{
+            opacity: cardVisible ? 1 : 0,
+            transform: cardVisible ? "translateY(0)" : "translateY(50px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
+          }}
+        >
+          {/* Left Side */}
+          <div
+            className="study-abroad-consultation-left"
+            style={{
+              opacity: cardVisible ? 1 : 0,
+              transform: cardVisible ? "translateX(0)" : "translateX(-40px)",
+              transition: "opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s",
+            }}
+          >
             <h2 className="study-abroad-consultation-title">
               Get Your Free Consultation Today
             </h2>
@@ -124,11 +121,18 @@ const ConsultationSection = () => {
               24 hours to discuss your profile and options.
             </p>
             <ul className="study-abroad-consultation-bullets">
-              {bullets.map((item) => (
-                <li key={item}>
+              {bullets.map((item, i) => (
+                <li
+                  key={item}
+                  style={{
+                    opacity: cardVisible ? 1 : 0,
+                    transform: cardVisible ? "translateX(0)" : "translateX(-20px)",
+                    transition: `opacity 0.5s ease ${0.6 + i * 0.15}s, transform 0.5s ease ${0.6 + i * 0.15}s`,
+                  }}
+                >
                   <span className="study-abroad-bullet-check">
                     <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path d="M1 5L4.5 8.5L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M1 5L4.5 8.5L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                   {item}
@@ -136,62 +140,46 @@ const ConsultationSection = () => {
               ))}
             </ul>
           </div>
-          <div className="study-abroad-consultation-form-wrap">
+
+          {/* Right Side - Form */}
+          <div
+            className="study-abroad-consultation-form-wrap"
+            style={{
+              opacity: cardVisible ? 1 : 0,
+              transform: cardVisible ? "translateX(0)" : "translateX(40px)",
+              transition: "opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s",
+            }}
+          >
             <form ref={formRef} onSubmit={handleSubmit}>
               <div className="study-abroad-form-fields">
+
                 <div className="study-abroad-form-group study-abroad-form-group-full">
                   <label className="study-abroad-form-label">Full Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="study-abroad-form-input"
-                    placeholder="John Doe"
-                  />
-                  {errors.name && (
-                    <small className="study-abroad-form-error">{errors.name}</small>
-                  )}
+                  <input type="text" name="name" value={formData.name} onChange={handleChange}
+                    className="study-abroad-form-input" placeholder="John Doe" />
+                  {errors.name && <small className="study-abroad-form-error">{errors.name}</small>}
                 </div>
+
                 <div className="study-abroad-form-row">
                   <div className="study-abroad-form-group">
                     <label className="study-abroad-form-label">Email Address</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="study-abroad-form-input"
-                      placeholder="john@example.com"
-                    />
-                    {errors.email && (
-                      <small className="study-abroad-form-error">{errors.email}</small>
-                    )}
+                    <input type="email" name="email" value={formData.email} onChange={handleChange}
+                      className="study-abroad-form-input" placeholder="john@example.com" />
+                    {errors.email && <small className="study-abroad-form-error">{errors.email}</small>}
                   </div>
                   <div className="study-abroad-form-group">
                     <label className="study-abroad-form-label">Phone Number</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="study-abroad-form-input"
-                      placeholder="+1 (555) 000-0000"
-                    />
-                    {errors.phone && (
-                      <small className="study-abroad-form-error">{errors.phone}</small>
-                    )}
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
+                      className="study-abroad-form-input" placeholder="+1 (555) 000-0000" />
+                    {errors.phone && <small className="study-abroad-form-error">{errors.phone}</small>}
                   </div>
                 </div>
+
                 <div className="study-abroad-form-row">
                   <div className="study-abroad-form-group">
                     <label className="study-abroad-form-label">Preferred Country</label>
-                    <select
-                      name="preferredCountry"
-                      value={formData.preferredCountry}
-                      onChange={handleChange}
-                      className="study-abroad-form-input study-abroad-form-select"
-                    >
+                    <select name="preferredCountry" value={formData.preferredCountry} onChange={handleChange}
+                      className="study-abroad-form-input study-abroad-form-select">
                       <option value="">Select Country</option>
                       <option value="USA">United States</option>
                       <option value="UK">United Kingdom</option>
@@ -205,12 +193,8 @@ const ConsultationSection = () => {
                   </div>
                   <div className="study-abroad-form-group">
                     <label className="study-abroad-form-label">Education Level</label>
-                    <select
-                      name="educationLevel"
-                      value={formData.educationLevel}
-                      onChange={handleChange}
-                      className="study-abroad-form-input study-abroad-form-select"
-                    >
+                    <select name="educationLevel" value={formData.educationLevel} onChange={handleChange}
+                      className="study-abroad-form-input study-abroad-form-select">
                       <option value="">Select Level</option>
                       <option value="Undergraduate">Undergraduate</option>
                       <option value="Postgraduate">Postgraduate</option>
@@ -219,39 +203,29 @@ const ConsultationSection = () => {
                     </select>
                   </div>
                 </div>
+
                 <div className="study-abroad-form-group study-abroad-form-group-full">
                   <label className="study-abroad-form-label">Preferred Course</label>
-                  <input
-                    type="text"
-                    name="preferredCourse"
-                    value={formData.preferredCourse}
-                    onChange={handleChange}
-                    className="study-abroad-form-input"
-                    placeholder="e.g. Computer Science, MBA"
-                  />
+                  <input type="text" name="preferredCourse" value={formData.preferredCourse} onChange={handleChange}
+                    className="study-abroad-form-input" placeholder="e.g. Computer Science, MBA" />
                 </div>
+
                 <div className="study-abroad-form-group study-abroad-form-group-full">
                   <label className="study-abroad-form-label">Message / Query</label>
-                  <textarea
-                    name="user_query"
-                    value={formData.message}
-                    onChange={handleChange}
+                  <textarea name="user_query" value={formData.message} onChange={handleChange}
                     className="study-abroad-form-input study-abroad-form-textarea"
-                    rows={4}
-                    placeholder="Tell us about your requirements..."
-                  />
+                    rows={4} placeholder="Tell us about your requirements..." />
                 </div>
+
               </div>
+
               {status.message && (
                 <p className={`study-abroad-form-status study-abroad-form-status-${status.type}`}>
                   {status.message}
                 </p>
               )}
-              <button
-                type="submit"
-                className="study-abroad-consultation-btn"
-                disabled={loading}
-              >
+
+              <button type="submit" className="study-abroad-consultation-btn" disabled={loading}>
                 {loading ? "Sending..." : "Get Free Consultation"}
               </button>
               <p className="study-abroad-form-privacy">

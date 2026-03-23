@@ -12,7 +12,11 @@ const StudyAbroadHero = () => {
         <div className="row align-items-center">
           <div className="col-lg-6 study-abroad-hero-left">
             <h1 className="study-abroad-hero-title">
-              Start Your <span className="study-abroad-hero-highlight">Global</span> Education Journey Today
+              Start Your{" "}
+              <span className="study-abroad-hero-highlight">
+                <span className="highlight-text">Global</span>
+              </span>{" "}
+              Education Journey Today
             </h1>
             <p className="study-abroad-hero-subtext">
               Unlock a world of opportunities. We help you get admitted to top

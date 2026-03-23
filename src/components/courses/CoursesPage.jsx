@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import "./coursePage.css"; // adjust path based on where you place the CSS
+import "./coursePage.css";
 import courses from "./coursesData";
 import Link from "next/link";
 
 const CoursesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ["All", "Development", "Testing", "Healthcare"];
+  const categories = ["All", "Development", "Testing", "Healthcare", "Database", "CCNA"];
 
   const filteredCourses =
     selectedCategory === "All"
@@ -26,11 +26,12 @@ const CoursesPage = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "320px",
+           filter: "brightness(1.0)",
         }}
       >
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.45)" }}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
         ></div>
         <div className="position-relative">
           <h1 className="display-4 fw-bold mt-5">Courses</h1>
@@ -43,8 +44,9 @@ const CoursesPage = () => {
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`btn m-md-3 btn-cat py-md-2 px-md-4 ${selectedCategory === cat ? "btn-dark" : "btn-outline-dark"
-              }`}
+            className={`btn m-md-3 btn-cat py-md-2 px-md-4 ${
+              selectedCategory === cat ? "btn-dark" : "btn-outline-dark"
+            }`}
             onClick={() => setSelectedCategory(cat)}
           >
             {cat}
@@ -64,7 +66,7 @@ const CoursesPage = () => {
                     src={course.img}
                     className="card-img-top course-image"
                     alt={course.title}
-                    style={{ height:"220px", objectFit: "cover" }}
+                    style={{ height: "220px", objectFit: "cover" }}
                   />
                   <div className="card-body d-flex flex-column">
                     <h5 className="card-title fw-bold">{course.title}</h5>
