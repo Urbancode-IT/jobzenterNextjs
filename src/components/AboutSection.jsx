@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import "./AboutSection.css";
 
 const courses = [
@@ -17,45 +16,34 @@ const AboutSection = () => {
 
           {/* LEFT - COURSE CARDS */}
           <div className="col-lg-6">
-            <h2 className="fw-bold about-heading mb-3">
-              Trusted by thousands, we help careers 
-              grow with <br></br>confidence.
-            </h2>
-
-            <p className="about-text ">
-              At JobZenter, we are trusted by thousands of aspiring professionals who
-              rely on us to shape their future with confidence. Our proven training
-              programs and dedicated placement support have helped students, freshers,
-              and experienced candidates transform their skills, unlock their potential,
-              and secure positions in top MNCs with salaries ranging from 5 LPA to 15 LPA.
-              We believe in empowering every individual with the knowledge, guidance, and
-              industry exposure they need to achieve their career goals and step into the
-              corporate world with certainty and success.
-            </p>
+            <div className="course-cards-grid">
+              {courses.map((course, i) => (
+                <div key={i} className="course-card fade-card" style={{ animationDelay: `${i * 0.15}s` }}>
+                  <div className="course-title">{course.title}</div>
+                  <p className="course-desc">{course.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
               {/* RIGHT - BLOB IMAGE */}
 <div className="col-lg-6 d-flex justify-content-center align-items-center">
   <div className="blob-wrap">
 
-            <div className="about-img-container">
-              <Image
-                src="/place1.jpg"
-                alt="Team Meeting"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="about-img"
-              />
-            </div>
+    <div className="blob-dot dot-1"></div>
+    <div className="blob-dot dot-2"></div>
+    <div className="blob-dot dot-3"></div>
 
-            <div className="about-img-container">
-              <Image
-                src="/Study-Abroad/Container.png"
-                alt="Mentor Teaching"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="about-img"
-              />
-            </div>
+    <div className="blob-img-wrap">
+      <img src="/study-abroad/Place1.jpg" alt="JobZenter Student" className="blob-img" />
+    </div>
+
+    <div className="blob-badge">
+      <span className="blob-badge-icon">🏆</span>
+      <div>
+        <div className="blob-badge-title">92% Placement</div>
+        <div className="blob-badge-sub">Rate This Year</div>
+      </div>
+    </div>
 
   </div>
 </div>
