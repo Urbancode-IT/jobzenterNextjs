@@ -1,5 +1,7 @@
 "use client";
+
 import "./AboutSection.css";
+import Image from "next/image";
 
 const courses = [
   { title: "Full Stack Development", desc: "Full Stack Development is the most in-demand skill in today's tech industry. You'll learn to build complete web applications from frontend to backend, working with real projects that top companies expect from day one." },
