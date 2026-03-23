@@ -34,7 +34,7 @@ const AboutSection = () => {
     <div className="blob-dot dot-3"></div>
 
     <div className="blob-img-wrap">
-      <img src="/study-abroad/Place1.jpg" alt="JobZenter Student" className="blob-img" />
+      <img src="/Place1.jpg" alt="JobZenter Student" className="blob-img" />
     </div>
 
     <div className="blob-badge">
