@@ -18,13 +18,21 @@ const HeroSection = () => {
               Learn, Upskill & <br/>
               <span className="animate-line">
    <span className="highlight-animate">Get placed</span>
-</span>
+   </span>
             </h1>
-
-            <p className="hero-subtext my-3">
-             We help people grow in their career path with confidence. Join our community to access top-notch courses, expert guidance, and job placement support.
-            </p>
-
+{/* ✅ REPLACE your existing hero-quote-block with this */}
+<div className="hero-quote-block fade-up-delay-1">
+  <p className="hero-quote-text">
+    "Every student who walks through our doors carries a dream —
+    we make sure they walk out with the skills, confidence,
+    and offer letter to live it."
+  </p>
+  <div className="hero-impact-points fade-up-delay-2">
+    <Link href="/reach-us" className="impact-chip">✦ Live Expert Classes</Link>
+    <Link href="/reach-us" className="impact-chip">✦ Real Projects</Link>
+    <Link href="/reach-us" className="impact-chip">✦ Placement Support</Link>
+  </div>
+</div>
             <div className="d-flex gap-3 mt-5">
               <Link href="/courses" className="btn hero-btn-primary">
                 Explore courses

@@ -8,16 +8,16 @@ const QA = [
     a: "JobZenter is a professional placement training and career development platform that helps students and job seekers enhance their skills, build strong resumes, and prepare for interviews. Our industry-focused training ensures better job opportunities and faster placements.",
   },
   {
-    q: " What training programs does JobZenter offer?",
-    a: "Any student, graduate, or working professional looking to improve career prospects, switch domains, or upgrade skills can join JobZenter’s training programs.",
+    q: " Do I need any prior coding knowledge to join?",
+    a: "No, prior coding knowledge is not required. Training starts from the basics and gradually moves to advanced concepts, making it suitable even for beginners.",
   },
   {
-    q: "Who can enroll in JobZenter courses?",
-    a: "Yes—flexible batches (weekday/weekend/evening), backup classes, doubt-clearing support, and recordings for online/hybrid sessions ensure you never fall behind.",
+    q: "Will I get real-time project experience during the course?",
+    a: "Yes, students work on real-time projects that simulate actual industry work. This helps in gaining hands-on experience and building a strong portfolio.",
   },
   {
-    q: "Who are the trainers and how is the class conducted?",
-    a: "Industry practitioners lead small cohorts with structured roadmaps, live coding, assignments, code reviews, and interview-style checkpoints. You get personal feedback and a clear weekly progression plan.",
+    q: "What makes JobZenter different from other training institutes?",
+    a: "JobZenter focuses more on practical learning, personal mentoring, and industry-relevant skills rather than just theory, which helps students get placed faster.",
   },
   {
     q: "Does JobZenter offer online or offline classes?",
@@ -109,6 +109,12 @@ export default function FaqSection() {
           </div>
         </div>
       </div>
+      {/* Particles */}
+<div className="faq-particles">
+  {[...Array(12)].map((_, i) => (
+    <div key={i} className={`faq-particle p-${i + 1}`}></div>
+  ))}
+</div>
     </section>
   );
 }
