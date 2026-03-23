@@ -7,6 +7,21 @@
   font-size: 32px;
   font-weight: 600;
   color: #000;
+  text-align: center;
+}
+
+/* Heading animate ஆகும்போது */
+.offer-title.ww-animate {
+  animation: headingGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes headingGlow {
+  0% {
+    text-shadow: none;
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(244, 234, 23, 0.8), 0 0 40px rgba(244, 234, 23, 0.4);
+  }
 }
 
 .offer-card {
@@ -16,6 +31,12 @@
   padding: 25px 18px;
   text-align: center;
   height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 25px rgba(244, 234, 23, 0.4);
 }
 
 .offer-card-icon {
@@ -49,4 +70,22 @@
   font-size: 12px;
   color: #000;
   line-height: 1.5;
+}
+
+/* Animations */
+.ww-slide-down {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.ww-slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.ww-animate {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }

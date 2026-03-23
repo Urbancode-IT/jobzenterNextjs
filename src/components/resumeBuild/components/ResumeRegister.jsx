@@ -1,6 +1,5 @@
 'use client';
-import React, { useState } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
 import "./ResumeRegister.css";
 import { sendEmail } from '../../../lib/emailjsClient';
 
@@ -13,6 +12,30 @@ const Register = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const titleRef = useRef(null);
+  const subtextRef = useRef(null);
+  const cardsRef = useRef([]);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (titleRef.current) observer.observe(titleRef.current);
+    if (subtextRef.current) observer.observe(subtextRef.current);
+    if (formRef.current) observer.observe(formRef.current);
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -65,65 +88,50 @@ const Register = () => {
   return (
     <section className="register-section">
       <div className="register-container">
-        <h2 className="register-title">Register Using The Form</h2>
-        <p className="subtext">
-          It’s easy to register for the bootcamp — just fill out the form and click submit.
-          You’ll be registered for one of the best Java bootcamps in the industry.
+        <h2 ref={titleRef} className="register-title slide-down">
+          Register Using The Form
+        </h2>
+        <p ref={subtextRef} className="subtext slide-down" style={{ transitionDelay: '0.2s' }}>
+          It's easy to register for the bootcamp — just fill out the form and click submit.
+          You'll be registered for one of the best Java bootcamps in the industry.
         </p>
 
         <div className="register-layout">
           {/* Info Cards */}
           <div className="info-card-wrapper">
-            <div className="info-card">
-              <i className="bi bi-cloud-check-fill icon"></i>
-              <p className="info-text">Complete your registration details</p>
-            </div>
-            <div className="info-card">
-              <i className="bi bi-shield-check icon"></i>
-              <p className="info-text">It’s safe with us and will not be used for marketing.</p>
-            </div>
-            <div className="info-card">
-              <i className="bi bi-clock-history icon"></i>
-              <p className="info-text">You will receive a confirmation email in less than 24h.</p>
-            </div>
+            {[
+              { icon: "bi-cloud-check-fill", text: "Complete your registration details" },
+              { icon: "bi-shield-check", text: "It's safe with us and will not be used for marketing." },
+              { icon: "bi-clock-history", text: "You will receive a confirmation email in less than 24h." },
+            ].map((card, i) => (
+              <div
+                key={i}
+                className="info-card slide-left"
+                ref={(el) => (cardsRef.current[i] = el)}
+                style={{ transitionDelay: `${0.2 + i * 0.15}s` }}
+              >
+                <i className={`bi ${card.icon} icon`}></i>
+                <p className="info-text">{card.text}</p>
+              </div>
+            ))}
           </div>
 
           {/* Form */}
-          <form className="register-form" onSubmit={handleSubmit}>
+          <form
+            ref={formRef}
+            className="register-form slide-right"
+            onSubmit={handleSubmit}
+          >
             <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter Name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                name="mobile"
-                placeholder="Mobile No"
-                value={formData.mobile}
-                onChange={handleChange}
-              />
+              <input type="text" name="name" placeholder="Enter Name" value={formData.name} onChange={handleChange} />
+              <input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} />
+              <input type="text" name="mobile" placeholder="Mobile No" value={formData.mobile} onChange={handleChange} />
             </div>
 
             <div className="checkbox-row">
-              <input
-                type="checkbox"
-                id="agree"
-                name="agree"
-                checked={formData.agree}
-                onChange={handleChange}
-              />
+              <input type="checkbox" id="agree" name="agree" checked={formData.agree} onChange={handleChange} />
               <label htmlFor="agree">
-                I’ve read and agree to Jobzenter’s{" "}
+                I've read and agree to Jobzenter's{" "}
                 <a href="#" className="link">Privacy Policy</a> and{" "}
                 <a href="#" className="link">Terms & Conditions</a>.
               </label>
@@ -133,9 +141,7 @@ const Register = () => {
             {success && <p className="success-text">{success}</p>}
 
             <div className="button-container">
-              <button type="submit" className="btn-outline-dark">
-                Register
-              </button>
+              <button type="submit" className="btn-outline-dark">Register</button>
             </div>
           </form>
         </div>
