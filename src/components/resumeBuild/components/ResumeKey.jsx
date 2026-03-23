@@ -1,22 +1,21 @@
 'use client';
+import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import {
-    faFileLines,       // Resume icon
-  faKey,             // Key icon (unchanged)
-  faChartLine,       // ATS Optimization
-  faUserTie,         // Resume Guidance
-  faBookOpen,        // Career Summary
+    faFileLines,
+  faKey,
+  faChartLine,
+  faUserTie,
+  faBookOpen,
   faComments, 
 } from "@fortawesome/free-solid-svg-icons";
-
-import styles from "./ResumeKey.module.css"; // 👈 CSS module import
+import styles from "./ResumeKey.module.css";
 
 const takeaways = [
   {
     icon: faFileLines,
     title: "Resume Structure Mastery",
-    text: "Learn how to organize and format your resume to create a professional and impactful document that catches the recruiter’s attention.",
+    text: "Learn how to organize and format your resume to create a professional and impactful document that catches the recruiter's attention.",
   },
   {
     icon: faKey,
@@ -46,12 +45,36 @@ const takeaways = [
 ];
 
 const ResumeKey = () => {
+  const headingRef = useRef(null);
+  const descRef = useRef(null);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.animate);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (headingRef.current) observer.observe(headingRef.current);
+    if (descRef.current) observer.observe(descRef.current);
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className={styles.section}>
-      <h2 className={styles.title}>Key Takeaways</h2>
-      <p className={styles.description}>
+      <h2 ref={headingRef} className={`${styles.title} ${styles.slideDown}`}>
+        Key Takeaways
+      </h2>
+      <p ref={descRef} className={`${styles.description} ${styles.slideDown}`} style={{ transitionDelay: '0.2s' }}>
         Here are the main topics that will be covered in the Java bootcamp
-        training. You’ll learn everything from Java basics to advanced
+        training. You'll learn everything from Java basics to advanced
         techniques, ensuring you're well-prepared to build real-world
         applications and advance your career.
       </p>
@@ -60,7 +83,10 @@ const ResumeKey = () => {
         <div className="row row-cols-1 row-cols-md-2 g-4">
           {takeaways.map((item, index) => (
             <div className="col" key={index}>
-              <div className={styles.card}>
+              <div
+                className={`${styles.card} ${index % 2 === 0 ? styles.cardLeft : styles.cardRight}`}
+                ref={(el) => (cardRefs.current[index] = el)}
+              >
                 <div className={styles.iconBox}>
                   <div className={styles.icon}>
                     <FontAwesomeIcon icon={item.icon} />

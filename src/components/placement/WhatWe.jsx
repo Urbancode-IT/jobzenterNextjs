@@ -1,9 +1,30 @@
-import React from "react";
+'use client';
+import React, { useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./WhatWe.css";
 
 const WhatWeOffer = () => {
+  const titleRef = useRef(null);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('ww-animate');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    if (titleRef.current) observer.observe(titleRef.current);
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const offerData = [
     {
       icon: "bi-person-badge",
@@ -42,7 +63,7 @@ const WhatWeOffer = () => {
     },
     {
       icon: "bi-headset",
-      title: "Dedicated Placement Support Until You’re Hired",
+      title: "Dedicated Placement Support Until You're Hired",
       text: "Our placement team supports students until they secure the right job."
     }
   ];
@@ -51,20 +72,23 @@ const WhatWeOffer = () => {
     <section className="offer-section">
       <div className="container">
 
-        <h2 className="offer-title">What we offer</h2>
+        <h2 ref={titleRef} className="offer-title ww-slide-down">
+          What we offer
+        </h2>
 
         <div className="row g-4 mt-4">
           {offerData.map((item, index) => (
             <div className="col-lg-3 col-md-6" key={index}>
-              <div className="offer-card">
-
+              <div
+                className={`offer-card ww-slide-up`}
+                ref={(el) => (cardRefs.current[index] = el)}
+                style={{ transitionDelay: `${index * 0.08}s` }}
+              >
                 <div className="offer-card-icon">
                   <i className={`bi ${item.icon}`}></i>
                 </div>
-
                 <h3 className="offer-card-title">{item.title}</h3>
                 <p className="offer-card-text">{item.text}</p>
-
               </div>
             </div>
           ))}

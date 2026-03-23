@@ -107,3 +107,26 @@
     padding: 12px;
   }
 }
+/* Slide Animation */
+.cardLeft {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.cardRight {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+/* Heading Slide Down */
+.slideDown {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
