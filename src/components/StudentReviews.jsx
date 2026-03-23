@@ -6,7 +6,7 @@ import "./StudentReviews.css";
 
 const reviews = [
   {
-    name: "Priyadarshin",
+    name: "Priyadarshini",
     role: "React Native Developer",
     text: "Your patience and termination to teach kids ows how passionate you towards teaching. Such a immendable teacher you , I wish you all success...",
     img: "/feed1.png",
