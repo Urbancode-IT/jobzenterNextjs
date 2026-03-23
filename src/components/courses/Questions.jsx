@@ -12,27 +12,27 @@ const Questions = ({ data }) => {
     const imgRef    = useRef(null);
     const titleRef  = useRef(null);
 
-    const defaultFaqData = [
+const defaultFaqData = [
   {
-    question: "What is Jobzenter?",
-    answer: "Jobzenter is a software training and placement company based in Chennai, focused on providing industry-aligned training and dedicated placement support."
+    question: "What development courses does Jobzenter offer?",
+    answer: "We offer React Native Fullstack, Java Fullstack, MERN Stack, MEAN Stack, and Python Fullstack development courses. Each course includes real-world projects, mentor support, and 100% placement assistance."
   },
   {
-    question: "Who can join Jobzenter?",
-    answer: "Students, freshers, and working professionals who want to upskill and transition into the IT industry can join Jobzenter."
+    question: "Which testing courses are available at Jobzenter?",
+    answer: "We offer Manual Testing, Automation Testing with Selenium, API Testing with Postman, and Performance Testing with JMeter. These courses cover all aspects of software quality assurance from beginner to advanced level."
   },
   {
-    question: "What makes Jobzenter different?",
-    answer: "We focus on real-time projects, industry-aligned curriculum, expert mentorship, and dedicated placement support — ensuring every learner is job-ready."
+    question: "What database courses can I learn at Jobzenter?",
+    answer: "We provide courses in MySQL, MongoDB, PostgreSQL, Oracle SQL, and Business Intelligence. You will learn database design, querying, performance tuning, and real-world data management skills."
   },
   {
-    question: "Do you provide placement assistance?",
-    answer: "Yes. We offer structured placement support including resume building, mock interviews, HR preparation, and direct referrals to our hiring network."
+    question: "What networking and security courses does Jobzenter provide?",
+    answer: "We offer CCNA, CCNP, Network Security, Ethical Hacking, and Cyber Security courses. These are aligned with Cisco certifications and industry standards like CEH and CompTIA Security+."
   },
   {
-    question: "Are classes available online and offline?",
-    answer: "Yes, we offer both online and offline classroom options to suit different learning preferences and schedules."
-  }
+    question: "What healthcare IT courses are available at Jobzenter?",
+    answer: "We offer Medical Billing, Medical Coding, Clinical Research, Hospital Management, and Pharmacy Management courses. These courses prepare you for high-demand healthcare administration and IT roles."
+  },
 ];
 
 

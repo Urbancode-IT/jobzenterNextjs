@@ -37,14 +37,17 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  transition: box-shadow 0.2s ease;
+  border: 2px solid transparent;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
 .study-abroad-service-card:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px rgba(244, 234, 23, 0.35);
+  transform: translateY(-6px) !important;
+  border-color: #f4ea17;
+  background: #fffff5;
 }
 
-/* Icon: top-left, inside light yellow circular background */
 .study-abroad-service-icon-wrap {
   width: 52px;
   height: 52px;
@@ -55,6 +58,12 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.study-abroad-service-card:hover .study-abroad-service-icon-wrap {
+  background: #f4ea17;
+  transform: scale(1.15) rotate(8deg);
 }
 
 .study-abroad-service-icon {
@@ -72,7 +81,6 @@
 
 .study-abroad-service-desc {
   font-size: 14px;
-  font-weight: 400;
   color: #6b6b6b;
   line-height: 1.55;
   margin: 0;
@@ -98,16 +106,13 @@
   .study-abroad-services {
     padding: 48px 0 60px;
   }
-
   .study-abroad-services .study-abroad-section-title {
     font-size: 26px;
   }
-
   .study-abroad-services .study-abroad-section-subtitle {
     font-size: 14px;
     margin-bottom: 32px;
   }
-
   .study-abroad-service-card {
     padding: 24px 20px;
   }

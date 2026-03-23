@@ -28,11 +28,32 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.2s ease;
+  border: 2px solid transparent;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: cardFadeUp 0.5s ease forwards;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Each card delay */
+.col-12:nth-child(1) .study-abroad-destination-card { animation-delay: 0.1s; }
+.col-12:nth-child(2) .study-abroad-destination-card { animation-delay: 0.2s; }
+.col-12:nth-child(3) .study-abroad-destination-card { animation-delay: 0.3s; }
+.col-12:nth-child(4) .study-abroad-destination-card { animation-delay: 0.4s; }
+.col-12:nth-child(5) .study-abroad-destination-card { animation-delay: 0.5s; }
+.col-12:nth-child(6) .study-abroad-destination-card { animation-delay: 0.6s; }
+.col-12:nth-child(7) .study-abroad-destination-card { animation-delay: 0.7s; }
+.col-12:nth-child(8) .study-abroad-destination-card { animation-delay: 0.8s; }
+
+@keyframes cardFadeUp {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .study-abroad-destination-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 32px rgba(244, 234, 23, 0.4);
+  transform: translateY(-6px);
+  border-color: #f4ea17;
 }
 
 .study-abroad-destination-img-wrap {
@@ -47,6 +68,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.study-abroad-destination-card:hover .study-abroad-destination-img {
+  transform: scale(1.07);
 }
 
 .study-abroad-destination-content {
@@ -82,6 +108,12 @@
   margin-top: 4px;
   margin-bottom: 16px;
   width: fit-content;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.study-abroad-destination-card:hover .study-abroad-destination-universities-pill {
+  background: #f4ea17;
+  color: #000;
 }
 
 .study-abroad-destination-btn {
