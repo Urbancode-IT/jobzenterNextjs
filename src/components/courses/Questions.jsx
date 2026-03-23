@@ -1,34 +1,96 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Questions.css';
 
 const Questions = ({ data }) => {
     const [activeIndex, setActiveIndex] = useState(null);
+    const [visibleItems, setVisibleItems] = useState([]);
+    const [imgVisible, setImgVisible] = useState(false);
+    const [titleVisible, setTitleVisible] = useState(false);
+
+    const itemRefs  = useRef([]);
+    const imgRef    = useRef(null);
+    const titleRef  = useRef(null);
 
     const defaultFaqData = [
-        {
-            question: "What is AWS",
-            answer: "Amazon Web Services (AWS) is a comprehensive, evolving cloud computing platform provided by Amazon that includes a mixture of infrastructure-as-a-service (IaaS), platform-as-a-service (PaaS) and packaged software-as-a-service (SaaS) offerings."
-        },
-        {
-            question: "What is cloud computing",
-            answer: "Cloud computing is the on-demand delivery of IT resources over the internet with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical data centers and servers, you can access technology services, such as computing power, storage, and databases, on an as-needed basis from a cloud provider like Amazon Web Services (AWS)."
-        },
-        {
-            question: "What is Amazon EC2",
-            answer: "Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) Cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster."
-        },
-        {
-            question: "What is Amazon S3",
-            answer: "Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance."
-        },
-        {
-            question: "Is AWS secure",
-            answer: "Yes, AWS is designed to be one of the most flexible and secure cloud computing environments available today. It provides a highly reliable, scalable, low-cost infrastructure platform in the cloud that powers hundreds of thousands of businesses in 190 countries around the world."
-        }
-    ];
+  {
+    question: "What is Jobzenter?",
+    answer: "Jobzenter is a software training and placement company based in Chennai, focused on providing industry-aligned training and dedicated placement support."
+  },
+  {
+    question: "Who can join Jobzenter?",
+    answer: "Students, freshers, and working professionals who want to upskill and transition into the IT industry can join Jobzenter."
+  },
+  {
+    question: "What makes Jobzenter different?",
+    answer: "We focus on real-time projects, industry-aligned curriculum, expert mentorship, and dedicated placement support — ensuring every learner is job-ready."
+  },
+  {
+    question: "Do you provide placement assistance?",
+    answer: "Yes. We offer structured placement support including resume building, mock interviews, HR preparation, and direct referrals to our hiring network."
+  },
+  {
+    question: "Are classes available online and offline?",
+    answer: "Yes, we offer both online and offline classroom options to suit different learning preferences and schedules."
+  }
+];
+
 
     const displayData = data || defaultFaqData;
+
+    /* ── Accordion items scroll observer ── */
+    useEffect(() => {
+        const observers = [];
+        itemRefs.current.forEach((ref, index) => {
+            if (!ref) return;
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            setVisibleItems((prev) => [...prev, index]);
+                        }, index * 150);
+                        observer.disconnect();
+                    }
+                },
+                { threshold: 0.15 }
+            );
+            observer.observe(ref);
+            observers.push(observer);
+        });
+        return () => observers.forEach((obs) => obs.disconnect());
+    }, []);
+
+    /* ── Image scroll observer ── */
+    useEffect(() => {
+        if (!imgRef.current) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setImgVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.2 }
+        );
+        observer.observe(imgRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    /* ── Title scroll observer ── */
+    useEffect(() => {
+        if (!titleRef.current) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setTitleVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.3 }
+        );
+        observer.observe(titleRef.current);
+        return () => observer.disconnect();
+    }, []);
 
     const toggleAccordion = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
@@ -36,16 +98,44 @@ const Questions = ({ data }) => {
 
     return (
         <section className="questions-outer-wrapper">
-            <h2 className="faq-title">Frequently asked questions</h2>
+            <h2
+                ref={titleRef}
+                className={`faq-title ${titleVisible ? 'title-sweep' : ''}`}
+            >
+                Frequently asked questions
+            </h2>
             <div className="questions-container">
                 <div className="questions-image-section">
-                    <img src="/faq_illustration..png" alt="FAQ Illustration" />
+
+                    {/* Circle wrapper */}
+                    <div className={`img-circle-wrapper ${imgVisible ? 'circles-visible' : ''}`}>
+                        {/* Pulse glow ring */}
+                        <div className="pulse-ring" />
+
+                        {/* Rotating ring */}
+                        <div className="rotating-ring" />
+
+                        {/* Dashed border spin */}
+                        <div className="dashed-ring" />
+
+                        {/* Image */}
+                        <img
+                            ref={imgRef}
+                            src="/faq_illustration..png"
+                            alt="FAQ Illustration"
+                            className={imgVisible ? 'img-visible' : 'img-hidden'}
+                        />
+                    </div>
+
                 </div>
                 <div className="questions-accordion-section">
                     {displayData.map((item, index) => (
                         <div
                             key={index}
-                            className={`accordion-item ${activeIndex === index ? 'active' : ''}`}
+                            ref={(el) => (itemRefs.current[index] = el)}
+                            className={`accordion-item 
+                                ${activeIndex === index ? 'active' : ''} 
+                                ${visibleItems.includes(index) ? 'box-visible' : 'box-hidden'}`}
                             onClick={() => toggleAccordion(index)}
                         >
                             <div className="accordion-header">

@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Questions from '@/components/courses/Questions';
 
+
 export default function ConditionalQuestions() {
     const pathname = usePathname();
 
@@ -10,7 +11,7 @@ export default function ConditionalQuestions() {
     const isCourseDetailPage = pathname.startsWith('/courses/') && pathname.split('/').length > 2;
     const isStudyAbroadPage = pathname.startsWith('/study-abroad');
 
-    if (pathname === '/' || isCourseDetailPage || isStudyAbroadPage) {
+   if (pathname === '/' || isCourseDetailPage || isStudyAbroadPage || pathname === '/aboutus') {
         return null;
     }
 

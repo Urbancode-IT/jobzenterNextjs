@@ -1,11 +1,44 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import "./WhoWeAre.css";
 
 const WhoWeAre = () => {
+  const [visibleCards, setVisibleCards] = useState([]);
+  const cardRefs = useRef([]);
+
+  /* ── Scroll observer for cards ── */
+  useEffect(() => {
+    const observers = [];
+    cardRefs.current.forEach((ref, index) => {
+      if (!ref) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setVisibleCards((prev) => [...prev, index]);
+            }, index * 180);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.15 }
+      );
+      observer.observe(ref);
+      observers.push(observer);
+    });
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
+
+  const cards = [
+    { title: "Skill transformation", desc: "Training that prepares you for the real world." },
+    { title: "Career growth",        desc: "Clarity and support for your next big step." },
+    { title: "Industry exposure",    desc: "Experience what companies actually expect." },
+  ];
+
   return (
     <section className="yw-wrapper">
       <div className="yw-container">
 
+        {/* LEFT */}
         <div className="yw-left">
           <h2 className="yw-title">
             Who We Are
@@ -28,21 +61,18 @@ const WhoWeAre = () => {
           </p>
         </div>
 
+        {/* RIGHT */}
         <div className="yw-right">
-          <div className="highlight-card">
-            <h3>Skill transformation</h3>
-            <p>Training that prepares you for the real world.</p>
-          </div>
-
-          <div className="highlight-card">
-            <h3>Career growth</h3>
-            <p>Clarity and support for your next big step.</p>
-          </div>
-
-          <div className="highlight-card">
-            <h3>Industry exposure</h3>
-            <p>Experience what companies actually expect.</p>
-          </div>
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              ref={(el) => (cardRefs.current[index] = el)}
+              className={`highlight-card ${visibleCards.includes(index) ? "card-visible" : "card-hidden"}`}
+            >
+              <h3>{card.title}</h3>
+              <p>{card.desc}</p>
+            </div>
+          ))}
         </div>
 
       </div>
@@ -51,3 +81,4 @@ const WhoWeAre = () => {
 };
 
 export default WhoWeAre;
+

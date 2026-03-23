@@ -14,6 +14,34 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   color: #111;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------- */
+/* HEADING GRADIENT COLOR SWEEP                  */
+/* --------------------------------------------- */
+.title-sweep {
+  background: linear-gradient(
+    90deg,
+    #111 0%,
+    #111 20%,
+    #f4ea17 50%,
+    #111 80%,
+    #111 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0%   { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .mv-tagline-new {

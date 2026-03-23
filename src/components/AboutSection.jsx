@@ -11,19 +11,21 @@ const AboutSection = () => {
           {/* LEFT TEXT */}
           <div className="col-lg-6">
             <h2 className="fw-bold about-heading mb-3">
-              Trusted by thousands, we help careers 
-              grow with <br></br>confidence.
+              Chennai's Most Trusted IT Training &amp;{" "}
+              <br />
+              Digital Solutions Studio.
             </h2>
 
-            <p className="about-text ">
-              At JobZenter, we are trusted by thousands of aspiring professionals who
-              rely on us to shape their future with confidence. Our proven training
-              programs and dedicated placement support have helped students, freshers,
-              and experienced candidates transform their skills, unlock their potential,
-              and secure positions in top MNCs with salaries ranging from 5 LPA to 15 LPA.
-              We believe in empowering every individual with the knowledge, guidance, and
-              industry exposure they need to achieve their career goals and step into the
-              corporate world with certainty and success.
+            <p className="about-text">
+              At Urbancode Edutech Solutions Pvt. Ltd., we have proudly trained and
+              placed 800+ professionals in top MNCs like Zoho, Amazon, TCS, and
+              Infosys. Our industry-first curriculum is designed with direct input
+              from hiring managers — ensuring every student learns exactly what
+              companies demand. From full-stack development to data analytics and
+              cloud computing, we don't just teach technology — we build careers.
+              With expert mentors, live projects, and 100% placement support, we
+              empower every student to step into the corporate world with confidence
+              and real-world skills.
             </p>
           </div>
 
@@ -33,7 +35,7 @@ const AboutSection = () => {
             <div className="about-img-container">
               <Image
                 src="/place1.jpg"
-                alt="Team Meeting"
+                alt="Urbancode students in training"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="about-img"
@@ -43,7 +45,7 @@ const AboutSection = () => {
             <div className="about-img-container">
               <Image
                 src="/Study-Abroad/Container.png"
-                alt="Mentor Teaching"
+                alt="Urbancode mentor teaching"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="about-img"
