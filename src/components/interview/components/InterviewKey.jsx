@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCoffee,
@@ -45,9 +46,45 @@ const takeaways = [
 ];
 
 const KeyTakeaways = () => {
+  const headingRef = useRef(null);
+  const cardRefs = useRef([]);
+  const [titleVisible, setTitleVisible] = useState(false);
+
+  useEffect(() => {
+    /* ── Heading sweep observer ── */
+    if (headingRef.current) {
+      const titleObserver = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          titleObserver.disconnect();
+        }
+      }, { threshold: 0.3 });
+      titleObserver.observe(headingRef.current);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.animate);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className={styles.section}>
-      <h2 className={styles.title}>Key takeaways</h2>
+      <h2
+        ref={headingRef}
+        className={`${styles.title} ${titleVisible ? styles.titleSweep : ''}`}
+      >
+        Key Takeaways
+      </h2>
       <p className={styles.description}>
         Here are the main topics that will be covered in the Java bootcamp
         training. You’ll learn everything from Java basics to advanced
@@ -59,7 +96,10 @@ const KeyTakeaways = () => {
         <div className="row row-cols-1 row-cols-md-2 g-4">
           {takeaways.map((item, index) => (
             <div className="col" key={index}>
-              <div className={styles.card}>
+              <div
+                className={`${styles.card} ${index % 2 === 0 ? styles.cardLeft : styles.cardRight}`}
+                ref={(el) => (cardRefs.current[index] = el)}
+              >
                 <div className={styles.iconBox}>
                   <div className={styles.icon}>
                     <FontAwesomeIcon icon={item.icon} />

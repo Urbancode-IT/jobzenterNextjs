@@ -8,6 +8,10 @@
   grid-template-columns: 1fr;
   gap: 16px;
 }
+.course-card-link {
+  text-decoration: none !important;
+  display: block;
+}
 .course-card {
   background: #fffbe7;
   border: none;

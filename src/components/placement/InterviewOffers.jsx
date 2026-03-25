@@ -4,6 +4,25 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./InterviewOffers.css";
 
 const InterviewOffers = () => {
+  const [titleVisible, setTitleVisible] = useState(false);
+  const titleRef = useRef(null);
+
+  /* ── Heading scroll observer ── */
+  useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const data = [
     {
       title: "1. HR Interview placement",
@@ -89,9 +108,14 @@ const InterviewOffers = () => {
   return (
     <section className="interview-offers-wrapper">
       <div className="container">
-        <h2 className="interview-offers-title">
-          What our interview placement cell offers
-        </h2>
+        <div className="text-center">
+          <h2
+            ref={titleRef}
+            className={`interview-offers-title ${titleVisible ? 'title-sweep' : ''}`}
+          >
+            What our interview placement cell offers
+          </h2>
+        </div>
 
         <div className="row g-3 mt-3">
           {data.map((item, index) => (

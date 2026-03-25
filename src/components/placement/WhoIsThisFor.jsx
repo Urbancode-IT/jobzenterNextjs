@@ -1,7 +1,50 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./WhoIsThisFor.css";
 
 const WhoIsThisFor = () => {
+  const [titleVisible, setTitleVisible] = useState(false);
+  const [visibleItems, setVisibleItems] = useState([]);
+  const titleRef = useRef(null);
+  const itemRefs = useRef([]);
+
+  /* ── Heading scroll observer ── */
+  useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  /* ── Items scroll observer ── */
+  useEffect(() => {
+    const observers = [];
+    itemRefs.current.forEach((ref, index) => {
+      if (!ref) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setVisibleItems((prev) => [...prev, index]);
+            }, index * 150);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.15 }
+      );
+      observer.observe(ref);
+      observers.push(observer);
+    });
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
+
   const items = [
     {
       number: "01",
@@ -23,12 +66,23 @@ const WhoIsThisFor = () => {
   return (
     <section className="who-wrapper">
       <div className="container">
-        <h2 className="who-title">Who is this for?</h2>
+        <div className="text-center">
+          <h2
+            ref={titleRef}
+            className={`who-title ${titleVisible ? 'title-sweep' : ''}`}
+          >
+            Who is this for?
+          </h2>
+        </div>
 
         <div className="row g-4 mt-2">
           {items.map((box, index) => (
-            <div className="col-lg-4 col-md-6" key={index}>
-              <div className="who-card">
+            <div
+              className="col-lg-4 col-md-6"
+              key={index}
+              ref={(el) => (itemRefs.current[index] = el)}
+            >
+              <div className={`who-card ${visibleItems.includes(index) ? "who-visible" : "who-hidden"}`}>
                 <div className="who-number">
                   <span className="num-bg"></span>
                   <span className="num-text">{box.number}</span>

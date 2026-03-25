@@ -6,38 +6,56 @@ import "./ResumeLearn.css";
 const cards = [
   {
     img: "/Mockinterviews/learncards/learn1.jpg",
-    title: "Master Core Java Concepts",
-    desc: "Understand the building blocks of Java, from object-oriented programming to classes, objects, and essential syntax, laying a solid foundation for your development journey.",
+    title: "ATS-Friendly Layouts",
+    desc: "We ensure your resume is built with Applicant Tracking Systems (ATS) in mind, using proper formatting and keywords to get you past automated filters.",
   },
   {
     img: "/Mockinterviews/learncards/learn2.jpg",
-    title: "Work on Real-World Projects",
-    desc: "Apply your knowledge to practical projects, solving real-world problems that will help you gain confidence and experience in Java programming.",
+    title: "Professional Summary",
+    desc: "Craft a compelling professional summary that highlights your key strengths and immediately grabs the attention of hiring managers.",
   },
   {
     img: "/Mockinterviews/learncards/learn3.jpg",
-    title: "Dive Into Advanced Java Topics",
-    desc: "Explor_e advanced concepts like multithreading, collections, and exception handling, empowering you to create scalable and efficient applications.",
+    title: "Skill Optimization",
+    desc: "Identify and showcase the most in-demand industry skills, tailoring them to match specific job descriptions for maximum impact.",
   },
   {
     img: "/Mockinterviews/learncards/learn4.jpg",
-    title: "Develop Web Applications Using Java",
-    desc: "Learn to build dynamic web applications with Java frameworks like Spring and Hibernate, equipping you with in-demand skills for modern web development.",
+    title: "Experience Highlighting",
+    desc: "Learn to quantify your achievements rather than just listing duties, showing recruiters the tangible value you bring to a company.",
   },
   {
     img: "/Mockinterviews/learncards/learn5.jpg",
-    title: "Prepare for Java Certifications",
-    desc: "Our bootcamp aligns with certification standards, ensuring you’re prepared to pass Java certifications and enhance your career prospects.",
+    title: "Project Showcase",
+    desc: "Effectively present your portfolio and real-world projects to demonstrate hands-on expertise and problem-solving capabilities.",
   },
   {
     img: "/Mockinterviews/learncards/learn6.jpg",
-    title: "Receive Career Support and Job Assistance",
-    desc: "Benefit from expert guidance on building a strong portfolio, preparing for technical interviews, and landing your dream job in Java development.",
+    title: "Resume Audit & Feedback",
+    desc: "Receive expert feedback and personalized audits to refine your resume, ensuring it's polished and ready for top-tier job applications.",
   },
 ];
 
 const LearnSection = () => {
   const [isPaused, setIsPaused] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(false);
+  const titleRef = React.useRef(null);
+
+  /* ── Heading scroll observer ── */
+  React.useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleCardClick = () => {
     setIsPaused(true); // pause animation when clicked
@@ -49,14 +67,14 @@ const LearnSection = () => {
 
   return (
     <section className="learn-section container-fluid text-center">
-      <h2 className="section-title">
+      <h2
+        ref={titleRef}
+        className={`section-title ${titleVisible ? "title-sweep" : ""}`}
+      >
         Importance of Resume Building
       </h2>
       <p className="section-desc">
-        Our Java Bootcamp is designed to take you from beginner to job-ready
-        professional. By the end of this program, you will gain strong
-        foundations, hands-on coding skills, and industry-relevant project
-        experience.
+        A professional resume is your first impression. Our Resume Building program helps you craft a high-impact profile that highlights your skills, experience, and achievements to land your dream job.
       </p>
 
       <div className="cards-scroll">

@@ -45,7 +45,7 @@ const CoursesPage = () => {
           <button
             key={cat}
             className={`btn m-md-3 btn-cat py-md-2 px-md-4 ${
-              selectedCategory === cat ? "btn-dark" : "btn-outline-dark"
+              selectedCategory === cat ? "btn-active" : "btn-outline-dark"
             }`}
             onClick={() => setSelectedCategory(cat)}
           >

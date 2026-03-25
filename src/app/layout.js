@@ -3,6 +3,9 @@ import Footer from "@/components/Footer";
 import ConditionalQuestions from "@/components/courses/ConditionalQuestions";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 import BootstrapClient from "@/lib/bootstrap";
 import "./globals.css";

@@ -2,7 +2,6 @@ import AboutSection from "@/components/AboutSection";
 import Carousel from "@/components/Carousal";
 import Steps from "@/components/Steps";
 import FaqSection from "@/components/FaqSection";
-import GetStarted from "@/components/GetStarted";
 import HeroSection from "@/components/HeroSection";
 import StudentReviews from "@/components/StudentReviews";
 import TopRatedCourses from "@/components/TopRatedCourse";
@@ -71,7 +70,6 @@ export default function Home() {
       />
       <HeroSection />
       <Carousel />
-      <GetStarted />
       <AboutSection />
       <TopRatedCourses />
       <Steps />

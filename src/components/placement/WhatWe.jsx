@@ -5,22 +5,20 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./WhatWe.css";
 
 const WhatWeOffer = () => {
-  const titleRef = useRef(null);
-  const cardRefs = useRef([]);
+  const sectionRef = useRef(null);
+  const [animateTitles, setAnimateTitles] = React.useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('ww-animate');
-        }
-      });
-    }, { threshold: 0.15 });
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setAnimateTitles(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
 
-    if (titleRef.current) observer.observe(titleRef.current);
-    cardRefs.current.forEach((card) => {
-      if (card) observer.observe(card);
-    });
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
     return () => observer.disconnect();
   }, []);
@@ -69,25 +67,24 @@ const WhatWeOffer = () => {
   ];
 
   return (
-    <section className="offer-section">
+    <section className="offer-section" ref={sectionRef}>
       <div className="container">
+        <div className="text-center mb-5">
+          <h2 className={`offer-main-title ${animateTitles ? 'title-sweep' : ''}`}>
+            What we offer
+          </h2>
+        </div>
 
-        <h2 ref={titleRef} className="offer-title ww-slide-down">
-          What we offer
-        </h2>
-
-        <div className="row g-4 mt-4">
+        <div className="row g-4">
           {offerData.map((item, index) => (
             <div className="col-lg-3 col-md-6" key={index}>
-              <div
-                className={`offer-card ww-slide-up`}
-                ref={(el) => (cardRefs.current[index] = el)}
-                style={{ transitionDelay: `${index * 0.08}s` }}
-              >
+              <div className="offer-card">
                 <div className="offer-card-icon">
                   <i className={`bi ${item.icon}`}></i>
                 </div>
-                <h3 className="offer-card-title">{item.title}</h3>
+                <h3 className={`offer-card-title ${animateTitles ? 'title-sweep' : ''}`}>
+                  {item.title}
+                </h3>
                 <p className="offer-card-text">{item.text}</p>
               </div>
             </div>

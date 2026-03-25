@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./FaqSection.css";
 
 const QA = [
@@ -31,10 +31,50 @@ const QA = [
 
 export default function FaqSection() {
   const [open, setOpen] = useState(null);
+  const [imgVisible, setImgVisible] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(false);
+
+  const imgRef = useRef(null);
+  const titleRef = useRef(null);
+
+  /* ── Image scroll observer ── */
+  useEffect(() => {
+    if (!imgRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setImgVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(imgRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  /* ── Title scroll observer ── */
+  useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="faq-section position-relative d-flex flex-column align-items-center">
-      <h2 className="faq-title text-center">
+      <h2
+        ref={titleRef}
+        className={`faq-title text-center ${titleVisible ? "title-sweep" : ""}`}
+      >
         Frequently asked questions
       </h2>
 
@@ -72,22 +112,26 @@ export default function FaqSection() {
         </div>
 
         <div className="faq-side d-flex flex-column align-items-center text-center">
-          <div className="faq-blob position-relative d-flex align-items-center justify-content-center">
-            <img
-              src="/Vector 2.webp"
-              alt="outer blob"
-              className="faq-blob-outline position-absolute"
-            />
-            <img
-              src="/Vector 1.webp"
-              alt="blob"
-              className="faq-blob-image position-absolute"
-            />
-            <img
-              src="/questionmark.webp"
-              alt="question mark"
-              className="faq-blob-icon position-relative"
-            />
+          <div className="questions-image-section">
+            {/* Circle wrapper */}
+            <div className={`img-circle-wrapper ${imgVisible ? 'circles-visible' : ''}`}>
+              {/* Pulse glow ring */}
+              <div className="pulse-ring" />
+
+              {/* Rotating ring */}
+              <div className="rotating-ring" />
+
+              {/* Dashed border spin */}
+              <div className="dashed-ring" />
+
+              {/* Image */}
+              <img
+                ref={imgRef}
+                src="/faq_illustration..png"
+                alt="FAQ Illustration"
+                className={imgVisible ? 'img-visible' : 'img-hidden'}
+              />
+            </div>
           </div>
 
           <h3 className="faq-side-title text-center">Any question?</h3>

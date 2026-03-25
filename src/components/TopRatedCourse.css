@@ -7,12 +7,12 @@
 .top-rated-container {
   width: 1400px;
   max-width: 100%;
-  min-height: 718px;
+  min-height: 550px;
   border-radius: 91px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   background: linear-gradient(180deg, rgba(253, 240, 1, 0.45) 0%, #ffffff 100%);
-  padding-bottom: 64px;
+  padding-bottom: 30px;
 }
 
 .top-rated-header {
@@ -25,6 +25,32 @@
   line-height: 1;
   color: #000000;
   margin-bottom: 12px;
+  display: block;
+  width: fit-content;
+}
+
+/* --------------------------------------------- */
+/* HEADING GRADIENT COLOR SWEEP                  */
+/* --------------------------------------------- */
+.title-sweep {
+  background: linear-gradient(
+      90deg,
+      #1a1a1a 0%,
+      #1a1a1a 20%,
+      #f4ea17 50%,
+      #1a1a1a 80%,
+      #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0%   { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .top-rated-subtitle {
@@ -40,6 +66,11 @@
   padding: 0 140px;
   gap: 90px;
   flex-wrap: nowrap;
+}
+
+.top-rated-card-link {
+  text-decoration: none !important;
+  color: inherit !important;
 }
 
 

@@ -1,6 +1,7 @@
 "use client";
-
+import React, { useEffect, useRef, useState } from "react";
 import "./AboutSection.css";
+import Link from "next/link";
 
 const courses = [
   { title: "Full Stack Development", desc: "Full Stack Development is the most in-demand skill in today's tech industry. You'll learn to build complete web applications from frontend to backend, working with real projects that top companies expect from day one." },
@@ -14,41 +15,40 @@ const AboutSection = () => {
     <section className="about-section py-5">
       <div className="container">
         <div className="row gy-4 align-items-center">
-
           {/* LEFT - COURSE CARDS */}
           <div className="col-lg-6">
             <div className="course-cards-grid">
               {courses.map((course, i) => (
-                <div key={i} className="course-card fade-card" style={{ animationDelay: `${i * 0.15}s` }}>
-                  <div className="course-title">{course.title}</div>
-                  <p className="course-desc">{course.desc}</p>
-                </div>
+                <Link key={i} href="/courses" className="course-card-link">
+                  <div className="course-card fade-card" style={{ animationDelay: `${i * 0.15}s` }}>
+                    <div className="course-title">{course.title}</div>
+                    <p className="course-desc">{course.desc}</p>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
-              {/* RIGHT - BLOB IMAGE */}
-<div className="col-lg-6 d-flex justify-content-center align-items-center">
-  <div className="blob-wrap">
 
-    <div className="blob-dot dot-1"></div>
-    <div className="blob-dot dot-2"></div>
-    <div className="blob-dot dot-3"></div>
+          {/* RIGHT - BLOB IMAGE */}
+          <div className="col-lg-6 d-flex justify-content-center align-items-center">
+            <div className="blob-wrap">
+              <div className="blob-dot dot-1"></div>
+              <div className="blob-dot dot-2"></div>
+              <div className="blob-dot dot-3"></div>
 
-    <div className="blob-img-wrap">
-      <img src="/Study-Abroad/arrow.jpg" alt="JobZenter Student" className="blob-img" />
-    </div>
+              <div className="blob-img-wrap">
+                <img src="/Study-Abroad/arrow.jpg" alt="JobZenter Student" className="blob-img" />
+              </div>
 
-    <div className="blob-badge">
-      <span className="blob-badge-icon">🏆</span>
-      <div>
-        <div className="blob-badge-title">92% Placement</div>
-        <div className="blob-badge-sub">Rate This Year</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
+              <div className="blob-badge">
+                <span className="blob-badge-icon">🏆</span>
+                <div>
+                  <div className="blob-badge-title">92% Placement</div>
+                  <div className="blob-badge-sub">Rate This Year</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

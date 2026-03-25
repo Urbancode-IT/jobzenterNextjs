@@ -1,13 +1,42 @@
 .placement-hero-bg {
-  padding: 120px 0 150px;
+  padding: 60px 0 120px;
   background: linear-gradient(180deg, #f7ee87 0%, #ffffff 100%);
 }
 
 .placement-hero-heading {
   font-family: Inter, sans-serif;
   font-weight: 700;
-  font-size: 42px;
+  font-size: 48px;
   color: #000;
+  margin-bottom: 20px;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------- */
+/* HEADING GRADIENT COLOR SWEEP                  */
+/* --------------------------------------------- */
+.title-sweep {
+  background: linear-gradient(
+      90deg,
+      #1a1a1a 0%,
+      #1a1a1a 20%,
+      #f4ea17 50%,
+      #1a1a1a 80%,
+      #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0%   { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .placement-hero-desc {

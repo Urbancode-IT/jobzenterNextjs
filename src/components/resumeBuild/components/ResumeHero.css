@@ -136,18 +136,20 @@
 
 /* Enroll Button */
 .btn-enroll {
-  position: relative;
-  overflow: hidden;
-  background: #F4EA17;
-  border-radius: 10px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 19px;
-  color: #000;
-  border: none;
-  padding: 10px 30px;
-  margin-top: 15px;
-  cursor: pointer;
+  position: relative !important;
+  overflow: hidden !important;
+  background: #F4EA17 !important;
+  border-radius: 10px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 19px !important;
+  color: #000 !important;
+  border: none !important;
+  padding: 10px 30px !important;
+  margin-top: 15px !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  transition: all 0.3s ease !important;
 }
 
 .btn-enroll::before {
@@ -155,19 +157,24 @@
   position: absolute;
   top: 0;
   left: -75%;
-  width: 25%;
+  width: 50%;
   height: 100%;
   background: linear-gradient(
     120deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0.2) 100%
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
   );
   transform: skewX(-25deg);
-  animation: shine 2s linear infinite;
+  animation: heroShine 2.5s linear infinite;
+  z-index: 1;
 }
 
-.btn-enroll:hover,
+.btn-enroll:hover {
+  background: #e5de15 !important;
+  transform: translateY(-2px);
+}
+
 .btn-enroll:focus,
 .btn-enroll:active {
   background: #F4EA17 !important;
@@ -289,29 +296,6 @@
 .hero-animate {
   opacity: 1 !important;
   transform: translateY(0) !important;
-}
-
-/* Enroll Button Shine */
-.btn-enroll {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-enroll::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.6) 50%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  transform: skewX(-25deg);
-  animation: heroShine 2.5s linear infinite;
 }
 
 @keyframes heroShine {

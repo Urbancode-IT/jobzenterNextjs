@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./HeroPlacement.css";
 
 const HeroPlacement = () => {
-  const headingRef = useRef(null);
   const descRef = useRef(null);
   const btnRef = useRef(null);
 
@@ -17,7 +16,6 @@ const HeroPlacement = () => {
       });
     }, { threshold: 0.2 });
 
-    if (headingRef.current) observer.observe(headingRef.current);
     if (descRef.current) observer.observe(descRef.current);
     if (btnRef.current) observer.observe(btnRef.current);
 
@@ -28,10 +26,7 @@ const HeroPlacement = () => {
     <section className="placement-hero-bg d-flex align-items-center">
       <div className="container text-center">
 
-        <h1
-          ref={headingRef}
-          className="placement-hero-heading ph-slide-down"
-        >
+        <h1 className="placement-hero-heading">
           Placement Services
         </h1>
 

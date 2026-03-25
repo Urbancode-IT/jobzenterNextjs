@@ -47,6 +47,24 @@ const StudentReviews = () => {
   const [index, setIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(false);
+  const titleRef = React.useRef(null);
+
+  /* ── Heading scroll observer ── */
+  React.useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   // track mobile to change step behavior (1 on mobile, 2 on desktop)
   React.useEffect(() => {
@@ -79,7 +97,12 @@ const StudentReviews = () => {
   return (
     <section className="student-reviews-section d-flex flex-column align-items-center bg-white position-relative" >
       <div className="student-reviews-header text-center">
-        <h2 className="student-reviews-title">What our students say</h2>
+        <h2
+          ref={titleRef}
+          className={`student-reviews-title ${titleVisible ? "title-sweep" : ""}`}
+        >
+          What our students say
+        </h2>
         <p className="student-reviews-subtitle">
           Real stories from learners who transformed their careers with us.
         </p>

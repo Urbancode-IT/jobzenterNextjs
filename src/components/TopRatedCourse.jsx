@@ -1,15 +1,33 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import "./TopRatedCourse.css";
-import EnquiryFormModal from "./enquiryForm/EnquiryFormModal";
 import { IoChevronForward, IoChevronBack } from "react-icons/io5";
 
 const TopRatedCourses = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [cardsPerPage, setCardsPerPage] = useState(3);
+  const [titleVisible, setTitleVisible] = useState(false);
+  const titleRef = React.useRef(null);
   const router = useRouter();
+
+  /* ── Heading scroll observer ── */
+  useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const courses = [
     {
@@ -141,15 +159,16 @@ const TopRatedCourses = () => {
     setCurrentPage(0);
   }, [cardsPerPage]);
 
-  const handleCardClick = (slug) => {
-    router.push(`/courses/${slug}`);
-  };
-
   return (
     <section className="top-rated-section d-flex justify-content-center">
       <div className="top-rated-container position-relative">
         <div className="top-rated-header">
-          <h2 className="top-rated-title">Top Rated Courses</h2>
+          <h2
+            ref={titleRef}
+            className={`top-rated-title ${titleVisible ? "title-sweep" : ""}`}
+          >
+            Trending Courses
+          </h2>
           <p className="top-rated-subtitle">
             Explore the most trusted and highly reviewed courses loved by learners.
           </p>
@@ -157,14 +176,14 @@ const TopRatedCourses = () => {
 
         <div className="top-rated-cards d-flex justify-content-center">
           {visibleCourses.map((course) => (
-            <div
-              className={`col-${12 / cardsPerPage} col-md-${12 / cardsPerPage}`}
+            <Link
+              className={`col-${12 / cardsPerPage} col-md-${12 / cardsPerPage} top-rated-card-link`}
               key={course.id}
+              href={`/courses/${course.slug}`}
             >
               <div
-                className="card course-card h-100 shadow-sm border-0 p-3"
+                className="card course-card h-100 shadow-sm border-0 p-2"
                 style={{ cursor: "pointer" }}
-                onClick={() => handleCardClick(course.slug)}
               >
                 <div className="circle"></div>
                 <img
@@ -173,34 +192,17 @@ const TopRatedCourses = () => {
                   alt={course.title}
                   style={{ height: "220px", objectFit: "cover" }}
                 />
-                <div className="card-body d-flex flex-column">
+                <div className="card-body d-flex flex-column p-2">
                   <h5 className="card-title fw-bold">{course.title}</h5>
                   <p className="card-text text-muted">{course.description}</p>
                   <div className="mt-auto">
-                    <div className="text-warning mb-2">{"★".repeat(5)}</div>
-                    <button
-                      className="btn btn-dark w-100"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedCourse(course);
-                      }}
-                    >
-                      Download Brochure
-                    </button>
+                    <div className="text-warning mb-1">{"★".repeat(5)}</div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
-
-        {selectedCourse && (
-          <EnquiryFormModal
-            isOpen={!!selectedCourse}
-            onClose={() => setSelectedCourse(null)}
-            courseName={selectedCourse.title}
-          />
-        )}
 
         <div className="top-rated-controls d-flex align-items-center justify-content-center">
           <button

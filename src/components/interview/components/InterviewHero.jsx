@@ -1,18 +1,39 @@
 "use client";
+import React, { useEffect, useRef } from "react";
 import "./InterviewHero.css";
 import { useRouter } from "next/navigation";
 
 const Hero = () => {
   const router = useRouter();
+  const descRef = useRef(null);
+  const btnRef = useRef(null);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('ih-animate');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (descRef.current) observer.observe(descRef.current);
+    if (btnRef.current) observer.observe(btnRef.current);
+    if (cardRef.current) observer.observe(cardRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="hero d-flex flex-column align-items-center justify-content-center text-center">
       <div className="container">
-        <h1 className="fw-bold">Interview Preparation</h1>
-        <p className="hero-text">
+        <h1 className="fw-bold hero-title-main">Interview Preparation</h1>
+        <p ref={descRef} className="hero-text ih-fade-in" style={{ transitionDelay: '0.2s' }}>
           Ready to ace your interview? Join our free preparation course and gain the confidence to impress recruiters. Learn top strategies from experts and secure your dream role today
         </p>
 
-        <div className="d-flex justify-content-center gap-3 mt-4">
+        <div ref={btnRef} className="d-flex justify-content-center gap-3 mt-4 ih-slide-up" style={{ transitionDelay: '0.4s' }}>
           <button
             type="button"
             className="btn btn-register"
@@ -29,7 +50,7 @@ const Hero = () => {
           </button>
         </div>
 
-        <div className="program-card mt-5">
+        <div ref={cardRef} className="program-card mt-5 ih-slide-up" style={{ transitionDelay: '0.6s' }}>
           <div className="program-text text-start">
             <h3 className="program-title">Interview Prepartion</h3>
             <p className="program-desc">

@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./InterviewTrainingCell.css";
 
 const InterviewTrainingCell = () => {
+  const [titleVisible, setTitleVisible] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  /* ── Scroll observer ── */
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          setContentVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="interview-training-wrapper">
+    <section className="interview-training-wrapper" ref={sectionRef}>
       <div className="container">
         <div className="row align-items-center">
 
           {/* LEFT CONTENT */}
-          <div className="col-lg-6">
-            <h2 className="interview-training-title">
+          <div className={`col-lg-6 itc-content ${contentVisible ? 'itc-animate' : ''}`}>
+            <h2
+              className={`interview-training-title ${titleVisible ? 'title-sweep' : ''}`}
+            >
               Interview placement Cell
             </h2>
 
@@ -30,7 +53,7 @@ const InterviewTrainingCell = () => {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="col-lg-6 text-center">
+          <div className={`col-lg-6 text-center itc-image-box ${contentVisible ? 'itc-animate' : ''}`}>
             <div className="interview-training-image-box">
               <img
                 src="/interviewtraining.jpg"

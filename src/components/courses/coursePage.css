@@ -44,6 +44,12 @@
     border-radius: 20px;
 }
 
+.btn-active {
+    background-color: #000 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .view-details-btn {
     font-weight: 600;
     letter-spacing: 0.5px;

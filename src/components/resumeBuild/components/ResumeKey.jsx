@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faFileLines,
@@ -46,10 +46,21 @@ const takeaways = [
 
 const ResumeKey = () => {
   const headingRef = useRef(null);
-  const descRef = useRef(null);
   const cardRefs = useRef([]);
+  const [titleVisible, setTitleVisible] = useState(false);
 
   useEffect(() => {
+    /* ── Heading sweep observer ── */
+    if (headingRef.current) {
+      const titleObserver = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          titleObserver.disconnect();
+        }
+      }, { threshold: 0.3 });
+      titleObserver.observe(headingRef.current);
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -58,8 +69,6 @@ const ResumeKey = () => {
       });
     }, { threshold: 0.2 });
 
-    if (headingRef.current) observer.observe(headingRef.current);
-    if (descRef.current) observer.observe(descRef.current);
     cardRefs.current.forEach((card) => {
       if (card) observer.observe(card);
     });
@@ -69,10 +78,13 @@ const ResumeKey = () => {
 
   return (
     <section className={styles.section}>
-      <h2 ref={headingRef} className={`${styles.title} ${styles.slideDown}`}>
+      <h2
+        ref={headingRef}
+        className={`${styles.title} ${titleVisible ? styles.titleSweep : ''}`}
+      >
         Key Takeaways
       </h2>
-      <p ref={descRef} className={`${styles.description} ${styles.slideDown}`} style={{ transitionDelay: '0.2s' }}>
+      <p className={styles.description}>
         Here are the main topics that will be covered in the Java bootcamp
         training. You'll learn everything from Java basics to advanced
         techniques, ensuring you're well-prepared to build real-world

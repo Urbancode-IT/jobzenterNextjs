@@ -1,6 +1,6 @@
 'use client';
 import "./InterviewRegister.css";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { sendEmail } from '../../../lib/emailjsClient';
 
 const Register = () => {
@@ -12,6 +12,25 @@ const Register = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [visible, setVisible] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setVisible(true);
+        setTitleVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.15 });
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -62,33 +81,35 @@ const Register = () => {
   };
 
   return (
-    <section id="interview-register" className="register-section">
-      <div className="register-container">
-        <h2 className="register-title">Register using the form</h2>
+    <section id="interview-register" className="register-section" ref={sectionRef}>
+      <div className={`register-container ${visible ? 'fade-in-up' : 'hidden'}`}>
+        <h2 className={`register-title ${titleVisible ? 'title-sweep' : ''}`}>
+          Register using the form
+        </h2>
         <p className="subtext">
           It’s easy to register for the bootcamp — just fill out the form and click submit.
-          You’ll be registered for one of the best Java bootcamps in the industry.
+          You’ll be registered for one of the best Interview Preparation bootcamps in the industry.
         </p>
 
         <div className="register-layout">
           {/* Info Cards */}
           <div className="info-card-wrapper">
-            <div className="info-card">
+            <div className={`info-card ${visible ? 'slide-in-left' : 'hidden'}`} style={{ transitionDelay: '0.2s' }}>
               <i className="bi bi-cloud-check-fill icon"></i>
               <p className="info-text">Complete your registration details</p>
             </div>
-            <div className="info-card">
+            <div className={`info-card ${visible ? 'slide-in-left' : 'hidden'}`} style={{ transitionDelay: '0.4s' }}>
               <i className="bi bi-shield-check icon"></i>
               <p className="info-text">It’s safe with us and will not be used for marketing.</p>
             </div>
-            <div className="info-card">
+            <div className={`info-card ${visible ? 'slide-in-left' : 'hidden'}`} style={{ transitionDelay: '0.6s' }}>
               <i className="bi bi-clock-history icon"></i>
               <p className="info-text">You will receive a confirmation email in less than 24h.</p>
             </div>
           </div>
 
           {/* Form */}
-          <form className="register-form" onSubmit={handleSubmit}>
+          <form className={`register-form ${visible ? 'slide-in-right' : 'hidden'}`} style={{ transitionDelay: '0.4s' }} onSubmit={handleSubmit}>
             <div className="form-group">
               <input
                 type="text"
