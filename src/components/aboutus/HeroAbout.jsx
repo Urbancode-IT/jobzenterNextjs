@@ -1,9 +1,32 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./HeroAbout.css";
 
 const HeroSection = () => {
+  const [visibleTitles, setVisibleTitles] = useState([]);
+  const titleRefs = useRef([]);
+
+  /* ── Heading Gradient Sweep observer ── */
+  useEffect(() => {
+    const observers = [];
+    titleRefs.current.forEach((ref, index) => {
+      if (!ref) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => setVisibleTitles((prev) => [...prev, index]), 100);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.3 }
+      );
+      observer.observe(ref);
+      observers.push(observer);
+    });
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
+
   return (
     <section className="hero-section">
       <div className="container">
@@ -12,7 +35,12 @@ const HeroSection = () => {
           {/* LEFT SIDE — CONTENT */}
           <div className="col-md-6 hero-text-animate">
             <p className="hero-tag">Who We Are</p>
-            <h1 className="hero-title-about">About Us</h1>
+            <h1
+              ref={(el) => (titleRefs.current[0] = el)}
+              className={`hero-title-about ${visibleTitles.includes(0) ? "title-sweep" : ""}`}
+            >
+              About Us
+            </h1>
             <p className="hero-subtitle">
              "Thousands of jobs are available, but only a few are truly prepared to grab them.
 In a world full of applicants, skills and confidence make the real difference.

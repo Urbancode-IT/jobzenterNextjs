@@ -74,15 +74,26 @@ const AnimatedCard = ({ country, index, onEnquire }) => {
 const DestinationsSection = () => {
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
-  const titleRef = useRef(null);
   const [titleVisible, setTitleVisible] = useState(false);
+  const [isSweepActive, setIsSweepActive] = useState(false);
+  const titleRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setTitleVisible(true); observer.unobserve(entry.target); } },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          setTimeout(() => setIsSweepActive(true), 150);
+          observer.disconnect();
+        }
+      },
       { threshold: 0.2 }
     );
-    if (titleRef.current) observer.observe(titleRef.current);
+
+    if (titleRef.current) {
+      observer.observe(titleRef.current);
+    }
+
     return () => observer.disconnect();
   }, []);
 
@@ -93,10 +104,10 @@ const DestinationsSection = () => {
 
   return (
     <section className="study-abroad-destinations py-5">
-      <div className="container">
+      <div className="container text-center">
         <h2
           ref={titleRef}
-          className="study-abroad-section-title text-center"
+          className={`study-abroad-section-title ${isSweepActive ? "title-sweep" : ""}`}
           style={{
             opacity: titleVisible ? 1 : 0,
             transform: titleVisible ? "translateY(0)" : "translateY(30px)",

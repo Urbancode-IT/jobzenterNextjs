@@ -4,7 +4,29 @@ import "./WhoWeAre.css";
 
 const WhoWeAre = () => {
   const [visibleCards, setVisibleCards] = useState([]);
+  const [visibleTitles, setVisibleTitles] = useState([]);
   const cardRefs = useRef([]);
+  const titleRefs = useRef([]);
+
+  /* ── Heading Gradient Sweep observer ── */
+  useEffect(() => {
+    const observers = [];
+    titleRefs.current.forEach((ref, index) => {
+      if (!ref) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => setVisibleTitles((prev) => [...prev, index]), 100);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.3 }
+      );
+      observer.observe(ref);
+      observers.push(observer);
+    });
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
 
   /* ── Scroll observer for cards ── */
   useEffect(() => {
@@ -40,9 +62,11 @@ const WhoWeAre = () => {
 
         {/* LEFT */}
         <div className="yw-left">
-          <h2 className="yw-title">
+          <h2
+            ref={(el) => (titleRefs.current[0] = el)}
+            className={`yw-title ${visibleTitles.includes(0) ? "title-sweep" : ""}`}
+          >
             Who We Are
-            <span className="yw-underline"></span>
           </h2>
 
           <p className="yw-text">

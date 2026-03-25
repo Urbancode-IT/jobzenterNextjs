@@ -8,12 +8,12 @@ import Link from "next/link";
 const CoursesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ["All", "Development", "Testing", "Healthcare", "Database", "CCNA"];
+  const categories = ["All", "Development", "Testing", "Healthcare", "Database", "CCNA", "Cloud"];
 
-  const filteredCourses =
-    selectedCategory === "All"
-      ? courses
-      : courses.filter((c) => c.category === selectedCategory);
+  const filteredCourses = courses.filter((course) => {
+    if (selectedCategory === "All") return true;
+    return course.category === selectedCategory;
+  });
 
   return (
     <div>
@@ -22,20 +22,31 @@ const CoursesPage = () => {
       <div
         className="text-center text-white py-5 position-relative mb-5"
         style={{
-          backgroundImage: "url('/courses/Hero.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "320px",
-           filter: "brightness(1.0)",
+          height: "400px",
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "center",
+          paddingTop: "50px",
+          overflow: "hidden"
         }}
       >
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+          style={{
+            backgroundImage: "url('/courses/Hero.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "brightness(1.2)",
+            zIndex: 0
+          }}
         ></div>
-        <div className="position-relative">
-          <h1 className="display-4 fw-bold mt-5">Courses</h1>
-          <p className="lead">Exploring paths to learn, grow, and achieve more.</p>
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.15)", zIndex: 1 }}
+        ></div>
+        <div className="position-relative" style={{ zIndex: 2 }}>
+          <h1 className="display-4 fw-bold text-white" style={{ textShadow: "2px 2px 15px rgba(0,0,0,0.9)", fontSize: "3.8rem", marginBottom: "8px" }}>Courses</h1>
+          <p className="lead text-white px-3" style={{ textShadow: "1px 1px 10px rgba(0,0,0,0.9)", fontSize: "1.4rem", fontWeight: "600" }}>Exploring paths to learn, grow, and achieve more.</p>
         </div>
       </div>
 
@@ -48,6 +59,7 @@ const CoursesPage = () => {
               selectedCategory === cat ? "btn-dark" : "btn-outline-dark"
             }`}
             onClick={() => setSelectedCategory(cat)}
+            style={{ borderRadius: "20px", padding: "8px 25px" }}
           >
             {cat}
           </button>

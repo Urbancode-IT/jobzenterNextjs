@@ -17,11 +17,57 @@ body {
   margin: 0;
 }
 
+/* Global Content Font Style (Reach Us content style) */
+p, span, li, a, label, input, textarea, div:not(.heading-container) {
+  font-family: "Inter", sans-serif;
+  color: #4f4f4f;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Headings (keep their original bold/dark style) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Inter", sans-serif;
+  color: #2f2f2f;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* --------------------------------------------- */
+/* GRADIENT COLOR SWEEP — Global Reusable Class  */
+/* --------------------------------------------- */
+.title-sweep {
+  background: linear-gradient(
+    90deg,
+    #000000 0%,
+    #000000 20%,
+    #f4ea17 50%,
+    #000000 80%,
+    #000000 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+  display: inline-block; /* Ensure it wraps correctly for background-clip */
+}
+
+@keyframes gradientSweep {
+  0%   { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Helper for text visibility on images */
+.text-white {
+  color: #ffffff !important;
+}
+
 a {
-  color: inherit!important;
+  color: inherit;
   text-decoration: none!important;
 }
 
 button {
-  font-family:'Inter'!important;
+  font-family: "Inter", sans-serif;
 }

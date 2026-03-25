@@ -51,10 +51,12 @@
     background: #2c2c2c !important;
     border: 2px solid #2c2c2c !important;
     padding: 10px 20px;
+    color: #ffffff !important; /* Bright white text for visibility */
 }
 
 .course-card:hover .view-details-btn {
     background: #000 !important;
+    color: #f4ea17 !important; /* Bright yellow on hover for better contrast */
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

@@ -202,7 +202,7 @@ const Navbar = () => {
                     {item.hasDropdown ? (
                       <Link
                         href={item.path}
-                        className={`nav-link text-dark ${isActive ? "active nav-link-active" : ""}`}
+                        className={`nav-link ${isActive ? "active nav-link-active" : ""}`}
                         onClick={(event) => handleNavLinkClick(event, item)}
                       >
                         {item.label}
@@ -210,7 +210,7 @@ const Navbar = () => {
                     ) : (
                       <button
                         type="button"
-                        className={`nav-link text-dark btn-reset ${isActive ? "active nav-link-active" : ""}`}
+                        className={`nav-link btn-reset ${isActive ? "active nav-link-active" : ""}`}
                         onClick={() => {
                           setIsOpen(false);
                           router.push(item.path);
@@ -229,7 +229,7 @@ const Navbar = () => {
                         aria-label={`${item.label} menu`}
                         onClick={() => handleDropdownToggle(item.label)}
                       >
-                        <IoChevronDownSharp size={14} className={`dropdown-icon text-dark ${isDropdownOpen ? "open" : ""}`} />
+                        <IoChevronDownSharp size={14} className={`dropdown-icon ${isDropdownOpen ? "open" : ""}`} />
                       </button>
                     )}
                   </div>

@@ -28,15 +28,13 @@
   font-size: 40px;
   color: #000;
   margin-bottom: 20px;
+  display: block;
+  width: fit-content;
 }
- 
+
 .hero-subtitle {
-  font-family: Roboto, sans-serif;
   font-size: 15px;
-  line-height: 1.8;
-  color: #444;
   max-width: 420px;
-  font-style: italic;
   border-left: 3px solid #f59e0b;
   padding-left: 16px;
 }

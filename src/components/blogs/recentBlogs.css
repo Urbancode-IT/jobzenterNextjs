@@ -1,6 +1,39 @@
-.blog-title{
-    transition: all 0.3s ease;
+.blog-title {
+  transition: all 0.3s ease;
 }
-.blog-title:hover{
-    text-decoration: underline!important;
+.blog-title:hover {
+  text-decoration: underline !important;
+}
+
+/* Blog card hover effects */
+.blog-card-link:hover .blog-card-image {
+  transform: scale(1.07) !important;
+}
+.blog-card-link .card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.blog-card-link:hover .card {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-4px);
+}
+
+/* Image zoom on hover */
+.blog-img-wrap {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.blog-main-img,
+.blog-small-img,
+.blog-bottom-img {
+  transition: transform 0.4s ease;
+}
+.blog-img-wrap:hover .blog-main-img,
+.blog-img-wrap:hover .blog-small-img,
+.blog-img-wrap:hover .blog-bottom-img {
+  transform: scale(1.06);
+}
+/* ===== CARD GLOW EFFECT ===== */
+.blog-small-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.4), 0 0 30px rgba(249, 115, 22, 0.2), 0 10px 30px rgba(0, 0, 0, 0.12) !important;
 }
