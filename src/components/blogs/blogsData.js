@@ -47,7 +47,7 @@ export const recentBlogs = [
   },
   {
     id:6,
-    image: "/blogs/medicalBilling.png",
+    image: "/blogs/medical-billing-v3.png",
     date: "4 Nov 2025",
     title: "Medical Billing: Turning Healthcare Expertise into a High-Demand Career",
     description: "Launch your career in medical billing...",

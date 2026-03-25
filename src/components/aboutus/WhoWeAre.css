@@ -35,78 +35,20 @@
   min-width: 330px;
 }
 
-/* TITLE — no animation, just normal */
+/* TITLE — with animation support */
 .yw-title {
   font-size: 32px;
   font-weight: 600;
-  color: #222;
+  color: #222; /* Initial state — blackish */
   position: relative;
   margin-bottom: 35px;
-}
-
-/* =============================== */
-/* UNDERLINE — SHINE EFFECT        */
-/* =============================== */
-.yw-underline {
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 70%;
-  height: 3.9px;
-  border-radius: 6px;
-  overflow: hidden;
-  background: linear-gradient(90deg, #ffcc33 0%, #ffd96a 30%, #ffcc33 100%);
-  box-shadow: 0 6px 18px rgba(255, 204, 51, 0.18);
-  z-index: 2;
-}
-
-.yw-underline::before {
-  content: "";
-  position: absolute;
-  top: -30%;
-  left: -60%;
-  width: 45%;
-  height: 160%;
-  transform: skewX(-20deg);
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,1) 55%,
-    rgba(255,255,255,0) 100%
-  );
-  filter: blur(1.5px);
-  opacity: 0.95;
-  mix-blend-mode: screen;
-  animation: underline-shine 1.6s ease-in-out infinite;
-}
-
-.yw-underline::after {
-  content: "";
-  position: absolute;
-  inset: -6px -6px;
-  border-radius: 8px;
-  background: radial-gradient(60% 40% at 30% 50%, rgba(255,220,120,0.18), transparent 40%);
-  opacity: 0.9;
-  pointer-events: none;
-  animation: underline-glow 2.8s ease-in-out infinite;
-}
-
-@keyframes underline-shine {
-  0%   { left: -60%; opacity: 0.7; }
-  50%  { left: 80%;  opacity: 1; }
-  100% { left: 160%; opacity: 0.7; }
-}
-
-@keyframes underline-glow {
-  0%, 100% { opacity: 0.65; transform: scale(1); }
-  50%       { opacity: 1;    transform: scale(1.03); }
+  display: block;
+  width: fit-content;
 }
 
 /* TEXT */
 .yw-text {
   font-size: 17px;
-  color: #444;
-  line-height: 1.7;
   margin-bottom: 18px;
   animation: fadeUp 0.8s ease forwards;
   opacity: 0;

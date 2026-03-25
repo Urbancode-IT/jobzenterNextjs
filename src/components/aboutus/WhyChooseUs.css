@@ -1,11 +1,4 @@
 /* --------------------------------------------- */
-/* GLOBAL FONT */
-/* --------------------------------------------- */
-* {
-  font-family: 'Inter', sans-serif !important;
-}
-
-/* --------------------------------------------- */
 /* H2 HEADINGS */
 /* --------------------------------------------- */
 .section-title {
@@ -36,30 +29,6 @@
 
   /* Initial state — black */
   color: #000;
-}
-
-/* --------------------------------------------- */
-/* GRADIENT COLOR SWEEP — scroll trigger         */
-/* --------------------------------------------- */
-.title-sweep {
-  background: linear-gradient(
-    90deg,
-    #000000 0%,
-    #000000 20%,
-    #f4ea17 50%,
-    #000000 80%,
-    #000000 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientSweep 1.5s ease forwards;
-}
-
-@keyframes gradientSweep {
-  0%   { background-position: 100% center; }
-  100% { background-position: 0% center; }
 }
 
 /* --------------------------------------------- */

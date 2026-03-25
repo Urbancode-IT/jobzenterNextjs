@@ -51,8 +51,9 @@
 .flow-sub {
   max-width: 700px;
   margin: 0 auto;
-  color: #555;
-  font-size: 15px;
+  color: #4f4f4f;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .flow-canvas {

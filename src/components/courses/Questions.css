@@ -11,33 +11,9 @@
     margin-bottom: 50px;
     font-family: 'Inter', sans-serif;
     display: block;
-    width: fit-content;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-}
-
-/* --------------------------------------------- */
-/* HEADING GRADIENT COLOR SWEEP                  */
-/* --------------------------------------------- */
-.title-sweep {
-    background: linear-gradient(
-        90deg,
-        #2d2d2d 0%,
-        #2d2d2d 20%,
-        #f4ea17 50%,
-        #2d2d2d 80%,
-        #2d2d2d 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientSweep 1.5s ease forwards;
-}
-
-@keyframes gradientSweep {
-    0%   { background-position: 100% center; }
-    100% { background-position: 0% center; }
 }
 
 .questions-container {
