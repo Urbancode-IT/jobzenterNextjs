@@ -1,6 +1,7 @@
 .questions-outer-wrapper {
     padding: 80px 0;
-    background-color: #fff;
+    margin-top: 80px;
+    background-color: transparent;
 }
 
 .faq-title {
@@ -20,10 +21,17 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 0 5%;
+    padding: 0 24px;
     gap: 60px;
-    max-width: 1400px;
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+    .questions-container {
+        padding: 0 16px;
+    }
 }
 
 .questions-image-section {
@@ -262,6 +270,10 @@
 }
 
 @media (max-width: 992px) {
+    .questions-outer-wrapper {
+        margin-top: 18px;
+    }
+
     .questions-container {
         flex-direction: column;
         padding: 50px 20px;

@@ -39,8 +39,13 @@ export default async function CourseInternalPage({ params }) {
         notFound();
     }
 
+    const heroTitle = course.aboutData?.topic || course.title;
+    const heroLead = course.aboutData?.content1 || course.description;
+    const ratingText = course.rating ? `${course.rating}/5` : null;
+    const studentsText = course.students ? `${course.students}+ students` : null;
+
     return (
-        <div className="single-coursepage bg-gray px-3 px-md-4 px-lg-5 py-4 py-md-5 mt-3 mt-md-5">
+        <div className="single-coursepage bg-gray px-3 px-md-4 px-lg-5 py-3 py-md-4 mt-1 mt-md-2">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -58,111 +63,84 @@ export default async function CourseInternalPage({ params }) {
                 }}
             />
 
-            <div className="container py-3 py-md-4 py-lg-5">
-                {/* Navigation at Top */}
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                    <Link href="/courses" className="btn btn-outline-dark btn-sm">
-                        ← Back to Courses
-                    </Link>
-                </div>
-
-                {/* Top Section */}
-                <div className="row g-4 g-lg-5">
-                    <div className="col-12 col-lg-7">
-                        <div className="d-flex flex-column justify-content-around h-100">
-                            {/* breadcrumb */}
-                            <p className="text-secondary opacity-75 small mb-2 mb-md-3">
-                                <Link
-                                    className="text-decoration-none text-dark fw-medium"
-                                    href="/courses"
-                                >
-                                    Courses
-                                </Link>
-                                <span className="mx-1 mx-md-2 text-muted">›</span>
-                                <span className="text-dark">
-                                    {course.title}
-                                </span>
-                            </p>
-                            <h1 className="fw-bold mb-3 mb-md-4 text-center text-lg-start">
-                                {course.aboutData?.topic || course.title}
-                            </h1>
-                            <div>
-                                <div className="d-flex flex-wrap align-items-center gap-2 gap-md-3 mb-3 text-muted small">
-                                    <span>⭐ {course.rating}/5</span>
-                                    <span>👩‍🎓 {course.students}+ students</span>
+            <div className="container py-2 py-md-3 py-lg-4">
+                {/* Hero */}
+                <div className="course-hero">
+                    <div className="course-hero-inner">
+                        <div className="row g-4 g-lg-5 align-items-center">
+                            <div className="col-12 col-lg-7">
+                                <div className="course-eyebrow">
+                                    <span className="stars" aria-hidden="true">★★★★★</span>
+                                    <span className="text-muted">
+                                        {ratingText ? `${ratingText}` : "Top rated"}{studentsText ? ` • ${studentsText}` : ""}
+                                    </span>
                                 </div>
-                                <p className="text-secondary fs-md-9 lh-base">
-                                    {course.aboutData?.content1 || course.description}
+
+                                <h1 className="course-title">
+                                    Fast track your career growth{" "}
+                                    <span className="course-title-strong">{heroTitle}</span>
+                                </h1>
+
+                                <p className="course-lead mb-0">
+                                    {heroLead}
                                 </p>
 
-                                <a
-                                    href={`https://wa.me/919057770577?text=${encodeURIComponent(
-                                        `Hi there, I would like to enroll in this course ${course.title} from Jobzenter. Please share more details.`
-                                    )}`}
-                                    style={{ textDecoration: "none" }}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <button
-                                        className="btn rounded-pill mt-3 px-4 py-2 enroll-btn w-sm-100 w-md-auto fw-bold btn-golden"
-                                    >
-                                        Enroll Today
-                                    </button>
-                                </a>
+                                <div className="course-cta-row">
+                                    <EnquiryButton
+                                        courseName={course.title}
+                                        label="Enroll now"
+                                        variant="secondary"
+                                        className="course-primary-cta"
+                                    />
+                                </div>
                             </div>
-                            <div className="mt-4 mt-md-5">
-                                <h2 className="fw-semibold mb-3 text-center text-lg-start">About This Course</h2>
-                                <p className="text-secondary fs-md-9 lh-base">
-                                    {course.aboutData?.content2 || course.description}
-                                </p>
+
+                            {/* Right Section */}
+                            <div className="col-12 col-lg-5">
+                                <div className="card shadow-md px-3 px-md-4 py-3 py-md-4 rounded-4 rounded-lg-5 border-0 sticky-lg-top">
+                                    <Image
+                                        src={course.img}
+                                        alt={course.title}
+                                        width={500}
+                                        height={300}
+                                        className="card-img-top rounded-4 my-2 my-md-3 img-fluid w-100"
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                    <div className="card-body d-flex flex-column justify-content-around p-0">
+                                        <ul className="small px-2 px-md-3 text-secondary mb-3">
+                                            <li className="mb-2 mb-md-3 d-flex align-items-start">
+                                                <i className="bi bi-check-circle-fill text-success me-2"></i>
+                                                <span>Hours of Instructor-Led Training</span>
+                                            </li>
+                                            <li className="mb-2 mb-md-3 d-flex align-items-start">
+                                                <i className="bi bi-check-circle-fill text-success me-2"></i>
+                                                <span>Hands-on Projects across Web, Data & AI</span>
+                                            </li>
+                                            <li className="mb-2 mb-md-3 d-flex align-items-start">
+                                                <i className="bi bi-check-circle-fill text-success me-2"></i>
+                                                <span>Includes Beginner → Expert Level Topics</span>
+                                            </li>
+                                            <li className="mb-2 mb-md-3 d-flex align-items-start">
+                                                <i className="bi bi-check-circle-fill text-success me-2"></i>
+                                                <span>Mentor Support, Assignments & Code Reviews</span>
+                                            </li>
+                                            <li className="mb-2 mb-md-3 d-flex align-items-start">
+                                                <i className="bi bi-check-circle-fill text-success me-2"></i>
+                                                <span>Job Assistance & Portfolio Guidance</span>
+                                            </li>
+                                            <li className="mb-2 mb-md-0 d-flex align-items-start">
+                                                <i className="bi bi-check-circle-fill text-success me-2"></i>
+                                                <span>Jobzenter Certificate of Completion</span>
+                                            </li>
+                                        </ul>
+
+                                        <EnquiryButton courseName={course.title} />
+                                    </div>
+                                </div>
                             </div>
+                            {/* End of Right Section */}
                         </div>
                     </div>
-
-                    {/* Right Section */}
-                    <div className="col-12 col-lg-5">
-                        <div className="card shadow-md px-3 px-md-4 py-3 py-md-4 rounded-4 rounded-lg-5 border-0 sticky-lg-top">
-                            <Image
-                                src={course.img}
-                                alt={course.title}
-                                width={500}
-                                height={300}
-                                className="card-img-top rounded-4 my-2 my-md-3 img-fluid w-100"
-                                style={{ objectFit: 'cover' }}
-                            />
-                            <div className="card-body d-flex flex-column justify-content-around p-0">
-                                <ul className="small px-2 px-md-3 text-secondary">
-                                    <li className="mb-2 mb-md-3 d-flex align-items-start">
-                                        <i className="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Hours of Instructor-Led Training</span>
-                                    </li>
-                                    <li className="mb-2 mb-md-3 d-flex align-items-start">
-                                        <i className="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Hands-on Projects across Web, Data & AI</span>
-                                    </li>
-                                    <li className="mb-2 mb-md-3 d-flex align-items-start">
-                                        <i className="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Includes Beginner → Expert Level Topics</span>
-                                    </li>
-                                    <li className="mb-2 mb-md-3 d-flex align-items-start">
-                                        <i className="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Mentor Support, Assignments & Code Reviews</span>
-                                    </li>
-                                    <li className="mb-2 mb-md-3 d-flex align-items-start">
-                                        <i className="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Job Assistance & Portfolio Guidance</span>
-                                    </li>
-                                    <li className="mb-2 mb-md-3 d-flex align-items-start">
-                                        <i className="bi bi-check-circle-fill text-success me-2"></i>
-                                        <span>Jobzenter Certificate of Completion</span>
-                                    </li>
-                                </ul>
-
-                                <EnquiryButton courseName={course.title} />
-                            </div>
-                        </div>
-                    </div>
-                    {/* End of Right Section */}
                 </div>
 
                 {/* What You'll Learn */}

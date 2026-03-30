@@ -37,7 +37,7 @@ const TopRatedCourses = () => {
       description:
         "React Native Fullstack development combines React Native for mobile apps with Node.js, Express, and databases like MongoDB or PostgreSQL on the backend.",
       img: "/courses/reactNative.webp",
-      slug: "react-native-fullstack",
+      slug: "react-fullstack",
     },
     {
       id: 2,

@@ -70,18 +70,26 @@ const WhoWeAre = () => {
           </h2>
 
           <p className="yw-text">
-            We empower students, freshers, and working professionals with
-            industry-aligned skills, practical learning, and guided career
-            support. Through expert mentorship, structured training programs,
-            and real-time exposure, we help learners gain clarity, confidence,
-            and competence to step into the corporate world with purpose.
+            Trusted by thousands, JobZenter is a leading career development and
+            placement training institute committed to shaping future-ready
+            professionals.
           </p>
 
           <p className="yw-text">
-            Our focus is simple: transform skills, strengthen careers, and open
-            meaningful opportunities. We bridge the gap between education and
-            industry expectations by nurturing talent and supporting individuals
-            until they achieve breakthrough results.
+            We empower students, freshers, and working individuals with
+            industry-aligned skills, hands-on learning, and guided career
+            support. Through expert mentorship, structured training programs,
+            and real-time practical exposure, we help learners gain the
+            clarity, competence, and confidence needed to build successful
+            careers and step into the corporate world with purpose.
+          </p>
+
+          <p className="yw-text">
+            At JobZenter, our focus is simple — transform skills, strengthen
+            careers, and create opportunities. We are dedicated to bridging the
+            gap between education and industry expectations by nurturing talent,
+            enhancing employability, and supporting candidates until they
+            achieve meaningful career breakthroughs.
           </p>
         </div>
 

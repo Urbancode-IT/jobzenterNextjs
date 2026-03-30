@@ -70,8 +70,8 @@ export default function Home() {
       />
       <HeroSection />
       <Carousel />
-      <AboutSection />
       <TopRatedCourses />
+      <AboutSection />
       <Steps />
       <FaqSection />
       <StudentReviews />

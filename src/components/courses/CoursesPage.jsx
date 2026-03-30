@@ -8,7 +8,7 @@ import Link from "next/link";
 const CoursesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ["All", "Development", "Testing", "Healthcare", "Database", "CCNA", "Cloud"];
+  const categories = ["All", "Development", "Testing", "Healthcare", "CCNA", "Cloud"];
 
   const filteredCourses = courses.filter((course) => {
     if (selectedCategory === "All") return true;

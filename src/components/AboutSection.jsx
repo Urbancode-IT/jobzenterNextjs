@@ -1,53 +1,74 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import "./AboutSection.css";
 import Link from "next/link";
 
 const courses = [
-  { title: "Full Stack Development", desc: "Full Stack Development is the most in-demand skill in today's tech industry. You'll learn to build complete web applications from frontend to backend, working with real projects that top companies expect from day one." },
-  { title: "Software Testing", desc: "Every great product needs a great tester. Learn to find bugs, automate test cases, and ensure quality — a skill every IT company actively hires for with strong salary packages." },
-  { title: "CCNA Networking", desc: "Networking is the backbone of every technology. Master Cisco routing, switching, and protocols to become the expert who keeps businesses connected and running 24/7." },
-  { title: "AWS Cloud Platform", desc: "The world is moving to the cloud — and companies need people who know it. Learn AWS from scratch and step into one of the highest-paying roles in the IT industry today." },
+  { title: "Full Stack Development", desc: "In the evolving landscape of modern software engineering, full stack developers are the backbone of scalable, high-performance applications. Our Full Stack Development program is designed to transform learners into versatile developers with expertise across frontend, backend, databases, and deployment ecosystems." },
+  { title: "Software Testing", desc: "In today’s fast-paced digital ecosystem, delivering high-quality, bug-free applications is no longer optional—it’s a necessity. Our Automation Testing program is designed to equip professionals with industry-relevant skills in Selenium, Playwright, TypeScript, and API Testing, enabling scalable, efficient, and reliable software validation." },
+  { title: "CCNA Networking", desc: "In today’s hyper-connected digital world, networking forms the backbone of all IT infrastructures. Our CCNA (Cisco Certified Network Associate) Networking program is designed to equip learners with in-demand skills required to design, configure, manage, and troubleshoot modern enterprise networks." },
+  { title: "AWS & Devops", desc: "In the era of cloud-native applications, organizations demand faster, reliable, and scalable software delivery. Our AWS DevOps Training program is designed to equip learners with cutting-edge skills in cloud infrastructure, continuous integration, continuous deployment (CI/CD), and automation using Amazon Web Services." },
 ];
 
 const AboutSection = () => {
+  const cardImages = [
+    "/courses/mean.jpg",
+    "/courses/softwareTesting.webp",
+    "/courses/ccna.webp",
+    "/courses/aws.webp",
+  ];
+
+  const codeByCardIndex = [
+    ["pp", "eslintConfig", "pp", "eslintConfig", "app"],
+    ["Every great", "pp", "eslintConfig", "app", "pp"],
+    ["app", "pp", "eslintConfig", "app", "pp"],
+    ["pp", "eslintConfig", "app", "pp", "eslintConfig"],
+  ];
+
   return (
-    <section className="about-section py-5">
+    <section className="about-section about-cards py-5">
       <div className="container">
-        <div className="row gy-4 align-items-center">
-          {/* LEFT - COURSE CARDS */}
-          <div className="col-lg-6">
-            <div className="course-cards-grid">
-              {courses.map((course, i) => (
-                <Link key={i} href="/courses" className="course-card-link">
-                  <div className="course-card fade-card" style={{ animationDelay: `${i * 0.15}s` }}>
-                    <div className="course-title">{course.title}</div>
-                    <p className="course-desc">{course.desc}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+        <div className="about-demand-panel">
+          <div className="about-demand-header text-center">
+            <h2 className="about-demand-title title-sweep">Demanding Courses</h2>
+            <p className="about-demand-subtitle">
+              Explore the most demanded and highly reviewed courses loved by
+              learners.
+            </p>
           </div>
 
-          {/* RIGHT - BLOB IMAGE */}
-          <div className="col-lg-6 d-flex justify-content-center align-items-center">
-            <div className="blob-wrap">
-              <div className="blob-dot dot-1"></div>
-              <div className="blob-dot dot-2"></div>
-              <div className="blob-dot dot-3"></div>
+          <div className="about-cards-stage" aria-label="Jobzenter learning tracks">
+            {courses.map((course, i) => (
+              <Link
+                key={course.title}
+                href="/courses"
+                className={`about-card about-card-${i + 1}`}
+                aria-label={`${course.title} course`}
+              >
+                <div className="about-card-inner">
+                  <div className="about-card-text">
+                    <div className="about-card-title">{course.title}</div>
+                    <p className="about-card-desc">{course.desc}</p>
+                  </div>
 
-              <div className="blob-img-wrap">
-                <img src="/Study-Abroad/arrow.jpg" alt="JobZenter Student" className="blob-img" />
-              </div>
-
-              <div className="blob-badge">
-                <span className="blob-badge-icon">🏆</span>
-                <div>
-                  <div className="blob-badge-title">92% Placement</div>
-                  <div className="blob-badge-sub">Rate This Year</div>
+                  <div className="about-card-media" aria-hidden="true">
+                    <img
+                      src={cardImages[i]}
+                      alt=""
+                      className="about-card-img"
+                      loading="lazy"
+                    />
+                    <div className={`about-code-overlay about-code-overlay-${i + 1}`}>
+                      {codeByCardIndex[i].map((line, idx) => (
+                        <span key={`${line}-${idx}`} className="about-code-line">
+                          {line}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

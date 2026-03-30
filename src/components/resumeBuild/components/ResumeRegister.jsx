@@ -86,7 +86,7 @@ const Register = () => {
   };
 
   return (
-    <section className="register-section">
+    <section id="resume-register" className="register-section">
       <div className="register-container">
         <h2 ref={titleRef} className="register-title slide-down">
           Register Using The Form

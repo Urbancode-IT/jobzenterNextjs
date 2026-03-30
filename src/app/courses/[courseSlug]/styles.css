@@ -2,8 +2,101 @@
     box-sizing: border-box;
 }
 
-.single-coursepage .bg-gray {
-    background-color: #ebebeb !important;
+/* Brand tokens (scoped) */
+.single-coursepage {
+    --jz-theme: #ffcc00;
+    --jz-theme-2: #f3be00;
+    --jz-theme-soft: rgba(255, 204, 0, 0.12);
+    --jz-text: #243844;
+    --jz-muted: rgba(36, 56, 68, 0.72);
+    --jz-surface: rgba(255, 255, 255, 0.78);
+    --jz-border: rgba(15, 23, 42, 0.08);
+    --jz-shadow: 0 14px 34px rgba(15, 23, 42, 0.10);
+}
+
+/* `bg-gray` is on the same element as `single-coursepage` */
+.single-coursepage.bg-gray {
+    background:
+        radial-gradient(900px 340px at 8% -10%, rgba(255, 204, 0, 0.22), transparent 58%),
+        radial-gradient(700px 260px at 92% 0%, rgba(255, 204, 0, 0.14), transparent 60%),
+        linear-gradient(180deg, #f4faf7 0%, #eef3f6 100%) !important;
+}
+
+/* Hero */
+.single-coursepage .course-hero {
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.single-coursepage .course-hero-inner {
+    padding: 22px 18px;
+}
+
+@media (min-width: 768px) {
+    .single-coursepage .course-hero-inner {
+        padding: 30px 28px;
+    }
+}
+
+.single-coursepage .course-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 204, 0, 0.18);
+    border: 1px solid rgba(255, 204, 0, 0.42);
+    color: var(--jz-text);
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.single-coursepage .course-eyebrow .stars {
+    color: #7a5c00;
+    letter-spacing: 0.6px;
+}
+
+.single-coursepage .course-title {
+    letter-spacing: -0.6px;
+    color: var(--jz-text) !important;
+    margin-top: 14px;
+}
+
+.single-coursepage .course-title-strong {
+    color: var(--jz-text);
+    font-weight: 800;
+}
+
+.single-coursepage .course-lead {
+    color: var(--jz-muted);
+    font-size: 1.02rem;
+    line-height: 1.55;
+    margin-top: 12px;
+}
+
+.single-coursepage .course-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.single-coursepage .course-primary-cta {
+    background: linear-gradient(135deg, var(--jz-theme) 0%, var(--jz-theme-2) 100%) !important;
+    border: 0 !important;
+    color: #1e1e1e !important;
+    padding: 12px 18px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 10px 24px rgba(255, 204, 0, 0.28);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.single-coursepage .course-primary-cta:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+    box-shadow: 0 14px 30px rgba(255, 204, 0, 0.35);
 }
 
 .single-coursepage .custom-accordion-item {
@@ -28,6 +121,104 @@
 
 .single-coursepage .accordion-button:not(.collapsed) {
     box-shadow: none !important;
+}
+
+.single-coursepage .curriculum-accordion .accordion-button::after {
+    display: none !important; /* hide Bootstrap chevron */
+}
+
+.single-coursepage .curriculum-item {
+    background: #f7f9fb;
+    border-radius: 22px !important;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06) !important;
+    overflow: hidden;
+}
+
+.single-coursepage .curriculum-item.is-open {
+    border-color: rgba(255, 204, 0, 0.75); /* Jobzenter theme yellow */
+    box-shadow: 0 14px 34px rgba(255, 204, 0, 0.16) !important;
+}
+
+.single-coursepage .curriculum-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 22px !important;
+}
+
+.single-coursepage .curriculum-index {
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #0f172a;
+    background: #d1d5db;
+}
+
+.single-coursepage .curriculum-index.active {
+    background: #ffcc00; /* Jobzenter theme yellow */
+    color: #111111;
+}
+
+.single-coursepage .curriculum-title {
+    font-weight: 650;
+    color: #0f172a;
+    flex: 1;
+    line-height: 1.15;
+    font-size: 0.98rem;
+    letter-spacing: -0.2px;
+}
+
+.single-coursepage .curriculum-toggle {
+    font-size: 1.1rem;
+    color: rgba(15, 23, 42, 0.55);
+    font-weight: 700;
+    line-height: 1;
+    padding-left: 8px;
+}
+
+.single-coursepage .curriculum-item.is-open .curriculum-toggle {
+    color: rgba(255, 204, 0, 0.95);
+}
+
+.single-coursepage .curriculum-body {
+    background: #f7f9fb;
+}
+
+.single-coursepage .curriculum-list {
+    margin: 8px 0 0 0;
+    padding-left: 40px; /* align bullets under title (past the number circle) */
+    list-style: disc;
+}
+
+.single-coursepage .curriculum-li {
+    color: rgba(15, 23, 42, 0.72);
+    font-size: 0.9rem;
+}
+
+/* Make the whole row more compact */
+.single-coursepage .curriculum-btn {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+}
+
+@media (max-width: 576px) {
+    .single-coursepage .curriculum-title {
+        font-size: 0.95rem;
+    }
+    .single-coursepage .curriculum-li {
+        font-size: 0.88rem;
+    }
+}
+
+.single-coursepage .curriculum-li::marker {
+    color: rgba(15, 23, 42, 0.45);
 }
 
 .single-coursepage .gray-bg {
@@ -65,13 +256,16 @@
 }
 
 .single-coursepage .enroll-btn {
-    background: hsla(0, 0%, 52%, 1) !important;
-    border: none !important;
-    transition: all 1s ease;
+    background: linear-gradient(135deg, var(--jz-theme) 0%, var(--jz-theme-2) 100%) !important;
+    border: 0 !important;
+    color: #1e1e1e !important;
+    transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.12s ease;
+    box-shadow: 0 10px 24px rgba(255, 204, 0, 0.28);
 }
 
 .single-coursepage .enroll-btn:hover {
-    background: linear-gradient(135deg, #98dec4, #cbc50f) !important;
+    transform: translateY(-2px);
+    filter: brightness(1.03);
 }
 
 .single-coursepage .dark-shine-btn {

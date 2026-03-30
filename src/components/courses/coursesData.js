@@ -2,7 +2,7 @@ const courses = [
     // DEVELOPMENT
     {
         id: 1,
-        title: "React Fullstack",
+        title: "React Native",
         slug: "react-fullstack",
         category: "Development",
         description: "Master React.js for the frontend and power it with Node.js and Express for complete full-stack web applications.",
@@ -11,8 +11,8 @@ const courses = [
         students: "1500",
         locked: true,
         aboutData: {
-            topic: "Master React & Fullstack Development",
-            content1: "Learn to build modern, responsive web applications using React.js and robust backend technologies.",
+            topic: "Master React Native Development",
+            content1: "Our React Native training empowers developers to build cross-platform mobile applications with a single codebase, ensuring seamless performance across iOS and Android platforms. This includes real-time app development, API integration, and mobile UI/UX best practices.",
             content2: "This course covers everything from Hooks and Redux to Node.js, Express, and Database integration."
         },
         whatYouLearnData: [
@@ -24,14 +24,18 @@ const courses = [
             { title: "Deployment", desc: "Deploy your full-stack apps to the cloud.", icon: "bi bi-cloud-upload" }
         ],
         courseContentData: [
-            { id: "r1", title: "Frontend Mastery", icon: "bi bi-window", defaultOpen: true, items: ["React Hooks", "Custom Hooks", "Redux Toolkit", "React Router"] },
-            { id: "r2", title: "Backend & API", icon: "bi bi-cpu", items: ["Node.js Basics", "Express Middleware", "API Design", "Error Handling"] },
-            { id: "r3", title: "Database & Auth", icon: "bi bi-shield-check", items: ["Mongoose Schemas", "JWT Auth", "Role Based Access", "File Uploads"] },
-            { id: "r4", title: "Deployment", icon: "bi bi-rocket", items: ["Git Workflow", "Environment Variables", "Vercel/Heroku", "Testing"] }
+            { id: "r1", title: "Introduction to React Native", icon: "bi bi-window", defaultOpen: true, items: ["Overview of React Native framework", "Setting up the development environment", "Core components and architecture"] },
+            { id: "r2", title: "Frontend Development with React Native", icon: "bi bi-cpu", items: ["Building UIs with built-in components (Text, View, Image, etc.)", "Styling using Flexbox and StyleSheet", "Navigation with React Navigation"] },
+            { id: "r3", title: "Backend Integration & API Handling", icon: "bi bi-shield-check", items: ["Fetching data from APIs (using Axios or Fetch)", "Handling API responses and error management", "Implementing user authentication"] },
+            { id: "r4", title: "Database Integration & Authentication", icon: "bi bi-database", items: ["Setting up Firebase for real-time data", "Local storage management with AsyncStorage", "Authentication methods (Firebase, OAuth)"] },
+            { id: "r5", title: "Deployment & Publishing", icon: "bi bi-rocket", items: ["Preparing the app for production", "Publishing to Google Play Store and Apple App Store", "Version management and updates"] }
         ],
         faqData: [
-            { question: "Is this course for beginners?", answer: "Yes, we start with the fundamentals of JavaScript and then move to React and Node.js." },
-            { question: "Will I build real projects?", answer: "Absolutely! You will build a social media app and an e-commerce platform." }
+            { question: "What is React Native?", answer: "React Native is a framework for building cross-platform mobile applications using JavaScript and React, allowing you to write code once and deploy it to both iOS and Android." },
+            { question: "Why should I learn React Native?", answer: "React Native allows developers to create high-performance, native-like mobile applications using JavaScript, which reduces development time and cost for both platforms." },
+            { question: "How does React Native compare to other mobile development frameworks?", answer: "Unlike Flutter or Xamarin, React Native uses React, making it easier for web developers to transition into mobile app development with a familiar JavaScript framework." },
+            { question: "Can React Native be used for web development?", answer: "While React Native is designed for mobile apps, the skills learned are transferable to React for web development, as both use the same core concepts." },
+            { question: "What job roles can I pursue after learning React Native?", answer: "Roles include React Native Developer, Mobile App Developer, and Fullstack Developer. React Native skills are highly sought after in the mobile app development industry." }
         ]
     },
     {
@@ -46,7 +50,7 @@ const courses = [
         locked: true,
         aboutData: {
             topic: "Master Core Java to Build Strong Object-Oriented Programming Skills",
-            content1: "Develop solid foundations in Java programming with hands-on experience. Learn OOP concepts, exception handling, multithreading, and collection frameworks used in enterprise applications.",
+            content1: "The Java Full Stack module focuses on Spring Boot, Hibernate, REST API development, and modern frontend integration, equipping learners to build robust enterprise applications. Meanwhile, the Python Full Stack track covers Django/Flask frameworks, backend logic, database integration, and rapid application development for scalable solutions.",
             content2: "The Core Java course at Urbancode prepares you for real-world software development with projects, tools, and strong programming discipline."
         },
         whatYouLearnData: [
@@ -82,7 +86,7 @@ const courses = [
         locked: true,
         aboutData: {
             topic: "Become a Full Stack MERN Developer",
-            content1: "Master the MERN stack to build dynamic, high-performance web applications.",
+            content1: "For JavaScript enthusiasts, we offer deep specialization in MERN Stack (MongoDB, Express.js, React, Node.js) and MEAN Stack (MongoDB, Express.js, Angular, Node.js). Learners develop end-to-end applications, mastering RESTful APIs, state management, authentication mechanisms (JWT, OAuth), and performance optimization techniques.",
             content2: "From frontend with React to backend with Node.js and MongoDB, cover it all."
         },
         whatYouLearnData: [
@@ -94,14 +98,18 @@ const courses = [
             { title: "Authentication", desc: "JWT and secure login systems.", icon: "bi bi-shield-lock" }
         ],
         courseContentData: [
-            { id: "mern1", title: "Frontend with React", icon: "bi bi-code-square", defaultOpen: true, items: ["React Basics", "Hooks", "Context API", "Component Lifecycle"] },
-            { id: "mern2", title: "Backend with Node & Express", icon: "bi bi-server", items: ["Node Modules", "Express Routing", "Middleware", "Error Handling"] },
-            { id: "mern3", title: "Database with MongoDB", icon: "bi bi-database", items: ["MongoDB Atlas Setup", "CRUD Operations", "Mongoose ORM", "Data Modeling"] },
-            { id: "mern4", title: "Full Stack Integration & Deployment", icon: "bi bi-cloud-arrow-up", items: ["Authentication with JWT", "State Management", "Testing", "Cloud Deployment"] }
+            { id: "mern1", title: "Introduction to MERN Stack", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of MERN stack (MongoDB, Express.js, React.js, Node.js)", "Setting up the development environment", "Understanding the full-stack architecture and flow"] },
+            { id: "mern2", title: "Frontend Development with React.js", icon: "bi bi-code-square", items: ["Building dynamic UIs with React components", "Managing state with hooks (useState, useEffect)", "Implementing React Router for navigation", "Styling with CSS-in-JS and popular libraries (styled-components)"] },
+            { id: "mern3", title: "Backend Development with Node.js & Express.js", icon: "bi bi-server", items: ["Setting up a Node.js server with Express", "RESTful API design and CRUD operations", "Connecting Express with MongoDB using Mongoose", "Handling user authentication and JWT (JSON Web Tokens)"] },
+            { id: "mern4", title: "Database Management with MongoDB", icon: "bi bi-database", items: ["Understanding MongoDB and NoSQL concepts", "Designing database schemas using Mongoose", "Querying data with MongoDB queries", "Implementing data validation and error handling"] },
+            { id: "mern5", title: "Deployment & Performance Optimization", icon: "bi bi-cloud-arrow-up", items: ["Deploying the MERN stack application to cloud platforms (Heroku, AWS, etc.)", "Configuring environment variables and production settings", "Optimizing app performance (caching, lazy loading, etc.)", "Managing app scaling and handling user load"] }
         ],
         faqData: [
-            { question: "Why choose MERN stack?", answer: "It's a popular, JavaScript-based stack that allows you to build fast, scalable web apps." },
-            { question: "Is deployment covered?", answer: "Yes, we teach you how to deploy to cloud platforms like Heroku, Vercel, or AWS." }
+            { question: "What is MERN Stack Development?", answer: "MERN Stack is a JavaScript-based framework combining MongoDB, Express.js, React, and Node.js for building full-stack web applications with both front-end and back-end capabilities." },
+            { question: "Why should I learn MERN Stack?", answer: "MERN Stack allows you to use JavaScript across the entire development process, making it easier to build dynamic, scalable, and real-time web applications." },
+            { question: "How does MERN Stack compare to other stacks?", answer: "MERN offers a unified JavaScript environment, enabling faster development and real-time features, making it ideal for building modern web applications." },
+            { question: "Can MERN Stack be used for mobile app development?", answer: "Yes, React Native allows you to build cross-platform mobile apps, sharing most of the logic from your MERN Stack projects." },
+            { question: "What job roles can I pursue after learning MERN Stack?", answer: "Roles include MERN Stack Developer, Frontend Developer, and Fullstack Developer, with opportunities in startups and tech companies focusing on modern web applications." }
         ]
     },
     {
@@ -134,8 +142,11 @@ const courses = [
             { id: "mean4", title: "Testing & Deployment", icon: "bi bi-check-all", items: ["Jasmine/Karma Testing", "Dockerization", "Cloud Deployment", "Performance Tuning"] }
         ],
         faqData: [
-            { question: "Is MEAN stack still popular?", answer: "Yes, especially in large corporations for enterprise applications." },
-            { question: "Do I need to know TypeScript?", answer: "No, we teach TypeScript as part of the Angular module." }
+            { question: "What is MEAN Stack Development?", answer: "MEAN Stack combines MongoDB, Express.js, Angular, and Node.js to build modern, scalable, and efficient web applications. It's a full-stack JavaScript solution for both front-end and back-end development." },
+            { question: "Why should I learn MEAN Stack?", answer: "Learning MEAN Stack helps you build dynamic, scalable applications with a single language, JavaScript, across the entire stack, making development faster and more efficient." },
+            { question: "How does MEAN Stack differ from MERN Stack?", answer: "The main difference is that MEAN Stack uses Angular for front-end development, while MERN Stack uses React. Both are powerful, but Angular offers more opinionated structures for larger enterprise applications." },
+            { question: "Can MEAN Stack be used for mobile app development?", answer: "Yes, MEAN Stack can be used for mobile app development with frameworks like Ionic that integrate with Angular for cross-platform mobile apps." },
+            { question: "What career opportunities can I pursue with MEAN Stack?", answer: "After completing MEAN Stack, you can work as a MEAN Stack Developer, Frontend Developer, or Fullstack Developer, with high demand in the web development and enterprise solutions industry." }
         ]
     },
     {
@@ -162,14 +173,18 @@ const courses = [
             { title: "Deployment", desc: "Heroku, AWS, and Docker for Python.", icon: "bi bi-box-arrow-in-up" }
         ],
         courseContentData: [
-            { id: "py1", title: "Python Programming", icon: "bi bi-code", defaultOpen: true, items: ["Fundamentals", "Data Structures", "OOP in Python", "Libraries"] },
-            { id: "py2", title: "Django Backend", icon: "bi bi-lightning", items: ["Models & ORM", "Views & Templates", "Admin Interface", "Forms"] },
-            { id: "py3", title: "API Development", icon: "bi bi-cloud", items: ["RESTful Principles", "DRF Setup", "Serializers", "Viewsets"] },
-            { id: "py4", title: "Fullstack Project", icon: "bi bi-star", items: ["Frontend Setup", "JWT Auth", "Unit Testing", "Deployment"] }
+            { id: "py1", title: "Introduction to Python Full Stack Development", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of Python for Full Stack Development", "Setting up the development environment (Python, Django/Flask, PostgreSQL, etc.)", "Understanding the full-stack architecture with Python"] },
+            { id: "py2", title: "Frontend Development with HTML, CSS, and JavaScript", icon: "bi bi-layout-text-window", items: ["Building responsive UIs using HTML and CSS", "Introduction to JavaScript for interactivity", "Integrating front-end frameworks (e.g., React, Vue.js) with Python backends", "Using AJAX for asynchronous communication with the backend"] },
+            { id: "py3", title: "Backend Development with Python (Django/Flask)", icon: "bi bi-lightning", items: ["Building RESTful APIs with Django REST Framework or Flask", "Managing user authentication and session handling (JWT, OAuth)", "Implementing CRUD operations in Python", "Working with databases using Django ORM or SQLAlchemy (PostgreSQL/MySQL)"] },
+            { id: "py4", title: "Database Management and Integration", icon: "bi bi-database", items: ["Understanding SQL and NoSQL databases (PostgreSQL, MongoDB)", "Designing database schemas and relationships", "Performing queries and handling migrations in Django/Flask", "Data validation and optimization techniques"] },
+            { id: "py5", title: "Deployment & Scaling", icon: "bi bi-cloud-arrow-up", items: ["Preparing a Python app for production (environment variables, logging, etc.)", "Deploying the application to cloud platforms (Heroku, AWS, DigitalOcean)", "Implementing app performance optimization techniques (caching, database indexing)", "Scaling the application for handling increased traffic"] }
         ],
         faqData: [
-            { question: "Is Python good for beginners?", answer: "Yes, Python is often cited as the best language for beginners due to its simple syntax." },
-            { question: "Are there jobs for Python developers?", answer: "Absolutely, Python is one of the most in-demand languages in the tech industry today." }
+            { question: "What is Python Fullstack Development?", answer: "Python Fullstack Development uses Python for back-end development with frameworks like Django or Flask, and front-end development with tools like HTML, CSS, and JavaScript to build full-stack web applications." },
+            { question: "Why should I learn Python Fullstack Development?", answer: "Python's simplicity and readability, combined with powerful frameworks like Django and Flask, make it an excellent choice for building scalable and secure full-stack applications efficiently." },
+            { question: "How does Python Fullstack compare to other technologies?", answer: "Unlike JavaScript-based stacks like MERN or MEAN, Python Fullstack emphasizes simplicity, readability, and rapid development with a wide range of libraries and frameworks for both back-end and front-end." },
+            { question: "Can Python Fullstack be used for mobile app development?", answer: "While Python is mainly used for web back-end development, tools like Kivy and BeeWare allow Python developers to build cross-platform mobile apps as well." },
+            { question: "What job roles can I pursue with Python Fullstack Development?", answer: "After learning Python Fullstack, you can pursue roles such as Fullstack Developer, Backend Developer, or Python Developer in industries such as web development, data science, and software engineering." }
         ]
     },
     {
@@ -178,7 +193,7 @@ const courses = [
         slug: "dotnet-fullstack-development",
         category: "Development",
         description: "Master .NET technologies to build robust and scalable enterprise-level applications using C#, ASP.NET Core, and SQL Server.",
-        img: "/courses/dot.png",
+        img: "/courses/dotnet.JPG",
         rating: "4.8",
         students: "1100",
         locked: true,
@@ -196,14 +211,18 @@ const courses = [
             { title: "Azure Integration", desc: "Deploy and manage .NET apps on the cloud.", icon: "bi bi-cloud-arrow-up" }
         ],
         courseContentData: [
-            { id: "dn1", title: "C# Fundamentals", icon: "bi bi-code", defaultOpen: true, items: ["Data Types & Variables", "OOP Principles", "Collections & Generics", "LINQ Queries"] },
-            { id: "dn2", title: "ASP.NET Core Web API", icon: "bi bi-cpu", items: ["Dependency Injection", "Middleware", "Routing & Controllers", "Authentication & Authorization"] },
-            { id: "dn3", title: "Data Access with EF Core", icon: "bi bi-database", items: ["Code First Migrations", "Fluent API", "Repository Pattern", "Unit of Work"] },
-            { id: "dn4", title: "Frontend & Deployment", icon: "bi bi-rocket", items: ["Razor Pages", "Blazor Basics", "Unit Testing with xUnit", "CI/CD with Azure DevOps"] }
+            { id: "dn1", title: "Introduction to .NET Full Stack Development", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of .NET for Full Stack Development", "Setting up the development environment (Visual Studio, .NET Core, SQL Server)", "Understanding the full-stack architecture with .NET (Backend + Frontend)"] },
+            { id: "dn2", title: "Frontend Development with HTML, CSS, and JavaScript", icon: "bi bi-layout-text-window", items: ["Building responsive and interactive UIs with HTML5 and CSS3", "Introduction to JavaScript and modern JS frameworks (React.js or Angular)", "Integrating frontend with .NET backend using AJAX and RESTful APIs", "Implementing form validation and handling user inputs"] },
+            { id: "dn3", title: "Backend Development with ASP.NET Core", icon: "bi bi-cpu", items: ["Building web APIs with ASP.NET Core", "Implementing CRUD operations and data handling", "User authentication and authorization with Identity and JWT", "Dependency Injection and Middleware for clean architecture"] },
+            { id: "dn4", title: "Database Integration with Entity Framework Core", icon: "bi bi-database", items: ["Setting up SQL Server and connecting to .NET backend", "Using Entity Framework Core for ORM (Object Relational Mapping)", "Database migrations and data seeding", "Writing complex queries and optimizing database performance"] },
+            { id: "dn5", title: "Deployment & Cloud Integration", icon: "bi bi-cloud-arrow-up", items: ["Preparing .NET Core applications for production", "Deploying to cloud platforms (Azure, AWS, Docker containers)", "Continuous Integration and Continuous Deployment (CI/CD) pipelines", "Optimizing application performance and scaling for production"] }
         ],
         faqData: [
-            { question: "Do I need to know C# before starting?", answer: "No, we start from the absolute basics of C# programming." },
-            { question: "Is .NET Core still in demand?", answer: "Yes, it is the primary choice for enterprise-level applications in many top tech firms." }
+            { question: "What is .NET Angular Full Stack Development?", answer: ".NET Angular Full Stack Development combines ASP.NET Core (backend) with Angular (frontend) to build scalable, high-performance web applications. It enables developers to create secure REST APIs, dynamic user interfaces, and enterprise-grade solutions using Microsoft technologies." },
+            { question: "What skills are required to learn .NET Angular development?", answer: "To become a .NET Angular developer, you should learn C#, ASP.NET Core, Web API development, Entity Framework, Angular (TypeScript, RxJS), HTML, CSS, JavaScript, along with database management (SQL Server) and version control tools like Git." },
+            { question: "Is .NET Angular suitable for beginners?", answer: "Yes, .NET Angular is suitable for beginners with basic programming knowledge. With structured training, hands-on projects, and real-time application development, learners can gradually master both frontend and backend technologies." },
+            { question: "What job roles can I get after learning .NET Angular?", answer: "After completing .NET Angular training, you can apply for roles such as Full Stack Developer, .NET Developer, Angular Developer, Software Engineer, and Web Application Developer in product-based and service-based companies." },
+            { question: "Why is .NET Angular widely used in enterprises?", answer: ".NET Angular is widely used because it offers robust security, scalability, maintainability, and seamless integration. ASP.NET Core provides high-performance backend services, while Angular enables responsive and dynamic front-end applications, making it ideal for enterprise-level solutions." }
         ]
     },
 
@@ -220,7 +239,7 @@ const courses = [
         locked: true,
         aboutData: {
             topic: "Become a Quality Assurance Expert",
-            content1: "Master manual and automation testing techniques to ensure software quality and reliability.",
+            content1: "In today’s fast-paced digital ecosystem, delivering high-quality, bug-free applications is no longer optional—it’s a necessity. Our Automation Testing program is designed to equip professionals with industry-relevant skills in Selenium, Playwright, TypeScript, and API Testing, enabling scalable, efficient, and reliable software validation",
             content2: "Learn industry-standard tools like Selenium, JIRA, and TestNG."
         },
         whatYouLearnData: [
@@ -232,14 +251,18 @@ const courses = [
             { title: "CI/CD Integration", desc: "Jenkins and continuous testing.", icon: "bi bi-arrow-repeat" }
         ],
         courseContentData: [
-            { id: "st1", title: "Manual Testing Basics", icon: "bi bi-clipboard-check", defaultOpen: true, items: ["SDLC & STLC", "Test Scenarios & Cases", "Defect Life Cycle", "Test Documentation"] },
-            { id: "st2", title: "Automation with Selenium", icon: "bi bi-robot", items: ["WebDriver Setup", "Locators", "TestNG Framework", "Page Object Model"] },
-            { id: "st3", title: "API & Performance Testing", icon: "bi bi-speedometer", items: ["Postman Basics", "REST Assured", "JMeter Introduction", "Load Testing"] },
-            { id: "st4", title: "Advanced Topics", icon: "bi bi-star", items: ["CI/CD with Jenkins", "BDD with Cucumber", "Cross-Browser Testing", "Mobile Testing"] }
+            { id: "st1", title: "Introduction to Software Testing", icon: "bi bi-info-circle", defaultOpen: true, items: ["Understanding the importance of software testing", "Different types of testing: Manual vs. Automated", "Key testing concepts: test case, bug, defect, and testing life cycle", "Testing methodologies: Waterfall, Agile, V-Model, DevOps"] },
+            { id: "st2", title: "Manual Testing", icon: "bi bi-clipboard-check", items: ["Writing effective test cases and test plans", "Functional vs. Non-functional testing", "Exploratory testing and its techniques", "Regression, Smoke, and Sanity Testing", "Reporting and managing defects using tools like JIRA"] },
+            { id: "st3", title: "Automated Testing", icon: "bi bi-robot", items: ["Introduction to test automation frameworks (Selenium, Playwright)", "Writing automated test scripts using Selenium WebDriver (Java, JavaScript)", "BDD frameworks (Cucumber, SpecFlow)", "TestNG and JUnit for managing test cases and reporting", "Continuous Integration with Jenkins for automated testing"] },
+            { id: "st4", title: "API Testing", icon: "bi bi-globe", items: ["Introduction to API testing concepts (REST, SOAP)", "Tools for API testing: Postman, Rest Assured, SoapUI", "Validating API responses and error handling", "Automating API tests with Rest Assured or Postman Collections", "Performance and load testing using tools like JMeter"] },
+            { id: "st5", title: "Performance & Security Testing", icon: "bi bi-shield-lock", items: ["Introduction to performance testing concepts (load, stress, scalability)", "Tools for performance testing: JMeter, LoadRunner", "Security testing: Understanding vulnerabilities, OWASP top 10", "Security testing tools: Burp Suite, OWASP ZAP", "Best practices for optimizing test coverage and defect prevention"] }
         ],
         faqData: [
-            { question: "Do I need coding skills?", answer: "For manual testing, no. For automation, we will teach you Java/Python from scratch." },
-            { question: "Which tools will I learn?", answer: "Selenium, JIRA, TestNG, Postman, and JMeter." }
+            { question: "What is Software Testing?", answer: "Software Testing is the process of evaluating a software application to identify defects and ensure it meets specified requirements and quality standards before release." },
+            { question: "Why is Software Testing important?", answer: "Software Testing helps ensure that the application works as expected, is free of bugs, and provides a good user experience, which is critical for customer satisfaction and software reliability." },
+            { question: "What types of Software Testing are there?", answer: "There are various types of Software Testing, including Manual Testing, Automated Testing, Unit Testing, Integration Testing, System Testing, and User Acceptance Testing (UAT), each with specific goals and techniques." },
+            { question: "What skills are required for Software Testing?", answer: "Key skills include an understanding of test case design, bug tracking tools like JIRA, knowledge of SDLC (Software Development Life Cycle), and familiarity with test management tools." },
+            { question: "What career opportunities can I pursue in Software Testing?", answer: "Roles include Software Tester, Quality Assurance (QA) Engineer, Test Lead, and Automation Tester. Software testers are in high demand in industries like IT, e-commerce, healthcare, and finance." }
         ]
     },
     {
@@ -248,7 +271,7 @@ const courses = [
         slug: "manual-testing",
         category: "Testing",
         description: "Focus on the core concepts of manual software testing, bug reporting, and test case design without any coding.",
-        img: "/courses/softwareTesting.webp",
+        img: "/courses/manualTesting.webp",
         rating: "4.6",
         students: "600",
         locked: true,
@@ -266,14 +289,18 @@ const courses = [
             { title: "Agile Testing", desc: "Testing in Scrum and Kanban environments.", icon: "bi bi-kanban" }
         ],
         courseContentData: [
-            { id: "mt1", title: "Testing Fundamentals", icon: "bi bi-info-circle", defaultOpen: true, items: ["What is Testing?", "Principles of Testing", "V-Model", "Testing Types"] },
-            { id: "mt2", title: "Test Case Design", icon: "bi bi-pencil-square", items: ["Writing Test Cases", "Boundary Value Analysis", "Equivalence Partitioning", "Traceability Matrix"] },
-            { id: "mt3", title: "Defect Management", icon: "bi bi-bug", items: ["Defect Lifecycle", "Priority vs Severity", "JIRA Walkthrough", "Root Cause Analysis"] },
-            { id: "mt4", title: "Project Work", icon: "bi bi-star", items: ["Real-world Test Scenarios", "Exploratory Testing", "User Acceptance Testing", "Final Project"] }
+            { id: "mt1", title: "Introduction to Manual Testing", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of Software Testing and its importance", "Manual vs. Automated Testing", "Different types of testing (Functional, Non-Functional)", "Testing Life Cycle: Requirement Analysis, Test Planning, Test Execution, Defect Reporting", "Testing methodologies (Waterfall, Agile, V-Model)"] },
+            { id: "mt2", title: "Test Case Design & Execution", icon: "bi bi-pencil-square", items: ["Writing effective test cases: Structure, test case ID, description, steps, expected results", "Understanding test scenarios and acceptance criteria", "Types of test cases: Positive, Negative, Boundary Value, and Edge Cases", "Executing test cases and capturing results", "Traceability Matrix: Mapping test cases to requirements"] },
+            { id: "mt3", title: "Defect Reporting & Management", icon: "bi bi-bug", items: ["Introduction to defect lifecycle: Identification, Logging, Prioritization, Retesting", "Tools for defect tracking: JIRA, Bugzilla, TestRail", "Writing clear and effective bug reports (description, steps to reproduce, screenshots)", "Severity vs. Priority: Understanding the difference", "Managing and following up on reported defects"] },
+            { id: "mt4", title: "Types of Manual Testing", icon: "bi bi-clipboard-check", items: ["Functional Testing: Verification of features and functionality", "Non-Functional Testing: Usability, Compatibility, and Performance testing", "Regression Testing: Ensuring that new changes don’t break existing functionality", "Smoke & Sanity Testing: Quick checks to verify core functionality", "Exploratory Testing: Simultaneous learning, test design, and execution"] },
+            { id: "mt5", title: "Test Reporting & Documentation", icon: "bi bi-journal-text", items: ["Test Summary Report: Communicating the overall testing status", "Metrics and KPIs in testing: Test coverage, defect density, test execution progress", "Importance of documentation: Test plans, test cases, and defect logs", "Best practices for writing and maintaining test documentation"] }
         ],
         faqData: [
-            { question: "Is this for non-technical people?", answer: "Yes, manual testing is the perfect entry point for anyone wanting to join the IT industry." },
-            { question: "Do I need to learn to code?", answer: "No, this course is 100% focused on manual techniques and requires no coding." }
+            { question: "What is Manual Testing?", answer: "Manual Testing is the process of manually evaluating a software application by executing test cases without the use of automation tools, focusing on verifying that the software behaves as expected." },
+            { question: "What is the importance of Manual Testing?", answer: "Manual Testing is crucial for exploratory testing, usability testing, and cases where automation is not feasible. It ensures that the software meets end-user expectations and functionality." },
+            { question: "How do I get started with Manual Testing?", answer: "To get started, you should understand the Software Development Life Cycle (SDLC), test case design, bug reporting, and the use of tools like JIRA for managing test cases and defects." },
+            { question: "When is Manual Testing preferred over Automation?", answer: "Manual Testing is preferred when performing usability testing, ad-hoc testing, or when dealing with frequent changes in the UI or functionality, where writing and maintaining automation scripts would not be cost-effective." },
+            { question: "What career opportunities are there in Manual Testing?", answer: "After completing a Manual Testing course, you can pursue roles such as Manual Tester, Quality Analyst, Test Engineer, or QA Engineer in various domains like software development, e-commerce, and banking." }
         ]
     },
     {
@@ -282,13 +309,13 @@ const courses = [
         slug: "automation-testing",
         category: "Testing",
         description: "Master automation testing using Selenium WebDriver with Java to build powerful and reusable test frameworks.",
-        img: "/courses/softwareTesting.webp",
+        img: "/courses/Automation.webp",
         rating: "4.8",
         students: "950",
         locked: true,
         aboutData: {
             topic: "Build Automation Frameworks",
-            content1: "Go beyond record-and-playback. Learn to write scripts that can test complex web applications automatically.",
+            content1: "Our curriculum also covers Playwright automation, a modern end-to-end testing framework that supports fast, reliable cross-browser testing across Chromium, Firefox, and WebKit. With TypeScript integration, learners develop strongly typed, scalable test scripts, improving code quality and debugging efficiency.",
             content2: "Master Selenium, TestNG, Maven, and Page Object Model for professional-grade automation."
         },
         whatYouLearnData: [
@@ -300,85 +327,20 @@ const courses = [
             { title: "Reporting", desc: "Generating Extent and Allure reports.", icon: "bi bi-file-bar-graph" }
         ],
         courseContentData: [
-            { id: "at1", title: "Selenium Basics", icon: "bi bi-play", defaultOpen: true, items: ["WebDriver Setup", "Locators", "Handling Alerts", "Waits & Timeouts"] },
-            { id: "at2", title: "Advanced Selenium", icon: "bi bi-gear", items: ["Action Class", "JavaScript Executor", "Iframe Handling", "Multiple Windows"] },
-            { id: "at3", title: "TestNG & Maven", icon: "bi bi-boxes", items: ["TestNG Annotations", "Assertions", "Parallel Execution", "Maven POM.xml"] },
-            { id: "at4", title: "Framework Building", icon: "bi bi-stars", items: ["Page Object Model", "Properties File", "Data Driven with Excel", "Jenkins Setup"] }
+            { id: "at1", title: "Introduction to Automation Testing", icon: "bi bi-info-circle", defaultOpen: true, items: ["What is Automation Testing and its benefits", "Manual vs. Automated Testing: When to choose automation", "Overview of automation tools: Selenium, Playwright, TestNG, Appium", "The Automation Testing life cycle: Planning, Scripting, Execution, Reporting", "Setting up the automation environment (IDE, drivers, frameworks)"] },
+            { id: "at2", title: "Selenium WebDriver Basics", icon: "bi bi-play", items: ["Introduction to Selenium WebDriver and its components", "Setting up Selenium WebDriver with Java or JavaScript", "Automating web browsers with Selenium commands (click, type, select)", "Locators in Selenium (ID, Name, XPath, CSS Selector, etc.)", "Handling dynamic elements, wait conditions, and synchronization"] },
+            { id: "at3", title: "Test Automation Frameworks", icon: "bi bi-boxes", items: ["Introduction to Automation Frameworks: Benefits and Design Patterns", "Types of frameworks: Linear, Modular, Data-Driven, Keyword-Driven, Hybrid", "Understanding Page Object Model (POM) for maintaining reusable test scripts", "TestNG for organizing and managing test cases", "Generating reports: Extent Reports, Allure Reports, or JUnit Reports"] },
+            { id: "at4", title: "Advanced Automation Topics", icon: "bi bi-gear", items: ["Automating API testing with RestAssured or Postman", "Implementing Continuous Integration (CI) with Jenkins for automation scripts", "Cross-browser testing with Selenium Grid or BrowserStack", "Parallel Test Execution and managing test data", "Automating mobile testing with Appium (Android & iOS)"] },
+            { id: "at5", title: "Best Practices & Optimization in Automation Testing", icon: "bi bi-stars", items: ["Writing maintainable and reusable test scripts", "Strategies for managing and organizing automation test cases", "Handling challenges: Dynamic content, synchronization issues, flaky tests", "Optimizing test execution: Parallel execution, avoiding redundant tests", "Continuous feedback and integration: Implementing CI/CD pipelines for automated testing"] }
         ],
         faqData: [
-            { question: "Will I learn Java?", answer: "Yes, we include a comprehensive module on Java specifically tailored for testers." },
-            { question: "Is this course project-based?", answer: "Yes, you will build an end-to-end automation framework for an e-commerce site." }
+            { question: "What is Automation Testing?", answer: "Automation Testing involves using tools like Selenium WebDriver and Java to automate repetitive test cases, reducing manual effort and ensuring consistent, error-free execution of test scenarios." },
+            { question: "Why should I learn Automation Testing?", answer: "Learning Automation Testing helps you build efficient, reusable test scripts, improving testing speed, accuracy, and scalability, especially for complex applications requiring frequent regression tests." },
+            { question: "What tools are used in Automation Testing?", answer: "Common tools include Selenium WebDriver, JUnit, TestNG, Appium, and Cucumber, which help automate functional, regression, and load testing in software development." },
+            { question: "Can I use Automation Testing for all types of applications?", answer: "Automation Testing is best suited for repetitive tasks and applications that require frequent testing. It works well for web and mobile applications but may not be ideal for exploratory or usability testing." },
+            { question: "What job roles can I pursue after learning Automation Testing?", answer: "After completing an Automation Testing course, you can pursue roles such as Test Automation Engineer, Quality Assurance Engineer, or Software Tester, with opportunities in various industries." }
         ]
     },
-    {
-        id: 15,
-        title: "API Testing",
-        slug: "api-testing",
-        category: "Testing",
-        description: "Learn to test the backbone of modern apps. Master RESTful API testing using Postman and REST Assured.",
-        img: "/courses/mern.webp",
-        rating: "4.7",
-        students: "800",
-        locked: true,
-        aboutData: {
-            topic: "Master REST API Testing",
-            content1: "Learn how to validate backend services and data flows using industry-leading tools like Postman.",
-            content2: "Master automation of API tests to ensure faster delivery and higher quality."
-        },
-        whatYouLearnData: [
-            { title: "Postman Basics", desc: "Manual API testing and Collections.", icon: "bi bi-collection" },
-            { title: "HTTP Methods", desc: "GET, POST, PUT, DELETE mastery.", icon: "bi bi-globe" },
-            { title: "Automation", desc: "Writing tests in Postman with JS.", icon: "bi bi-code" },
-            { title: "Environment Vars", desc: "Managing dynamic data.", icon: "bi bi-gear" },
-            { title: "Newman", desc: "Running tests in the command line.", icon: "bi bi-terminal" },
-            { title: "Mock Servers", desc: "Simulating APIs for frontend.", icon: "bi bi-cpu" }
-        ],
-        courseContentData: [
-            { id: "api1", title: "API Fundamentals", icon: "bi bi-info-circle", defaultOpen: true, items: ["What is an API?", "JSON & XML", "Request/Response", "Postman UI"] },
-            { id: "api2", title: "Manual Testing", icon: "bi bi-play", items: ["Header & Body", "Query Params", "Auth Tokens", "Status Codes"] },
-            { id: "api3", title: "Automation Scripts", icon: "bi bi-code-slash", items: ["Assertions", "Variables", "Collection Runner", "Dynamic Testing"] },
-            { id: "api4", title: "Advanced API", icon: "bi bi-stars", items: ["Newman Integration", "API Documentation", "Mocking", "CI/CD for APIs"] }
-        ],
-        faqData: [
-            { question: "Do I need to know JavaScript?", answer: "Basic JS is helpful for automation scripts, and we cover what you need." },
-            { question: "Is API testing essential?", answer: "Yes, most modern software relies on APIs, making this a high-demand skill." }
-        ]
-    },
-    {
-        id: 36,
-        title: "Performance Testing",
-        slug: "performance-testing",
-        category: "Testing",
-        description: "Ensure your application can handle the load. Master performance testing using JMeter.",
-        img: "/courses/softwareTesting.webp",
-        rating: "4.8",
-        students: "500",
-        locked: true,
-        aboutData: {
-            topic: "Load and Stress Testing",
-            content1: "Learn to identify performance bottlenecks before they affect your users.",
-            content2: "Master Apache JMeter to simulate thousands of users and analyze server response."
-        },
-        whatYouLearnData: [
-            { title: "JMeter Basics", desc: "Thread groups, Samplers, and Listeners.", icon: "bi bi-speedometer" },
-            { title: "Load Testing", desc: "Testing system behavior under load.", icon: "bi bi-people" },
-            { title: "Stress Testing", desc: "Finding the breaking point of your app.", icon: "bi bi-lightning" },
-            { title: "Correlation", desc: "Handling dynamic values in JMeter.", icon: "bi bi-link" },
-            { title: "Reporting", desc: "Analyzing throughput and latency.", icon: "bi bi-graph-up" },
-            { title: "Best Practices", desc: "Distributed testing and CLI mode.", icon: "bi bi-shield-check" }
-        ],
-        courseContentData: [
-            { id: "pt1", title: "Performance Intro", icon: "bi bi-info-circle", defaultOpen: true, items: ["What is Perf Testing?", "NFRs", "Latency vs Throughput", "JMeter Installation"] },
-            { id: "pt2", title: "JMeter Scripting", icon: "bi bi-play", items: ["HTTP Request", "Config Elements", "Assertions", "Dynamic Data"] },
-            { id: "pt3", title: "Advanced JMeter", icon: "bi bi-gear", items: ["Regular Expressions", "User Defined Variables", "Logic Controllers", "Timers"] },
-            { id: "pt4", title: "Execution & Analysis", icon: "bi bi-bar-chart", items: ["Running Load Tests", "Interpreting Results", "Resource Monitoring", "Reporting Dashboard"] }
-        ],
-        faqData: [
-            { question: "Why use JMeter?", answer: "It's the most popular open-source tool for load testing and supports many protocols." },
-            { question: "Do I need a server for testing?", answer: "We will provide access to test applications for your practice." }
-        ]
-    },
-
     // HEALTHCARE
     {
         id: 10,
@@ -404,14 +366,18 @@ const courses = [
             { title: "Regulatory Laws", desc: "Compliance and billing ethics.", icon: "bi bi-shield-check" }
         ],
         courseContentData: [
-            { id: "mb1", title: "Intro to Billing", icon: "bi bi-cash", defaultOpen: true, items: ["Role of a Biller", "Healthcare Ecosystem", "Insurance Terminology", "HIPAA Basics"] },
-            { id: "mb2", title: "Claim Forms", icon: "bi bi-file-text", items: ["CMS-1500 Form", "UB-04 Form", "Electronic Claims (EDI)", "Clearinghouses"] },
-            { id: "mb3", title: "Payment Posting", icon: "bi bi-wallet", items: ["EOB Analysis", "ERA Processing", "Adjustment Codes", "Patient Responsibility"] },
-            { id: "mb4", title: "A/R Management", icon: "bi bi-graph-up", items: ["Aging Reports", "Appeals Process", "Collections", "Audit Prep"] }
+            { id: "mb1", title: "Introduction to Medical Billing", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of the healthcare industry and medical billing process", "Understanding the role of a medical biller and coder", "Key terms and concepts: CPT codes, ICD-10, HCPCS, NPI, and EDI", "Overview of medical insurance types: private insurance, Medicare, Medicaid", "Understanding payer systems and insurance verification"] },
+            { id: "mb2", title: "Medical Billing Codes & Classifications", icon: "bi bi-journal-text", items: ["Introduction to the ICD-10 coding system: Diagnosis codes", "Understanding CPT (Current Procedural Terminology) codes: Medical procedures and services", "HCPCS codes: Supplies, equipment, and additional services", "Modifiers: Understanding and applying CPT and HCPCS modifiers", "Mapping diagnosis codes to procedures and treatments for billing"] },
+            { id: "mb3", title: "Insurance Verification & Claims Submission", icon: "bi bi-file-text", items: ["Verifying patient insurance coverage and benefits", "Understanding the importance of pre-certification and prior authorization", "Claim forms: Completing CMS-1500 and UB-04 forms", "Submitting claims to insurance companies using electronic (EDI) and paper methods", "Tracking claim status and managing claim denials"] },
+            { id: "mb4", title: "Claims Management & Payment Posting", icon: "bi bi-wallet", items: ["Managing rejected or denied claims and the appeal process", "Payment posting: Recording payments and adjustments", "Handling remittance advice (RA) and Explanation of Benefits (EOB)", "Balancing accounts and maintaining accurate patient billing records", "Applying patient payments, co-pays, and deductibles to their accounts"] },
+            { id: "mb5", title: "Compliance, Regulations, and Best Practices", icon: "bi bi-shield-check", items: ["Understanding HIPAA regulations and patient confidentiality", "Navigating fraud and abuse laws (False Claims Act, Anti-Kickback Statute)", "Billing compliance with payer policies and government regulations", "Best practices for ensuring accurate coding and billing processes", "Continuous education on updates to medical billing codes, regulations, and payer policies"] }
         ],
         faqData: [
-            { question: "Is billing easier than coding?", answer: "Billing is more about finance, while coding is clinical. Both are essential!" },
-            { question: "Can I work from home?", answer: "Yes, many billing roles offer remote opportunities." }
+            { question: "What is Medical Billing?", answer: "Medical Billing is the process of submitting and following up on claims with health insurance companies to receive payment for healthcare services provided to patients. It ensures proper reimbursement for healthcare providers." },
+            { question: "Why should I learn Medical Billing?", answer: "Learning Medical Billing helps you understand insurance policies, coding systems, and billing practices, which are essential skills for healthcare administration, ensuring timely and accurate payments." },
+            { question: "What tools are used in Medical Billing?", answer: "Common tools used in Medical Billing include specialized software such as EZClaim, PracticeSuite, and Kareo, which help streamline the claim process, billing, and insurance verification." },
+            { question: "What are the career opportunities after completing Medical Billing?", answer: "After completing Medical Billing, you can work as a Medical Biller, Billing Coordinator, or Healthcare Administrator in hospitals, clinics, or insurance companies handling billing and claims." },
+            { question: "How does Medical Billing relate to Medical Coding?", answer: "While Medical Coding involves translating diagnoses and procedures into codes, Medical Billing uses these codes to submit claims to insurance companies for payment. Both are crucial in the healthcare reimbursement process." }
         ]
     },
     {
@@ -438,291 +404,55 @@ const courses = [
             { title: "Compliance", desc: "HIPAA and healthcare regulations.", icon: "bi bi-shield-check" }
         ],
         courseContentData: [
-            { id: "mc1", title: "Medical Basics", icon: "bi bi-heart", defaultOpen: true, items: ["Anatomy & Physiology", "Medical Terminology", "Pathology", "Healthcare Delivery"] },
-            { id: "mc2", title: "ICD-10-CM Coding", icon: "bi bi-journal", items: ["Coding Guidelines", "Infection Diseases", "Neoplasms", "Circulatory System"] },
-            { id: "mc3", title: "CPT & HCPCS", icon: "bi bi-file-earmark", items: ["Evaluation & Management", "Surgery Coding", "Radiology", "Lab Procedures"] },
-            { id: "mc4", title: "Certification Prep", icon: "bi bi-award", items: ["CPC Exam Overview", "Mock Tests", "Time Management", "Job Interview Prep"] }
+            { id: "mc1", title: "Introduction to Medical Coding", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of the healthcare industry and the role of medical coding", "Understanding the differences between medical coding and medical billing", "Key terms and concepts in medical coding: Codes, modifiers, and medical terminology", "Introduction to coding systems: ICD-10, CPT, and HCPCS", "The role of a medical coder in the healthcare team"] },
+            { id: "mc2", title: "ICD-10 Coding System", icon: "bi bi-journal", items: ["Introduction to ICD-10 (International Classification of Diseases, 10th Revision)", "Structure of ICD-10 codes: Categories, subcategories, and codes", "Diagnosing and classifying diseases and conditions using ICD-10", "Coding for acute, chronic, and unspecified conditions", "Guidelines for accurate ICD-10 coding (using the Alphabetic Index and Tabular List)"] },
+            { id: "mc3", title: "CPT (Current Procedural Terminology) Coding System", icon: "bi bi-file-medical", items: ["Introduction to CPT codes for medical procedures and services", "Structure and categories of CPT codes: Evaluation and Management (E/M), Surgery, Radiology, Pathology, and Medicine", "Understanding the different code types: Category I, II, and III", "Guidelines for accurate CPT code selection based on medical records", "Using modifiers in CPT coding to provide additional information"] },
+            { id: "mc4", title: "HCPCS (Healthcare Common Procedure Coding System)", icon: "bi bi-box-seam", items: ["Understanding HCPCS codes for equipment, supplies, and services", "Differentiating between Level I and Level II HCPCS codes", "Level II codes: Durable medical equipment (DME), ambulatory services, and non-physician services", "Application of HCPCS codes in healthcare settings", "Common HCPCS codes for commonly used medical supplies and services"] },
+            { id: "mc5", title: "Coding Compliance and Best Practices", icon: "bi bi-shield-check", items: ["Understanding the importance of compliance in medical coding", "Adhering to coding guidelines and payer-specific requirements", "Avoiding coding errors: Upcoding, downcoding, and unbundling", "Documentation requirements for accurate coding: The importance of medical records and patient history", "Staying updated with coding changes: Annual revisions to ICD-10, CPT, and HCPCS"] }
         ],
         faqData: [
-            { question: "Do I need a medical degree?", answer: "No, a basic understanding of biology is enough, and we teach the rest." },
-            { question: "What is the CPC exam?", answer: "It's the gold standard certification for medical coders." }
+            { question: "What is Medical Coding?", answer: "Medical Coding is the process of transforming healthcare diagnoses, procedures, and medical services into universal alphanumeric codes, which are essential for insurance claims and healthcare documentation." },
+            { question: "Why should I learn Medical Coding?", answer: "Learning Medical Coding equips you with the skills to convert medical information into standardized codes, which is essential for healthcare reimbursement and accurate medical record-keeping." },
+            { question: "What coding systems are used in Medical Coding?", answer: "Common coding systems include ICD-10 (International Classification of Diseases), CPT (Current Procedural Terminology), and HCPCS (Healthcare Common Procedure Coding System), which are used for diagnostic and procedural coding." },
+            { question: "What are the career opportunities after learning Medical Coding?", answer: "After completing Medical Coding, you can work as a Certified Medical Coder, Coding Specialist, or Healthcare Compliance Officer in hospitals, insurance companies, and private practices." },
+            { question: "Is Medical Coding related to Medical Billing?", answer: "Yes, Medical Coding and Medical Billing are closely related. While coding involves translating medical terms into codes, billing uses these codes to submit claims to insurance companies for payment." }
         ]
     },
-    {
-        id: 37,
-        title: "Clinical Research",
-        slug: "clinical-research",
-        category: "Healthcare",
-        description: "Master the processes of clinical trials and drug development. Learn about GCP, regulatory affairs, and trial management.",
-        img: "/courses/medicalCoding.webp",
-        rating: "4.7",
-        students: "400",
-        locked: true,
-        aboutData: {
-            topic: "Clinical Trial Management",
-            content1: "Learn how new drugs and medical devices are tested for safety and efficacy in humans.",
-            content2: "Master the regulatory requirements and ethics involved in clinical research."
-        },
-        whatYouLearnData: [
-            { title: "GCP Guidelines", desc: "Good Clinical Practice standards.", icon: "bi bi-shield-check" },
-            { title: "Trial Design", desc: "Phases of clinical trials (I-IV).", icon: "bi bi-diagram-3" },
-            { title: "Drug Development", desc: "The journey from lab to market.", icon: "bi bi-capsule" },
-            { title: "Regulatory Affairs", desc: "FDA and international regulations.", icon: "bi bi-file-earmark-check" },
-            { title: "Pharmacovigilance", desc: "Monitoring drug safety.", icon: "bi bi-eye" },
-            { title: "Trial Ops", desc: "Managing sites and data.", icon: "bi bi-gear" }
-        ],
-        courseContentData: [
-            { id: "cr1", title: "Intro to Clinical Research", icon: "bi bi-info-circle", defaultOpen: true, items: ["Terminology", "Historical Context", "Ethical Principles", "Trial Stakeholders"] },
-            { id: "cr2", title: "Regulatory Framework", icon: "bi bi-file-lock", items: ["ICH-GCP", "Informed Consent", "Institutional Review Board", "Documentation"] },
-            { id: "cr3", title: "Trial Execution", icon: "bi bi-play", items: ["Site Selection", "Monitoring Visits", "Data Management", "Safety Reporting"] },
-            { id: "cr4", title: "Special Topics", icon: "bi bi-stars", items: ["Bioethics", "Medical Writing", "Audits & Inspections", "Career Paths"] }
-        ],
-        faqData: [
-            { question: "Who can join this course?", answer: "Graduates in Life Sciences, Pharmacy, or Medicine are ideal candidates." },
-            { question: "What are the job roles?", answer: "CRA (Clinical Research Associate), CRC (Coordinator), and Data Manager." }
-        ]
-    },
-    {
-        id: 38,
-        title: "Hospital Management",
-        slug: "hospital-management",
-        category: "Healthcare",
-        description: "Learn to manage the complex operations of healthcare facilities, from patient care to hospital administration.",
-        img: "/courses/medicalBilling.webp",
-        rating: "4.5",
-        students: "550",
-        locked: true,
-        aboutData: {
-            topic: "Healthcare Administration",
-            content1: "Master the skills needed to run a hospital efficiently while maintaining high standards of patient care.",
-            content2: "Learn about hospital operations, quality management, and healthcare finance."
-        },
-        whatYouLearnData: [
-            { title: "Hospital Ops", desc: "Daily management of hospital departments.", icon: "bi bi-building" },
-            { title: "Quality Control", desc: "NABH and JCI accreditation standards.", icon: "bi bi-award" },
-            { title: "Patient Relations", desc: "Managing patient experience and care.", icon: "bi bi-heart" },
-            { title: "Healthcare Finance", desc: "Budgeting and financial management.", icon: "bi bi-cash-stack" },
-            { title: "HR in Healthcare", desc: "Managing medical and non-medical staff.", icon: "bi bi-people" },
-            { title: "Health IT", desc: "Hospital Information Systems (HIS).", icon: "bi bi-laptop" }
-        ],
-        courseContentData: [
-            { id: "hm1", title: "Hospital Organization", icon: "bi bi-grid", defaultOpen: true, items: ["Hospital Structure", "Departmental Functions", "Healthcare Systems", "Public vs Private"] },
-            { id: "hm2", title: "Operations Management", icon: "bi bi-gear", items: ["Supply Chain", "Facility Management", "Emergency Services", "Outpatient Care"] },
-            { id: "hm3", title: "Quality & Safety", icon: "bi bi-shield-check", items: ["Patient Safety", "Infection Control", "Risk Management", "Accreditation Prep"] },
-            { id: "hm4", title: "Admin & Leadership", icon: "bi bi-person-badge", items: ["Leadership Skills", "Ethics & Law", "Strategic Planning", "Hospital Marketing"] }
-        ],
-        faqData: [
-            { question: "Is this for doctors only?", answer: "No, this is for anyone interested in the administrative side of healthcare." },
-            { question: "What is NABH?", answer: "It's the national accreditation board for hospitals ensuring quality standards." }
-        ]
-    },
-    {
-        id: 39,
-        title: "Pharmacy Management",
-        slug: "pharmacy-management",
-        category: "Healthcare",
-        description: "Learn to manage retail and hospital pharmacies, focusing on inventory, regulations, and patient counseling.",
-        img: "/courses/medicalCoding.webp",
-        rating: "4.6",
-        students: "350",
-        locked: true,
-        aboutData: {
-            topic: "Pharmacy Operations & Care",
-            content1: "Learn the business and clinical aspects of running a pharmacy successfully.",
-            content2: "Master inventory management, drug regulations, and effective patient communication."
-        },
-        whatYouLearnData: [
-            { title: "Inventory Control", desc: "Managing drug stocks and expiry.", icon: "bi bi-box-seam" },
-            { title: "Drug Laws", desc: "Pharmacy acts and regulations.", icon: "bi bi-file-earmark-lock" },
-            { title: "Patient Counseling", desc: "Providing medication advice.", icon: "bi bi-chat-dots" },
-            { title: "Retail Management", desc: "Running a profitable pharmacy.", icon: "bi bi-shop" },
-            { title: "Pharmacology", desc: "Basics of drug actions.", icon: "bi bi-capsule" },
-            { title: "Pharmacy IT", desc: "Software for billing and inventory.", icon: "bi bi-pc-display" }
-        ],
-        courseContentData: [
-            { id: "ph1", title: "Pharmacy Basics", icon: "bi bi-info-circle", defaultOpen: true, items: ["Role of Pharmacist", "Pharmacy Types", "Drug Classification", "Storage Norms"] },
-            { id: "ph2", title: "Stock & Inventory", icon: "bi bi-boxes", items: ["Procurement", "Stock Audits", "Lead Time", "Waste Management"] },
-            { id: "ph3", title: "Regulations & Ethics", icon: "bi bi-shield", items: ["Prescription Handling", "Controlled Substances", "Legal Compliance", "Professional Ethics"] },
-            { id: "ph4", title: "Business Skills", icon: "bi bi-graph-up", items: ["Sales & Marketing", "Customer Service", "Financial Basics", "Digital Pharmacy"] }
-        ],
-        faqData: [
-            { question: "Do I need a Pharmacy degree?", answer: "Basic knowledge is helpful, but we cover the management side for beginners." },
-            { question: "Will I learn about software?", answer: "Yes, we include hands-on training with pharmacy management software." }
-        ]
-    },
-
-    // DATABASE
-    {
-        id: 6,
-        title: "Business Intelligence",
-        slug: "business-intelligence",
-        category: "Database",
-        description: "Business Intelligence (BI) transforms raw data into meaningful insights for strategic decisions and performance measurement.",
-        img: "/courses/business.webp",
-        rating: "4.6",
-        students: "900",
-        locked: true,
-        aboutData: {
-            topic: "Data-Driven Decision Making with BI",
-            content1: "Learn to visualize data and extract actionable insights using industry-leading BI tools.",
-            content2: "Master Power BI, Tableau, and data warehousing concepts."
-        },
-        whatYouLearnData: [
-            { title: "Data Visualization", desc: "Create compelling charts and dashboards.", icon: "bi bi-pie-chart" },
-            { title: "Power BI", desc: "DAX formulas and Power Query.", icon: "bi bi-bar-chart-line" },
-            { title: "Tableau", desc: "Advanced data mapping and storytelling.", icon: "bi bi-graph-up-arrow" },
-            { title: "ETL Processes", desc: "Extract, Transform, and Load data.", icon: "bi bi-arrow-left-right" },
-            { title: "SQL for BI", desc: "Querying databases for reporting.", icon: "bi bi-database-check" },
-            { title: "Data Modeling", desc: "Star and Snowflake schemas.", icon: "bi bi-diagram-3" }
-        ],
-        courseContentData: [
-            { id: "bi1", title: "Intro to BI", icon: "bi bi-info-circle", defaultOpen: true, items: ["BI Concepts", "Data Analytics Lifecycle", "Types of BI Tools", "Data Strategy"] },
-            { id: "bi2", title: "Power BI Mastery", icon: "bi bi-bar-chart", items: ["Connecting Data", "DAX Basics", "Creating Reports", "Publishing to Service"] },
-            { id: "bi3", title: "Tableau Fundamentals", icon: "bi bi-graph-up", items: ["Dimensions vs Measures", "Calculated Fields", "Dashboards", "Storyboards"] },
-            { id: "bi4", title: "Advanced Analytics", icon: "bi bi-stars", items: ["Predictive Modeling", "Big Data Integration", "Data Governance", "BI Project Management"] }
-        ],
-        faqData: [
-            { question: "Which tool is better: Power BI or Tableau?", answer: "Both have their strengths. We teach both so you can choose based on your needs." },
-            { question: "What roles can I apply for?", answer: "BI Developer, Data Analyst, or Business Analyst." }
-        ]
-    },
-    {
-        id: 24,
-        title: "MySQL Administration",
-        slug: "mysql-administration",
-        category: "Database",
-        description: "MySQL is the world's most popular open-source database, widely used for web applications.",
-        img: "/courses/sql.jpg",
-        rating: "4.7",
-        students: "1100",
-        locked: true,
-        aboutData: {
-            topic: "Master MySQL Database",
-            content1: "Learn to manage and optimize MySQL databases for web and enterprise apps.",
-            content2: "Master security, replication, and performance tuning."
-        },
-        whatYouLearnData: [
-            { title: "SQL Mastery", desc: "Querying and data modeling.", icon: "bi bi-terminal" },
-            { title: "Security", desc: "User management and encryption.", icon: "bi bi-shield-lock" },
-            { title: "Performance", desc: "Indexing and Query cache.", icon: "bi bi-speedometer" },
-            { title: "Backup", desc: "MySQLDump and Point-in-time recovery.", icon: "bi bi-safe" },
-            { title: "Replication", desc: "Master-Slave and Master-Master.", icon: "bi bi-share" },
-            { title: "Engines", desc: "InnoDB vs MyISAM deep dive.", icon: "bi bi-gear" }
-        ],
-        courseContentData: [
-            { id: "my1", title: "MySQL Fundas", icon: "bi bi-play", defaultOpen: true, items: ["Installation", "Workbench", "SQL Basics", "Data Types"] },
-            { id: "my2", title: "Data Management", icon: "bi bi-database", items: ["Normalization", "Joins", "Transactions", "Views"] },
-            { id: "my3", title: "DBA Core", icon: "bi bi-gear-wide", items: ["Server Variables", "Logs", "Backups", "User Privileges"] },
-            { id: "my4", title: "Advanced Topics", icon: "bi bi-stars", items: ["Optimization", "Partitioning", "Stored Procedures", "Triggers"] }
-        ],
-        faqData: [
-            { question: "Is MySQL easy to learn?", answer: "Yes, it's very beginner-friendly and has a massive community." },
-            { question: "Will I learn about performance?", answer: "Yes, we focus heavily on how to make your queries run fast." }
-        ]
-    },
-    {
-        id: 12,
-        title: "MongoDB",
-        slug: "mongodb",
-        category: "Database",
-        description: "MongoDB is a source-available cross-platform document-oriented database program, classified as a NoSQL database.",
-        img: "/courses/mern.webp",
-        rating: "4.8",
-        students: "1000",
-        locked: true,
-        aboutData: {
-            topic: "Master NoSQL with MongoDB",
-            content1: "Learn the flexible document-based approach to database management used in modern web apps.",
-            content2: "Master CRUD operations, aggregation pipelines, and database scaling."
-        },
-        whatYouLearnData: [
-            { title: "Document Model", desc: "JSON-like data structures.", icon: "bi bi-file-code" },
-            { title: "CRUD Operations", desc: "Insert, Find, Update, Delete.", icon: "bi bi-pencil-square" },
-            { title: "Aggregation", desc: "Powerful data processing pipeline.", icon: "bi bi-funnel" },
-            { title: "Indexing", desc: "Improving query speed in NoSQL.", icon: "bi bi-lightning" },
-            { title: "Mongoose ORM", desc: "Using MongoDB with Node.js.", icon: "bi bi-hexagon" },
-            { title: "Atlas & Scaling", desc: "Cloud deployment and sharding.", icon: "bi bi-cloud" }
-        ],
-        courseContentData: [
-            { id: "mg1", title: "Getting Started", icon: "bi bi-play", defaultOpen: true, items: ["Intro to NoSQL", "Atlas Setup", "Compass Interface", "BSON vs JSON"] },
-            { id: "mg2", title: "Basic Queries", icon: "bi bi-search", items: ["Insert & Find", "Query Operators", "Array Queries", "Updates"] },
-            { id: "mg3", title: "Data Modeling", icon: "bi bi-diagram-3", items: ["Embedding vs Referencing", "Schema Design", "Validation", "Indexes"] },
-            { id: "mg4", title: "Advanced MongoDB", icon: "bi bi-stars", items: ["Aggregation Framework", "Replication", "Sharding Basics", "Security"] }
-        ],
-        faqData: [
-            { question: "Why use NoSQL over SQL?", answer: "NoSQL is great for unstructured data and apps that need to scale horizontally quickly." },
-            { question: "Is MongoDB free?", answer: "Yes, MongoDB Atlas has a generous free tier for developers." }
-        ]
-    },
-    {
-        id: 23,
-        title: "PostgreSQL",
-        slug: "postgresql",
-        category: "Database",
-        description: "PostgreSQL is a powerful, open-source object-relational database system with a strong reputation for reliability.",
-        img: "/courses/sql.jpg",
-        rating: "4.8",
-        students: "900",
-        locked: true,
-        aboutData: {
-            topic: "Master Advanced SQL with Postgres",
-            content1: "Learn to manage and query data using the most advanced open-source database.",
-            content2: "Master performance tuning, JSONB, and full-text search."
-        },
-        whatYouLearnData: [
-            { title: "Complex Queries", desc: "CTEs and Window functions.", icon: "bi bi-code-square" },
-            { title: "JSONB Support", desc: "Handling semi-structured data.", icon: "bi bi-filetype-json" },
-            { title: "Indexing", desc: "GIN and GIST indexes.", icon: "bi bi-lightning" },
-            { title: "Stored Procedures", desc: "PL/pgSQL programming.", icon: "bi bi-terminal" },
-            { title: "Backup & HA", desc: "Data safety and replication.", icon: "bi bi-safe" },
-            { title: "Performance", desc: "EXPLAIN ANALYZE and Tuning.", icon: "bi bi-speedometer" }
-        ],
-        courseContentData: [
-            { id: "pg1", title: "Postgres Basics", icon: "bi bi-play", defaultOpen: true, items: ["Installation", "pgAdmin Tool", "Data Types", "Basic CRUD"] },
-            { id: "pg2", title: "Advanced SQL", icon: "bi bi-lightning", items: ["Joins & Subqueries", "Window Functions", "Common Table Expressions", "Views"] },
-            { id: "pg3", title: "DB Programming", icon: "bi bi-cpu", items: ["Triggers", "Functions", "Transactions", "JSON Support"] },
-            { id: "pg4", title: "DBA Basics", icon: "bi bi-gear", items: ["User Roles", "Backup/Restore", "Vacuuming", "Partitioning"] }
-        ],
-        faqData: [
-            { question: "Is Postgres better than MySQL?", answer: "Postgres has more advanced features and is strictly compliant with SQL standards." },
-            { question: "Where is Postgres used?", answer: "In high-reliability systems and modern web backends." }
-        ]
-    },
-    {
-        id: 18,
-        title: "Oracle SQL",
-        slug: "oracle-sql",
-        category: "Database",
-        description: "Oracle SQL is the standard language for interacting with Oracle Database, one of the most powerful enterprise DBs.",
-        img: "/courses/sql.jpg",
-        rating: "4.6",
-        students: "850",
-        locked: true,
-        aboutData: {
-            topic: "Master Oracle Database SQL",
-            content1: "Learn to write efficient SQL for Oracle, the world's leading enterprise database.",
-            content2: "Master complex joins, subqueries, and PL/SQL fundamentals."
-        },
-        whatYouLearnData: [
-            { title: "Data Retrieval", desc: "Selecting and filtering data.", icon: "bi bi-search" },
-            { title: "Complex Joins", desc: "Inner, Outer, and Self joins.", icon: "bi bi-diagram-2" },
-            { title: "Analytic Functions", desc: "Rank, Row_Number, and Lead/Lag.", icon: "bi bi-calculator" },
-            { title: "Data Manipulation", desc: "INSERT, UPDATE, and DELETE.", icon: "bi bi-pencil" },
-            { title: "PL/SQL Intro", desc: "Blocks, Variables, and Procedures.", icon: "bi bi-code-square" },
-            { title: "Optimization", desc: "Query plans and hints.", icon: "bi bi-speedometer" }
-        ],
-        courseContentData: [
-            { id: "ora1", title: "SQL Fundamentals", icon: "bi bi-play", defaultOpen: true, items: ["Oracle Architecture", "SQL Developer Tool", "Basic Select", "Where Clause"] },
-            { id: "ora2", title: "Data Management", icon: "bi bi-database", items: ["Joins & Sets", "Aggregate Functions", "Subqueries", "String/Date Functions"] },
-            { id: "ora3", title: "Schema Objects", icon: "bi bi-boxes", items: ["Tables & Constraints", "Indexes & Synonyms", "Sequences", "Views"] },
-            { id: "ora4", title: "Intro to PL/SQL", icon: "bi bi-code", items: ["PL/SQL Blocks", "Control Structures", "Cursors", "Exception Handling"] }
-        ],
-        faqData: [
-            { question: "Where is Oracle SQL used?", answer: "Mainly in large-scale enterprises like banks and telecom systems." },
-            { question: "Is PL/SQL included?", answer: "Yes, we include an introductory module to get you started with PL/SQL." }
-        ]
-    },
-
+    // {
+    //     id: 37,
+    //     title: "Clinical Research",
+    //     slug: "clinical-research",
+    //     category: "Healthcare",
+    //     description: "Master the processes of clinical trials and drug development. Learn about GCP, regulatory affairs, and trial management.",
+    //     img: "/courses/.webp",
+    //     rating: "4.7",
+    //     students: "400",
+    //     locked: true,
+    //     aboutData: {
+    //         topic: "Clinical Trial Management",
+    //         content1: "Learn how new drugs and medical devices are tested for safety and efficacy in humans.",
+    //         content2: "Master the regulatory requirements and ethics involved in clinical research."
+    //     },
+    //     whatYouLearnData: [
+    //         { title: "GCP Guidelines", desc: "Good Clinical Practice standards.", icon: "bi bi-shield-check" },
+    //         { title: "Trial Design", desc: "Phases of clinical trials (I-IV).", icon: "bi bi-diagram-3" },
+    //         { title: "Drug Development", desc: "The journey from lab to market.", icon: "bi bi-capsule" },
+    //         { title: "Regulatory Affairs", desc: "FDA and international regulations.", icon: "bi bi-file-earmark-check" },
+    //         { title: "Pharmacovigilance", desc: "Monitoring drug safety.", icon: "bi bi-eye" },
+    //         { title: "Trial Ops", desc: "Managing sites and data.", icon: "bi bi-gear" }
+    //     ],
+    //     courseContentData: [
+    //         { id: "cr1", title: "Introduction to Clinical Research", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of clinical research and its importance in healthcare", "Phases of clinical trials: Preclinical, Phase I, II, III, IV", "Types of clinical trials: Interventional, observational, and registries", "Ethical considerations in clinical research: Informed consent, confidentiality, and patient safety", "Regulatory bodies: FDA, EMA, ICH-GCP, and their role in clinical research"] },
+    //         { id: "cr2", title: "Study Design & Protocol Development", icon: "bi bi-diagram-3", items: ["Understanding different study designs: Randomized controlled trials (RCT), cohort studies, case-control studies", "Developing a clinical trial protocol: Objectives, design, methodology, and statistical analysis plan", "Defining inclusion and exclusion criteria for participant selection", "Sample size calculation and power analysis", "Key elements of a protocol: Safety monitoring, endpoints, and outcome measures"] },
+    //         { id: "cr3", title: "Clinical Trial Management & Operations", icon: "bi bi-gear", items: ["Roles and responsibilities in a clinical trial: Investigators, coordinators, monitors, and sponsors", "Site selection and initiation: Identifying and preparing clinical sites for research", "Patient recruitment and retention strategies", "Data management: Collection, storage, and analysis of trial data", "Monitoring and auditing clinical trials for compliance with GCP (Good Clinical Practice)"] },
+    //         { id: "cr4", title: "Regulatory Compliance & Documentation", icon: "bi bi-file-lock", items: ["Regulatory requirements for clinical trials: IND (Investigational New Drug), IRB (Institutional Review Board) approval", "Understanding the role of Institutional Review Boards (IRBs) and ethics committees", "Clinical trial documentation: Case Report Forms (CRFs), source documents, and adverse event reports", "Good Clinical Practice (GCP) guidelines and their importance", "Submission of clinical trial data to regulatory bodies and ethics committees"] },
+    //         { id: "cr5", title: "Data Analysis & Reporting in Clinical Research", icon: "bi bi-bar-chart", items: ["Statistical methods used in clinical trials: Descriptive statistics, hypothesis testing, p-values, and confidence intervals", "Analyzing safety and efficacy data: Understanding treatment effects, adverse events, and endpoints", "Interpreting clinical trial results and making recommendations", "Writing clinical trial reports: Final study report, manuscripts for publication", "Post-market surveillance and Phase IV studies: Long-term safety monitoring and additional research"] }
+    //     ],
+    //     faqData: [
+    //         { question: "Who can join this course?", answer: "Graduates in Life Sciences, Pharmacy, or Medicine are ideal candidates." },
+    //         { question: "What are the job roles?", answer: "CRA (Clinical Research Associate), CRC (Coordinator), and Data Manager." }
+    //     ]
+    // },
     // CCNA
     {
         id: 13,
@@ -730,13 +460,13 @@ const courses = [
         slug: "ccna",
         category: "CCNA",
         description: "CCNA validates essential networking skills for configuring and troubleshooting modern computer networks.",
-        img: "/courses/aws.webp",
+        img: "/courses/ccna.webp",
         rating: "4.9",
         students: "1400",
         locked: true,
         aboutData: {
             topic: "Master Networking with Cisco",
-            content1: "Learn the fundamentals of networking, security, and automation using Cisco technologies.",
+            content1: "In today’s hyper-connected digital world, networking forms the backbone of all IT infrastructures. Our CCNA (Cisco Certified Network Associate) Networking program is designed to equip learners with in-demand skills required to design, configure, manage, and troubleshoot modern enterprise networks.",
             content2: "Prepare for the CCNA 200-301 exam and start a career as a Network Engineer."
         },
         whatYouLearnData: [
@@ -748,14 +478,18 @@ const courses = [
             { title: "Wireless Access", desc: "WLAN and wireless security.", icon: "bi bi-wifi" }
         ],
         courseContentData: [
-            { id: "cc1", title: "Networking Basics", icon: "bi bi-info-circle", defaultOpen: true, items: ["OSI & TCP/IP", "Cabling & Topology", "IPv4 & IPv6", "Subnetting"] },
-            { id: "cc2", title: "Switching & Routing", icon: "bi bi-arrow-left-right", items: ["VLANs & Trunking", "STP Basics", "Static Routing", "OSPFv2 Config"] },
-            { id: "cc3", title: "IP Services & Security", icon: "bi bi-shield", items: ["ACLs", "NAT/PAT", "DHCP Config", "Device Hardening"] },
-            { id: "cc4", title: "Exam Preparation", icon: "bi bi-award", items: ["Exam Strategies", "Lab Practice", "Mock Exams", "Review Sessions"] }
+            { id: "cc1", title: "Introduction to Networking and CCNA Overview", icon: "bi bi-info-circle", defaultOpen: true, items: ["Understanding networking fundamentals: Networks, devices, and protocols", "Overview of the CCNA certification and its role in networking careers", "The OSI model and TCP/IP model: Layers, functions, and protocols", "Types of networks: LAN, WAN, MAN, and wireless networks", "Networking devices: Routers, switches, hubs, bridges, and access points"] },
+            { id: "cc2", title: "IP Addressing and Subnetting", icon: "bi bi-diagram-3", items: ["Understanding IPv4 and IPv6 addressing", "IP address classes and subnet masks", "Subnetting concepts: Calculating subnets, host ranges, and broadcast addresses", "VLSM (Variable Length Subnet Mask) and CIDR (Classless Inter-Domain Routing)", "IP Addressing schemes: Public vs. private IP addresses, NAT (Network Address Translation)"] },
+            { id: "cc3", title: "Routing and Switching Concepts", icon: "bi bi-arrow-left-right", items: ["Introduction to routing: Static and dynamic routing protocols", "Routing protocols: RIP, OSPF, EIGRP, and BGP", "Switching concepts: Ethernet, VLANs (Virtual LANs), and trunking", "Spanning Tree Protocol (STP) and its importance in network redundancy", "Inter-VLAN routing and router-on-a-stick configuration"] },
+            { id: "cc4", title: "Network Security and Access Control", icon: "bi bi-shield-lock", items: ["Introduction to network security fundamentals", "Configuring and securing Cisco routers and switches", "Access Control Lists (ACLs): Standard and extended ACLs", "Port security, DHCP snooping, and dynamic ARP inspection", "VPN (Virtual Private Network) basics: Types of VPNs, VPN protocols (IPSec, PPTP)"] },
+            { id: "cc5", title: "Wireless Networking and Troubleshooting", icon: "bi bi-wifi", items: ["Wireless networking fundamentals: Wi-Fi standards (802.11 a/b/g/n/ac/ax)", "Configuring wireless routers and access points", "Troubleshooting network connectivity issues using Cisco tools (ping, traceroute, show commands)", "Network performance optimization and error detection", "Implementing redundancy and high availability in networking (HSRP, VRRP)"] }
         ],
         faqData: [
-            { question: "Do I need special hardware?", answer: "No, we use Packet Tracer and GNS3 for simulations." },
-            { question: "How long is the exam?", answer: "The CCNA 200-301 exam is 120 minutes long." }
+            { question: "What is CCNA certification?", answer: "CCNA validates your skills in configuring, managing, and troubleshooting modern computer networks. It is an entry-level certification that provides a solid foundation in networking concepts." },
+            { question: "Why should I learn CCNA?", answer: "CCNA is essential for networking professionals. It provides the knowledge required to work with network devices, manage routers, switches, and troubleshoot network issues, which are key skills in any IT infrastructure." },
+            { question: "What topics are covered in the CCNA course?", answer: "The CCNA course covers topics such as IP addressing, routing protocols, LAN and WAN concepts, security fundamentals, and network troubleshooting." },
+            { question: "How does CCNA help in career growth?", answer: "CCNA opens doors for roles such as Network Engineer, System Administrator, or IT Support Specialist, offering excellent career opportunities in the networking field." },
+            { question: "What are the prerequisites for the CCNA course?", answer: "There are no formal prerequisites, but basic knowledge of networking concepts and computer fundamentals can be helpful when starting the course." }
         ]
     },
     {
@@ -764,7 +498,7 @@ const courses = [
         slug: "ccnp-network",
         category: "CCNA",
         description: "Master advanced routing and switching. Prepare for the CCNP Enterprise certification.",
-        img: "/courses/aws.webp",
+        img: "/courses/ccnp.JPG",
         rating: "4.9",
         students: "300",
         locked: true,
@@ -782,14 +516,18 @@ const courses = [
             { title: "Troubleshooting", desc: "Expert level diagnostic skills.", icon: "bi bi-search" }
         ],
         courseContentData: [
-            { id: "cn1", title: "Core Networking", icon: "bi bi-cpu", defaultOpen: true, items: ["Dual Stack (IPv4/v6)", "Virtualization", "Infrastructure", "Network Assurance"] },
-            { id: "cn2", title: "Advanced Routing", icon: "bi bi-diagram-3", items: ["BGP Attributes", "Route Filtering", "Redistribution", "Multicast"] },
-            { id: "cn3", title: "Enterprise Design", icon: "bi bi-building", items: ["High Availability", "QoS Implementation", "WLAN Security", "Cloud Connectivity"] },
-            { id: "cn4", title: "Automation", icon: "bi bi-code-slash", items: ["REST APIs", "Cisco DNA Center", "JSON/YAML", "Python Scripting"] }
+            { id: "cn1", title: "Advanced Routing and Switching Concepts", icon: "bi bi-diagram-3", defaultOpen: true, items: ["Advanced IP routing protocols: OSPF, EIGRP, and BGP", "OSPF (Open Shortest Path First) and its advanced configuration: Area types, LSAs, OSPF Path Selection", "EIGRP (Enhanced Interior Gateway Routing Protocol): Advanced features, route summarization, and unequal load balancing", "BGP (Border Gateway Protocol): Configuration and operation, route maps, filtering, and policies", "Implementing IPv6 routing and addressing with OSPFv3 and EIGRPv6"] },
+            { id: "cn2", title: "Layer 2 Technologies and Switching", icon: "bi bi-arrow-left-right", items: ["Advanced switching concepts: VLANs, trunking, and VTP (VLAN Trunking Protocol)", "Spanning Tree Protocol (STP) enhancements: Rapid Spanning Tree (RSTP), MSTP (Multiple Spanning Tree Protocol)", "EtherChannel (Link Aggregation): Configuration, troubleshooting, and load balancing", "Switch Security: Port security, 802.1X authentication, DHCP snooping, Dynamic ARP Inspection (DAI)", "Implementing and troubleshooting private VLANs (PVLANs)"] },
+            { id: "cn3", title: "Network Security and VPN Technologies", icon: "bi bi-shield-lock", items: ["Implementing network security features: ACLs (Access Control Lists), NAT (Network Address Translation)", "VPN technologies: Site-to-site and remote-access VPNs, IPsec, GRE (Generic Routing Encapsulation)", "Configuring and securing Cisco ASA (Adaptive Security Appliance) firewalls", "AAA (Authentication, Authorization, and Accounting) protocols: RADIUS, TACACS+", "Implementing secure remote access: SSL VPN, AnyConnect client"] },
+            { id: "cn4", title: "Quality of Service (QoS) and Traffic Management", icon: "bi bi-graph-up", items: ["Understanding QoS concepts: Bandwidth management, traffic shaping, and policing", "Configuring QoS on Cisco routers and switches using tools like CBWFQ (Class-Based Weighted Fair Queuing) and LLQ (Low Latency Queuing)", "Implementing traffic prioritization and congestion management", "QoS in MPLS (Multiprotocol Label Switching) networks", "Troubleshooting QoS issues in production environments"] },
+            { id: "cn5", title: "Network Troubleshooting and Automation", icon: "bi bi-code-slash", items: ["Advanced troubleshooting techniques: Using Cisco tools like ping, traceroute, and show commands", "Troubleshooting routing and switching issues in complex networks", "Network automation with Cisco DNA Center and SD-WAN (Software-Defined WAN)", "Introduction to Python for network automation and scripting", "Implementing and configuring Cisco Network Programmability solutions (NetFlow, SNMP, Cisco ONE)"] }
         ],
         faqData: [
-            { question: "Is CCNA required?", answer: "Yes, CCNA level knowledge is essential before starting CCNP." },
-            { question: "What are the job prospects?", answer: "Senior Network Engineer, Network Architect, and Infrastructure Lead." }
+            { question: "What is CCNP Network?", answer: "CCNP Network is an advanced certification designed for professionals with experience in networking. It focuses on complex routing and switching configurations, preparing you for the CCNP Enterprise certification." },
+            { question: "What skills will I gain in CCNP Network?", answer: "The CCNP course covers advanced routing protocols, network security, troubleshooting, and QoS (Quality of Service) configurations for enterprise-level networks." },
+            { question: "Why should I pursue CCNP Network certification?", answer: "CCNP certification demonstrates expertise in managing complex networks, which is highly sought after by organizations looking for skilled network engineers." },
+            { question: "What are the career benefits of CCNP certification?", answer: "After completing CCNP Network, you can advance to roles like Senior Network Engineer, Network Architect, or Network Consultant, enhancing career prospects in enterprise networking." },
+            { question: "What are the prerequisites for the CCNP Network course?", answer: "Before starting CCNP, it's recommended to have a CCNA certification or equivalent knowledge in networking concepts." }
         ]
     },
     {
@@ -798,7 +536,7 @@ const courses = [
         slug: "network-security",
         category: "CCNA",
         description: "Protect your infrastructure. Learn to implement and manage firewalls, IPS, and secure access.",
-        img: "/courses/softwareTesting.webp",
+        img: "/courses/networkSecurity.webp",
         rating: "4.8",
         students: "450",
         locked: true,
@@ -816,14 +554,18 @@ const courses = [
             { title: "Endpoint Security", desc: "Protecting devices on the network.", icon: "bi bi-laptop" }
         ],
         courseContentData: [
-            { id: "ns1", title: "Security Basics", icon: "bi bi-info-circle", defaultOpen: true, items: ["Security Threats", "Mitigation Techniques", "Management Plane Security", "VLAN Security"] },
-            { id: "ns2", title: "Cisco ASA Firewall", icon: "bi bi-shield", items: ["ASA Fundamentals", "Access Control Lists", "Object Groups", "NAT on ASA"] },
-            { id: "ns3", title: "VPN Implementation", icon: "bi bi-lock", items: ["Site-to-Site IPsec", "Remote Access VPN", "SSL VPN", "Encryption Algorithms"] },
-            { id: "ns4", title: "Advanced Protection", icon: "bi bi-stars", items: ["Cisco Firepower", "Email Security", "Cloud Security", "Security Auditing"] }
+            { id: "ns1", title: "Introduction to Network Security", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of network security and its importance in protecting IT infrastructure", "Common network security threats: Malware, Phishing, Denial of Service (DoS), Man-in-the-Middle attacks", "Network security layers: Perimeter, internal network, and endpoint security", "Security policies, risk management, and compliance frameworks (NIST, ISO 27001)", "Security best practices and defense in depth strategy"] },
+            { id: "ns2", title: "Firewalls and Intrusion Detection/Prevention Systems (IDS/IPS)", icon: "bi bi-shield", items: ["Understanding firewall technologies: Stateful inspection, packet filtering, proxy, and next-gen firewalls", "Configuring and managing firewalls (Cisco ASA, Palo Alto Networks)", "Intrusion Detection Systems (IDS) vs. Intrusion Prevention Systems (IPS): Differences and use cases", "Deploying IDS/IPS solutions for threat detection and response", "Advanced threat detection with IDS/IPS signature-based and anomaly-based detection"] },
+            { id: "ns3", title: "VPNs and Remote Access Security", icon: "bi bi-lock", items: ["Understanding Virtual Private Networks (VPNs) and their role in securing remote connections", "VPN types: Site-to-site VPN, remote-access VPN, SSL VPN, and MPLS VPN", "VPN protocols: PPTP, L2TP, IPsec, SSL, and IKEv2", "Configuring and securing VPNs using Cisco AnyConnect, IPsec VPNs, and SSL VPNs", "Best practices for securing remote access: Authentication, authorization, encryption"] },
+            { id: "ns4", title: "Network Access Control (NAC) and Authentication Systems", icon: "bi bi-key", items: ["Network Access Control (NAC): Principles and implementation for securing access to network resources", "802.1X Authentication: Configuring and deploying port-based network access control", "Role-based access control (RBAC) for controlling user access to network devices and services", "Multi-factor authentication (MFA) for enhanced security", "Single Sign-On (SSO) and its role in user authentication"] },
+            { id: "ns5", title: "Advanced Security Concepts and Threat Mitigation", icon: "bi bi-stars", items: ["Network segmentation and isolation: Using VLANs, firewalls, and DMZs for security", "Advanced persistent threats (APTs) and advanced malware protection (AMP)", "Distributed Denial of Service (DDoS) attacks: Prevention and mitigation techniques", "Security Information and Event Management (SIEM) for monitoring and incident response", "Best practices for patch management, vulnerability scanning, and system hardening"] }
         ],
         faqData: [
-            { question: "Do I need to know networking?", answer: "Yes, a solid understanding of TCP/IP and routing is required." },
-            { question: "Is this for security certifications?", answer: "Yes, it helps prepare for various network security exams." }
+            { question: "What is Network Security?", answer: "Network Security involves protecting computer networks from unauthorized access, misuse, and attacks. It includes securing firewalls, intrusion detection systems (IDS), and virtual private networks (VPNs)." },
+            { question: "Why is Network Security important?", answer: "Network Security is critical for protecting sensitive data and ensuring that systems remain operational. It helps defend against cyber threats, data breaches, and service disruptions." },
+            { question: "What topics are covered in Network Security?", answer: "This course covers topics such as firewall management, network encryption, VPN configuration, IDS/IPS systems, and securing wireless networks." },
+            { question: "How does Network Security impact career growth?", answer: "Professionals with network security skills are in high demand, and this certification can lead to roles like Security Analyst, Network Security Engineer, or Cybersecurity Consultant." },
+            { question: "What skills are required for Network Security?", answer: "Basic knowledge of networking and IT fundamentals is essential. Familiarity with tools like Wireshark, Nessus, and firewalls is also beneficial." }
         ]
     },
     {
@@ -832,7 +574,7 @@ const courses = [
         slug: "ethical-hacking",
         category: "CCNA",
         description: "Think like a hacker to build better defenses. Learn vulnerability assessment and penetration testing.",
-        img: "/courses/softwareTesting.webp",
+        img: "/courses/ethicalHacking.webp",
         rating: "4.9",
         students: "800",
         locked: true,
@@ -850,14 +592,18 @@ const courses = [
             { title: "Privilege Escalation", desc: "Gaining higher level access.", icon: "bi bi-person-up" }
         ],
         courseContentData: [
-            { id: "eh1", title: "Intro to Hacking", icon: "bi bi-incognito", defaultOpen: true, items: ["Ethical Hacking Phases", "Lab Setup (Kali Linux)", "Legal Issues", "Google Dorking"] },
-            { id: "eh2", title: "Network Hacking", icon: "bi bi-diagram-3", items: ["Nmap Scanning", "Sniffing", "MITM Attacks", "DoS Attacks"] },
-            { id: "eh3", title: "System Hacking", icon: "bi bi-pc-display", items: ["Password Cracking", "Buffer Overflows", "Backdoors", "Steganography"] },
-            { id: "eh4", title: "Advanced Hacking", icon: "bi bi-stars", items: ["Mobile Hacking", "IoT Security", "Cloud Hacking", "Pentest Reporting"] }
+            { id: "eh1", title: "Introduction to Ethical Hacking", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of ethical hacking and its importance in cybersecurity", "Differences between ethical hacking, black-hat, and white-hat hacking", "The role of ethical hackers in identifying vulnerabilities before malicious hackers exploit them", "Legal and ethical considerations: Penetration testing authorization and scope", "Key ethical hacking methodologies and frameworks (e.g., OWASP, PTES)"] },
+            { id: "eh2", title: "Footprinting and Reconnaissance", icon: "bi bi-search", items: ["Information gathering: Techniques for footprinting (e.g., DNS queries, WHOIS, Google dorks)", "Passive and active reconnaissance methods: Scanning public sources for data", "Tools for footprinting and reconnaissance: Nmap, Maltego, and Shodan", "Identifying attack surfaces: Websites, network infrastructure, and people (social engineering)", "Reconnaissance countermeasures: How organizations defend against footprinting"] },
+            { id: "eh3", title: "Scanning and Enumeration", icon: "bi bi-broadcast", items: ["Network scanning techniques: Discovering active devices, ports, and services (using Nmap, Netcat)", "Vulnerability scanning: Identifying known vulnerabilities (using Nessus, OpenVAS, Nexpose)", "Enumeration techniques: Extracting information from active systems, services, and networks", "Footprinting vs. scanning: Transitioning from reconnaissance to deeper scanning", "Ethical considerations and responsible scanning practices"] },
+            { id: "eh4", title: "Exploitation and Penetration Testing", icon: "bi bi-terminal", items: ["Understanding exploitation and the different stages of a penetration test", "Exploit development: Common vulnerabilities (buffer overflow, SQL injection, cross-site scripting)", "Post-exploitation techniques: Maintaining access, privilege escalation, and data exfiltration", "Hands-on exploitation tools: Metasploit, Burp Suite, and Wireshark", "Reporting and documenting findings in a penetration test, including risk assessment and mitigation strategies"] },
+            { id: "eh5", title: "Web Application and Network Security", icon: "bi bi-shield-lock", items: ["Web application security: Identifying vulnerabilities like SQL injection, Cross-Site Scripting (XSS), and Cross-Site Request Forgery (CSRF)", "Network penetration testing: Identifying and exploiting network vulnerabilities (e.g., ARP spoofing, man-in-the-middle attacks)", "Wireless network security: Cracking WEP/WPA, rogue access points, and defending against wireless threats", "Social engineering attacks: Phishing, vishing, and pretexting", "Best practices for defending against common attacks: Web Application Firewalls (WAF), VPNs, and strong encryption"] }
         ],
         faqData: [
-            { question: "Is this legal?", answer: "Yes, we teach ethical hacking for the purpose of defense and security." },
-            { question: "Do I need a high-end PC?", answer: "A decent laptop with 8GB RAM is enough to run virtual labs." }
+            { question: "What is Ethical Hacking?", answer: "Ethical Hacking involves testing and securing systems, networks, and applications by simulating attacks. The goal is to identify vulnerabilities before malicious hackers can exploit them." },
+            { question: "Why should I learn Ethical Hacking?", answer: "Learning Ethical Hacking allows you to understand the mindset of hackers, helping organizations defend their networks and sensitive data against cyber threats." },
+            { question: "What tools are used in Ethical Hacking?", answer: "Common tools include Kali Linux, Metasploit, Wireshark, Nmap, and Burp Suite, which help identify vulnerabilities and test system security." },
+            { question: "How does Ethical Hacking enhance career prospects?", answer: "Ethical hackers are highly sought after in industries such as IT security, penetration testing, and cybersecurity. Roles include Penetration Tester, Security Analyst, and Ethical Hacker." },
+            { question: "Is Ethical Hacking legal?", answer: "Yes, ethical hacking is legal when performed with permission from the organization being tested. Ethical hackers work within the boundaries of legal and ethical guidelines." }
         ]
     },
     {
@@ -866,7 +612,7 @@ const courses = [
         slug: "cyber-security",
         category: "CCNA",
         description: "Comprehensive cybersecurity training covering defense strategies, incident response, and security operations.",
-        img: "/courses/softwareTesting.webp",
+        img: "/courses/cyberSecurity.webp",
         rating: "4.9",
         students: "1000",
         locked: true,
@@ -884,21 +630,25 @@ const courses = [
             { title: "Compliance", desc: "ISO 27001 and GDPR standards.", icon: "bi bi-file-earmark-check" }
         ],
         courseContentData: [
-            { id: "cs1", title: "Cyber Security Fundas", icon: "bi bi-shield-lock", defaultOpen: true, items: ["Cyber Landscape", "CIA Triad", "Risk Management", "Security Policy"] },
-            { id: "cs2", title: "Defensive Tech", icon: "bi bi-shield", items: ["Firewalls & IDS", "Endpoint Protection", "Encryption", "Identity Management"] },
-            { id: "cs3", title: "Security Ops", icon: "bi bi-display", items: ["SOC Roles", "Log Management", "SIEM Setup", "Alert Analysis"] },
-            { id: "cs4", title: "Incident Response", icon: "bi bi-exclamation-triangle", items: ["IR Lifecycle", "Malware Analysis", "Recovery", "Business Continuity"] }
+            { id: "cs1", title: "Introduction to Cybersecurity", icon: "bi bi-shield-lock", defaultOpen: true, items: ["Understanding cybersecurity and its importance in the digital age", "Key concepts: Confidentiality, Integrity, Availability (CIA Triad)", "Types of cyber threats: Malware, phishing, DDoS, insider threats, APTs (Advanced Persistent Threats)", "Cybersecurity policies and frameworks: NIST, ISO 27001, CIS Controls", "The role of cybersecurity professionals and ethical hacking in protecting organizations"] },
+            { id: "cs2", title: "Network Security", icon: "bi bi-diagram-3", items: ["Securing network devices: Firewalls, routers, switches, and intrusion detection/prevention systems (IDS/IPS)", "Network security protocols: SSL/TLS, IPsec, and VPNs", "Segmentation and isolation: VLANs, DMZ, and Zero Trust Architecture", "Monitoring network traffic: Packet analysis with Wireshark, anomaly detection", "Defending against network attacks: DoS/DDoS, Man-in-the-Middle (MITM), and IP spoofing"] },
+            { id: "cs3", title: "Application Security", icon: "bi bi-code-slash", items: ["Secure Software Development Life Cycle (SDLC)", "Web application vulnerabilities: SQL injection, Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), and more", "Secure coding practices and common security vulnerabilities (OWASP Top 10)", "Code review, static and dynamic analysis tools (e.g., SonarQube, Burp Suite)", "Application security testing: Penetration testing, fuzz testing, and vulnerability scanning"] },
+            { id: "cs4", title: "Endpoint Security", icon: "bi bi-laptop", items: ["Defending endpoints: Desktops, laptops, mobile devices, and IoT devices", "Endpoint security solutions: Antivirus, anti-malware, EDR (Endpoint Detection and Response)", "Managing device encryption and data protection: Full disk encryption (BitLocker, FileVault)", "Implementing access controls: Multi-factor authentication (MFA), role-based access control (RBAC)", "Protecting against malware and ransomware: Identification, containment, and remediation"] },
+            { id: "cs5", title: "Incident Response and Disaster Recovery", icon: "bi bi-exclamation-triangle", items: ["Incident response process: Preparation, detection, containment, eradication, recovery, and lessons learned", "Tools for incident detection and forensics: SIEM (Security Information and Event Management), Sysmon, and Splunk", "Conducting root cause analysis and impact assessment", "Disaster recovery planning: Business Continuity, Recovery Time Objective (RTO), and Recovery Point Objective (RPO)", "Best practices for securing backup systems and ensuring data integrity in case of a cyber incident"] }
         ],
         faqData: [
-            { question: "What is a SOC?", answer: "A Security Operations Center is where security teams monitor for threats." },
-            { question: "What certifications can I get?", answer: "Security+, CEH, and various SOC Analyst certifications." }
+            { question: "What is Cyber Security?", answer: "Cyber Security involves the practice of protecting systems, networks, and programs from digital attacks. It focuses on data protection, malware prevention, and securing network infrastructure." },
+            { question: "Why is Cyber Security important?", answer: "With increasing digital threats, cyber security is crucial to prevent attacks like data breaches, identity theft, and ransomware. It ensures the confidentiality, integrity, and availability of critical data." },
+            { question: "What topics are covered in Cyber Security?", answer: "The course covers topics like network security, cryptography, ethical hacking, incident response, and risk management." },
+            { question: "What career opportunities can I pursue with Cyber Security?", answer: "After completing a Cyber Security course, you can pursue roles like Cyber Security Analyst, Information Security Manager, Security Consultant, or Incident Responder." },
+            { question: "What skills are necessary for a career in Cyber Security?", answer: "Key skills include knowledge of network protocols, firewalls, encryption techniques, and experience with penetration testing and incident response." }
         ]
     },
 
     // CLOUD
     {
         id: 5,
-        title: "AWS",
+        title: "AWS & Devops",
         slug: "aws",
         category: "Cloud",
         description: "AWS is a secure cloud platform offering computing power, database storage, and content delivery services on demand.",
@@ -908,7 +658,7 @@ const courses = [
         locked: true,
         aboutData: {
             topic: "Master Cloud Computing with AWS",
-            content1: "Learn to design, deploy, and manage scalable cloud solutions using Amazon Web Services.",
+            content1: "The program begins with core AWS fundamentals, covering services such as EC2, S3, IAM, VPC, RDS, and CloudWatch. Learners gain hands-on expertise in provisioning and managing secure, scalable cloud environments while understanding best practices in identity access management and network architecture. This program is ideal for developers, system administrators, and IT professionals aiming to become AWS DevOps Engineers, Cloud Engineers, or Site Reliability Engineers (SREs).",
             content2: "Prepare for AWS certifications and real-world cloud architecture roles."
         },
         whatYouLearnData: [
@@ -920,14 +670,18 @@ const courses = [
             { title: "CloudWatch", desc: "Monitoring and observability.", icon: "bi bi-graph-up" }
         ],
         courseContentData: [
-            { id: "aws1", title: "AWS Fundamentals", icon: "bi bi-cloud", defaultOpen: true, items: ["Cloud Concepts", "Global Infrastructure", "Free Tier", "AWS Management Console"] },
-            { id: "aws2", title: "Core Services", icon: "bi bi-server", items: ["EC2 Instances", "S3 Buckets", "RDS Databases", "VPC Networking"] },
-            { id: "aws3", title: "Security & IAM", icon: "bi bi-shield-lock", items: ["IAM Users & Roles", "Security Groups", "KMS Encryption", "CloudTrail Logging"] },
-            { id: "aws4", title: "Advanced Services & DevOps", icon: "bi bi-diagram-3", items: ["Lambda Functions", "CloudWatch Monitoring", "CloudFormation", "CI/CD with CodePipeline"] }
+            { id: "aws1", title: "Introduction to AWS and Cloud Computing", icon: "bi bi-cloud", defaultOpen: true, items: ["Overview of cloud computing and AWS fundamentals", "Benefits of cloud computing: Scalability, flexibility, and cost-effectiveness", "AWS Global Infrastructure: Regions, Availability Zones, and edge locations", "Core AWS services: Compute (EC2), Storage (S3), Networking (VPC), and Databases (RDS, DynamoDB)", "AWS Pricing and Cost Management: Understanding AWS Free Tier, pay-as-you-go model, and pricing calculator"] },
+            { id: "aws2", title: "Compute Services in AWS", icon: "bi bi-server", items: ["Amazon EC2 (Elastic Compute Cloud): Instance types, pricing models, security groups, and auto-scaling", "Launching, configuring, and managing EC2 instances (Windows and Linux)", "Amazon Lambda: Serverless computing and event-driven applications", "Elastic Beanstalk: Easy deployment of applications and environments", "AWS Elastic Load Balancing (ELB) and Auto Scaling for high availability and traffic distribution"] },
+            { id: "aws3", title: "Storage and Database Services", icon: "bi bi-database", items: ["Amazon S3 (Simple Storage Service): Buckets, versioning, and lifecycle policies", "Amazon EBS (Elastic Block Store): Persistent block storage for EC2 instances", "Amazon RDS (Relational Database Service): Managed relational databases (MySQL, PostgreSQL, MariaDB, SQL Server)", "Amazon DynamoDB: NoSQL database service for high-performance applications", "Amazon Glacier: Low-cost archive storage for long-term data retention"] },
+            { id: "aws4", title: "Networking and Security in AWS", icon: "bi bi-shield-lock", items: ["Amazon VPC (Virtual Private Cloud): Creating isolated networks, subnets, route tables, and security groups", "AWS Identity and Access Management (IAM): User roles, permissions, and policies", "Securing AWS resources: Key management (AWS KMS), encryption (S3, RDS, EC2)", "AWS WAF (Web Application Firewall) and Shield for DDoS protection", "Amazon CloudFront: Content Delivery Network (CDN) for faster content distribution"] },
+            { id: "aws5", title: "Monitoring, Automation, and Management in AWS", icon: "bi bi-graph-up", items: ["Amazon CloudWatch: Monitoring AWS resources, setting alarms, and logging", "AWS CloudTrail: Tracking and auditing API calls and resource activity", "AWS Systems Manager: Automation of operational tasks and patch management", "AWS CloudFormation: Infrastructure as Code (IaC) for provisioning AWS resources", "AWS Trusted Advisor: Best practice recommendations for improving AWS infrastructure"] }
         ],
         faqData: [
-            { question: "Do I need coding for AWS?", answer: "While basic scripting helps, AWS is largely about infrastructure." },
-            { question: "Is certification covered?", answer: "Yes, we prepare you for the Solutions Architect Associate exam." }
+            { question: "What is AWS DevOps and why is it important?", answer: "AWS DevOps is a combination of development and operations practices implemented using Amazon Web Services to automate and streamline the software delivery lifecycle. It enables faster deployments, improved collaboration, scalability, and continuous delivery through tools like AWS CodePipeline, Jenkins, and Docker." },
+            { question: "What skills are required to become an AWS DevOps Engineer?", answer: "To become an AWS DevOps Engineer, you need knowledge of cloud computing (AWS services like EC2, S3, IAM), CI/CD pipelines, Infrastructure as Code (Terraform/CloudFormation), containerization (Docker, Kubernetes), scripting (Python/Bash), and monitoring tools like CloudWatch." },
+            { question: "Is AWS DevOps suitable for beginners?", answer: "Yes, AWS DevOps is beginner-friendly if you start with basic cloud concepts and Linux fundamentals. With structured training, hands-on projects, and guided learning paths, even freshers or non-IT professionals can transition into DevOps roles." },
+            { question: "What job roles can I get after AWS DevOps training?", answer: "After completing AWS DevOps training, you can apply for roles such as AWS DevOps Engineer, Cloud Engineer, Site Reliability Engineer (SRE), Release Engineer, and Infrastructure Engineer, with strong demand across IT industries." },
+            { question: "Which tools are commonly used in AWS DevOps?", answer: "Common tools used in AWS DevOps include AWS CodePipeline, CodeBuild, CodeDeploy, Jenkins, GitHub Actions, Docker, Kubernetes, Terraform, CloudFormation, and CloudWatch for automation, deployment, monitoring, and infrastructure management." }
         ]
     },
     {
@@ -954,14 +708,18 @@ const courses = [
             { title: "DevOps", desc: "Azure DevOps pipelines.", icon: "bi bi-infinity" }
         ],
         courseContentData: [
-            { id: "az1", title: "Azure Fundas", icon: "bi bi-cloud", defaultOpen: true, items: ["Cloud Concepts", "Core Services", "Azure Portal", "Solutions Architectures"] },
-            { id: "az2", title: "Administration", icon: "bi bi-gear", items: ["VM Management", "Network Config", "Identity Protection", "Monitoring"] },
-            { id: "az3", title: "App Services", icon: "bi bi-rocket", items: ["Web Apps", "Functions", "Logic Apps", "Containers"] },
-            { id: "az4", title: "Exam Prep", icon: "bi bi-award", items: ["Practice Labs", "Question Banks", "Mock Exams", "Case Studies"] }
+            { id: "az1", title: "Introduction to Microsoft Azure", icon: "bi bi-cloud", defaultOpen: true, items: ["Overview of cloud computing and Microsoft Azure fundamentals", "Benefits of Azure: Scalability, flexibility, cost-effectiveness, and global reach", "Azure Regions, Availability Zones, and Edge Locations", "Core Azure services: Compute (VMs, App Services), Storage (Blob, Disk), and Networking (Virtual Networks)", "Azure Pricing and Cost Management: Pricing calculator, billing, and cost optimization tools"] },
+            { id: "az2", title: "Compute Services in Azure", icon: "bi bi-pc-display", items: ["Azure Virtual Machines (VMs): Creating, configuring, and managing VMs (Windows and Linux)", "Azure App Services: Managed platform for deploying web apps and APIs", "Azure Kubernetes Service (AKS): Deploying, managing, and scaling containerized applications with Kubernetes", "Azure Functions: Serverless computing for event-driven architecture", "Azure Virtual Desktop (AVD): Managing virtual desktop infrastructure (VDI) in the cloud"] },
+            { id: "az3", title: "Storage and Database Services in Azure", icon: "bi bi-database", items: ["Azure Blob Storage: Object storage for unstructured data with access tiers (Hot, Cool, Archive)", "Azure Disk Storage: Persistent block storage for VMs", "Azure File Storage: Managed file shares with SMB protocol support", "Azure SQL Database: Managed relational database service for SQL Server-based applications", "Azure Cosmos DB: Globally distributed NoSQL database for high-performance applications"] },
+            { id: "az4", title: "Networking and Security in Azure", icon: "bi bi-shield-lock", items: ["Azure Virtual Networks (VNet): Creating isolated networks, subnets, and routing", "Network Security Groups (NSG) and Azure Firewall: Controlling traffic and securing resources", "Azure Load Balancer and Application Gateway: Distributing traffic for high availability and application delivery", "Azure Identity and Access Management (IAM): Role-based access control (RBAC) and Azure Active Directory (AAD)", "Azure Key Vault: Securely managing keys, secrets, and certificates"] },
+            { id: "az5", title: "Monitoring, Automation, and Management in Azure", icon: "bi bi-graph-up", items: ["Azure Monitor: Collecting and analyzing monitoring data, creating alerts, and setting up dashboards", "Azure Log Analytics: Querying and analyzing logs for operational insights", "Azure Automation: Automating repetitive tasks using runbooks and scripts", "Azure Resource Manager (ARM): Managing and organizing resources with ARM templates", "Azure Cost Management + Billing: Monitoring and optimizing cloud spending"] }
         ],
         faqData: [
-            { question: "Why learn Azure?", answer: "Azure is the fastest-growing cloud platform, especially in the enterprise sector." },
-            { question: "What certifications are covered?", answer: "AZ-900 (Fundamentals) and AZ-104 (Administrator)." }
+            { question: "What is Azure Cloud?", answer: "Microsoft Azure is a cloud computing platform offering a wide range of services for building, testing, deploying, and managing applications across Microsoft's global network of data centers." },
+            { question: "Why should I learn Azure Cloud?", answer: "Azure is widely used for building enterprise-level cloud solutions. Learning Azure enhances your skills in cloud computing, DevOps, and big data, positioning you for roles in both public and private cloud infrastructures." },
+            { question: "What services are available in Azure?", answer: "Azure provides a range of services including Azure Virtual Machines, Azure Storage, Azure Kubernetes Service (AKS), Azure Functions, and Azure AI, all designed for enterprise-scale deployments." },
+            { question: "What career roles can I pursue after learning Azure?", answer: "With expertise in Azure, you can pursue roles like Cloud Architect, Azure Developer, DevOps Engineer, and Cloud Engineer in organizations adopting Microsoft Azure for their cloud solutions." },
+            { question: "How is Azure different from AWS?", answer: "Both Azure and AWS provide similar cloud services, but Azure is more integrated with Microsoft products like Windows Server, SQL Server, and Active Directory, which makes it a top choice for enterprises with a Microsoft-based infrastructure." }
         ]
     },
     {
@@ -988,14 +746,18 @@ const courses = [
             { title: "VPC & Load Balancers", desc: "Global cloud networking.", icon: "bi bi-globe" }
         ],
         courseContentData: [
-            { id: "gcp1", title: "GCP Fundamentals", icon: "bi bi-play", defaultOpen: true, items: ["GCP Console", "Projects & Resources", "Regions & Zones", "Billing"] },
-            { id: "gcp2", title: "Compute & Network", icon: "bi bi-pc-display", items: ["Compute Engine", "App Engine", "VPC Basics", "Cloud Load Balancing"] },
-            { id: "gcp3", title: "Data & Storage", icon: "bi bi-database", items: ["Cloud SQL", "Firestore", "Bigtable", "Cloud Storage"] },
-            { id: "gcp4", title: "Modern Services", icon: "bi bi-stars", items: ["Kubernetes Basics", "Pub/Sub", "Cloud Functions", "AI Platform"] }
+            { id: "gcp1", title: "Introduction to Google Cloud Platform (GCP)", icon: "bi bi-cloud", defaultOpen: true, items: ["Overview of cloud computing and Google Cloud fundamentals", "Benefits of GCP: Scalability, innovation, and integration with Google services", "GCP global infrastructure: Regions, zones, and edge locations", "Core GCP services: Compute (Compute Engine, App Engine, Kubernetes Engine), Storage (Cloud Storage, Persistent Disks), and Networking (VPC)", "GCP Pricing and Billing: Cost management, pricing calculator, and free tier"] },
+            { id: "gcp2", title: "Compute Services in GCP", icon: "bi bi-cpu", items: ["Google Compute Engine (GCE): Creating and managing virtual machines", "Google Kubernetes Engine (GKE): Deploying and managing containerized applications with Kubernetes", "Google App Engine (GAE): Platform-as-a-Service (PaaS) for building and deploying web apps", "Google Cloud Functions: Serverless computing for event-driven applications", "Google Cloud Run: Running containerized applications in a fully managed environment"] },
+            { id: "gcp3", title: "Storage and Database Services in GCP", icon: "bi bi-database", items: ["Google Cloud Storage: Object storage with different storage classes (Standard, Nearline, Coldline, Archive)", "Persistent Disks: Block storage for virtual machine instances", "Google Cloud SQL: Managed relational database service for MySQL, PostgreSQL, and SQL Server", "Google Cloud Firestore and Datastore: Managed NoSQL databases for flexible data models", "BigQuery: Serverless, highly scalable data warehouse for big data analytics"] },
+            { id: "gcp4", title: "Networking and Security in GCP", icon: "bi bi-shield-lock", items: ["Google Virtual Private Cloud (VPC): Creating isolated networks, subnets, and routing", "Google Cloud Load Balancing: Distributing traffic across resources for high availability", "Google Cloud CDN: Content Delivery Network for faster content distribution", "Identity and Access Management (IAM): Role-based access control (RBAC), service accounts, and security policies", "Google Cloud Key Management and Secret Manager: Managing encryption keys and sensitive data securely"] },
+            { id: "gcp5", title: "Monitoring, Automation, and Management in GCP", icon: "bi bi-graph-up", items: ["Google Cloud Monitoring and Logging: Using Stackdriver to monitor, log, and analyze resources and applications", "Google Cloud Deployment Manager: Infrastructure as Code (IaC) for provisioning resources using templates", "Google Cloud AutoML: Machine learning tools for custom model training without deep ML expertise", "Google Cloud Pub/Sub: Messaging and event-driven architecture for building scalable applications", "Google Cloud Cost Management: Monitoring and optimizing cloud usage and costs"] }
         ],
         faqData: [
-            { question: "Why choose GCP?", answer: "Leader in data analytics, AI/ML, and containerized apps (Kubernetes)." },
-            { question: "What is BigQuery?", answer: "A serverless, highly scalable data warehouse, one of GCP's best features." }
+            { question: "What is Google Cloud?", answer: "Google Cloud Platform (GCP) is a suite of cloud computing services that runs on the same infrastructure used by Google Search and YouTube, providing scalable services for computing, storage, and networking." },
+            { question: "Why should I learn Google Cloud?", answer: "Google Cloud is ideal for professionals interested in big data, machine learning, and serverless computing. It offers high performance and innovation, particularly for data-driven and AI-powered applications." },
+            { question: "What services does GCP provide?", answer: "GCP offers services like Compute Engine, Cloud Storage, BigQuery (for big data analysis), App Engine, Cloud Functions, and AI tools for developing and running scalable applications." },
+            { question: "What job roles can I pursue with Google Cloud skills?", answer: "Learning Google Cloud opens doors to roles such as Cloud Engineer, Data Engineer, Machine Learning Engineer, and GCP Architect, especially in companies focusing on data and machine learning." },
+            { question: "How does Google Cloud compare to AWS and Azure?", answer: "While AWS and Azure offer similar cloud services, Google Cloud stands out in the areas of big data, machine learning, and AI tools, leveraging Google’s experience with data processing and infrastructure." }
         ]
     },
     {
@@ -1022,14 +784,18 @@ const courses = [
             { title: "Monitoring", desc: "Prometheus and Grafana.", icon: "bi bi-graph-up" }
         ],
         courseContentData: [
-            { id: "dk1", title: "Docker Deep Dive", icon: "bi bi-box", defaultOpen: true, items: ["Container Basics", "Docker Compose", "Network & Volumes", "Registry"] },
-            { id: "dk2", title: "Kubernetes Fundas", icon: "bi bi-diagram-2", items: ["Minikube Setup", "YAML manifests", "ReplicaSets", "Namespaces"] },
-            { id: "dk3", title: "Scaling & Updates", icon: "bi bi-arrow-repeat", items: ["Rolling Updates", "Auto-scaling", "Health Checks", "ConfigMaps"] },
-            { id: "dk4", title: "Cloud Native", icon: "bi bi-cloud", items: ["EKS/GKE/AKS Basics", "Service Mesh", "Security Best Practices", "GitOps"] }
+            { id: "dk1", title: "Introduction to Docker", icon: "bi bi-box", defaultOpen: true, items: ["Overview of containerization and the role of Docker in modern application development", "Understanding Docker architecture: Docker Daemon, Docker CLI, and Docker Registry", "Creating and managing Docker containers: Building Docker images with Dockerfile", "Docker images vs. containers: What are they and how do they differ?", "Best practices for Docker image creation and management (multistage builds, image optimization)"] },
+            { id: "dk2", title: "Docker Networking and Storage", icon: "bi bi-diagram-3", items: ["Understanding Docker networking: Bridge network, host network, overlay network", "Docker Compose: Defining and running multi-container applications with YAML files", "Managing persistent storage in Docker: Volumes, bind mounts, and tmpfs mounts", "Docker Swarm mode: Setting up and managing a Docker Swarm cluster", "Working with Docker Hub and private registries: Pushing and pulling Docker images"] },
+            { id: "dk3", title: "Introduction to Kubernetes", icon: "bi bi-diagram-2", items: ["Overview of Kubernetes architecture: Master node, worker nodes, etcd, API server, kubelet, kube-proxy", "Kubernetes objects: Pods, Deployments, Services, ConfigMaps, and Secrets", "Managing Kubernetes clusters: kubectl commands and cluster setup", "Kubernetes namespaces: Isolating resources and organizing workloads", "Understanding Kubernetes control plane and its components"] },
+            { id: "dk4", title: "Deploying and Managing Applications with Kubernetes", icon: "bi bi-rocket", items: ["Creating and managing Pods and Deployments in Kubernetes", "Configuring Kubernetes services for load balancing and service discovery", "Rolling updates and rollback strategies for application deployments", "Managing environment variables and configurations with ConfigMaps and Secrets", "Kubernetes persistent storage: Persistent Volumes (PV), Persistent Volume Claims (PVC), and StorageClasses"] },
+            { id: "dk5", title: "Kubernetes Networking, Scaling, and Security", icon: "bi bi-shield-lock", items: ["Kubernetes networking concepts: Pod-to-Pod communication, ClusterIP, NodePort, LoadBalancer", "Horizontal Pod Autoscaling: Automatically scaling workloads based on CPU or memory usage", "Security in Kubernetes: Role-Based Access Control (RBAC), Service Accounts, and Network Policies", "Managing Ingress controllers and ingress resources for HTTP/S traffic routing", "Monitoring and troubleshooting Kubernetes clusters with tools like Prometheus, Grafana, and kubectl logs"] }
         ],
         faqData: [
-            { question: "What is a container?", answer: "A container is a standard unit of software that packages code and dependencies." },
-            { question: "Is Kubernetes better than Docker Swarm?", answer: "Kubernetes is much more powerful and is the industry standard for large-scale apps." }
+            { question: "What is Docker?", answer: "Docker is a platform for developing, shipping, and running applications inside containers. Containers allow applications to run seamlessly in different environments, improving portability and efficiency." },
+            { question: "Why should I learn Docker & Kubernetes?", answer: "Docker and Kubernetes are essential for containerization and orchestration of applications in cloud-native environments, making them critical tools for DevOps, application scalability, and microservices architecture." },
+            { question: "What is Kubernetes?", answer: "Kubernetes is an open-source platform for managing containerized applications at scale. It automates deployment, scaling, and management, making it ideal for cloud-native, microservice-based architectures." },
+            { question: "How are Docker and Kubernetes related?", answer: "Docker is used to containerize applications, while Kubernetes helps manage, orchestrate, and scale those containers in a distributed environment, ensuring high availability and fault tolerance." },
+            { question: "What careers can I pursue with Docker and Kubernetes skills?", answer: "With knowledge of Docker and Kubernetes, you can pursue roles such as DevOps Engineer, Cloud Engineer, Site Reliability Engineer (SRE), and Platform Engineer in cloud-based environments." }
         ]
     },
     {
@@ -1056,14 +822,18 @@ const courses = [
             { title: "Best Practices", desc: "DRY principles and security.", icon: "bi bi-shield-check" }
         ],
         courseContentData: [
-            { id: "tf1", title: "Introduction", icon: "bi bi-play", defaultOpen: true, items: ["What is IaC?", "Terraform Architecture", "Installation", "First Config"] },
-            { id: "tf2", title: "Core Concepts", icon: "bi bi-cpu", items: ["Variables & Outputs", "State Management", "Data Sources", "Meta-arguments"] },
-            { id: "tf3", title: "Advanced Terraform", icon: "bi bi-lightning", items: ["Modules Deep Dive", "Workspaces", "Functions & Loops", "Provisioners"] },
-            { id: "tf4", title: "Real-world Labs", icon: "bi bi-rocket", items: ["AWS Infrastructure Lab", "Multi-cloud Setup", "Terraform Cloud Intro", "CI/CD Integration"] }
+            { id: "tf1", title: "Introduction to Terraform and Infrastructure as Code (IaC)", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of Terraform and its role in Infrastructure as Code (IaC)", "Benefits of using Terraform for provisioning and managing cloud infrastructure", "Understanding the Terraform workflow: Write, Plan, Apply, and Destroy", "Terraform vs. traditional infrastructure management methods", "Terraform providers and resources: Connecting Terraform to cloud providers (AWS, Azure, GCP, etc.)"] },
+            { id: "tf2", title: "Writing Terraform Configuration Files", icon: "bi bi-code-square", items: ["Introduction to HashiCorp Configuration Language (HCL)", "Understanding Terraform configuration files (.tf files)", "Declaring resources: EC2 instances, security groups, VPCs, etc.", "Using variables for dynamic configuration", "Using outputs to display information after Terraform runs", "Modules in Terraform: Reusable configurations for scalability and maintainability"] },
+            { id: "tf3", title: "State Management and Backend Configuration", icon: "bi bi-database-lock", items: ["Understanding Terraform state: How Terraform keeps track of infrastructure", "The role of the terraform.tfstate file", "Working with local and remote state storage (e.g., S3, Azure Blob Storage)", "State locking and concurrency in a team environment", "Managing state with workspaces for different environments (development, staging, production)"] },
+            { id: "tf4", title: "Provisioning Infrastructure with Terraform", icon: "bi bi-cloud-arrow-up", items: ["Managing cloud resources using providers (AWS, Azure, GCP, etc.)", "Creating and managing AWS EC2 instances, VPCs, subnets, and security groups", "Managing Kubernetes resources with Terraform (EKS, AKS, GKE)", "Provisioning storage solutions: S3, EBS, Azure Blob Storage", "Using terraform plan and terraform apply to preview and apply changes to infrastructure", "Resource lifecycle management: Creating, updating, and deleting infrastructure"] },
+            { id: "tf5", title: "Terraform Automation and Best Practices", icon: "bi bi-shield-check", items: ["Using Terraform Cloud and Terraform Enterprise for collaborative workflows", "Writing and managing Terraform modules for reusability and DRY (Don’t Repeat Yourself)", "Version control best practices: Storing Terraform configurations in Git repositories", "Managing secrets and sensitive data in Terraform (e.g., AWS Secrets Manager, Vault)", "Automation of infrastructure deployment and scaling with CI/CD pipelines (Jenkins, GitLab CI)", "Terraform import: Managing existing infrastructure with Terraform"] }
         ],
         faqData: [
-            { question: "What is IaC?", answer: "Infrastructure as Code allows you to manage servers and networks using configuration files." },
-            { question: "Is Terraform free?", answer: "The open-source version is free for everyone to use." }
+            { question: "What is Terraform?", answer: "Terraform is an open-source tool for Infrastructure as Code (IaC), allowing you to define and provision infrastructure using a declarative configuration language." },
+            { question: "Why should I learn Terraform?", answer: "Learning Terraform helps automate the provisioning of infrastructure, reducing human error, and enabling version control for infrastructure. It’s widely used for cloud infrastructure management." },
+            { question: "How does Terraform work?", answer: "Terraform uses configuration files to define cloud infrastructure and resources. It then communicates with cloud providers like AWS, Azure, and Google Cloud to deploy and manage those resources." },
+            { question: "What are the benefits of using Terraform in cloud management?", answer: "Terraform improves the efficiency, security, and scalability of infrastructure management by enabling repeatable deployments, collaboration, and automation across environments." },
+            { question: "What job roles can I pursue with Terraform skills?", answer: "After learning Terraform, you can pursue roles such as Cloud Engineer, DevOps Engineer, Infrastructure Engineer, or Automation Engineer with expertise in Infrastructure as Code." }
         ]
     },
     {
@@ -1090,16 +860,57 @@ const courses = [
             { title: "SRE Basics", desc: "Reliability and scalability principles.", icon: "bi bi-infinity" }
         ],
         courseContentData: [
-            { id: "dev1", title: "DevOps Foundations", icon: "bi bi-play", defaultOpen: true, items: ["Agile vs DevOps", "SDLC Lifecycle", "Git Workflow", "Linux for DevOps"] },
-            { id: "dev2", title: "Continuous Integration", icon: "bi bi-terminal", items: ["Jenkins Mastery", "GitHub Actions", "Dockerizing Pipelines", "Artifact Management"] },
-            { id: "dev3", title: "Configuration Management", icon: "bi bi-gear-wide", items: ["Ansible Basics", "Playbooks & Roles", "Dynamic Inventory", "Terraform Integration"] },
-            { id: "dev4", title: "Observability & SRE", icon: "bi bi-eye", items: ["Cloud Monitoring", "Log Management", "Alerting Systems", "Scalability Labs"] }
+            { id: "dev1", title: "Introduction to DevOps and Cloud Computing", icon: "bi bi-info-circle", defaultOpen: true, items: ["Understanding the DevOps culture: Collaboration, communication, and automation", "Key principles of DevOps: Continuous Integration (CI), Continuous Delivery (CD), Infrastructure as Code (IaC)", "Role of a Cloud DevOps Engineer in the software development lifecycle", "Overview of Cloud Computing: Public, Private, Hybrid clouds and the key cloud providers (AWS, Azure, GCP)", "Benefits of combining DevOps and Cloud technologies: Scalability, flexibility, automation, and cost optimization"] },
+            { id: "dev2", title: "Version Control and Continuous Integration (CI)", icon: "bi bi-git", items: ["Introduction to version control systems (Git, GitHub, GitLab)", "Best practices for version control and branching strategies (GitFlow, trunk-based development)", "Setting up Continuous Integration pipelines: Automating code testing and building (Jenkins, GitLab CI, CircleCI)", "Integrating unit tests, linting, and security scans in CI pipelines", "Using Docker for containerizing applications and integrating with CI workflows"] },
+            { id: "dev3", title: "Infrastructure as Code (IaC) and Automation", icon: "bi bi-gear-wide", items: ["Introduction to Infrastructure as Code and its role in DevOps", "Using Terraform to provision, manage, and scale cloud infrastructure (AWS, Azure, GCP)", "Introduction to CloudFormation (AWS) and ARM Templates (Azure) for IaC automation", "Configuration management tools: Ansible, Puppet, Chef for automated infrastructure configuration", "Managing environment consistency and repeatable deployments with IaC"] },
+            { id: "dev4", title: "Continuous Delivery (CD) and Deployment Pipelines", icon: "bi bi-arrow-repeat", items: ["Building and automating deployment pipelines: Code building, testing, and release management", "Continuous Delivery tools: Jenkins, Spinnaker, ArgoCD, and GitLab CI for automated deployments", "Deploying to cloud platforms (AWS Elastic Beanstalk, Azure App Services, Google Cloud Run)", "Blue/Green, Canary, and Rolling deployments for reducing downtime during application updates", "Automating infrastructure scaling: Auto Scaling Groups, Kubernetes, and container orchestration"] },
+            { id: "dev5", title: "Monitoring, Security, and Compliance in Cloud DevOps", icon: "bi bi-shield-check", items: ["Monitoring and logging: Using AWS CloudWatch, Azure Monitor, and Google Stackdriver for tracking system performance and health", "Implementing centralized logging with ELK stack (Elasticsearch, Logstash, Kibana) or Fluentd and Grafana", "Continuous security integration (DevSecOps): Implementing security checks in CI/CD pipelines", "Managing secrets and credentials securely: AWS Secrets Manager, HashiCorp Vault, Azure Key Vault", "Cloud security best practices: Identity and Access Management (IAM), network security, and compliance regulations (GDPR, HIPAA)"] }
         ],
         faqData: [
-            { question: "What is DevOps?", answer: "DevOps is a set of practices that combines software development and IT operations." },
-            { question: "Are there hands-on labs?", answer: "Absolutely! Most of the course consists of real-world cloud deployment labs." }
+            { question: "What is a Cloud DevOps Engineer?", answer: "A Cloud DevOps Engineer is responsible for automating and managing the cloud infrastructure in a DevOps environment. This role involves automating build pipelines, deployments, and infrastructure monitoring." },
+            { question: "Why should I learn Cloud DevOps?", answer: "Learning Cloud DevOps equips you with the skills to manage the entire DevOps lifecycle in the cloud, making it essential for streamlining development, operations, and deployment processes in cloud-native applications." },
+            { question: "What tools are used in Cloud DevOps?", answer: "Common tools include AWS, Terraform, Docker, Kubernetes, Jenkins, Ansible, and Git for managing and automating deployments, testing, and infrastructure provisioning in cloud environments." },
+            { question: "What is the career growth potential in Cloud DevOps?", answer: "With Cloud DevOps skills, you can work as a DevOps Engineer, Cloud Engineer, or Cloud Architect, with opportunities in companies adopting cloud infrastructure and automation practices for scalable applications." },
+            { question: "How does Cloud DevOps differ from traditional DevOps?", answer: "Cloud DevOps focuses specifically on the cloud environment, leveraging tools and practices designed for cloud infrastructure, whereas traditional DevOps may work in on-premise or hybrid environments." }
         ]
     }
 ];
 
-export default courses;
+const preferredCourseOrder = [
+    "Dot Net Fullstack Development",
+    "MERN Stack Development",
+    "Automation Testing",
+    "Software Testing",
+    "AWS",
+    "Cisco Certified Network Associate (CCNA)",
+    "MEAN Stack Development",
+    "JAVA Fullstack Development"
+];
+
+const preferredOrderIndex = new Map(
+    preferredCourseOrder.map((title, index) => [title, index])
+);
+
+const orderedCourses = courses
+    .map((course, index) => ({ course, index }))
+    .sort((a, b) => {
+        const aPriority = preferredOrderIndex.get(a.course.title);
+        const bPriority = preferredOrderIndex.get(b.course.title);
+
+        if (aPriority !== undefined && bPriority !== undefined) {
+            return aPriority - bPriority;
+        }
+
+        if (aPriority !== undefined) {
+            return -1;
+        }
+
+        if (bPriority !== undefined) {
+            return 1;
+        }
+
+        return a.index - b.index;
+    })
+    .map(({ course }) => course);
+
+export default orderedCourses;

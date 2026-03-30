@@ -18,43 +18,62 @@ export default function CourseAccordion({ courseContentData }) {
     };
 
     return (
-        <div className="accordion" id="courseAccordion">
-            {courseContentData.map((section) => (
+        <div className="accordion curriculum-accordion" id="courseAccordion">
+            {courseContentData.map((section, idx) => (
+                (() => {
+                    const isOpen = openSections.includes(section.id);
+                    const sectionItems = Array.isArray(section.items)
+                        ? section.items
+                        : Array.isArray(section.content)
+                            ? section.content
+                            : Array.isArray(section.points)
+                                ? section.points
+                                : [];
+
+                    return (
                 <div
-                    className="accordion-item mb-2 mb-md-3 custom-accordion-item px-2 px-md-3"
+                    className={`accordion-item mb-2 mb-md-3 custom-accordion-item curriculum-item ${isOpen ? "is-open" : ""
+                        }`}
                     key={section.id}
                 >
                     <h2 className="accordion-header" id={`heading${section.id}`}>
                         <button
-                            className={`accordion-button bg-transparent box-shadow-none p-2 p-md-3 ${!openSections.includes(section.id) ? "collapsed" : ""
+                            className={`accordion-button bg-transparent box-shadow-none p-3 curriculum-btn ${!isOpen ? "collapsed" : ""
                                 }`}
                             type="button"
                             onClick={() => toggleSection(section.id)}
-                            aria-expanded={openSections.includes(section.id)}
+                            aria-expanded={isOpen}
                             aria-controls={`collapse${section.id}`}
                         >
-                            <i
-                                className={`${section.icon} m-0 me-2 me-md-3 gray-bg p-2 rounded-circle flex-shrink-0 fs-6`}
-                            ></i>
-                            <span className="text-start fs-6 fs-md-inherit">{section.title}</span>
+                            <span
+                                className={`curriculum-index flex-shrink-0 ${isOpen ? "active" : ""}`}
+                                aria-hidden="true"
+                            >
+                                {idx + 1}
+                            </span>
+                            <span className="text-start curriculum-title">{section.title}</span>
+                            <span className="curriculum-toggle" aria-hidden="true">
+                                {isOpen ? "−" : "+"}
+                            </span>
                         </button>
                     </h2>
 
-                    <div
-                        id={`collapse${section.id}`}
-                        className={`accordion-collapse collapse ${openSections.includes(section.id) ? "show" : ""
-                            }`}
-                        aria-labelledby={`heading${section.id}`}
-                    >
-                        <div className="accordion-body px-3 px-md-4">
-                            <ul className="mb-0 ps-3">
-                                {section.items.map((item, i) => (
-                                    <li key={i} className="mb-1 lh-base">{item}</li>
-                                ))}
+                    {isOpen && (
+                        <div id={`collapse${section.id}`} className="accordion-collapse" aria-labelledby={`heading${section.id}`}>
+                        <div className="accordion-body px-4 pb-4 pt-0 curriculum-body">
+                            <ul className="mb-0 curriculum-list">
+                                {sectionItems.length > 0 ? sectionItems.map((item, i) => (
+                                    <li key={i} className="mb-2 lh-base curriculum-li">{item}</li>
+                                )) : (
+                                    <li className="mb-2 lh-base curriculum-li">Detailed topics will be shared soon.</li>
+                                )}
                             </ul>
                         </div>
                     </div>
+                    )}
                 </div>
+                    );
+                })()
             ))}
         </div>
     );

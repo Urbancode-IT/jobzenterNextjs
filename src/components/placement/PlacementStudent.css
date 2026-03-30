@@ -1,72 +1,119 @@
-.placement-student-section {
-  padding: 80px 0;
+/* Single section: Placement Services + Interview placement Cell */
+
+.placement-combined-section {
+  padding: 72px 0 88px;
+  background: #ffffff;
 }
 
-.placement-student-title {
+.placement-combined-block {
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.placement-combined-block--second {
+  margin-bottom: 0;
+}
+
+.placement-combined-title {
   font-family: Inter, sans-serif;
   font-weight: 600;
-  font-size: 32px;
+  font-size: clamp(1.65rem, 3.5vw, 2rem);
   color: #000;
   letter-spacing: -0.02em;
   display: block;
   width: fit-content;
+  line-height: 1.2;
 }
 
-/* --------------------------------------------- */
-/* HEADING GRADIENT COLOR SWEEP                  */
-/* --------------------------------------------- */
-.title-sweep {
-  background: linear-gradient(
-      90deg,
-      #1a1a1a 0%,
-      #1a1a1a 20%,
-      #f4ea17 50%,
-      #1a1a1a 80%,
-      #1a1a1a 100%
-  );
-  background-size: 200% auto;
+/* Yellow–gold accent on key word (matches design reference) */
+.placement-combined-accent {
+  font-weight: 700;
+  background: linear-gradient(105deg, #ca8a04 0%, #f4ea17 45%, #eab308 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientSweep 1.5s ease forwards;
 }
 
-@keyframes gradientSweep {
-  0%   { background-position: 100% center; }
-  100% { background-position: 0% center; }
-}
-
-.placement-student-desc {
+.placement-combined-desc {
   margin-top: 18px;
   font-family: Inter, sans-serif;
-  font-size: 18px;
-  line-height: 1.7;
-  color: #000;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #1a1a1a;
   max-width: 650px;
 }
 
-.placement-student-image {
+.placement-combined-image {
   width: 100%;
-  max-width: 430px;
-  border-radius: 30px;
-  box-shadow: 0 0 14px 4px rgba(0, 0, 0, 0.25);
   object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
-/* Animations */
-.ps-content {
+.placement-combined-image--student {
+  max-width: 430px;
+}
+
+.placement-combined-image--training {
+  max-width: 480px;
+}
+
+/* Scroll-in motion */
+.pcb-col-text,
+.pcb-col-img {
   opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.75s ease, transform 0.75s ease;
 }
 
-.ps-image-box {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+.pcb-col-text {
+  transform: translateX(-36px);
 }
 
-.ps-animate {
+.pcb-col-img {
+  transform: translateX(36px);
+}
+
+.placement-combined-visible .pcb-col-text,
+.placement-combined-visible .pcb-col-img {
   opacity: 1;
-  transform: translate(0);
+  transform: translateX(0);
+}
+
+.placement-combined-visible .placement-combined-block--second .pcb-col-text {
+  transition-delay: 0.1s;
+}
+
+.placement-combined-visible .placement-combined-block--second .pcb-col-img {
+  transition-delay: 0.1s;
+}
+
+@media (max-width: 991px) {
+  .placement-combined-block {
+    margin-bottom: 2.75rem;
+    text-align: center;
+  }
+
+  .placement-combined-title {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .placement-combined-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pcb-col-text,
+  .pcb-col-img {
+    transform: translateY(24px);
+  }
+
+  .placement-combined-visible .pcb-col-text,
+  .placement-combined-visible .pcb-col-img {
+    transform: translateY(0);
+  }
+
+  .placement-combined-image {
+    max-width: 100%;
+    margin-top: 1.5rem;
+  }
 }

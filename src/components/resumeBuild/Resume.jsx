@@ -1,7 +1,7 @@
 'use client';
 import ResumeHero from "./components/ResumeHero";
 import ResumeRegister from "./components/ResumeRegister";
-import ResumeLearn from "./components/ResumeLearn";
+import ResumeImportance from "./components/ResumeImportance";
 import ResumeKey from "./components/ResumeKey";
 import Questions from "@/components/courses/Questions";
 
@@ -37,7 +37,7 @@ function Resume() {
     <>
       <ResumeHero />
       <ResumeRegister />
-      <ResumeLearn />
+      <ResumeImportance />
       <ResumeKey />
       <Questions data={resumeFaqData} />
     </>

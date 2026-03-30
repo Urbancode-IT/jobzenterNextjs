@@ -54,7 +54,8 @@ const Hero = () => {
           <div className="program-text text-start">
             <h3 className="program-title">Interview Prepartion</h3>
             <p className="program-desc">
-              Java Essentials, Selenium, Hands-on Tasks, Expert Guidance
+            Practice real interviews with expert guidance to boost your
+             <br/>confidence and performance.
             </p>
             <button className="btn btn-enroll" onClick={() => router.push('/career-lab/mock-interviews')}>Mock Interview</button>
           </div>

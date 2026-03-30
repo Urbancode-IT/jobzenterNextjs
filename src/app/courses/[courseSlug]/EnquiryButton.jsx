@@ -3,26 +3,38 @@
 import { useState } from 'react';
 import EnquiryFormModal from '@/components/enquiryForm/EnquiryFormModal';
 
-export default function EnquiryButton({ courseName, isLockCta = false }) {
+export default function EnquiryButton({
+    courseName,
+    isLockCta = false,
+    label,
+    variant = "default",
+    className = "",
+}) {
     const [isOpen, setIsOpen] = useState(false);
+
+    const resolvedLabel = label || (isLockCta ? "Full syllabus locked — Get Brochure" : "Get Brochure");
 
     return (
         <>
             {isLockCta ? (
                 <button
-                    className="btn rounded-pill px-3 py-2 lock-cta fw-bold btn-golden"
+                    className={`btn rounded-pill px-3 py-2 lock-cta fw-bold btn-golden ${className}`}
                     onClick={() => setIsOpen(true)}
                     title="Request full syllabus"
                 >
                     <i className="bi bi-lock-fill me-2"></i>
-                    Full syllabus locked — Get Brochure
+                    {resolvedLabel}
                 </button>
             ) : (
                 <button
-                    className="btn btn-dark w-100 dark-shine-btn rounded-4 mt-2"
+                    className={
+                        variant === "secondary"
+                            ? `btn rounded-pill ${className}`.trim()
+                            : `btn btn-dark w-100 dark-shine-btn rounded-4 mt-2 ${className}`.trim()
+                    }
                     onClick={() => setIsOpen(true)}
                 >
-                    Get Brochure
+                    {resolvedLabel}
                 </button>
             )}
 

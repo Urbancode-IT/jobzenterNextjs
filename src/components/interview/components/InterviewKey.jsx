@@ -2,46 +2,46 @@
 import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCoffee,
-  faKey,
-  faLayerGroup,
-  faHandshake,
-  faPeopleGroup,
-  faChartSimple,
+  faComments,
+  faClipboardCheck,
+  faVideo,
+  faFileLines,
+  faBrain,
+  faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./InterviewKey.module.css"; // 👈 CSS module import
 
 const takeaways = [
   {
-    icon: faCoffee,
-    title: "Interview Technique Mastery",
-    text: "Master essential interview strategies to confidently present your skills and experience, leaving a lasting impression on recruiters.",
+    icon: faComments,
+    title: "Master the Art of Self-Introduction & develop strong communication skills.",
+    text: "Craft a confident and compelling introduction that makes the right first impression. Learn how to express thoughts clearly, speak professionally, and maintain positive body language.",
   },
   {
-    icon: faKey,
-    title: "Effective Communication Skills",
-    text: "Learn how to communicate your thoughts clearly and professionally, ensuring you're understood and appreciated in every interview.",
+    icon: faClipboardCheck,
+    title: "Complete Interview Readiness",
+    text: "Understand commonly asked HR questions and structure effective, impactful responses. Strengthen domain fundamentals and practice role-specific technical questions with expert guidance.",
   },
   {
-    icon: faLayerGroup,
-    title: "Confidence Building for Interviews",
-    text: "Develop self-assurance through mock interviews and expert feedback, helping you stay calm and perform well under pressure.",
+    icon: faVideo,
+    title: "Real-Time Mock Interviews",
+    text: "Master virtual interview tools, camera presence, tech setup, and remote communication skills. Experience actual HR and technical interview simulations with detailed feedback for improvement.",
   },
   {
-    icon: faHandshake,
-    title: "Resume and Portfolio Enhancement",
-    text: "Get expert guidance on refining your resume and building a compelling portfolio to make you stand out among applicants.",
+    icon: faFileLines,
+    title: "Resume & LinkedIn Optimization",
+    text: "Build a clean, professional resume and online profile that highlights your strengths and attracts recruiters.",
   },
   {
-    icon: faPeopleGroup,
-    title: "Real-World Scenario Practice",
-    text: "Engage in real-world mock interview sessions that simulate industry-specific challenges, preparing you for what to expect.",
+    icon: faBrain,
+    title: "Aptitude & Problem-Solving Skills",
+    text: "Sharpen analytical thinking, logical reasoning, and quantitative aptitude required for many job tests.",
   },
   {
-    icon: faChartSimple,
-    title: "Personalized Feedback and Improvement",
-    text: "Receive constructive feedback on your interview skills, allowing you to improve continuously and perform at your best.",
+    icon: faUserTie,
+    title: "Professional Etiquette & Grooming",
+    text: "Learn interview manners, dress codes, communication etiquette, and the do’s & don’ts. Learn how to send thank-you emails, follow up professionally, and maintain communication etiquette post your interview to follow up with the HR.",
   },
 ];
 
@@ -83,13 +83,12 @@ const KeyTakeaways = () => {
         ref={headingRef}
         className={`${styles.title} ${titleVisible ? styles.titleSweep : ''}`}
       >
-        Key Takeaways
+        Key Takeaways from Jobzenter’s Interview Preparation Program
       </h2>
       <p className={styles.description}>
-        Here are the main topics that will be covered in the Java bootcamp
-        training. You’ll learn everything from Java basics to advanced
-        techniques, ensuring you're well-prepared to build real-world
-        applications and advance your career.
+        From first impressions to follow-ups—build the skills, polish, and
+        practice you need to perform confidently in HR, technical, and virtual
+        interviews.
       </p>
 
       <div className="container">

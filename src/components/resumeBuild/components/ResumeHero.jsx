@@ -7,6 +7,12 @@ const Hero = () => {
   const descRef = useRef(null);
   const cardRef = useRef(null);
 
+  const scrollToRegister = () => {
+    document
+      .getElementById("resume-register")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -52,9 +58,16 @@ const Hero = () => {
           <div className="program-text text-start">
             <h3 className="program-title">Resume Building</h3>
             <p className="program-desc">
-              Java essentials, selenium, hands-on tasks, expert guidance
-            </p>
-            <button className="btn btn-enroll">Enroll now</button>
+           
+            Enhance your resume with practical tasks, 
+             expert guidance and <br/>personalized support.</p>
+            <button
+              type="button"
+              className="btn btn-enroll"
+              onClick={scrollToRegister}
+            >
+              Enroll now
+            </button>
           </div>
 
           <div className="program-img">

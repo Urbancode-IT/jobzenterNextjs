@@ -29,12 +29,12 @@ const Footer = () => {
     },
     {
       label: "YouTube",
-      href: "https://youtube.com/@jobzenter",
+      href: "https://youtube.com/@jobzenter-k8b?si=0ndW4KGxjIwn6DQv",
       icon: FaYoutube,
     },
     {
       label: "WhatsApp",
-      href: "https://wa.me/9190577 70577",
+      href: "https://wa.me/919057770577",
       icon: FaWhatsapp,
     },
   ];
@@ -64,13 +64,13 @@ const Footer = () => {
   const contactDetails = [
     {
       icon: Mail,
-      label: "admin@jobzenter.in",
-      href: "mailto:admin@jobzenter.in",
+      label: "jobzenter24@gmail.com",
+      href: "mailto:jobzenter24@gmail.com",
     },
     {
       icon: Phone,
       label: "+91 90577 70577",
-      href: "tel:+9190577 70577",
+      href: "tel:+919057770577",
     },
     {
       icon: MapPin,
@@ -170,7 +170,7 @@ const Footer = () => {
           <div className="footer-divider" />
 
           <div className="footer-bottom">
-            <p className="footer-copy">Copyright © 2025 Jobzenter. All rights reserved.</p>
+            <p className="footer-copy">Copyright © 2026 Jobzenter. All rights reserved.</p>
           </div>
         </div>
       </div>

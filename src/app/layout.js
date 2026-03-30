@@ -13,11 +13,11 @@ import "./globals.css";
 import Script from "next/script";
 
 export const metadata = {
-  title: "Jobzenter | IT Training, Full Stack Development, AWS, Power BI, Software Testing & 100% Placement Support",
+  title: "Jobzenter | IT Training, Full Stack Development, AWS & Devops, Power BI, Software Testing & 100% Placement Support",
   description:
-    "Jobzenter provides hands-on IT training and placement support in Software Testing, Java, AWS, Power BI, and Full Stack Development. Join us to kickstart your IT career.",
+    "Jobzenter provides hands-on IT training and placement support in Software Testing, Java, AWS & Devops, Power BI, and Full Stack Development. Join us to kickstart your IT career.",
   keywords:
-    "jobzenter, software training, placements, IT courses, resume building, interview preparation, placement services, Python, Java, AWS, Power BI, Full Stack Development, Software Development, SQL, Business Intelligence, AWS DevOps, IT professional training, career counselling",
+    "jobzenter, software training, placements, IT courses, resume building, interview preparation, placement services, Python, Java, AWS & Devops, Power BI, Full Stack Development, Software Development, SQL, Business Intelligence, AWS DevOps, IT professional training, career counselling",
   authors: [{ name: "Jobzenter" }],
   robots: "index, follow",
   metadataBase: new URL("https://jobzenter.in"),

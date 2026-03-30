@@ -1,8 +1,8 @@
 'use client';
-import React, { useState } from "react";
-import { FaStar, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
-import { IoChevronDown, IoChevronUp } from "react-icons/io5";
-import "./StudentReviews.css";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { FaQuoteLeft } from "react-icons/fa";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
+import "./StudentReviewsCarousel.css";
 
 const reviews = [
   {
@@ -14,7 +14,7 @@ const reviews = [
   {
     name: "Mohamed Haleelulla",
     role: "Fullstack Developer",
-    text: "What impressed me most was the placement assistance. The team constantly shared job updates, arranged mock interviews, and helped me tailor my resume.Highly recommend for career changers!",
+    text: "What impressed me most was the placement assistance. The team constantly shared job updates, arranged mock interviews, and helped me tailor my resume. Highly recommend for career changers!",
     img: "/feed2.png",
   },
   {
@@ -44,14 +44,35 @@ const reviews = [
 ];
 
 const StudentReviews = () => {
-  const [index, setIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [titleVisible, setTitleVisible] = useState(false);
-  const titleRef = React.useRef(null);
+  const viewportRef = useRef(null);
+  const titleRef = useRef(null);
 
-  /* ── Heading scroll observer ── */
-  React.useEffect(() => {
+  const [cardsPerView, setCardsPerView] = useState(3);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  const [index, setIndex] = useState(3); // will be reset after mount
+  const [titleVisible, setTitleVisible] = useState(false);
+  const [layout, setLayout] = useState({
+    cardWidthPx: 0,
+    gapPx: 24,
+    slideStepPx: 0,
+  });
+
+  const getCardsPerView = useCallback((w) => {
+    if (w < 640) return 1; // mobile
+    if (w < 1024) return 2; // tablet
+    return 3; // desktop
+  }, []);
+
+  useEffect(() => {
+    const update = () => setCardsPerView(getCardsPerView(window.innerWidth));
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [getCardsPerView]);
+
+  /* ── Heading scroll observer (matches other sections) ── */
+  useEffect(() => {
     if (!titleRef.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -66,125 +87,177 @@ const StudentReviews = () => {
     return () => observer.disconnect();
   }, []);
 
-  // track mobile to change step behavior (1 on mobile, 2 on desktop)
-  React.useEffect(() => {
-    function update() {
-      setIsMobile(window.innerWidth <= 575);
-    }
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
+  const safeCardsPerView = useMemo(() => {
+    return Math.max(1, Math.min(cardsPerView, reviews.length));
+  }, [cardsPerView]);
 
-  const nextReviews = () => {
-    const step = isMobile ? 1 : 2;
-    if (index + step < reviews.length && !isAnimating) {
+  const gapPx = useMemo(() => {
+    // Keep this in sync with our spacing in the visual reference.
+    if (safeCardsPerView === 3) return 24;
+    if (safeCardsPerView === 2) return 20;
+    return 16;
+  }, [safeCardsPerView]);
+
+  const extendedSlides = useMemo(() => {
+    const n = reviews.length;
+    const k = safeCardsPerView;
+    const prepend = reviews.slice(n - k);
+    const append = reviews.slice(0, k);
+    return [...prepend, ...reviews, ...append];
+  }, [safeCardsPerView]);
+
+  // Reset index when breakpoint changes so the viewport stays aligned.
+  useEffect(() => {
+    const start = safeCardsPerView;
+    setTransitionEnabled(true);
+    setIsAnimating(false);
+    setIndex(start);
+  }, [safeCardsPerView]);
+
+  // Measure viewport width to compute exact pixel-based slide step.
+  useEffect(() => {
+    const measure = () => {
+      const el = viewportRef.current;
+      if (!el) return;
+
+      const viewportWidth = el.clientWidth;
+      const k = safeCardsPerView;
+
+      const totalGap = gapPx * (k - 1);
+      const cardWidthPx = k > 0 ? Math.max(0, (viewportWidth - totalGap) / k) : 0;
+      const slideStepPx = cardWidthPx + gapPx;
+
+      setLayout({
+        cardWidthPx,
+        gapPx,
+        slideStepPx,
+      });
+    };
+
+    measure();
+
+    const handleResize = () => measure();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [gapPx, safeCardsPerView]);
+
+  const goTo = useCallback(
+    (nextIndex) => {
+      if (isAnimating) return;
+      if (layout.slideStepPx <= 0) return;
+
       setIsAnimating(true);
-      setIndex((i) => i + step);
-      setTimeout(() => setIsAnimating(false), 600);
+      setTransitionEnabled(true);
+      setIndex(nextIndex);
+      window.setTimeout(() => setIsAnimating(false), 520);
+    },
+    [isAnimating, layout.slideStepPx]
+  );
+
+  const goNext = useCallback(() => {
+    goTo(index + 1);
+  }, [goTo, index]);
+
+  const goPrev = useCallback(() => {
+    goTo(index - 1);
+  }, [goTo, index]);
+
+  const onTransitionEnd = useCallback(() => {
+    const n = reviews.length;
+    const k = safeCardsPerView;
+    const minRealIndex = k;
+    const maxRealIndex = k + n - 1;
+
+    // When we land in a cloned region, jump back to the corresponding real index
+    // without a transition (so it feels infinite).
+    if (index < minRealIndex) {
+      setTransitionEnabled(false);
+      setIndex(index + n);
+    } else if (index > maxRealIndex) {
+      setTransitionEnabled(false);
+      setIndex(index - n);
     }
+  }, [index, safeCardsPerView]);
+
+  useEffect(() => {
+    if (transitionEnabled) return;
+    // Re-enable transitions on the next frame after we jump.
+    const id = window.requestAnimationFrame(() => setTransitionEnabled(true));
+    return () => window.cancelAnimationFrame(id);
+  }, [transitionEnabled, index]);
+
+  const translateX = -(index * layout.slideStepPx);
+  const trackStyle = {
+    transform: `translateX(${translateX}px)`,
+    transition: transitionEnabled ? "transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)" : "none",
+    gap: `${layout.gapPx}px`,
   };
 
-  const prevReviews = () => {
-    const step = isMobile ? 1 : 2;
-    if (index - step >= 0 && !isAnimating) {
-      setIsAnimating(true);
-      setIndex((i) => i - step);
-      setTimeout(() => setIsAnimating(false), 600);
-    }
+  const cardBaseStyle = {
+    width: layout.cardWidthPx ? `${layout.cardWidthPx}px` : "100%",
+    flex: layout.cardWidthPx ? `0 0 ${layout.cardWidthPx}px` : "0 0 auto",
   };
 
   return (
-    <section className="student-reviews-section d-flex flex-column align-items-center bg-white position-relative" >
-      <div className="student-reviews-header text-center">
-        <h2
-          ref={titleRef}
-          className={`student-reviews-title ${titleVisible ? "title-sweep" : ""}`}
-        >
-          What our students say
-        </h2>
-        <p className="student-reviews-subtitle">
-          Real stories from learners who transformed their careers with us.
-        </p>
-      </div>
-
-      <button
-        onClick={prevReviews}
-        className="student-reviews-arrow student-reviews-arrow-up-top"
-        aria-label="Show previous reviews"
-        disabled={isAnimating}
-      >
-        <IoChevronUp />
-      </button>
-
+    <section className="student-reviews-section">
       <div className="student-reviews-container">
-        <div className={`student-reviews-slider ${isAnimating ? 'sliding' : ''}`}>
-          {reviews.map((review, i) => (
-            <div
-              key={i}
-              className="student-review-slide"
-              style={{
-                transform: `translateY(-${index * 100}%)`
-              }}
-            >
-              <div className="student-review-card">
-                <div className="student-review-surface">
-                  <div className="student-review-stars d-flex align-items-center">
-                    {Array(5)
-                      .fill()
-                      .map((_, j) => (
-                        <FaStar key={j} />
-                      ))}
+        <header className="student-reviews-header">
+          <h2
+            ref={titleRef}
+            className={`student-reviews-title ${titleVisible ? "title-sweep" : ""}`}
+          >
+            What our students say
+          </h2>
+        </header>
+
+        <div className="student-reviews-carousel-wrap">
+          <button
+            type="button"
+            className="student-reviews-nav student-reviews-nav--prev"
+            onClick={goPrev}
+            aria-label="Show previous testimonials"
+            disabled={isAnimating}
+          >
+            <IoChevronBack />
+          </button>
+
+          <div ref={viewportRef} className="student-reviews-viewport" aria-label="Testimonials carousel">
+            <div className="student-reviews-track" style={trackStyle} onTransitionEnd={onTransitionEnd}>
+              {extendedSlides.map((review, i) => (
+                <article key={`${review.name}-${i}`} className="student-review-card" style={cardBaseStyle}>
+                  <div className="student-review-quote" aria-hidden="true">
+                    <FaQuoteLeft />
                   </div>
 
                   <p className="student-review-text">{review.text}</p>
 
-                  <div className="student-review-footer">
+                  <footer className="student-review-footer">
                     <img
                       src={review.img}
                       alt={review.name}
                       className="student-review-avatar"
+                      loading="lazy"
                     />
-
                     <div className="student-review-meta">
-                      <h4 className="student-review-name">{review.name}</h4>
+                      <p className="student-review-name">{review.name}</p>
                       <p className="student-review-role">{review.role}</p>
-                      <div className="student-review-actions">
-                        <button
-                          type="button"
-                          className="student-review-action student-review-like"
-                          aria-label="Like review"
-                        >
-                          <FaThumbsUp />
-                        </button>
-                        <button
-                          type="button"
-                          className="student-review-action student-review-dislike"
-                          aria-label="Dislike review"
-                        >
-                          <FaThumbsDown />
-                        </button>
-                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </footer>
+                </article>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      <div className="student-reviews-controls">
-       
           <button
-            onClick={nextReviews}
-            className="student-reviews-arrow student-reviews-arrow-down"
-            aria-label="Show next reviews"
+            type="button"
+            className="student-reviews-nav student-reviews-nav--next"
+            onClick={goNext}
+            aria-label="Show next testimonials"
             disabled={isAnimating}
           >
-            <IoChevronDown />
+            <IoChevronForward />
           </button>
-      
+        </div>
       </div>
     </section>
   );

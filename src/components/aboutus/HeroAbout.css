@@ -1,143 +1,590 @@
-.hero-section {
-  padding: 80px 0;
+/* =========================================================
+   ABOUT HERO — creative layout + motion (JobZenter brand)
+   ========================================================= */
+
+/* JobZenter theme: app yellow / gold (matches site —jz-theme), black, white */
+.hero-section.hero-about {
+  --jz-yellow: #ffcc00;
+  --jz-yellow-bright: #f4ea17;
+  --jz-amber: #f59e0b;
+  --jz-yellow-deep: #ca8a04;
+  position: relative;
+  padding: clamp(72px, 10vw, 120px) 0;
+  overflow: hidden;
   background: linear-gradient(
-    180deg,
-    #fffbe6 0%,
-    #fff3c9 30%,
-    #fff7dd 60%,
-    #ffffff 100%
+    168deg,
+    #fffbeb 0%,
+    #fff3c9 22%,
+    #fffef6 48%,
+    #ffffff 90%
   );
   display: flex;
   align-items: center;
-  overflow: hidden;
-}
- 
-/* ── LEFT TEXT ── */
-.hero-tag {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #f59e0b;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
- 
-.hero-title-about {
-  font-family: Inter, sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  color: #000;
-  margin-bottom: 20px;
-  display: block;
-  width: fit-content;
 }
 
-.hero-subtitle {
-  font-size: 15px;
-  max-width: 420px;
-  border-left: 3px solid #f59e0b;
-  padding-left: 16px;
+.hero-about-container {
+  z-index: 1;
 }
- 
-/* ── RIGHT — 2 OVERLAPPING IMAGES ── */
-.hero-img-overlap {
+
+/* ── Ambient background ── */
+.hero-about-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: 0.55;
+  animation: blobFloat 22s ease-in-out infinite;
+}
+
+.hero-blob--a {
+  width: min(420px, 55vw);
+  height: min(420px, 55vw);
+  top: -12%;
+  left: -8%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 204, 0, 0.42) 0%,
+    rgba(244, 234, 23, 0.18) 55%,
+    transparent 70%
+  );
+  animation-delay: 0s;
+}
+
+.hero-blob--b {
+  width: min(360px, 45vw);
+  height: min(360px, 45vw);
+  bottom: -18%;
+  right: -6%;
+  background: radial-gradient(
+    circle,
+    rgba(253, 224, 71, 0.38) 0%,
+    rgba(245, 158, 11, 0.12) 50%,
+    transparent 68%
+  );
+  animation-delay: -7s;
+  animation-duration: 26s;
+}
+
+.hero-blob--c {
+  width: min(280px, 38vw);
+  height: min(280px, 38vw);
+  top: 38%;
+  right: 28%;
+  background: radial-gradient(
+    circle,
+    rgba(217, 119, 6, 0.14) 0%,
+    transparent 65%
+  );
+  animation-delay: -12s;
+  animation-duration: 19s;
+}
+
+.hero-grid-fade {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(15, 23, 42, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black, transparent);
+  opacity: 0.45;
+}
+
+@keyframes blobFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(4%, 3%) scale(1.05);
+  }
+  66% {
+    transform: translate(-3%, 5%) scale(0.96);
+  }
+}
+
+/* ── Staggered entrance (triggered by .hero-about--visible) ── */
+.hero-about-heading,
+.hero-about-lead,
+.hero-about-pills,
+.hero-about-stats,
+.hero-about-quote-card,
+.hero-visual-column {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.hero-about--visible .hero-about-heading,
+.hero-about--visible .hero-about-lead,
+.hero-about--visible .hero-about-pills,
+.hero-about--visible .hero-about-stats,
+.hero-about--visible .hero-about-quote-card,
+.hero-about--visible .hero-visual-column {
+  animation: heroReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-about--visible .hero-about-heading {
+  animation-delay: 0.08s;
+}
+.hero-about--visible .hero-about-lead {
+  animation-delay: 0.16s;
+}
+.hero-about--visible .hero-about-pills {
+  animation-delay: 0.24s;
+}
+.hero-about--visible .hero-about-quote-card {
+  animation-delay: 0.32s;
+}
+.hero-about--visible .hero-about-stats {
+  animation-delay: 0.4s;
+}
+.hero-about--visible .hero-visual-column {
+  animation-delay: 0.26s;
+}
+
+@keyframes heroReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Left column content ── */
+.hero-about-heading {
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: #0a0a0a;
+  margin: 0 0 1rem 0;
+}
+
+.hero-about-heading-main {
+  color: #0a0a0a;
+}
+
+.hero-about-heading-accent {
+  color: var(--jz-yellow-deep);
+  text-shadow: 0 0 36px rgba(255, 204, 0, 0.35);
+}
+
+.hero-about-lead {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(36, 56, 68, 0.82);
+  max-width: 36rem;
+  margin: 0 0 1.25rem 0;
+}
+
+.hero-about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.hero-about-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #0f172a;
+  padding: 9px 16px 9px 12px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 204, 0, 0.45);
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--jz-yellow-bright), var(--jz-amber));
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.28);
+}
+
+.hero-about-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 158, 11, 0.65);
+  box-shadow: 0 8px 22px rgba(255, 204, 0, 0.18);
+}
+
+/* Stats row — reference layout */
+.hero-about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 3vw, 24px);
+  max-width: 38rem;
+  margin: 0;
+  padding: 16px 0 4px;
+  border-top: 1px solid rgba(255, 204, 0, 0.35);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.hero-stat-value {
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--jz-yellow-deep);
+  letter-spacing: -0.03em;
+}
+
+.hero-stat-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+.hero-about-quote-card {
   position: relative;
-  height: 340px;        /* ← smaller height */
-  width: 100%;
-  margin-left: auto;
-  max-width: 420px;     /* ← limit max width */
+  margin: 0 0 clamp(1.1rem, 2.5vw, 1.5rem) 0;
+  padding: 1.35rem 1.35rem 1.35rem 1.65rem;
+  max-width: 38rem;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06);
 }
- 
-/* Back image — top left */
-.hero-img-back {
+
+.hero-about-quote-card::before {
+  content: "";
   position: absolute;
-  top: 0;
   left: 0;
-  width: 62%;           /* ← smaller */
-  height: 78%;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-  animation: floatSlow 4s ease-in-out infinite;
+  top: 14px;
+  bottom: 14px;
+  width: 5px;
+  border-radius: 0 6px 6px 0;
+  background: linear-gradient(
+    180deg,
+    var(--jz-yellow-bright) 0%,
+    var(--jz-yellow) 45%,
+    var(--jz-amber) 100%
+  );
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.35);
 }
- 
-/* Front image — bottom right, on top */
-.hero-img-front {
+
+.hero-quote-mark {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 62%;           /* ← smaller */
-  height: 72%;
-  object-fit: cover;
+  top: 0.35rem;
+  right: 1rem;
+  font-size: 4.25rem;
+  line-height: 1;
+  font-family: Georgia, "Times New Roman", serif;
+  color: rgba(255, 204, 0, 0.28);
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-about-quote {
+  margin: 0;
+  padding-right: 2rem;
+  font-size: 0.94rem;
+  line-height: 1.72;
+  color: #334155;
+  font-style: normal;
+  border: none;
+}
+
+/* ── Right: logo + dashed orbits + orbiting pills (reference layout) ── */
+.hero-visual-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-orbit-stage {
+  position: relative;
+  width: min(100%, 400px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.hero-orbit-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 2px dashed rgba(255, 204, 0, 0.35);
+}
+
+.hero-orbit-ring--outer {
+  width: 92%;
+  aspect-ratio: 1;
+  animation: heroRingSpin 72s linear infinite;
+}
+
+.hero-orbit-ring--inner {
+  width: 74%;
+  aspect-ratio: 1;
+  border-color: rgba(244, 234, 23, 0.35);
+  animation: heroRingSpinInner 52s linear infinite;
+}
+
+@keyframes heroRingSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes heroRingSpinInner {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+/* Labels fixed at corners — text never rotates (only rings spin) */
+.hero-orbit-labels {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.hero-orbit-chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px 7px 9px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  background: #ffffff;
+  border: 1px solid rgba(255, 204, 0, 0.42);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+}
+
+.hero-orbit-chip--tl {
+  top: 4%;
+  left: 2%;
+}
+
+.hero-orbit-chip--tr {
+  top: 4%;
+  right: 2%;
+}
+
+.hero-orbit-chip--bl {
+  bottom: 4%;
+  left: 2%;
+}
+
+.hero-orbit-chip--br {
+  bottom: 4%;
+  right: 2%;
+}
+
+.hero-orbit-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--jz-yellow-bright), var(--jz-amber));
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.25);
+}
+
+.hero-orbit-hub {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46%;
+  max-width: 168px;
+  transform: translate(-50%, -50%);
+  animation: heroHubFloat 5.5s ease-in-out infinite;
+}
+
+@keyframes heroHubFloat {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 10px));
+  }
+}
+
+.hero-orbit-logo {
+  width: 100%;
+  height: auto;
+  max-height: 168px;
+  object-fit: contain;
   border-radius: 18px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
-  border: 4px solid #ffffff;
-  animation: floatFast 3s ease-in-out infinite;
-  animation-delay: 0.5s;
+  filter: drop-shadow(0 12px 28px rgba(15, 23, 42, 0.12));
 }
- 
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
-}
- 
-@keyframes floatFast {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-12px); }
-}
- 
-/* ── TEXT — slide in from left ── */
-.hero-text-animate {
-  opacity: 0;
-  transform: translateX(-50px);
-  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.1s;
-}
- 
-/* ── IMAGES — slide in from right ── */
-.hero-img-animate {
-  opacity: 0;
-  transform: translateX(50px);
-  animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.3s;
-}
- 
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-50px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
- 
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
- 
-/* MOBILE */
-@media (max-width: 768px) {
-  .hero-img-overlap {
-    height: 260px;
-    max-width: 100%;
-    margin-top: 30px;
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-blob,
+  .hero-orbit-ring--outer,
+  .hero-orbit-ring--inner,
+  .hero-orbit-hub {
+    animation: none !important;
+  }
+
+  .hero-orbit-ring--outer {
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-orbit-ring--inner {
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-orbit-hub {
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-about-heading,
+  .hero-about-lead,
+  .hero-about-pills,
+  .hero-about-stats,
+  .hero-about-quote-card,
+  .hero-visual-column {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
   }
 }
- 
+
+/* ── Mobile ── */
+@media (max-width: 991px) {
+  .hero-about-content {
+    text-align: center;
+  }
+
+  .hero-about-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-about-pills {
+    justify-content: center;
+  }
+
+  .hero-about-stats {
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+  }
+
+  .hero-stat {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-about-quote-card {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .hero-about-quote {
+    padding-right: 0;
+  }
+
+  .hero-quote-mark {
+    right: 0.75rem;
+    font-size: 3.5rem;
+  }
+}
+
 @media (max-width: 576px) {
-  .hero-title-about {
-    font-size: 30px;
-    text-align: center;
+  .hero-section.hero-about {
+    padding: 56px 0 72px;
   }
-  .hero-subtitle {
-    font-size: 13px;
-    text-align: center;
-    padding-left: 0;
-    border-left: none;
-    border-top: 3px solid #f59e0b;
-    padding-top: 12px;
+
+  .hero-about-quote-card {
+    padding: 1.1rem 1rem 1.1rem 1.15rem;
+    border-radius: 16px;
   }
-  .hero-tag {
-    text-align: center;
+
+  .hero-about-quote-card::before {
+    top: 12px;
+    bottom: 12px;
   }
-  .hero-img-overlap {
-    height: 220px;
+
+  .hero-about-quote {
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  .hero-orbit-stage {
+    max-width: 300px;
+    margin-top: 0.75rem;
+  }
+
+  .hero-orbit-chip--tl,
+  .hero-orbit-chip--tr {
+    top: 2%;
+  }
+
+  .hero-orbit-chip--bl,
+  .hero-orbit-chip--br {
+    bottom: 2%;
+  }
+
+  .hero-orbit-chip--tl,
+  .hero-orbit-chip--bl {
+    left: 0;
+  }
+
+  .hero-orbit-chip--tr,
+  .hero-orbit-chip--br {
+    right: 0;
+  }
+
+  .hero-orbit-hub {
+    max-width: 124px;
+  }
+
+  .hero-orbit-logo {
+    max-height: 120px;
+  }
+
+  .hero-orbit-chip {
+    font-size: 0.65rem;
+    padding: 5px 9px 5px 7px;
   }
 }

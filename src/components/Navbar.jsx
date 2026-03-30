@@ -165,7 +165,7 @@ const Navbar = () => {
         </button>
 
         <div
-          className={`collapse navbar-collapse justify-content-end ${isOpen ? "show" : ""}`}
+          className={`navbar-collapse-custom justify-content-end ${isOpen ? "show" : ""}`}
           id="navbarSupportedContent"
         >
           <ul

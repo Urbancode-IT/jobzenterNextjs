@@ -46,6 +46,14 @@
   color: #000;
 }
 
+.navbar-collapse-custom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-basis: auto;
+  flex-grow: 1;
+}
+
 .btn-reset {
   background: none;
   border: none;
@@ -265,9 +273,15 @@
     display: block;
   }
 
-  .navbar-custom .navbar-collapse {
+  .navbar-custom .navbar-collapse-custom {
     background-color: #f9f697;
     padding: 16px 0 8px;
+    display: none;
+    width: 100%;
+  }
+
+  .navbar-custom .navbar-collapse-custom.show {
+    display: block;
   }
 
   .navbar-custom .nav-links {
