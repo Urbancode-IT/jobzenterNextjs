@@ -11,6 +11,32 @@ const courses = [
 ];
 
 const AboutSection = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [isTitleVisible, setIsTitleVisible] = React.useState(false);
+  const titleRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsTitleVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (titleRef.current) {
+      observer.observe(titleRef.current);
+    }
+
+    return () => {
+      if (titleRef.current) {
+        observer.unobserve(titleRef.current);
+      }
+    };
+  }, []);
+
   const cardImages = [
     "/courses/mean.jpg",
     "/courses/softwareTesting.webp",
@@ -18,57 +44,67 @@ const AboutSection = () => {
     "/courses/aws.webp",
   ];
 
-  const codeByCardIndex = [
-    ["pp", "eslintConfig", "pp", "eslintConfig", "app"],
-    ["Every great", "pp", "eslintConfig", "app", "pp"],
-    ["app", "pp", "eslintConfig", "app", "pp"],
-    ["pp", "eslintConfig", "app", "pp", "eslintConfig"],
-  ];
-
   return (
-    <section className="about-section about-cards py-5">
+    <section className="about-section py-5">
       <div className="container">
-        <div className="about-demand-panel">
-          <div className="about-demand-header text-center">
-            <h2 className="about-demand-title title-sweep">Demanding Courses</h2>
-            <p className="about-demand-subtitle">
-              Explore the most demanded and highly reviewed courses loved by
-              learners.
-            </p>
+        <div className="about-demand-header mb-3">
+          <h2 
+            ref={titleRef}
+            className={`about-demand-title ${isTitleVisible ? "title-sweep" : ""}`}
+          >
+            Demand courses
+          </h2>
+          <p className="about-demand-subtitle">
+            Explore the most trusted and highly reviewed courses loved by learners.
+          </p>
+        </div>
+
+        <div className="row gx-lg-5 gy-4 align-items-start">
+          {/* LEFT: LIST OF COURSES */}
+          <div className="col-lg-7">
+            <div className="about-course-list">
+              {courses.map((course, i) => (
+                <Link
+                  key={course.title}
+                  href="/courses"
+                  className={`about-course-item ${activeIndex === i ? "active" : ""}`}
+                  onMouseEnter={() => setActiveIndex(i)}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="course-item-content">
+                    <h3 className="course-item-title">{course.title}</h3>
+                    <p className="course-item-desc">
+                      {course.desc.length > 110 
+                        ? (
+                          <>
+                            {course.desc.substring(0, 110)}... 
+                            <span className="read-more-link ml-1">Read more</span>
+                          </>
+                        ) 
+                        : course.desc}
+                    </p>
+                  </div>
+                  <div className="course-item-arrow">
+                    <i className="bi bi-arrow-up-right"></i>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
 
-          <div className="about-cards-stage" aria-label="Jobzenter learning tracks">
-            {courses.map((course, i) => (
-              <Link
-                key={course.title}
-                href="/courses"
-                className={`about-card about-card-${i + 1}`}
-                aria-label={`${course.title} course`}
-              >
-                <div className="about-card-inner">
-                  <div className="about-card-text">
-                    <div className="about-card-title">{course.title}</div>
-                    <p className="about-card-desc">{course.desc}</p>
-                  </div>
-
-                  <div className="about-card-media" aria-hidden="true">
-                    <img
-                      src={cardImages[i]}
-                      alt=""
-                      className="about-card-img"
-                      loading="lazy"
-                    />
-                    <div className={`about-code-overlay about-code-overlay-${i + 1}`}>
-                      {codeByCardIndex[i].map((line, idx) => (
-                        <span key={`${line}-${idx}`} className="about-code-line">
-                          {line}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
+          {/* RIGHT: DYNAMIC IMAGE */}
+          <div className="col-lg-5">
+            <div className="about-image-sticky">
+              <div className="about-image-container animate-fade-in" key={activeIndex}>
+                <img
+                  src={cardImages[activeIndex]}
+                  alt={courses[activeIndex].title}
+                  className="about-dynamic-img"
+                />
+                {/* Specific cutout shape accent */}
+                <div className="about-image-cutout"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
