@@ -15,7 +15,8 @@ const StudyAbroadHero = () => {
               Start Your{" "}
               <span className="study-abroad-hero-highlight">
                 <span className="highlight-text">Global</span>
-              </span>{" "}
+              </span>
+              <br />
               Education Journey Today
             </h1>
             <p className="study-abroad-hero-subtext">

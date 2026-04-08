@@ -27,7 +27,7 @@ export default function Steps() {
       <div className="flow-header">
         <h2
           ref={titleRef}
-          className={`${titleVisible ? "title-sweep" : ""}`}
+          className={`flow-header-title ${titleVisible ? "title-sweep" : ""}`}
         >
           Student placement cycle flowchart
         </h2>

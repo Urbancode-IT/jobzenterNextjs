@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .navbar-custom {
-  background-color: #f9f697;
-
+  background-color: #fdf894; /* Matching the vibrant yellow from your screenshot */
   min-height: 89px;
   height: auto;
   opacity: 1;
@@ -166,10 +165,10 @@
   gap: 8px;
   min-width: 220px;
   padding: 16px;
-  background-color: #f9f697;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: #fdf894; /* Matching the vibrant navbar yellow from your screenshot */
+  border: 1px solid rgba(0, 0, 0, 0.08); /* Softer border */
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
-  border-radius: 12px;
+  border-radius: 24px; /* Matches the prominent rounding in your screenshot */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -274,7 +273,7 @@
   }
 
   .navbar-custom .navbar-collapse-custom {
-    background-color: #f9f697;
+    background-color: #ffffff;
     padding: 16px 0 8px;
     display: none;
     width: 100%;
@@ -340,7 +339,7 @@
     left: 0;
     margin-left: 0;
     width: min(220px, calc(100vw - 48px));
-    background-color: #f9f697;
+    background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.10);
     padding: 12px;

@@ -4,6 +4,7 @@ import DestinationsSection from "@/components/study-abroad/DestinationsSection";
 import ServicesSection from "@/components/study-abroad/ServicesSection";
 import ConsultationSection from "@/components/study-abroad/ConsultationSection";
 import TestimonialsSection from "@/components/study-abroad/TestimonialsSection";
+import VideoIntro from "@/components/study-abroad/VideoIntro";
 
 export const metadata = {
   title: "Study Abroad | Jobzenter – Study in USA, UK, Canada & More",
@@ -31,6 +32,7 @@ export const metadata = {
 export default function StudyAbroadPage() {
   return (
     <>
+      <VideoIntro />
       <StudyAbroadHero />
       <DestinationsSection />
       <ServicesSection />

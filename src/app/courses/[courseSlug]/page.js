@@ -146,7 +146,11 @@ export default async function CourseInternalPage({ params }) {
                 {/* What You'll Learn */}
                 {course.whatYouLearnData && (
                     <div className="section-spacing">
-                        <h2 className="fw-semibold mb-3 mb-md-4 text-center text-lg-start">What You'll Learn</h2>
+                        <AnimatedHeading 
+                            text="What You'll Learn" 
+                            className="fw-semibold mb-3 mb-md-4 text-center text-lg-start" 
+                            highlightCount={0}
+                        />
                         <div className="row g-3 g-md-4">
                             {course.whatYouLearnData.map((t, i) => (
                                 <div className="col-12 col-sm-6 col-lg-4" key={i}>
@@ -169,7 +173,11 @@ export default async function CourseInternalPage({ params }) {
                 {/* Course Content */}
                 {course.courseContentData && (
                     <div className="section-spacing">
-                        <h2 className="fw-semibold mb-3 mb-md-4 text-center text-lg-start">Course Content</h2>
+                        <AnimatedHeading 
+                            text="Course Content" 
+                            className="fw-semibold mb-3 mb-md-4 text-center text-lg-start" 
+                            highlightCount={0}
+                        />
                         <CourseAccordion courseContentData={course.courseContentData} />
                         {/* Locked full syllabus CTA */}
                         {course.locked === true && (

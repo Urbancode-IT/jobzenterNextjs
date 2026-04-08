@@ -45,7 +45,12 @@ const CoursesPage = () => {
           style={{ backgroundColor: "rgba(0, 0, 0, 0.15)", zIndex: 1 }}
         ></div>
         <div className="position-relative" style={{ zIndex: 2 }}>
-          <h1 className="display-4 fw-bold text-white" style={{ textShadow: "2px 2px 15px rgba(0,0,0,0.9)", fontSize: "3.8rem", marginBottom: "8px" }}>Courses</h1>
+          <h1
+            className="display-4 fw-bold text-white"
+            style={{ textShadow: "2px 2px 15px rgba(0,0,0,0.9)", fontSize: "3.8rem", marginBottom: "8px" }}
+          >
+            Explore Courses
+          </h1>
           <p className="lead text-white px-3" style={{ textShadow: "1px 1px 10px rgba(0,0,0,0.9)", fontSize: "1.4rem", fontWeight: "600" }}>Exploring paths to learn, grow, and achieve more.</p>
         </div>
       </div>

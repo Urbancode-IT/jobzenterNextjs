@@ -11,6 +11,24 @@ const courses = [
 ];
 
 const AboutSection = () => {
+  const [titleVisible, setTitleVisible] = React.useState(false);
+  const titleRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const cardImages = [
     "/courses/mean.jpg",
     "/courses/softwareTesting.webp",
@@ -30,7 +48,12 @@ const AboutSection = () => {
       <div className="container">
         <div className="about-demand-panel">
           <div className="about-demand-header text-center">
-            <h2 className="about-demand-title title-sweep">Demanding Courses</h2>
+            <h2
+              ref={titleRef}
+              className={`about-demand-title ${titleVisible ? "title-sweep" : ""}`}
+            >
+              Demanding Courses
+            </h2>
             <p className="about-demand-subtitle">
               Explore the most demanded and highly reviewed courses loved by
               learners.

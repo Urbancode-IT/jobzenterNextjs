@@ -42,7 +42,7 @@ const ChatbotWidget = () => {
       <div id="chatbot-trigger" className="chatbot-trigger">
         <div className="chatbot-icon">
           <Image
-            src="/jzHead.png"
+            src="/bee.jpg"
             width={60}
             height={60}
             alt="Chat with us"
