@@ -98,7 +98,15 @@ export const recentBlogs = [
   description: "Explore how FOBO is pushing professionals to upskill faster,...",
   tags: ["career growth", "future skills"],
   link: "/blogs/fobo-upskilling-race"
+},
+{
+  id: 12,
+  image: "/blogs/full stack.png", 
+  date: "18 mar 2026",
+  title: "Top 5 Non-IT Jobs That Pay More Than traditional IT Roles",
+  description: "Explore top non-coding high paying roles like Medical Coding...",
+  tags: ["career growth", "medical coding"],
+  link: "/blogs/non-it-roles"
 }
-
 ];
 

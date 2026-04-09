@@ -35,23 +35,59 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------- */
-/* GRADIENT COLOR SWEEP — Global Reusable Class  */
+/* SIGNATURE OLIVE-YELLOW SECTION HEADINGS       */
 /* --------------------------------------------- */
+.heading-signature-black {
+  color: #000000;
+  font-weight: 800;
+  display: inline-block;
+}
+
+.heading-signature-gradient {
+  color: #1a1a1a; /* Dark Base */
+  font-weight: 800;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #1a1a1a 20%,
+    #f4ea17 50%, /* Shimmer Yellow */
+    #1a1a1a 80%,
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: signatureGradientSweep 1.5s ease forwards;
+}
+
+@keyframes signatureGradientSweep {
+  0%   { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* GRADIENT COLOR SWEEP — Global Reusable Class (Legacy Support) */
 .title-sweep {
   background: linear-gradient(
     90deg,
-    #000000 0%,
-    #000000 20%,
-    #f4ea17 50%,
-    #000000 80%,
-    #000000 100%
+    #1a1a1a 0%,
+    #1a1a1a 20%,
+    #f4ea17 50%, /* Shimmer Yellow */
+    #1a1a1a 80%,
+    #1a1a1a 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradientSweep 1.5s ease forwards;
-  display: inline-block; /* Ensure it wraps correctly for background-clip */
+  display: inline-block;
+}
+
+@keyframes gradientSweep {
+  0%   { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 @keyframes gradientSweep {

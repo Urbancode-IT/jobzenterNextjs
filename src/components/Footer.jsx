@@ -40,12 +40,12 @@ const Footer = () => {
   ];
 
   const courses = [
-    { label: "AWS", href: "/courses/aws" },
+    { label: "MERN Stack", href: "/courses/mern-stack-development" },
+    { label: "AWS & DevOps", href: "/courses/aws" },
+    { label: "JAVA Fullstack", href: "/courses/java-fullstack-development" },
+    { label: "Python Fullstack", href: "/courses/python-fullstack-development" },
+    { label: "CCNA Networking", href: "/courses/ccna" },
     { label: "Software Testing", href: "/courses/software-testing" },
-    { label: "Fullstack Development", href: "/courses/java-fullstack-development" },
-    { label: "Business Intelligence", href: "/courses/business-intelligence" },
-    { label: "CCNA", href: "/courses/cisco-certified-network-associate" },
-    { label: "Medical Billing", href: "/courses/medical-billing" },
   ];
 
   const quickLinks = [

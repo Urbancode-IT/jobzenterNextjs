@@ -100,7 +100,7 @@ const defaultFaqData = [
         <section className="questions-outer-wrapper">
             <h2
                 ref={titleRef}
-                className={`faq-title ${titleVisible ? 'title-sweep' : ''}`}
+                className={`faq-title ${titleVisible ? "title-sweep" : ""}`}
             >
                 Frequently asked questions
             </h2>

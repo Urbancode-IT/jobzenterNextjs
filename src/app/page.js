@@ -5,6 +5,7 @@ import FaqSection from "@/components/FaqSection";
 import HeroSection from "@/components/HeroSection";
 import StudentReviews from "@/components/StudentReviews";
 import TopRatedCourses from "@/components/TopRatedCourse";
+import SuccessSection from "@/components/SuccessSection";
 import Script from "next/script";
 
 // ---------------- SEO Metadata ----------------
@@ -73,6 +74,7 @@ export default function Home() {
       <TopRatedCourses />
       <AboutSection />
       <Steps />
+      <SuccessSection />
       <FaqSection />
       <StudentReviews />
     </>

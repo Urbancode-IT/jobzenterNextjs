@@ -295,7 +295,7 @@ function Chatbot() {
               <p className='mission'>We will be sharing the course details to your WhatsApp shortly.</p>
               <div className="signature">
                 <p className="tagline">Dream job is just a call away</p>
-                <img src="/log.png" alt="Jobzenter Logo" className="logo" />
+                
                 <p className="mission">From learning to earning — real-world skills for real-world success</p>
 
               </div>

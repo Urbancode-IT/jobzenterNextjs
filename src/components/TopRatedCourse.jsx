@@ -1,19 +1,19 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import "./TopRatedCourse.css";
-import { IoChevronForward, IoChevronBack } from "react-icons/io5";
+import { IoArrowForward, IoChevronBack, IoChevronForward } from "react-icons/io5";
+import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiAmazonwebservices, SiMysql, SiSpringboot, SiCisco, SiPython } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 
 const TopRatedCourses = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [selectedCourse, setSelectedCourse] = useState(null);
   const [cardsPerPage, setCardsPerPage] = useState(3);
   const [titleVisible, setTitleVisible] = useState(false);
-  const titleRef = React.useRef(null);
+  const titleRef = useRef(null);
   const router = useRouter();
 
-  /* ── Heading scroll observer ── */
   useEffect(() => {
     if (!titleRef.current) return;
     const observer = new IntersectionObserver(
@@ -32,106 +32,73 @@ const TopRatedCourses = () => {
   const courses = [
     {
       id: 1,
-      title: "React Native Fullstack",
-      category: "Development",
-      description:
-        "React Native Fullstack development combines React Native for mobile apps with Node.js, Express, and databases like MongoDB or PostgreSQL on the backend.",
-      img: "/courses/reactNative.webp",
-      slug: "react-fullstack",
+      title: "MERN Stack",
+      enrollment: "2k+",
+      description: "MERN Stack is a powerful full-stack JavaScript technology for building modern web applications.",
+      img: "/courses/mern.webp",
+      slug: "mern-stack-development",
+      icons: [<SiMongodb key="m" style={{color: '#47A248'}} />, <SiExpress key="e" style={{color: '#fff'}} />, <SiReact key="r" style={{color: '#61DAFB'}} />, <SiNodedotjs key="n" style={{color: '#339933'}} />]
     },
     {
       id: 2,
-      title: "Software Testing",
-      category: "Testing",
-      description:
-        "Software Testing is the process of evaluating software to identify defects and ensure it meets the required quality standards.",
-      img: "/courses/softwareTesting.webp",
-      slug: "software-testing",
+      title: "AWS Cloud",
+      enrollment: "3.5k+",
+      description: "AWS is a cloud platform that provides scalable computing, storage, and services to build and deploy applications.",
+      img: "/courses/aws.webp",
+      slug: "aws",
+      icons: [<SiAmazonwebservices key="a" style={{color: '#FF9900'}} />]
     },
     {
       id: 3,
-      title: "JAVA Fullstack Development",
-      category: "Development",
-      description:
-        "Java Full Stack Development is the process of developing both front-end and back-end web applications using Java technologies.",
+      title: "Fullstack Development",
+      enrollment: "4.2k+",
+      description: "Full Stack Development covers both frontend and backend to build complete, scalable web applications.",
       img: "/courses/javaFullstack.webp",
       slug: "java-fullstack-development",
+      icons: [<FaJava key="j" style={{color: '#007396'}} />, <SiSpringboot key="s" style={{color: '#6DB33F'}} />, <SiMysql key="my" style={{color: '#4479A1'}} />]
     },
     {
       id: 4,
-      title: "MERN Stack Development",
-      category: "Development",
-      description:
-        "MERN Stack Development combines MongoDB, Express, React, and Node.js to build powerful full-stack web applications.",
-      img: "/courses/mern.webp",
-      slug: "mern-stack-development",
+      title: "Python Development",
+      enrollment: "2.8k+",
+      description: "Learn Python for data science, web development, and automation with hands-on projects.",
+      img: "/courses/python.jpg",
+      slug: "python-fullstack-development",
+      icons: [<SiPython key="p" style={{color: '#3776AB'}} />]
     },
     {
       id: 5,
-      title: "AWS",
-      category: "Development",
-      description:
-        "AWS is a secure cloud platform offering computing power, database storage, and content delivery services on demand.",
-      img: "/courses/aws.webp",
-      slug: "aws",
+      title: "Cisco Networking",
+      enrollment: "1.5k+",
+      description: "Master networking essentials and prepare for CCNA certification with Cisco technologies.",
+      img: "/courses/ccna.webp",
+      slug: "ccna",
+      icons: [<SiCisco key="c" style={{color: '#1BA0D7'}} />]
     },
     {
       id: 6,
-      title: "Business Intelligence",
-      category: "Development",
-      description:
-        "Business Intelligence (BI) transforms raw data into meaningful insights for strategic decisions and performance measurement.",
-      img: "/courses/business.webp",
-      slug: "business-intelligence",
-    },
-    {
-      id: 7,
-      title: "Cisco Certified Network Associate",
-      category: "Development",
-      description:
-        "The Cisco Certified Network Associate (CCNA) Certification validates essential networking skills for configuring and troubleshooting networks.",
-      img: "/courses/ccna.webp",
-      slug: "cisco-certified-network-associate",
-    },
-    {
-      id: 8,
-      title: "Medical Billing",
-      category: "Healthcare",
-      description:
-        "Medical Billing involves processing and managing healthcare claims to ensure accurate reimbursement for medical services provided.",
-      img: "/courses/medicalBilling.webp",
-      slug: "medical-billing",
-    },
-    {
-      id: 9,
       title: "Software Testing",
-      category: "Testing",
-      description:
-        "Software Testing is the process of evaluating software to identify defects and ensure it meets the required quality standards.",
+      enrollment: "3.2k+",
+      description: "Learn manual and automated testing to ensure software quality and defect-free delivery.",
       img: "/courses/softwareTesting.webp",
       slug: "software-testing",
+      icons: [<FaJava key="j" style={{color: '#007396'}} />, <SiSpringboot key="s" style={{color: '#6DB33F'}} />]
     }
   ];
 
-  // Handle responsive cards per page
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setCardsPerPage(1); // 1 card on mobile
-      } else if (window.innerWidth < 992) {
-        setCardsPerPage(2); // 2 cards on tablet
+      const width = typeof window !== "undefined" ? window.innerWidth : 1200;
+      if (width < 768) {
+        setCardsPerPage(1);
+      } else if (width < 1200) {
+        setCardsPerPage(2);
       } else {
-        setCardsPerPage(3); // 3 cards on desktop
+        setCardsPerPage(3);
       }
     };
-
-    // Set initial value
     handleResize();
-
-    // Add event listener
     window.addEventListener('resize', handleResize);
-
-    // Cleanup
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -139,99 +106,84 @@ const TopRatedCourses = () => {
   const startIndex = currentPage * cardsPerPage;
   const visibleCourses = courses.slice(startIndex, startIndex + cardsPerPage);
 
-  const handlePrevious = () => {
-    if (currentPage > 0) {
-      setCurrentPage((prev) => prev - 1);
-    }
-  };
-
   const handleNext = () => {
     if (currentPage < totalPages - 1) {
       setCurrentPage((prev) => prev + 1);
+    } else {
+      setCurrentPage(0);
     }
   };
 
-  const isFirstPage = currentPage === 0;
-  const isLastPage = currentPage === totalPages - 1;
-
-  // Reset current page when cardsPerPage changes
-  useEffect(() => {
-    setCurrentPage(0);
-  }, [cardsPerPage]);
+  const handlePrevious = () => {
+    if (currentPage > 0) {
+      setCurrentPage((prev) => prev - 1);
+    } else {
+      setCurrentPage(totalPages - 1);
+    }
+  };
 
   return (
-    <section className="top-rated-section d-flex justify-content-center">
-      <div className="top-rated-container position-relative">
-        <div className="top-rated-header">
+    <section className="trending-section">
+      <div className="container">
+        <div className="trending-header text-center">
           <h2
             ref={titleRef}
-            className={`top-rated-title ${titleVisible ? "title-sweep" : ""}`}
+            className={`trending-title ${titleVisible ? "title-sweep" : ""}`}
           >
             Trending Courses
           </h2>
-          <p className="top-rated-subtitle">
+          <p className="trending-subtitle">
             Explore the most trusted and highly reviewed courses loved by learners.
           </p>
         </div>
 
-        <div className="top-rated-cards d-flex justify-content-center">
+        <div className="row g-4 justify-content-center mt-4">
           {visibleCourses.map((course) => (
-            <Link
-              className={`col-${12 / cardsPerPage} col-md-${12 / cardsPerPage} top-rated-card-link`}
-              key={course.id}
-              href={`/courses/${course.slug}`}
-            >
-              <div
-                className="card course-card h-100 shadow-sm border-0 p-2"
-                style={{ cursor: "pointer" }}
-              >
-                <div className="circle"></div>
-                <img
-                  src={course.img}
-                  className="card-img-top course-image"
-                  alt={course.title}
-                  style={{ height: "220px", objectFit: "cover" }}
-                />
-                <div className="card-body d-flex flex-column p-2">
-                  <h5 className="card-title fw-bold">{course.title}</h5>
-                  <p className="card-text text-muted">{course.description}</p>
-                  <div className="mt-auto">
-                    <div className="text-warning mb-1">{"★".repeat(5)}</div>
+            <div key={course.id} className={`col-lg-${12/cardsPerPage} col-md-6 d-flex justify-content-center`}>
+              <Link href={`/courses/${course.slug}`} className="course-card-link w-100">
+                <div className="modern-course-card" style={{ backgroundImage: `url(${course.img})` }}>
+                  <div className="modern-course-overlay"></div>
+                  <div className="glass-detail-box">
+                    <div className="glass-header">
+                      <span className="enrollment-badge">
+                        <i className="bi bi-people-fill me-1"></i> {course.enrollment}
+                      </span>
+                    </div>
+                    <div className="glass-body">
+                      <div className="tech-icons">
+                        {course.icons}
+                      </div>
+                      <h4 className="course-title">{course.title}</h4>
+                      <p className="course-description">{course.description}</p>
+                    </div>
+                    <div className="glass-footer">
+                      <div className="card-arrow-btn">
+                        <IoArrowForward />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}
         </div>
 
-        <div className="top-rated-controls d-flex align-items-center justify-content-center">
-          <button
-            onClick={handlePrevious}
-            disabled={isFirstPage}
-            aria-label="previous"
-            className="top-rated-control-btn"
-          >
+        <div className="trending-controls-row mt-5">
+          <button className="nav-circle-btn prev" onClick={handlePrevious} aria-label="Previous Page">
             <IoChevronBack />
           </button>
-
-          <div className="top-rated-dots d-flex align-items-center ">
+          
+          <div className="indicator-group px-3">
             {Array.from({ length: totalPages }).map((_, index) => (
-              <button
+              <div
                 key={index}
-                type="button"
+                className={`indicator-line ${index === currentPage ? "active" : ""}`}
                 onClick={() => setCurrentPage(index)}
-                className={`top-rated-dot ${index === currentPage ? "active" : ""}`}
-                aria-label={`Go to page ${index + 1}`}
               />
             ))}
           </div>
 
-          <button
-            onClick={handleNext}
-            disabled={isLastPage}
-            aria-label="next"
-            className="top-rated-control-btn"
-          >
+          <button className="nav-circle-btn next" onClick={handleNext} aria-label="Next Page">
             <IoChevronForward />
           </button>
         </div>
