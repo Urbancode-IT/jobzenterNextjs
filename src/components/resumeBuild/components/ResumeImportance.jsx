@@ -162,7 +162,7 @@ const ResumeImportance = () => {
                         </div>
                         <h3 className={styles.cardTitle}>Quantify Your Achievements</h3>
                         <p className={styles.cardDesc}>
-                            Learn to write results-driven bullet points that show recruiters the tangible value you bring.
+                            Highlight your impact with numbers and results. Instead of just listing duties, show what you accomplished — like "Improved page load speed by 40%" or "Managed a team of 5." Recruiters respond to measurable outcomes that prove your value beyond the job description.
                         </p>
                     </motion.div>
 
@@ -181,7 +181,7 @@ const ResumeImportance = () => {
                         </div>
                         <h3 className={styles.cardTitle}>Real-World Project Showcase</h3>
                         <p className={styles.cardDesc}>
-                            Present your portfolio and hands-on work to demonstrate problem-solving capabilities.
+                            Your projects speak louder than certificates. Feature work you've built from scratch — whether it's a web app, a hardware design, or an automation tool. Include the tech stack used, the problem it solves, and any live links or GitHub repos to let recruiters explore your work firsthand.
                         </p>
                     </motion.div>
                 </div>
@@ -254,19 +254,58 @@ const ResumeImportance = () => {
                 >
                     <div className={styles.bannerContent}>
                         <h2 className={styles.bannerTitle}>
-                            Ready to build your <br />
-                            <span className={styles.bannerOutlineText}>dream resume?</span>
+                            Ready to build your <span className={styles.bannerAccent}>dream resume?</span>
                         </h2>
-                        <p className={styles.bannerSubtitle}>Join 5,000+ students who landed their dream job with Jobzenter</p>
+                        <p className={styles.bannerSubtitle}>
+                            Join students across India who landed their dream job with Jobzenter's proven resume-building framework.
+                        </p>
+                        
+                        <div className={styles.bannerFooterWrapper}>
+                            <motion.button
+                                type="button"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className={styles.startFreeBtn}
+                                onClick={scrollToResumeRegister}
+                            >
+                                Enroll Now <ArrowRight size={20} />
+                            </motion.button>
+                            <span className={styles.bannerFooterLabel}>Free to start . No credit card needed</span>
+                        </div>
                     </div>
-                    <motion.button
-                        type="button"
-                        whileHover={{ scale: 1.1, backgroundColor: '#ffffff', color: '#111827' }}
-                        className={styles.startFreeBtn}
-                        onClick={scrollToResumeRegister}
-                    >
-                        Enroll Now <ArrowRight size={20} />
-                    </motion.button>
+
+                    {/* Right Showcase - Moving Model Resumes */}
+                    <div className={styles.bannerShowcase}>
+                        <div className={styles.scroller}>
+                            {[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map((num, idx) => {
+                                // Models 1-5 use unique images
+                                // Model 6 uses a stylized variation of 1
+                                const id = num === 6 ? 1 : num;
+                                
+                                const isDark = num === 4;
+                                const isMono = num === 5;
+                                const isAzure = num === 6;
+                                
+                                return (
+                                    <div 
+                                        key={idx} 
+                                        className={`${styles.resumeCard} 
+                                            ${isDark ? styles.darkModeCard : ''} 
+                                            ${isMono ? styles.monoCard : ''}
+                                            ${isAzure ? styles.azureCard : ''}
+                                        `}
+                                    >
+                                        <img 
+                                            src={`/Mockinterviews/resume${id}.png`} 
+                                            alt={`Model Resume ${id}`} 
+                                            className={styles.resumeImg}
+                                            onError={(e) => { e.target.src = 'https://via.placeholder.com/200x260?text=Premium+Resume'; }}
+                                        />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </motion.div>
             </div>
         </section>

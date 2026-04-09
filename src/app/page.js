@@ -75,8 +75,8 @@ export default function Home() {
       <TopRatedCourses />
       <Steps />
       <SuccessSection />
-      <FaqSection />
       <StudentReviews />
+      <FaqSection />
     </>
   );
 }

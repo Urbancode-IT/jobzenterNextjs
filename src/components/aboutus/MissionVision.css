@@ -75,7 +75,6 @@
   font-size: clamp(1.85rem, 4vw, 2.65rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: var(--mv-heading) !important;
   line-height: 1.15;
   max-width: 36ch;
   margin: 0 auto 1.25rem;
@@ -89,9 +88,7 @@
 .mv-foundation__title-accent {
   font-style: normal;
   font-weight: 900;
-  color: var(--jz-yellow-deep);
-  -webkit-text-fill-color: var(--jz-yellow-deep);
-  text-shadow: 0 0 35px rgba(255, 204, 0, 0.8), 0 0 10px rgba(255, 204, 0, 0.4);
+  text-shadow: 0 0 35px rgba(244, 234, 23, 0.2); /* Reduced glow to protect shimmer legibility */
   background: none !important;
 }
 

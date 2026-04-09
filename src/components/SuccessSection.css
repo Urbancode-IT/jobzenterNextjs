@@ -110,7 +110,7 @@
 .success__avatar {
   width: 48px;
   height: 48px;
-  background: #000000; /* Changed from yellow to black */
+  background: #717171; /* Updated from black to gray */
   color: #ffffff !important; /* Forced white color for initials */
   border-radius: 50%;
   display: flex;
@@ -190,12 +190,13 @@
 
 .success__package-row {
   margin-top: auto;
-  padding-top: 18px;
+  padding-top: 20px;
   border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
   align-items: center;
   transform: translateZ(25px);
+  gap: 12px;
 }
 
 .package__label {
@@ -205,10 +206,28 @@
 }
 
 .package__value {
-  font-size: 18px;
-  font-weight: 900;
+  background: #fdf894; /* Matches navbar yellow */
   color: #000000;
+  padding: 6px 24px;
+  font-size: 16px;
+  font-weight: 800;
   letter-spacing: -0.5px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  /* Premium Ribbon Notch Shape */
+  clip-path: polygon(
+    8px 0%, 
+    calc(100% - 8px) 0%, 
+    100% 50%, 
+    calc(100% - 8px) 100%, 
+    8px 100%, 
+    0% 50%
+  );
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
 }
 
 @media (max-width: 900px) {

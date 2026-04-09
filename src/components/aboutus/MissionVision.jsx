@@ -176,7 +176,7 @@ export default function MissionVision() {
           <h2
             id="mv-foundation-title"
             ref={titleRef}
-            className={`mv-foundation__title ${titleVisible ? "mv-foundation__title--visible" : ""}`}
+            className={`mv-foundation__title ${titleVisible ? "mv-foundation__title--visible title-sweep" : ""}`}
           >
             Built on <em className="mv-foundation__title-accent">Purpose</em>, Driven by Vision
           </h2>
