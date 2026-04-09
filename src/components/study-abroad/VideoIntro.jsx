@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function VideoIntro() {
-  const [stage, setStage] = useState('checking'); // 'checking', 'video', 'done'
+  const [stage, setStage] = useState('video'); // 'video', 'done'
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -21,8 +21,7 @@ export default function VideoIntro() {
     };
     window.addEventListener('beforeunload', handleBeforeUnload);
 
-    // Initial check complete, start video
-    setStage('video');
+    // No need to setStage('video') here as it's the default now
     
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
@@ -42,10 +41,6 @@ export default function VideoIntro() {
     // Skip animation right to done state
     setStage('done');
   };
-
-  if (stage === 'checking') {
-    return <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: '#ffffff', zIndex: 99999 }}></div>;
-  }
 
   return (
     <AnimatePresence>
