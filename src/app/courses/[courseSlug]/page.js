@@ -6,6 +6,7 @@ import courses from '@/components/courses/coursesData';
 import EnquiryButton from './EnquiryButton';
 import CourseAccordion from './CourseAccordion';
 import Questions from '@/components/courses/Questions';
+import AnimatedHeading from '@/components/AnimatedHeading';
 import './styles.css';
 
 // Force dynamic rendering if needed, or use generateStaticParams for SSG

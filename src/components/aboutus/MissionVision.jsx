@@ -173,7 +173,6 @@ export default function MissionVision() {
     >
       <div className="mv-foundation__inner">
         <header className="mv-foundation__header">
-          <p className="mv-foundation__eyebrow">OUR FOUNDATION</p>
           <h2
             id="mv-foundation-title"
             ref={titleRef}
@@ -196,18 +195,18 @@ export default function MissionVision() {
                 className={`mv-glass-card mv-glass-card--${card.accent}`}
               >
                 <div className="mv-glass-card__glow" aria-hidden />
-                <div className="mv-glass-card__icon-wrap">
+                <div className="mv-glass-card__icon-wrap" style={{ margin: "0 auto 1.25rem" }}>
                   <div className={`mv-icon-3d mv-icon-3d--${card.accent}`}>
                     <Icon className="mv-glass-card__icon" />
                   </div>
                 </div>
-                <p className="mv-glass-card__step">
-                  {card.step} — {card.label}
+                <p className="mv-glass-card__step" style={{ textAlign: "center", fontSize: "1.2rem", letterSpacing: "2px" }}>
+                  {card.label}
                 </p>
-                <h3 className="mv-glass-card__heading">{card.heading}</h3>
-                <span className="mv-glass-card__rule" aria-hidden />
-                <p className="mv-glass-card__body">{card.body}</p>
-                <ul className="mv-glass-card__tags" aria-label={`${card.label} focus areas`}>
+                <h3 className="mv-glass-card__heading" style={{ textAlign: "center" }}>{card.heading}</h3>
+                <span className="mv-glass-card__rule" aria-hidden style={{ margin: "0 auto 1rem" }} />
+                <p className="mv-glass-card__body" style={{ textAlign: "center" }}>{card.body}</p>
+                <ul className="mv-glass-card__tags" aria-label={`${card.label} focus areas`} style={{ justifyContent: "center" }}>
                   {card.tags.map((tag) => (
                     <li key={tag}>
                       <span className="mv-glass-card__tag">{tag}</span>

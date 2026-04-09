@@ -193,7 +193,7 @@ const courses = [
         slug: "dotnet-fullstack-development",
         category: "Development",
         description: "Master .NET technologies to build robust and scalable enterprise-level applications using C#, ASP.NET Core, and SQL Server.",
-        img: "/courses/dotnet.JPG",
+        img: "/courses/dotnet.jpg",
         rating: "4.8",
         students: "1100",
         locked: true,
@@ -498,7 +498,7 @@ const courses = [
         slug: "ccnp-network",
         category: "CCNA",
         description: "Master advanced routing and switching. Prepare for the CCNP Enterprise certification.",
-        img: "/courses/ccnp.JPG",
+        img: "/courses/ccnp.jpg",
         rating: "4.9",
         students: "300",
         locked: true,
@@ -798,44 +798,7 @@ const courses = [
             { question: "What careers can I pursue with Docker and Kubernetes skills?", answer: "With knowledge of Docker and Kubernetes, you can pursue roles such as DevOps Engineer, Cloud Engineer, Site Reliability Engineer (SRE), and Platform Engineer in cloud-based environments." }
         ]
     },
-    {
-        id: 33,
-        title: "Terraform (IaC)",
-        slug: "terraform-iac-cloud",
-        category: "Cloud",
-        description: "Learn to provision and manage cloud infrastructure using Terraform, the leading Infrastructure as Code (IaC) tool.",
-        img: "/courses/Terraform.png",
-        rating: "4.8",
-        students: "800",
-        locked: true,
-        aboutData: {
-            topic: "Infrastructure as Code with Terraform",
-            content1: "Master HCL (HashiCorp Configuration Language) to define and manage cloud resources across AWS, Azure, and GCP.",
-            content2: "Learn state management, modules, and workspace organization."
-        },
-        whatYouLearnData: [
-            { title: "HCL Basics", desc: "Variables, Providers, and Resources.", icon: "bi bi-code-square" },
-            { title: "State Management", desc: "Handling terraform.tfstate securely.", icon: "bi bi-database-lock" },
-            { title: "Modules", desc: "Creating reusable infrastructure components.", icon: "bi bi-boxes" },
-            { title: "Provisioning", desc: "Deploying resources to multiple clouds.", icon: "bi bi-cloud-arrow-up" },
-            { title: "Terraform Cloud", desc: "Collaboration and remote execution.", icon: "bi bi-people" },
-            { title: "Best Practices", desc: "DRY principles and security.", icon: "bi bi-shield-check" }
-        ],
-        courseContentData: [
-            { id: "tf1", title: "Introduction to Terraform and Infrastructure as Code (IaC)", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of Terraform and its role in Infrastructure as Code (IaC)", "Benefits of using Terraform for provisioning and managing cloud infrastructure", "Understanding the Terraform workflow: Write, Plan, Apply, and Destroy", "Terraform vs. traditional infrastructure management methods", "Terraform providers and resources: Connecting Terraform to cloud providers (AWS, Azure, GCP, etc.)"] },
-            { id: "tf2", title: "Writing Terraform Configuration Files", icon: "bi bi-code-square", items: ["Introduction to HashiCorp Configuration Language (HCL)", "Understanding Terraform configuration files (.tf files)", "Declaring resources: EC2 instances, security groups, VPCs, etc.", "Using variables for dynamic configuration", "Using outputs to display information after Terraform runs", "Modules in Terraform: Reusable configurations for scalability and maintainability"] },
-            { id: "tf3", title: "State Management and Backend Configuration", icon: "bi bi-database-lock", items: ["Understanding Terraform state: How Terraform keeps track of infrastructure", "The role of the terraform.tfstate file", "Working with local and remote state storage (e.g., S3, Azure Blob Storage)", "State locking and concurrency in a team environment", "Managing state with workspaces for different environments (development, staging, production)"] },
-            { id: "tf4", title: "Provisioning Infrastructure with Terraform", icon: "bi bi-cloud-arrow-up", items: ["Managing cloud resources using providers (AWS, Azure, GCP, etc.)", "Creating and managing AWS EC2 instances, VPCs, subnets, and security groups", "Managing Kubernetes resources with Terraform (EKS, AKS, GKE)", "Provisioning storage solutions: S3, EBS, Azure Blob Storage", "Using terraform plan and terraform apply to preview and apply changes to infrastructure", "Resource lifecycle management: Creating, updating, and deleting infrastructure"] },
-            { id: "tf5", title: "Terraform Automation and Best Practices", icon: "bi bi-shield-check", items: ["Using Terraform Cloud and Terraform Enterprise for collaborative workflows", "Writing and managing Terraform modules for reusability and DRY (Don’t Repeat Yourself)", "Version control best practices: Storing Terraform configurations in Git repositories", "Managing secrets and sensitive data in Terraform (e.g., AWS Secrets Manager, Vault)", "Automation of infrastructure deployment and scaling with CI/CD pipelines (Jenkins, GitLab CI)", "Terraform import: Managing existing infrastructure with Terraform"] }
-        ],
-        faqData: [
-            { question: "What is Terraform?", answer: "Terraform is an open-source tool for Infrastructure as Code (IaC), allowing you to define and provision infrastructure using a declarative configuration language." },
-            { question: "Why should I learn Terraform?", answer: "Learning Terraform helps automate the provisioning of infrastructure, reducing human error, and enabling version control for infrastructure. It’s widely used for cloud infrastructure management." },
-            { question: "How does Terraform work?", answer: "Terraform uses configuration files to define cloud infrastructure and resources. It then communicates with cloud providers like AWS, Azure, and Google Cloud to deploy and manage those resources." },
-            { question: "What are the benefits of using Terraform in cloud management?", answer: "Terraform improves the efficiency, security, and scalability of infrastructure management by enabling repeatable deployments, collaboration, and automation across environments." },
-            { question: "What job roles can I pursue with Terraform skills?", answer: "After learning Terraform, you can pursue roles such as Cloud Engineer, DevOps Engineer, Infrastructure Engineer, or Automation Engineer with expertise in Infrastructure as Code." }
-        ]
-    },
+
     {
         id: 34,
         title: "Cloud DevOps Engineer",
