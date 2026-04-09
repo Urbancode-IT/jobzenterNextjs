@@ -19,6 +19,8 @@ const WhyChooseUs = () => {
   const titleRefs = useRef([]);
   const carouselRef = useRef(null);
 
+
+  // Why Choose Us Data
   const whyChooseData = [
     {
       title: "Industry-Aligned Training",
