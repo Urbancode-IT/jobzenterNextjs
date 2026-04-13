@@ -5,11 +5,36 @@
 }
 
 .study-abroad-testimonials-title {
-  font-size: 36px;
-  font-weight: 700;
-  color: #212529;
+  font-family: "Inter", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #1a1a1a;
   text-align: center;
   margin: 0 0 12px 0;
+}
+
+/* --------------------------------------------- */
+/* HEADING GRADIENT COLOR SWEEP                  */
+/* --------------------------------------------- */
+.title-sweep {
+  background: linear-gradient(
+    90deg, 
+    #1a1a1a 0%, 
+    #1a1a1a 20%, 
+    #fdf001 50%, 
+    #1a1a1a 80%, 
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .study-abroad-testimonials-subtitle {

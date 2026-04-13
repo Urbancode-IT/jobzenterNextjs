@@ -9,9 +9,37 @@
 
 
 .hero-title {
-  font-weight: 700;
-  /* font-size: 40px; */
+  font-family: "Inter", sans-serif;
+  font-size: 2.8rem !important;
+  font-weight: 600 !important;
   color: #000;
+  line-height: 1.1;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* --------------------------------------------- */
+/* HEADING GRADIENT COLOR SWEEP                  */
+/* --------------------------------------------- */
+.title-sweep {
+  background: linear-gradient(
+    90deg, 
+    #1a1a1a 0%, 
+    #1a1a1a 18%, 
+    #fdf001 50%, 
+    #1a1a1a 82%, 
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .hero-text {

@@ -16,7 +16,7 @@
 .placement-combined-title {
   font-family: Inter, sans-serif;
   font-weight: 600;
-  font-size: clamp(1.65rem, 3.5vw, 2rem);
+  font-size: 2.8rem;
   color: #000;
   letter-spacing: -0.02em;
   display: block;

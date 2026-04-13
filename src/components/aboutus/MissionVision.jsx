@@ -178,7 +178,7 @@ export default function MissionVision() {
             ref={titleRef}
             className={`mv-foundation__title ${titleVisible ? "mv-foundation__title--visible title-sweep" : ""}`}
           >
-            Built on <em className="mv-foundation__title-accent">Purpose</em>, Driven by Vision
+            Built on Purpose, Driven by Vision
           </h2>
           <p className="mv-foundation__subtitle">
             Jobzenter exists to turn ambition into employability—through rigorous training,

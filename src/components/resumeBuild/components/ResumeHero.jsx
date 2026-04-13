@@ -1,11 +1,13 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import "./ResumeHero.css";
 
 const Hero = () => {
   const headingRef = useRef(null);
   const descRef = useRef(null);
   const cardRef = useRef(null);
+  const [isSweepActive, setIsSweepActive] = useState(false);
+  const [isTitleVisible, setIsTitleVisible] = useState(false);
 
   const scrollToRegister = () => {
     document
@@ -18,6 +20,10 @@ const Hero = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('hero-animate');
+          if (entry.target === headingRef.current) {
+            setIsTitleVisible(true);
+            setTimeout(() => setIsSweepActive(true), 150);
+          }
         }
       });
     }, { threshold: 0.2 });
@@ -34,7 +40,7 @@ const Hero = () => {
       <div className="container">
         <h1
           ref={headingRef}
-          className="fw-bold hero-slide-down"
+          className={`hero-title ${isTitleVisible ? "hero-animate" : "hero-slide-down"} ${isSweepActive ? "title-sweep" : ""}`}
         >
           Resume Building
         </h1>

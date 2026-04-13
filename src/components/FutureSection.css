@@ -1,0 +1,200 @@
+.future-section {
+  padding: 8rem 5%;
+  background-color: #ffffff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.future-container {
+  max-width: 1060px; /* Reduced width */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Top Content */
+.future-content {
+  text-align: center;
+  max-width: 700px;
+}
+
+.future-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: -1px;
+}
+
+.future-subtitle {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.future-btn {
+  background: #fdf894; /* Matched to navbar color */
+  color: #000000;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(253, 248, 148, 0.25);
+}
+
+.future-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(253, 248, 148, 0.4);
+  background: #fcf475;
+}
+
+/* 3D Carousel Layout */
+.future-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 550px; /* Adjust based on card height */
+  perspective: 1200px; /* Adds the 3D depth effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.future-card-3d {
+  position: absolute;
+  width: 350px; /* Slightly wider to fit Instagram embed cleanly */
+  height: 520px;
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s ease, box-shadow 0.3s ease, z-index 0s;
+  cursor: pointer;
+}
+
+.video-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  background-color: #f9f9f9;
+  overflow: hidden; /* Ensure cropping works */
+}
+
+.future-video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 1;
+  /* Zoom in to hide all Instagram UI (header/footer) and fill the card frame */
+  transform: scale(1.5); 
+  transform-origin: center;
+}
+
+.click-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Cover everything on side cards */
+  z-index: 50; 
+  background: rgba(0, 0, 0, 0.0);
+}
+
+/* For the center card, we MUST let the user click the video directly */
+.card-center .click-overlay {
+  display: none !important; /* Removed entirely so they can touch play/pause */
+}
+
+/* Center Card (Active) */
+.card-center {
+  transform: translateX(0) scale(1) translateZ(0px);
+  z-index: 3;
+  opacity: 1;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Card */
+.card-right {
+  transform: translateX(95%) scale(0.85) translateZ(-150px) rotateY(-12deg);
+  z-index: 2;
+  opacity: 0.7;
+}
+
+/* Left Card */
+.card-left {
+  transform: translateX(-95%) scale(0.85) translateZ(-150px) rotateY(12deg);
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.future-card-3d:hover {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .future-title {
+    font-size: 2.5rem;
+  }
+  .future-card-3d {
+    width: 260px;
+    height: 440px;
+  }
+  .future-carousel-container {
+    height: 480px;
+  }
+  .card-right {
+    transform: translateX(85%) scale(0.8) translateZ(-100px);
+  }
+  .card-left {
+    transform: translateX(-85%) scale(0.8) translateZ(-100px);
+  }
+}
+
+/* Small subtle corner link */
+.insta-corner-link {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+  border: 1px solid #ddd;
+}
+
+.insta-icon-mini {
+  width: 14px;
+  height: 14px;
+}
+
+.insta-corner-link span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.insta-corner-link:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}

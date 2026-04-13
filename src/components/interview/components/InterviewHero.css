@@ -9,11 +9,36 @@
 
 
 .hero-title-main {
-  font-weight: 700;
-  font-size: 48px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 2.8rem;
   color: #000;
   display: inline-block;
   margin-bottom: 10px;
+}
+
+/* --------------------------------------------- */
+/* HEADING GRADIENT COLOR SWEEP                  */
+/* --------------------------------------------- */
+.title-sweep {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #1a1a1a 20%,
+    #fdf001 50%,
+    #1a1a1a 80%,
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .hero-text {

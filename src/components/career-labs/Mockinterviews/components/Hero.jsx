@@ -1,11 +1,27 @@
 'use client';
+import React, { useEffect, useRef, useState } from 'react';
 import "./Hero.css";
 
 const Hero = () => {
+  const headingRef = useRef(null);
+  const [sweepActive, setSweepActive] = useState(false);
+
+  useEffect(() => {
+    if (!headingRef.current) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setSweepActive(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.2 });
+    observer.observe(headingRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="hero d-flex flex-column align-items-center justify-content-center text-center">
       <div className="container">
-        <h1 className="fw-bold">Mock Interviews</h1>
+        <h1 ref={headingRef} className={`hero-title ${sweepActive ? "title-sweep" : ""}`}>Mock Interviews</h1>
         <p className="hero-text">
           Sharpen your interview skills with realistic mock sessions guided by industry experts. Get personalized feedback that builds confidence and prepares you to crack your dream job.
         </p>

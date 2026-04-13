@@ -64,7 +64,7 @@ const AboutSection = () => {
             ref={titleRef}
             className={`about-demand-title ${isTitleVisible ? "title-sweep" : ""}`}
           >
-            Demand courses
+            Demanding Courses
           </h2>
           <p className="about-demand-subtitle">
             Explore the most trusted and highly reviewed courses loved by learners.

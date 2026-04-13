@@ -18,9 +18,8 @@
 
 .student-reviews-title {
   margin: 0;
-  font-size: 46px;
-  line-height: 1.15;
-  font-weight: 700;
+  font-size: 2.8rem;
+  font-weight: 600;
   color: #000000;
   display: inline-block;
   width: fit-content;
@@ -48,7 +47,7 @@
 
 .student-review-card {
   position: relative;
-  background: #f1de7a;
+  background: #fdf8d4;
   border-radius: 14px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
   padding: 18px 16px 68px;
@@ -69,7 +68,7 @@
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  background: #727272;
+  background: #d1d1d1;
   z-index: -1;
 }
 
@@ -87,7 +86,7 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  color: #ffffff;
+  color: #1a1a1a;
   font-weight: 400;
   letter-spacing: 0;
   overflow: hidden;

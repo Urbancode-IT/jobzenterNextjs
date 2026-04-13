@@ -52,8 +52,7 @@ const AllBlogs = ({ searchQuery = "", setSearchQuery }) => {
         <div style={{ display: "inline-block" }}>
           <h2
             ref={titleRef}
-            className={`fw-bold mb-3 ${titleVisible ? "title-sweep" : ""}`}
-            style={{ fontSize: "2rem", color: "#111" }}
+            className={`all-blogs-heading mb-3 ${titleVisible ? "title-sweep" : ""}`}
           >
             Top Picks
           </h2>

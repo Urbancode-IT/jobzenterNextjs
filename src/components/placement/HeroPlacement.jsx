@@ -1,23 +1,27 @@
 'use client';
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./HeroPlacement.css";
 
 const HeroPlacement = () => {
   const descRef = useRef(null);
   const btnRef = useRef(null);
+  const headingRef = useRef(null);
+  const [sweepActive, setSweepActive] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('ph-animate');
+          if (entry.target === headingRef.current) setSweepActive(true);
         }
       });
     }, { threshold: 0.2 });
 
     if (descRef.current) observer.observe(descRef.current);
     if (btnRef.current) observer.observe(btnRef.current);
+    if (headingRef.current) observer.observe(headingRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -26,7 +30,7 @@ const HeroPlacement = () => {
     <section className="placement-hero-bg d-flex align-items-center">
       <div className="container text-center">
 
-        <h1 className="placement-hero-heading">
+        <h1 ref={headingRef} className={`placement-hero-heading ${sweepActive ? "title-sweep" : ""}`}>
           Placement Services
         </h1>
 

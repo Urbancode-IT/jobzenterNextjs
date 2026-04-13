@@ -4,8 +4,8 @@
 
 .offer-main-title {
   font-family: Inter, sans-serif;
-  font-weight: 700;
-  font-size: 32px;
+  font-weight: 600;
+  font-size: 2.8rem;
   color: #1a1a1a;
   display: inline-block;
 }
@@ -17,15 +17,16 @@
   background: linear-gradient(
       90deg,
       #1a1a1a 0%,
-      #f4ea17 40%,
-      #f4ea17 60%,
+      #1a1a1a 20%,
+      #fdf001 50%,
+      #1a1a1a 80%,
       #1a1a1a 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientSweep 2s ease-out forwards;
+  animation: gradientSweep 1.5s ease forwards;
   display: inline-block;
 }
 

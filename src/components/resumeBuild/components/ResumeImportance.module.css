@@ -21,10 +21,10 @@
 }
 
 .sectionTitle {
-    font-size: 48px;
-    font-weight: 800;
+    font-size: 2.8rem;
+    font-weight: 600;
     line-height: 1.2;
-    color: #111827;
+    color: #1a1a1a;
     font-family: 'Inter', sans-serif;
     display: inline-block;
 }
@@ -32,11 +32,11 @@
 .titleSweep {
     background: linear-gradient(
         90deg,
-        #111827 0%,
-        #111827 20%,
-        #f4ea17 50%,
-        #111827 80%,
-        #111827 100%
+        #1a1a1a 0%,
+        #1a1a1a 20%,
+        #fdf001 50%,
+        #1a1a1a 80%,
+        #1a1a1a 100%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;

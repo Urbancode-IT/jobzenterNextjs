@@ -1,6 +1,6 @@
 'use client';
 
-import { IoChevronDownSharp, IoCall } from "react-icons/io5";
+import { IoChevronDownSharp, IoCall, IoAirplane } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
@@ -205,7 +205,14 @@ const Navbar = () => {
                         className={`nav-link ${isActive ? "active nav-link-active" : ""}`}
                         onClick={(event) => handleNavLinkClick(event, item)}
                       >
-                        {item.label}
+                        {item.label === "Study Abroad" ? (
+                          <span className="study-abroad-label">
+                            {item.label}
+                            <IoAirplane className="airplane-icon" />
+                          </span>
+                        ) : (
+                          item.label
+                        )}
                       </Link>
                     ) : (
                       <button
@@ -216,7 +223,14 @@ const Navbar = () => {
                           router.push(item.path);
                         }}
                       >
-                        {item.label}
+                        {item.label === "Study Abroad" ? (
+                          <span className="study-abroad-label">
+                            {item.label}
+                            <IoAirplane className="airplane-icon" />
+                          </span>
+                        ) : (
+                          item.label
+                        )}
                       </button>
                     )}
 

@@ -135,6 +135,12 @@
 .hero-about--visible .hero-about-heading {
   animation-delay: 0.08s;
 }
+
+/* When sweep is active, run both reveal + gradient sweep together */
+.hero-about--visible .hero-about-heading.title-sweep {
+  animation: heroReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both,
+             gradientSweep 1.5s ease 0.4s both;
+}
 .hero-about--visible .hero-about-lead {
   animation-delay: 0.16s;
 }
@@ -161,21 +167,38 @@
 /* ── Left column content ── */
 .hero-about-heading {
   font-family: Inter, system-ui, sans-serif;
-  font-weight: 900;
-  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 600;
+  font-size: 2.8rem;
   line-height: 1.02;
   letter-spacing: -0.045em;
   color: #0a0a0a;
   margin: 0 0 1rem 0;
+  display: inline-block;
 }
 
-.hero-about-heading-main {
-  color: #0a0a0a;
+/* --------------------------------------------- */
+/* HEADING GRADIENT COLOR SWEEP                  */
+/* --------------------------------------------- */
+.title-sweep {
+  background: linear-gradient(
+    90deg, 
+    #1a1a1a 0%, 
+    #1a1a1a 20%, 
+    #fdf001 50%, 
+    #1a1a1a 80%, 
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Note: animation is overridden per-context; default sweep for standalone use */
+  animation: gradientSweep 1.5s ease 0.4s both;
 }
 
-.hero-about-heading-accent {
-  color: var(--jz-yellow-deep);
-  text-shadow: 0 0 36px rgba(255, 204, 0, 0.35);
+@keyframes gradientSweep {
+  0% { background-position: 100% center; opacity: 1; }
+  100% { background-position: 0% center; opacity: 1; }
 }
 
 .hero-about-lead {

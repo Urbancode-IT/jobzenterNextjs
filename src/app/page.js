@@ -5,6 +5,7 @@ import FaqSection from "@/components/FaqSection";
 import HeroSection from "@/components/HeroSection";
 import StudentReviews from "@/components/StudentReviews";
 import TopRatedCourses from "@/components/TopRatedCourse";
+import FutureSection from "@/components/FutureSection";
 import SuccessSection from "@/components/SuccessSection";
 import Script from "next/script";
 
@@ -73,7 +74,8 @@ export default function Home() {
       <Carousel />
       <AboutSection />
       <TopRatedCourses />
-      <Steps />
+      {/* <Steps /> */}
+      <FutureSection />
       <SuccessSection />
       <StudentReviews />
       <FaqSection />

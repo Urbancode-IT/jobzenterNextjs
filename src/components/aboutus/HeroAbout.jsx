@@ -60,9 +60,8 @@ const HeroSection = () => {
         <div className="row align-items-center gy-5 gx-lg-5">
           <div className="col-12 col-lg-7">
             <div className="hero-about-content">
-              <h1 id="about-hero-heading" className="hero-about-heading">
-                <span className="hero-about-heading-main">About</span>{" "}
-                <span className="hero-about-heading-accent">Us</span>
+              <h1 id="about-hero-heading" className={`hero-about-heading ${heroVisible ? "title-sweep" : ""}`}>
+                About Us
               </h1>
 
               <p className="hero-about-lead">

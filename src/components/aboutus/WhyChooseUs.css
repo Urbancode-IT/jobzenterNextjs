@@ -2,7 +2,8 @@
 /* H2 HEADINGS */
 /* --------------------------------------------- */
 .section-title {
-  font-size: 32px !important;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 2.8rem !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em;
   text-align: center;
@@ -11,8 +12,6 @@
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-
-  /* Initial state — black */
   color: #000;
 }
 
@@ -21,7 +20,8 @@
 }
 
 .provide-title {
-  font-size: 32px !important;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 2.8rem !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em;
   text-align: center;
@@ -30,9 +30,31 @@
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-
-  /* Initial state — black */
   color: #000;
+}
+
+/* --------------------------------------------- */
+/* HEADING GRADIENT COLOR SWEEP                  */
+/* --------------------------------------------- */
+.title-sweep {
+  background: linear-gradient(
+    90deg, 
+    #1a1a1a 0%, 
+    #1a1a1a 20%, 
+    #fdf001 50%, 
+    #1a1a1a 80%, 
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .provide-title-in-section {

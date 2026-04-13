@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 const CoursesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isSweepActive, setIsSweepActive] = useState(false);
 
   const categories = ["All", "Development", "Testing", "Healthcare", "CCNA", "Cloud"];
 
@@ -63,11 +64,12 @@ const CoursesPage = () => {
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              onViewportEnter={() => setIsSweepActive(true)}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="programs-header"
+              viewport={{ once: true, amount: 0.2 }}
+              className={`programs-header ${isSweepActive ? "title-sweep" : ""}`}
             >
-              Our Core <span className="programs-title-accent">Specializations</span>
+              Our Core Specializations
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
