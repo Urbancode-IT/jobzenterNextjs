@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCoffee,
@@ -45,9 +46,27 @@ const takeaways = [
 ];
 
 const KeyTakeaways = () => {
+  const [titleVisible, setTitleVisible] = useState(false);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className={styles.section}>
-      <h2 className={styles.title}>Key Takeaways</h2>
+      <h2 ref={titleRef} className={`${styles.title} ${titleVisible ? styles.titleSweep : ""}`}>Key Takeaways</h2>
       <p className={styles.description}>
         Here are the main topics that will be covered in the Java bootcamp
         training. You’ll learn everything from Java basics to advanced

@@ -86,24 +86,20 @@ const InterviewOffers = () => {
         "Testing",
         "Networking & Cybersecurity"
       ]
+    },
+    {
+      title: "8. Salary Negotiation & Offer Evaluation Guidance",
+      content: [
+        "Understand CTC structure and in-hand salary",
+        "Learn professional salary negotiation techniques",
+        "Compare multiple offers with role-growth clarity",
+        "Evaluate benefits, bond terms, and joining conditions"
+      ]
     }
   ];
 
-  const [openIndex, setOpenIndex] = useState(null);
-  const [heights, setHeights] = useState([]);
-  const contentRefs = useRef([]);
-
-  useEffect(() => {
-    // Set initial heights for each dropdown
-    const initialHeights = data.map((_, index) => 
-      contentRefs.current[index]?.scrollHeight || 0
-    );
-    setHeights(initialHeights);
-  }, [data]);
-
-  const toggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeItem = data[activeIndex];
 
   return (
     <section className="interview-offers-wrapper">
@@ -117,48 +113,36 @@ const InterviewOffers = () => {
           </h2>
         </div>
 
-        <div className="row g-3 mt-3">
-          {data.map((item, index) => (
-            <div className="col-lg-4 col-md-6" key={index}>
-              <div
-                className={`interview-offers-card ${
-                  openIndex === index ? "active" : ""
-                }`}
-                onClick={() => toggle(index)}
+        <div className="interview-offers-layout">
+          <div className="interview-offers-menu" role="tablist" aria-label="Interview placement offers">
+            {data.map((item, index) => (
+              <button
+                key={index}
+                type="button"
+                role="tab"
+                aria-selected={activeIndex === index}
+                className={`interview-offers-option ${activeIndex === index ? "is-active" : ""}`}
+                onClick={() => setActiveIndex(index)}
               >
-                <span className="interview-offers-text">{item.title}</span>
+                <span className="interview-offers-option-index">{String(index + 1).padStart(2, "0")}</span>
+                <span className="interview-offers-option-title">{item.title}</span>
+                <i className="bi bi-arrow-up-right-circle interview-offers-option-icon" aria-hidden />
+              </button>
+            ))}
+          </div>
 
-                <i
-                  className={`bi bi-chevron-down interview-offers-icon ${
-                    openIndex === index ? "rotate-up" : ""
-                  }`}
-                ></i>
-              </div>
-
-              <div
-                ref={el => contentRefs.current[index] = el}
-                className={`dropdown-outer ${
-                  openIndex === index ? "open" : ""
-                }`}
-                style={{
-                  maxHeight: openIndex === index ? `${heights[index]}px` : '0px'
-                }}
-              >
-                <div className="dropdown-inner">
-                  <div className="content-wrapper">
-                    <ul className="interview-dd-list">
-                      {item.content.map((point, i) => (
-                        <li key={i} className="list-item">
-                          <span className="bullet">•</span>
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+          <article className="interview-offers-detail" role="tabpanel" aria-live="polite">
+            <p className="interview-offers-detail-label">Selected Offer</p>
+            <h3 className="interview-offers-detail-title">{activeItem.title}</h3>
+            <ul className="interview-offers-detail-list">
+              {activeItem.content.map((point, i) => (
+                <li key={i} className="interview-offers-detail-item">
+                  <span className="detail-bullet" aria-hidden>•</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
       </div>
     </section>

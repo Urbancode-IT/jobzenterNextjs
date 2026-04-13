@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #fdf894; /* Branded Yellow */
+  background: linear-gradient(180deg, #f8fbd9 0%, #f3f7d0 55%, #eef4cc 100%);
   z-index: 10000;
   display: flex;
   flex-direction: column;
@@ -12,62 +12,187 @@
   justify-content: center;
   overflow: hidden;
   pointer-events: none;
+  isolation: isolate;
+}
+
+.transition-travel-poster {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.transition-travel-poster-img {
+  width: min(92vw, 560px);
+  height: auto;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+  filter: saturate(1.1) contrast(1.03);
 }
 
 .transition-airplane-row {
   position: absolute;
-  top: 30%;
+  left: 0;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 260px;
+  z-index: 5;
+}
+
+.transition-airplane-glow {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 70%);
+  left: 8px;
+  top: 4px;
 }
 
 .transition-airplane-icon {
-  color: #000;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-  transform: rotate(5deg);
+  color: #f9fbff;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.28));
+  transform: rotate(0deg);
 }
 
-.airplane-trail {
+.graduation-caps-layer {
   position: absolute;
-  right: 100%;
-  width: 100vw;
-  height: 2px;
-  background: linear-gradient(to left, #000, transparent);
-  opacity: 0.3;
+  inset: 0;
+  pointer-events: none;
 }
 
-.country-ticker-container {
-  height: 120px;
+.graduation-cap {
+  position: absolute;
+  font-size: 2.8rem;
+  color: rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+}
+
+.graduation-cap-1 {
+  top: 10%;
+  left: 12%;
+}
+
+.graduation-cap-2 {
+  top: 64%;
+  right: 12%;
+}
+
+.graduation-cap-3 {
+  top: 58%;
+  left: 6%;
+}
+
+.transition-country-cards {
+  position: absolute;
+  top: 34%;
+  width: min(94vw, 980px);
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
+  z-index: 3;
+}
+
+.transition-country-card {
+  position: absolute;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+  text-align: center;
+  overflow: hidden;
+  z-index: 3;
+  width: 185px;
+}
+
+.transition-country-card-img {
+  width: 100%;
+  height: 126px;
+  object-fit: cover;
+  display: block;
+}
+
+.transition-country-card-title {
+  padding: 8px 10px 10px;
+  color: #123f88;
+  font-weight: 900;
+  font-size: 0.95rem;
+  letter-spacing: 0.4px;
+  line-height: 1.2;
+}
+
+.country-ticker-container {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 320px;
+  z-index: 2;
 }
 
 .country-name-text {
   font-family: 'Inter', sans-serif;
-  font-size: 5rem;
-  font-weight: 900;
-  color: #000;
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: rgba(27, 42, 61, 0.78);
   text-transform: uppercase;
-  letter-spacing: -2px;
+  letter-spacing: -0.5px;
   text-align: center;
 }
 
 .transition-subtext {
-  margin-top: 20px;
+  margin-top: 10px;
   font-family: 'Inter', sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.6);
-  letter-spacing: 2px;
+  color: rgba(27, 42, 61, 0.74);
+  letter-spacing: 1.8px;
   text-transform: uppercase;
+  z-index: 3;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .transition-travel-poster-img {
+    width: min(94vw, 420px);
+    border-radius: 16px;
+  }
+
+  .transition-country-cards {
+    top: 36%;
+    height: 180px;
+  }
+
+  .transition-country-card {
+    width: 112px;
+  }
+
+  .transition-country-card-img {
+    height: 78px;
+  }
+
+  .transition-country-card-title {
+    font-size: 0.66rem;
+    padding: 6px 6px 8px;
+  }
+
   .country-name-text {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
+  }
+
+  .country-ticker-container {
+    margin-top: 258px;
+  }
+
+  .graduation-cap {
+    font-size: 2rem;
   }
 }

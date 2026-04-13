@@ -5,12 +5,15 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import ChatbotWidget from "./common/ChatbotWidget";
+import StudyAbroadTransition from "./common/StudyAbroadTransition";
 import "./Navbar.css";
 
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isStudyAbroadTransitionVisible, setIsStudyAbroadTransitionVisible] = useState(false);
+  const [pendingPath, setPendingPath] = useState("");
 
   const navItems = [
     { label: "Courses", path: "/courses", hasDropdown: false },
@@ -139,6 +142,21 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  const startStudyAbroadTransition = (path) => {
+    setPendingPath(path);
+    setIsStudyAbroadTransitionVisible(true);
+    setIsOpen(false);
+    setOpenDropdown(null);
+  };
+
+  const handleStudyAbroadTransitionComplete = () => {
+    if (pendingPath) {
+      router.push(pendingPath);
+    }
+    setIsStudyAbroadTransitionVisible(false);
+    setPendingPath("");
+  };
+
   return (
     <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-custom fixed-top shadow-sm">
       <div className="container-fluid navbar-inner-container h-100">
@@ -219,6 +237,10 @@ const Navbar = () => {
                         type="button"
                         className={`nav-link btn-reset ${isActive ? "active nav-link-active" : ""}`}
                         onClick={() => {
+                          if (item.path === "/study-abroad" && pathname !== "/study-abroad") {
+                            startStudyAbroadTransition(item.path);
+                            return;
+                          }
                           setIsOpen(false);
                           router.push(item.path);
                         }}
@@ -314,6 +336,10 @@ const Navbar = () => {
       </div>
 
       <ChatbotWidget />
+      <StudyAbroadTransition
+        isVisible={isStudyAbroadTransitionVisible}
+        onComplete={handleStudyAbroadTransitionComplete}
+      />
     </nav>
   );
 };

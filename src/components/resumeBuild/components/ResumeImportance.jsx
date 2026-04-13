@@ -274,33 +274,143 @@ const ResumeImportance = () => {
                         </div>
                     </div>
 
-                    {/* Right Showcase - Moving Model Resumes */}
+                    {/* Right Showcase - ATS-style model resume templates */}
                     <div className={styles.bannerShowcase}>
-                        <div className={styles.scroller}>
-                            {[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map((num, idx) => {
-                                // Models 1-5 use unique images
-                                // Model 6 uses a stylized variation of 1
-                                const id = num === 6 ? 1 : num;
-                                
-                                const isDark = num === 4;
-                                const isMono = num === 5;
-                                const isAzure = num === 6;
-                                
+                        <div className={styles.resumeDeck}>
+                            {[
+                                { name: "Ananya R", role: "Frontend Developer", theme: "classic" },
+                                { name: "Rohan K", role: "Data Analyst", theme: "minimal" },
+                                { name: "Sofia M", role: "Cloud Engineer", theme: "accent" },
+                            ].map((item, idx) => {
+                                const cardThemeClass = styles[`resumeCard${item.theme[0].toUpperCase()}${item.theme.slice(1)}`];
+
                                 return (
-                                    <div 
-                                        key={idx} 
-                                        className={`${styles.resumeCard} 
-                                            ${isDark ? styles.darkModeCard : ''} 
-                                            ${isMono ? styles.monoCard : ''}
-                                            ${isAzure ? styles.azureCard : ''}
-                                        `}
+                                    <div
+                                        key={idx}
+                                        className={`${styles.resumeCard} ${styles.resumeDeckCard} ${styles[`resumeDeckCard${idx + 1}`]} ${cardThemeClass}`}
+                                        aria-label={`${item.name} ATS resume template`}
                                     >
-                                        <img 
-                                            src={`/Mockinterviews/resume${id}.png`} 
-                                            alt={`Model Resume ${id}`} 
-                                            className={styles.resumeImg}
-                                            onError={(e) => { e.target.src = 'https://via.placeholder.com/200x260?text=Premium+Resume'; }}
-                                        />
+                                        <div className={styles.resumeSheet}>
+                                            {item.theme === "classic" && (
+                                                <>
+                                                    <div className={styles.resumeHeaderBand}></div>
+                                                    <div className={styles.resumeTop}>
+                                                        <div className={styles.resumeIdentity}>
+                                                            <span className={styles.resumeAvatar}></span>
+                                                            <div>
+                                                                <p className={styles.resumeName}>{item.name}</p>
+                                                                <p className={styles.resumeRole}>{item.role}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className={styles.resumeBadge}>ATS</div>
+                                                    </div>
+                                                    <div className={styles.resumeContactRow}>
+                                                        <span></span><span></span><span></span>
+                                                    </div>
+                                                    <div className={styles.resumeBody}>
+                                                        <div className={styles.resumeCol}>
+                                                            <div className={styles.resumeSection}>
+                                                                <div className={styles.resumeHeading}></div>
+                                                                <div className={styles.resumeLine}></div>
+                                                                <div className={styles.resumeLineShort}></div>
+                                                            </div>
+                                                            <div className={styles.resumeSection}>
+                                                                <div className={styles.resumeHeading}></div>
+                                                                <div className={styles.resumeLine}></div>
+                                                                <div className={styles.resumeLineTiny}></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className={styles.resumeDivider}></div>
+                                                        <div className={styles.resumeCol}>
+                                                            <div className={styles.resumeSection}>
+                                                                <div className={styles.resumeHeading}></div>
+                                                                <div className={styles.resumeLine}></div>
+                                                                <div className={styles.resumeLine}></div>
+                                                            </div>
+                                                            <div className={styles.resumeSkills}>
+                                                                <span>React</span>
+                                                                <span>Node</span>
+                                                                <span>AWS</span>
+                                                                <span>SQL</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            )}
+
+                                            {item.theme === "minimal" && (
+                                                <>
+                                                    <div className={styles.resumeMinimalTop}>
+                                                        <div>
+                                                            <p className={styles.resumeName}>{item.name}</p>
+                                                            <p className={styles.resumeRole}>{item.role}</p>
+                                                        </div>
+                                                        <div className={styles.resumeBadge}>CV</div>
+                                                    </div>
+                                                    <div className={styles.minimalAccent}></div>
+                                                    <div className={styles.resumeMinimalLayout}>
+                                                        <div className={styles.minimalSidebar}>
+                                                            <span className={styles.dotShape}></span>
+                                                            <span className={styles.squareShape}></span>
+                                                            <span className={styles.dotShape}></span>
+                                                        </div>
+                                                        <div className={styles.minimalMain}>
+                                                            <div className={styles.resumeSection}>
+                                                                <div className={styles.resumeHeading}></div>
+                                                                <div className={styles.resumeLine}></div>
+                                                                <div className={styles.resumeLineTiny}></div>
+                                                            </div>
+                                                            <div className={styles.resumeSection}>
+                                                                <div className={styles.resumeHeading}></div>
+                                                                <div className={styles.resumeLine}></div>
+                                                                <div className={styles.resumeLine}></div>
+                                                            </div>
+                                                            <div className={styles.resumeSkills}>
+                                                                <span>Python</span>
+                                                                <span>Tableau</span>
+                                                                <span>SQL</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            )}
+
+                                            {item.theme === "accent" && (
+                                                <>
+                                                    <div className={styles.accentTop}>
+                                                        <div className={styles.accentBlob}></div>
+                                                        <div className={styles.accentTriangle}></div>
+                                                    </div>
+                                                    <div className={styles.resumeTop}>
+                                                        <div>
+                                                            <p className={styles.resumeName}>{item.name}</p>
+                                                            <p className={styles.resumeRole}>{item.role}</p>
+                                                        </div>
+                                                        <div className={styles.resumeBadge}>ATS</div>
+                                                    </div>
+                                                    <div className={styles.resumeSection}>
+                                                        <div className={styles.resumeHeading}></div>
+                                                        <div className={styles.resumeLine}></div>
+                                                        <div className={styles.resumeLineShort}></div>
+                                                    </div>
+                                                    <div className={styles.resumeGridBlocks}>
+                                                        <div className={styles.blockCard}>
+                                                            <div className={styles.resumeLineTiny}></div>
+                                                            <div className={styles.resumeLineTiny}></div>
+                                                        </div>
+                                                        <div className={styles.blockCard}>
+                                                            <div className={styles.resumeLineTiny}></div>
+                                                            <div className={styles.resumeLineTiny}></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className={styles.resumeSkills}>
+                                                        <span>Docker</span>
+                                                        <span>K8s</span>
+                                                        <span>CI/CD</span>
+                                                    </div>
+                                                </>
+                                            )}
+                                        </div>
                                     </div>
                                 );
                             })}

@@ -24,7 +24,7 @@ const BlogCard = ({ image, date, title, description, tags, link, author = "Admin
           e.currentTarget.style.boxShadow = "0 8px 30px rgba(0,0,0,0.08)";
           e.currentTarget.style.transform = "translateY(-4px)";
           const arrow = e.currentTarget.querySelector(".bc-arrow");
-          if(arrow) arrow.style.color = "#111";
+          if(arrow) arrow.style.color = "#6b7280";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.boxShadow = "0 2px 10px rgba(0,0,0,0.02)";
@@ -53,8 +53,8 @@ const BlogCard = ({ image, date, title, description, tags, link, author = "Admin
           {/* Title row with Arrow */}
           <div className="d-flex justify-content-between align-items-start gap-2 mb-2">
             <h3
-              className="fw-bold m-0"
-              style={{ fontSize: "1.15rem", lineHeight: "1.35", color: "#111" }}
+              className="m-0"
+              style={{ fontSize: "1.1rem", lineHeight: "1.4", color: "#3a4658", fontWeight: 600 }}
             >
               {title}
             </h3>
@@ -94,13 +94,14 @@ const BlogCard = ({ image, date, title, description, tags, link, author = "Admin
               <span
                 style={{
                   display: "inline-block",
-                  backgroundColor: "#111",
-                  color: "#fff",
+                  backgroundColor: "#fff7c8",
+                  color: "#5a4b00",
                   fontSize: "10.5px",
                   fontWeight: "700",
                   padding: "4px 12px",
                   borderRadius: "5px",
-                  letterSpacing: "0.2px"
+                  letterSpacing: "0.2px",
+                  border: "1px solid #f0de76"
                 }}
               >
                 {tags[0]}

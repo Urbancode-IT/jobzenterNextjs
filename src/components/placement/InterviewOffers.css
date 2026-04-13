@@ -1,33 +1,23 @@
 /* Wrapper */
 .interview-offers-wrapper {
-  padding: 60px 0;
+  padding: 72px 0;
   background: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* Title */
 .interview-offers-title {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   color: #000;
-  margin-bottom: 30px;
+  margin-bottom: 34px;
   display: inline-block;
-  position: relative;
 }
 
-/* --------------------------------------------- */
-/* HEADING GRADIENT COLOR SWEEP                  */
-/* --------------------------------------------- */
+/* Heading color sweep */
 .title-sweep {
-  background: linear-gradient(
-      90deg,
-      #1a1a1a 0%,
-      #1a1a1a 20%,
-      #f4ea17 50%,
-      #1a1a1a 80%,
-      #1a1a1a 100%
-  );
+  background: linear-gradient(90deg, #1a1a1a 0%, #1a1a1a 20%, #f4ea17 50%, #1a1a1a 80%, #1a1a1a 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -36,150 +26,147 @@
 }
 
 @keyframes gradientSweep {
-  0%   { background-position: 100% center; }
+  0% { background-position: 100% center; }
   100% { background-position: 0% center; }
 }
 
-/* Card - White & Yellow Theme */
-.interview-offers-card {
-  background: #ffffff;
-  border: 1px solid #f5e27a;
+.interview-offers-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.interview-offers-menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.interview-offers-option {
+  border: 1px solid #efe6a2;
+  background: linear-gradient(160deg, #ffffff 0%, #fffdf1 100%);
   border-radius: 14px;
-  padding: 18px 20px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
+  padding: 14px 14px 14px 12px;
+  text-align: left;
+  min-height: 88px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  transition: all .3s ease;
-  box-shadow: 0 4px 8px rgba(229, 203, 99, 0.25);
-}
-
-.interview-offers-card:hover {
-  border-color: #f4d100;
-  background: #fffcee;
-  box-shadow: 0 6px 14px rgba(244, 209, 0, 0.3);
-  transform: translateY(-2px);
-}
-
-/* Active Card Highlight */
-.interview-offers-card.active {
-  border-color: #f4d100;
-  background: #fff9d6;
-}
-
-/* Title inside card */
-.interview-offers-text {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #000;
-  padding-right: 14px;
-}
-
-/* Arrow Icon */
-.interview-offers-icon {
-  font-size: 1.2rem;
-  color: #e6be00;
-  transition: transform 0.35s ease;
-}
-
-/* Arrow rotate */
-.rotate-up {
-  transform: rotate(180deg);
-}
-
-/* Dropdown Smooth Open */
-.dropdown-outer {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height .45s ease;
-}
-
-.dropdown-outer.open {
-  max-height: 400px; /* increase if more content */
-}
-
-/* Dropdown Inner Box */
-.dropdown-inner {
-  background: #ffffff;
-  border: 1px solid #f7dd7f;
-  border-radius: 14px;
-  margin-top: 10px;
-  box-shadow: 0 6px 18px rgba(229, 203, 99, 0.25);
-  overflow: hidden;
-}
-
-.content-wrapper {
-  padding: 20px 24px;
-}
-
-/* Divider Line */
-.interview-dd-divider {
-  border-top: 1px solid #f2e3a4;
-  margin: 10px 0 14px;
-}
-
-/* List Styling */
-.interview-dd-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.list-item {
-  display: flex;
   gap: 10px;
-  padding: 8px 0;
-  font-size: 14px;
-  color: #444444;
-  line-height: 1.6;
-  transition: .3s ease;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.list-item:hover {
-  color: #000;
-  transform: translateX(4px);
+.interview-offers-option:hover {
+  transform: translateY(-2px);
+  border-color: #e8d860;
+  box-shadow: 0 10px 22px rgba(244, 234, 23, 0.18);
 }
 
-/* Yellow Bullet */
-.bullet {
-  color: #e6b800;
+.interview-offers-option.is-active {
+  border-color: #e4cf32;
+  background: linear-gradient(160deg, #fffef8 0%, #fff7c7 100%);
+  box-shadow: 0 12px 24px rgba(244, 234, 23, 0.24);
+}
+
+.interview-offers-option-index {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f1ba;
+  color: #5a4b00;
+  font-size: 0.82rem;
   font-weight: 700;
-  font-size: 16px;
+}
+
+.interview-offers-option.is-active .interview-offers-option-index {
+  background: #f4ea17;
+  color: #141414;
+}
+
+.interview-offers-option-title {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.interview-offers-option-icon {
+  color: #b59600;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.interview-offers-option.is-active .interview-offers-option-icon {
+  color: #8a7000;
+  opacity: 1;
+}
+
+.interview-offers-detail {
+  border-radius: 18px;
+  border: 1px solid #e8dc80;
+  background: linear-gradient(170deg, #fffef7 0%, #fff6c8 100%);
+  padding: 20px 20px 18px;
+  box-shadow: 0 12px 28px rgba(244, 234, 23, 0.18);
+  position: sticky;
+  top: 88px;
+}
+
+.interview-offers-detail-label {
+  margin: 0 0 8px 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7b6800;
+}
+
+.interview-offers-detail-title {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: #171717;
+  font-weight: 700;
+}
+
+.interview-offers-detail-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+}
+
+.interview-offers-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #2f2f2f;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.detail-bullet {
+  color: #9e8300;
+  font-size: 1rem;
   line-height: 1.2;
+  margin-top: 1px;
 }
 
-/* Fade-in animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
+@media (max-width: 991px) {
+  .interview-offers-layout {
+    grid-template-columns: 1fr;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .interview-offers-menu {
+    grid-template-columns: 1fr;
   }
-}
 
-.dropdown-outer.open .list-item {
-  animation: fadeInUp .4s ease forwards;
-}
-
-.dropdown-outer.open .list-item:nth-child(1) { animation-delay: 0.05s; }
-.dropdown-outer.open .list-item:nth-child(2) { animation-delay: 0.1s; }
-.dropdown-outer.open .list-item:nth-child(3) { animation-delay: 0.15s; }
-.dropdown-outer.open .list-item:nth-child(4) { animation-delay: 0.2s; }
-.dropdown-outer.open .list-item:nth-child(5) { animation-delay: 0.25s; }
-
-/* Scrollbar for long content */
-.dropdown-inner::-webkit-scrollbar {
-  width: 6px;
-}
-
-.dropdown-inner::-webkit-scrollbar-thumb {
-  background: #f4d100;
-  border-radius: 4px;
-}
-
-.dropdown-inner::-webkit-scrollbar-thumb:hover {
-  background: #ffdc33;
+  .interview-offers-detail {
+    position: static;
+  }
 }

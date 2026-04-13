@@ -1,5 +1,5 @@
 'use client';
-import  { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./LearnSection.css";
 
 const cards = [
@@ -37,6 +37,23 @@ const cards = [
 
 const LearnSection = () => {
   const [isPaused, setIsPaused] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(false);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleCardClick = () => {
     setIsPaused(true); // pause animation when clicked
@@ -48,7 +65,7 @@ const LearnSection = () => {
 
   return (
     <section className="learn-section container-fluid text-center">
-      <h2 className="section-title">
+      <h2 ref={titleRef} className={`section-title ${titleVisible ? "title-sweep" : ""}`}>
        Importance of Mock Interview <br /> 
       </h2>
       <p className="section-desc">

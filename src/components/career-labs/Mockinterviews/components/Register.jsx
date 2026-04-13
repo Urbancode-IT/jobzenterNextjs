@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import "./Register.css";
 import { sendEmail } from '../../../../lib/emailjsClient';
@@ -13,6 +13,23 @@ const Register = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [titleVisible, setTitleVisible] = useState(false);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    if (!titleRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(titleRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -65,7 +82,7 @@ const Register = () => {
   return (
     <section className="register-section">
       <div className="register-container">
-        <h2 className="register-title">Register Using The Form</h2>
+        <h2 ref={titleRef} className={`register-title ${titleVisible ? "title-sweep" : ""}`}>Register Using The Form</h2>
         <p className="subtext">
           It’s easy to register for the bootcamp — just fill out the form and click submit.
           You’ll be registered for one of the best Java bootcamps in the industry.

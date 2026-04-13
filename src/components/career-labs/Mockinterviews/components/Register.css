@@ -20,10 +20,33 @@
 /* TITLE */
 .register-title {
   font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 27px;
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: #000;
   margin-bottom: 15px;
+}
+
+.title-sweep {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #1a1a1a 20%,
+    #fdf001 50%,
+    #1a1a1a 80%,
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 /* SUBTEXT */
@@ -231,7 +254,7 @@
   }
 
   .register-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .subtext {
@@ -269,7 +292,7 @@
 /* Extra Small */
 @media (max-width: 360px) {
   .register-title {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .subtext {

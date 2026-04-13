@@ -1,10 +1,33 @@
 .section-title {
-  font-weight: 700;
-  font-size: 27px;
-  line-height: 33px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   text-align: center;
   margin-top: 100px;
   margin-bottom: 10px;
+}
+
+.title-sweep {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #1a1a1a 20%,
+    #fdf001 50%,
+    #1a1a1a 80%,
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .section-desc {

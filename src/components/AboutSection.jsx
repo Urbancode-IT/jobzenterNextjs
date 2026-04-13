@@ -5,12 +5,12 @@ import Link from "next/link";
 
 const courses = [
   {
-    title: "Full Stack Development",
-    desc: "In the evolving landscape of modern software engineering, full stack developers are the backbone of scalable, high-performance applications. Our Full Stack Development program is designed to transform learners into versatile developers with expertise across frontend, backend, databases, and deployment ecosystems.",
-  },
-  {
     title: "Software Testing",
     desc: "In today's fast-paced digital ecosystem, delivering high-quality, bug-free applications is no longer optional-it's a necessity. Our Automation Testing program is designed to equip professionals with industry-relevant skills in Selenium, Playwright, TypeScript, and API Testing, enabling scalable, efficient, and reliable software validation.",
+  },
+  {
+    title: "Full Stack Development",
+    desc: "In the evolving landscape of modern software engineering, full stack developers are the backbone of scalable, high-performance applications. Our Full Stack Development program is designed to transform learners into versatile developers with expertise across frontend, backend, databases, and deployment ecosystems.",
   },
   {
     title: "CCNA Networking",
@@ -50,8 +50,8 @@ const AboutSection = () => {
   }, []);
 
   const cardImages = [
-    "/courses/mean.jpg",
     "/courses/softwareTesting.webp",
+    "/courses/mean.jpg",
     "/courses/ccna.webp",
     "/courses/aws.webp",
   ];
