@@ -31,6 +31,15 @@ const TopRatedCourses = () => {
 
   const courses = [
     {
+      id: 6,
+      title: "Software Testing",
+      enrollment: "3.2k+",
+      description: "Learn manual and automated testing to ensure software quality and defect-free delivery.",
+      img: "/courses/softwareTesting.webp",
+      slug: "software-testing",
+      icons: [<FaJava key="j" style={{color: '#007396'}} />, <SiSpringboot key="s" style={{color: '#6DB33F'}} />]
+    },
+    {
       id: 1,
       title: "MERN Stack",
       enrollment: "2k+",
@@ -74,15 +83,6 @@ const TopRatedCourses = () => {
       img: "/courses/ccna.webp",
       slug: "ccna",
       icons: [<SiCisco key="c" style={{color: '#1BA0D7'}} />]
-    },
-    {
-      id: 6,
-      title: "Software Testing",
-      enrollment: "3.2k+",
-      description: "Learn manual and automated testing to ensure software quality and defect-free delivery.",
-      img: "/courses/softwareTesting.webp",
-      slug: "software-testing",
-      icons: [<FaJava key="j" style={{color: '#007396'}} />, <SiSpringboot key="s" style={{color: '#6DB33F'}} />]
     }
   ];
 
