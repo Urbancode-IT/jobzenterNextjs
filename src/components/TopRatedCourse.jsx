@@ -37,7 +37,7 @@ const TopRatedCourses = () => {
       description: "Learn manual and automated testing to ensure software quality and defect-free delivery.",
       img: "/courses/softwareTesting.webp",
       slug: "software-testing",
-      icons: [<FaJava key="j" style={{color: '#007396'}} />, <SiSpringboot key="s" style={{color: '#6DB33F'}} />]
+      icons: [<FaJava key="j" style={{ color: '#007396' }} />, <SiSpringboot key="s" style={{ color: '#6DB33F' }} />]
     },
     {
       id: 1,
@@ -46,7 +46,7 @@ const TopRatedCourses = () => {
       description: "MERN Stack is a powerful full-stack JavaScript technology for building modern web applications.",
       img: "/courses/mern.webp",
       slug: "mern-stack-development",
-      icons: [<SiMongodb key="m" style={{color: '#47A248'}} />, <SiExpress key="e" style={{color: '#fff'}} />, <SiReact key="r" style={{color: '#61DAFB'}} />, <SiNodedotjs key="n" style={{color: '#339933'}} />]
+      icons: [<SiMongodb key="m" style={{ color: '#47A248' }} />, <SiExpress key="e" style={{ color: '#fff' }} />, <SiReact key="r" style={{ color: '#61DAFB' }} />, <SiNodedotjs key="n" style={{ color: '#339933' }} />]
     },
     {
       id: 2,
@@ -55,7 +55,7 @@ const TopRatedCourses = () => {
       description: "AWS is a cloud platform that provides scalable computing, storage, and services to build and deploy applications.",
       img: "/courses/aws.webp",
       slug: "aws",
-      icons: [<SiAmazonwebservices key="a" style={{color: '#FF9900'}} />]
+      icons: [<SiAmazonwebservices key="a" style={{ color: '#FF9900' }} />]
     },
     {
       id: 3,
@@ -64,7 +64,7 @@ const TopRatedCourses = () => {
       description: "Full Stack Development covers both frontend and backend to build complete, scalable web applications.",
       img: "/courses/javaFullstack.webp",
       slug: "java-fullstack-development",
-      icons: [<FaJava key="j" style={{color: '#007396'}} />, <SiSpringboot key="s" style={{color: '#6DB33F'}} />, <SiMysql key="my" style={{color: '#4479A1'}} />]
+      icons: [<FaJava key="j" style={{ color: '#007396' }} />, <SiSpringboot key="s" style={{ color: '#6DB33F' }} />, <SiMysql key="my" style={{ color: '#4479A1' }} />]
     },
     {
       id: 4,
@@ -73,7 +73,7 @@ const TopRatedCourses = () => {
       description: "Learn Python for data science, web development, and automation with hands-on projects.",
       img: "/courses/python.jpg",
       slug: "python-fullstack-development",
-      icons: [<SiPython key="p" style={{color: '#3776AB'}} />]
+      icons: [<SiPython key="p" style={{ color: '#3776AB' }} />]
     },
     {
       id: 5,
@@ -82,7 +82,7 @@ const TopRatedCourses = () => {
       description: "Master networking essentials and prepare for CCNA certification with Cisco technologies.",
       img: "/courses/ccna.webp",
       slug: "ccna",
-      icons: [<SiCisco key="c" style={{color: '#1BA0D7'}} />]
+      icons: [<SiCisco key="c" style={{ color: '#1BA0D7' }} />]
     }
   ];
 
@@ -139,7 +139,7 @@ const TopRatedCourses = () => {
 
         <div className="row g-4 justify-content-center mt-4">
           {visibleCourses.map((course) => (
-            <div key={course.id} className={`col-lg-${12/cardsPerPage} col-md-6 d-flex justify-content-center`}>
+            <div key={course.id} className={`col-lg-${12 / cardsPerPage} col-md-6 d-flex justify-content-center`}>
               <Link href={`/courses/${course.slug}`} className="course-card-link w-100">
                 <div className="modern-course-card" style={{ backgroundImage: `url(${course.img})` }}>
                   <div className="modern-course-overlay"></div>
@@ -172,7 +172,7 @@ const TopRatedCourses = () => {
           <button className="nav-circle-btn prev" onClick={handlePrevious} aria-label="Previous Page">
             <IoChevronBack />
           </button>
-          
+
           <div className="indicator-group px-3">
             {Array.from({ length: totalPages }).map((_, index) => (
               <div

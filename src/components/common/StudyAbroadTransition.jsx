@@ -39,22 +39,15 @@ const StudyAbroadTransition = ({ isVisible, onComplete }) => {
 
       const interval = setInterval(() => {
         setCurrentCountryIndex((prev) => (prev + 1) % countries.length);
-      }, 750);
+      }, 500); // Clear ticker for 2s
 
       const cardSwapInterval = setInterval(() => {
         setCardShiftIndex((prev) => (prev + 1) % featuredCountryCards.length);
-      }, 1500);
-
-      const timer = setTimeout(() => {
-        clearInterval(interval);
-        clearInterval(cardSwapInterval);
-        onComplete();
-      }, 8500);
+      }, 1000); // 1.0s swap for clarity
 
       return () => {
         clearInterval(interval);
         clearInterval(cardSwapInterval);
-        clearTimeout(timer);
       };
     }
   }, [isVisible, onComplete]);
@@ -82,12 +75,13 @@ const StudyAbroadTransition = ({ isVisible, onComplete }) => {
           {/* Airplane flying across */}
           <motion.div
             className="transition-airplane-row"
-            initial={{ x: '-20vw', y: '44vh', rotate: -16, scale: 0.9 }}
-            animate={{ x: '114vw', y: '-34vh', rotate: 16, scale: 0.96 }}
-            transition={{ duration: 8.5, ease: "linear" }}
+            initial={{ x: '-40vw', y: '50vh', rotate: -5, scale: 0.8 }}
+            animate={{ x: '140vw', y: '-10vh', rotate: 5, scale: 2 }}
+            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+            onAnimationComplete={onComplete}
           >
             <div className="transition-airplane-glow" />
-            <IoAirplane size={102} className="transition-airplane-icon" />
+            <IoAirplane size={80} className="transition-airplane-icon" />
           </motion.div>
 
           {/* Floating graduation caps */}
@@ -124,7 +118,7 @@ const StudyAbroadTransition = ({ isVisible, onComplete }) => {
                     rotate: offset * 7,
                     scale: isCenter ? 1 : 0.88
                   }}
-                  transition={{ duration: 1.3, ease: "easeOut" }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
                   style={{ zIndex: 10 - Math.abs(offset) }}
                 >
                   <img src={card.image} alt={card.title} className="transition-country-card-img" />

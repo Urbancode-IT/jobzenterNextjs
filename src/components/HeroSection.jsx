@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import "./HeroSection.css";
 import EnquiryFormModal from "./enquiryForm/EnquiryFormModal";
 
@@ -14,34 +15,83 @@ const HeroSection = () => {
       <div className="container position-relative z-3">
         {/* Top Badge */}
         <div className="d-flex justify-content-center">
-          <div className="hero-top-badge fade-up mt-2 mt-md-3">
+          <motion.div 
+            className="hero-top-badge mt-2 mt-md-3"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8 }}
+          >
             Made by Industry Experts, for Future Professionals
-          </div>
+          </motion.div>
         </div>
 
         {/* Headings */}
-        <h1 className="hero-centered-title fw-bold mt-4 mb-3 fade-up-delay-1">
+        <motion.h1 
+          className="hero-centered-title mt-4 mb-3"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           Learn In-Demand Skills. <br />
-          <span className="hero-title-highlight">Get Placed Faster.</span>
-        </h1>
+          <span className="hero-title-highlight">
+            <span className="hero-get-placed-highlight">
+              <motion.span 
+                className="hero-highlight-bg"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+              />
+              <motion.span 
+                className="hero-highlight-pop-text"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.5, delay: 1, ease: "backOut" }}
+              >
+                Get Placed
+              </motion.span>
+            </span> Faster.
+          </span>
+        </motion.h1>
 
         {/* Subtitle */}
-        <p className="hero-centered-subtitle mx-auto fade-up-delay-2">
+        <motion.p 
+          className="hero-centered-subtitle mx-auto"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           Master in-demand software skills with practical training, real projects, and placement support.
-        </p>
+        </motion.p>
 
         {/* Buttons */}
-        <div className="d-flex justify-content-center gap-3 mt-4 fade-up-delay-3">
+        <motion.div 
+          className="d-flex justify-content-center gap-3 mt-4"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
           <button onClick={() => setIsModalOpen(true)} className="btn hero-btn-dark">
             Enroll now
           </button>
           <Link href="/courses" className="btn hero-btn-outline">
             Explore courses
           </Link>
-        </div>
+        </motion.div>
 
         {/* Floating Graphics & Image */}
-        <div className="hero-graphics-container mt-5 fade-up-delay-4">
+        <motion.div 
+          className="hero-graphics-container mt-5"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
           
           {/* Main Character Image Wrap */}
           <div className="hero-character-wrap">
@@ -95,8 +145,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-
-        </div>
+        </motion.div>
       </div>
 
       {/* Enquiry Modal */}

@@ -85,5 +85,23 @@
   margin: 0 10px;
 } */
 .mnc_carasoul{
-    margin-top: -10%;
+    margin-top: -6%;
+}
+.carousel-accent-line {
+  width: 60px;
+  height: 3px;
+  background-color: #fac76a; 
+  border-radius: 2px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-quote {
+  margin-top: 20px;
+}
+
+.carousel-main-title {
+  margin-top: 30px;
 }

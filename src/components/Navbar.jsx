@@ -152,9 +152,14 @@ const Navbar = () => {
   const handleStudyAbroadTransitionComplete = () => {
     if (pendingPath) {
       router.push(pendingPath);
+      // Wait a bit before hiding the overlay to cover the page load time
+      setTimeout(() => {
+        setIsStudyAbroadTransitionVisible(false);
+        setPendingPath("");
+      }, 600);
+    } else {
+      setIsStudyAbroadTransitionVisible(false);
     }
-    setIsStudyAbroadTransitionVisible(false);
-    setPendingPath("");
   };
 
   return (

@@ -29,20 +29,11 @@ const Carousel = () => {
     <div className=" company-carousel-container">
       <div className="company-carousel">
         <div className="text-end my-5 me-5">
-      <h4 className="">
+      <h4 className="carousel-main-title">
         We got our students placed in top MNCs
       </h4>
-      {/* Green underline */}
-      <div
-        className="mx-auto my-2"
-        style={{
-          width: "60px",
-          height: "3px",
-          backgroundColor: "#fac76a", // green color
-          borderRadius: "2px",
-        }}
-      ></div>
-      <p className="text-muted">
+      {/* Green underline removed */}
+      <p className="text-muted carousel-quote">
         <b>"</b><i>We go beyond conventional education, empowering you with the skills to create a successful and sustainable career.</i><b>"</b>
       </p>
     </div>
