@@ -128,14 +128,14 @@
 
 /* Right Card */
 .card-right {
-  transform: translateX(95%) scale(0.85) translateZ(-150px) rotateY(-12deg);
+  transform: translateX(95%) scale(1) translateZ(-150px) rotateY(-12deg);
   z-index: 2;
   opacity: 0.7;
 }
 
 /* Left Card */
 .card-left {
-  transform: translateX(-95%) scale(0.85) translateZ(-150px) rotateY(12deg);
+  transform: translateX(-95%) scale(1) translateZ(-150px) rotateY(12deg);
   z-index: 2;
   opacity: 0.7;
 }
@@ -157,10 +157,10 @@
     height: 480px;
   }
   .card-right {
-    transform: translateX(85%) scale(0.8) translateZ(-100px);
+    transform: translateX(85%) scale(1) translateZ(-100px);
   }
   .card-left {
-    transform: translateX(-85%) scale(0.8) translateZ(-100px);
+    transform: translateX(-85%) scale(1) translateZ(-100px);
   }
 }
 

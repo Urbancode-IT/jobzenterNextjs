@@ -6,7 +6,6 @@ const FutureSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [titleVisible, setTitleVisible] = useState(false);
-  const prevActiveRef = useRef(0);
   const titleRef = useRef(null);
 
   // Auto-swap every 4 seconds, but pause if hovering
@@ -17,21 +16,6 @@ const FutureSection = () => {
     }, 2000);
     return () => clearInterval(interval);
   }, [isHovered]);
-
-  // Stop videos when they leave the center
-  useEffect(() => {
-    if (prevActiveRef.current !== activeIndex) {
-      const iframes = document.querySelectorAll('.future-video');
-      const prevIframe = iframes[prevActiveRef.current];
-      if (prevIframe) {
-        // Refreshing the src is the most reliable way to force a stop on cross-origin Instagram embeds
-        const currentSrc = prevIframe.src;
-        prevIframe.src = '';
-        prevIframe.src = currentSrc;
-      }
-      prevActiveRef.current = activeIndex;
-    }
-  }, [activeIndex]);
 
   // Title sweep intersection observer
   useEffect(() => {

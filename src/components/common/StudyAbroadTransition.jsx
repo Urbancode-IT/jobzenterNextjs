@@ -36,14 +36,24 @@ const StudyAbroadTransition = ({ isVisible, onComplete }) => {
     if (isVisible) {
       setCurrentCountryIndex(0);
       setCardShiftIndex(0);
+      let hasCompleted = false;
 
       const interval = setInterval(() => {
         setCurrentCountryIndex((prev) => (prev + 1) % countries.length);
-      }, 500); // Clear ticker for 2s
+      }, 520);
 
+      let swapCount = 0;
       const cardSwapInterval = setInterval(() => {
+        swapCount += 1;
         setCardShiftIndex((prev) => (prev + 1) % featuredCountryCards.length);
-      }, 1000); // 1.0s swap for clarity
+        if (swapCount >= 2) {
+          clearInterval(cardSwapInterval);
+          if (!hasCompleted) {
+            hasCompleted = true;
+            onComplete();
+          }
+        }
+      }, 800);
 
       return () => {
         clearInterval(interval);
@@ -60,7 +70,7 @@ const StudyAbroadTransition = ({ isVisible, onComplete }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.1 }}
+          transition={{ duration: 0.25 }}
         >
           <motion.div
             className="transition-travel-poster"
@@ -76,9 +86,8 @@ const StudyAbroadTransition = ({ isVisible, onComplete }) => {
           <motion.div
             className="transition-airplane-row"
             initial={{ x: '-40vw', y: '50vh', rotate: -5, scale: 0.8 }}
-            animate={{ x: '140vw', y: '-10vh', rotate: 5, scale: 2 }}
-            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
-            onAnimationComplete={onComplete}
+            animate={{ x: '140vw', y: '-10vh', rotate: 5, scale: 1.18 }}
+            transition={{ duration: 2.8, ease: [0.22, 0.61, 0.36, 1] }}
           >
             <div className="transition-airplane-glow" />
             <IoAirplane size={80} className="transition-airplane-icon" />
@@ -92,7 +101,7 @@ const StudyAbroadTransition = ({ isVisible, onComplete }) => {
                 className={`graduation-cap graduation-cap-${cap + 1}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: [0, 0.8, 0.35], y: [20, -8, -24], rotate: [0, -8, 6] }}
-                transition={{ duration: 3.2, delay: cap * 0.4, ease: "easeOut" }}
+                transition={{ duration: 3, delay: cap * 0.35, ease: "easeOut" }}
               >
                 <FaGraduationCap />
               </motion.div>
@@ -118,7 +127,7 @@ const StudyAbroadTransition = ({ isVisible, onComplete }) => {
                     rotate: offset * 7,
                     scale: isCenter ? 1 : 0.88
                   }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  transition={{ duration: 0.95, ease: "easeOut" }}
                   style={{ zIndex: 10 - Math.abs(offset) }}
                 >
                   <img src={card.image} alt={card.title} className="transition-country-card-img" />
@@ -133,9 +142,9 @@ const StudyAbroadTransition = ({ isVisible, onComplete }) => {
             <motion.div
               key={countries[currentCountryIndex]}
               initial={{ scale: 0.5, opacity: 0, y: 20 }}
-              animate={{ scale: 1.04, opacity: 1, y: 0 }}
+              animate={{ scale: 1.02, opacity: 1, y: 0 }}
               exit={{ scale: 1.5, opacity: 0, y: -20 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.55 }}
               className="country-name-text"
             >
               {countries[currentCountryIndex]}
