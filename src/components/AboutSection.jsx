@@ -6,18 +6,22 @@ import Link from "next/link";
 const courses = [
   {
     title: "Software Testing",
+    category: "Testing",
     desc: "In today's fast-paced digital ecosystem, delivering high-quality, bug-free applications is no longer optional-it's a necessity. Our Automation Testing program is designed to equip professionals with industry-relevant skills in Selenium, Playwright, TypeScript, and API Testing, enabling scalable, efficient, and reliable software validation.",
   },
   {
     title: "Full Stack Development",
+    category: "Development",
     desc: "In the evolving landscape of modern software engineering, full stack developers are the backbone of scalable, high-performance applications. Our Full Stack Development program is designed to transform learners into versatile developers with expertise across frontend, backend, databases, and deployment ecosystems.",
   },
   {
     title: "CCNA Networking",
+    category: "CCNA",
     desc: "In today's hyper-connected digital world, networking forms the backbone of all IT infrastructures. Our CCNA (Cisco Certified Network Associate) Networking program is designed to equip learners with in-demand skills required to design, configure, manage, and troubleshoot modern enterprise networks.",
   },
   {
     title: "AWS & Devops",
+    category: "Cloud",
     desc: "In the era of cloud-native applications, organizations demand faster, reliable, and scalable software delivery. Our AWS DevOps Training program is designed to equip learners with cutting-edge skills in cloud infrastructure, continuous integration, continuous deployment (CI/CD), and automation using Amazon Web Services.",
   },
 ];
@@ -77,7 +81,7 @@ const AboutSection = () => {
               {courses.map((course, i) => (
                 <Link
                   key={course.title}
-                  href="/courses"
+                  href={`/courses?category=${encodeURIComponent(course.category)}#course-list`}
                   className={`about-course-item ${activeIndex === i ? "active" : ""}`}
                   onMouseEnter={() => setActiveIndex(i)}
                   style={{ textDecoration: "none" }}

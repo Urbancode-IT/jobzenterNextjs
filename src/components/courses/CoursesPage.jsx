@@ -1,16 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import "./coursePage.css";
 import courses from "./coursesData";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const CoursesPage = () => {
+  const searchParams = useSearchParams();
+  const queryCategory = searchParams?.get("category");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isSweepActive, setIsSweepActive] = useState(false);
 
   const categories = ["All", "Development", "Testing", "Healthcare", "CCNA", "Cloud"];
+
+  useEffect(() => {
+    if (queryCategory && categories.includes(queryCategory)) {
+      setSelectedCategory(queryCategory);
+    } else {
+      setSelectedCategory("All");
+    }
+  }, [queryCategory]);
 
   const filteredCourses = courses.filter((course) => {
     if (selectedCategory === "All") return true;
@@ -151,7 +162,7 @@ const CoursesPage = () => {
       </div>
 
       {/* Course Cards */}
-      <div className="container pb-5 mb-5">
+      <div id="course-list" className="container pb-5 mb-5">
         <div className="row g-5 mt-md-3 mt-1">
           {filteredCourses.map((course) => (
             <div className="col-md-4" key={course.id}>

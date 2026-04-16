@@ -232,7 +232,7 @@ const ReachUs = () => {
 
               <div className="info-item" style={{ marginTop: "30px" }}>
                 <i className="bi bi-envelope-fill"></i>
-                <a href="mailto:admin@jobzenter.in">admin@jobzenter.in</a>
+                <a href="mailto:jobzenter24@gmail.com">jobzenter24@gmail.com</a>
               </div>
 
               <div className="info-item" style={{ marginTop: "30px" }}>
