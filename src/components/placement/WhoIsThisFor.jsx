@@ -60,6 +60,11 @@ const WhoIsThisFor = () => {
       number: "03",
       title: "Experienced Professionals",
       desc: "Preparing for role-switch, promotions, or career transitions."
+    },
+    {
+      number: "04",
+      title: "Non-IT to IT switching",
+      desc: "Moving from non-tech work into IT roles with hands-on training and steady support."
     }
   ];
 
@@ -78,7 +83,7 @@ const WhoIsThisFor = () => {
         <div className="row g-4 mt-2">
           {items.map((box, index) => (
             <div
-              className="col-lg-4 col-md-6"
+              className="col-12 col-md-6 col-lg-3"
               key={index}
               ref={(el) => (itemRefs.current[index] = el)}
             >

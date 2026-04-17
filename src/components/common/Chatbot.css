@@ -8,10 +8,64 @@
     z-index: 9998;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
 }
 
 .chatbot-trigger:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+/* Promo bubble above the avatar (similar to Urbancode widget) */
+.chatbot-offer-bubble {
+    max-width: 220px;
+    padding: 12px 16px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    font-family: "Inter", system-ui, sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    animation: chatbotBubbleIn 0.5s ease-out both;
+}
+
+.chatbot-offer-line1 {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #111827;
+    line-height: 1.35;
+}
+
+.chatbot-offer-line2 {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #4b5563;
+    line-height: 1.4;
+}
+
+@keyframes chatbotBubbleIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chatbot-icon-stack {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .chatbot-icon {
@@ -45,6 +99,7 @@
     background: rgba(36, 37, 18, 0.4);
     z-index: 1;
     animation: pulse 2s infinite;
+    pointer-events: none;
 }
 
 @keyframes pulse {
@@ -67,7 +122,7 @@
 /* Chatbot Container Styles */
 .chatbot-container {
     position: fixed;
-    bottom: 100px;
+    bottom: 150px;
     right: 24px;
     width: 380px;
     height: 600px;
@@ -128,6 +183,24 @@
     .chatbot-trigger {
         bottom: 16px;
         right: 16px;
+    }
+
+    .chatbot-offer-bubble {
+        max-width: 200px;
+        padding: 10px 12px;
+    }
+
+    .chatbot-offer-line1 {
+        font-size: 0.82rem;
+    }
+
+    .chatbot-offer-line2 {
+        font-size: 0.75rem;
+    }
+
+    .chatbot-icon-stack {
+        width: 56px;
+        height: 56px;
     }
 
     .chatbot-icon {

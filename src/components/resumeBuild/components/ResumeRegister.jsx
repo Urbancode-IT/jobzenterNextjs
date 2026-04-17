@@ -3,7 +3,16 @@ import React, { useState, useEffect, useRef } from "react";
 import "./ResumeRegister.css";
 import { sendEmail } from '../../../lib/emailjsClient';
 
-const Register = () => {
+const defaultSubtext =
+  "It's easy to register for the bootcamp — just fill out the form and click submit. " +
+  "You'll be registered for one of the best Java bootcamps in the industry.";
+
+const Register = ({
+  sectionId = "resume-register",
+  emailVia = "Resume page Registeration",
+  title = "Register Using The Form",
+  subtext = defaultSubtext,
+}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -70,7 +79,7 @@ const Register = () => {
       mode: '',
       country: '',
       education: '',
-      via: 'Resume page Registeration',
+      via: emailVia,
     };
 
     sendEmail(templateParams)
@@ -86,14 +95,13 @@ const Register = () => {
   };
 
   return (
-    <section id="resume-register" className="register-section">
+    <section id={sectionId} className="register-section">
       <div className="register-container">
         <h2 ref={titleRef} className="register-title slide-down">
-          Register Using The Form
+          {title}
         </h2>
         <p ref={subtextRef} className="subtext slide-down" style={{ transitionDelay: '0.2s' }}>
-          It's easy to register for the bootcamp — just fill out the form and click submit.
-          You'll be registered for one of the best Java bootcamps in the industry.
+          {subtext}
         </p>
 
         <div className="register-layout">

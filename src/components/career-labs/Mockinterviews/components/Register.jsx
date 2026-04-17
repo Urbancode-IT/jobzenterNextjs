@@ -80,7 +80,7 @@ const Register = () => {
   };
 
   return (
-    <section className="register-section">
+    <section id="mock-interview-register" className="register-section">
       <div className="register-container">
         <h2 ref={titleRef} className={`register-title ${titleVisible ? "title-sweep" : ""}`}>Register Using The Form</h2>
         <p className="subtext">

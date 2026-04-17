@@ -9,6 +9,12 @@ const HeroPlacement = () => {
   const headingRef = useRef(null);
   const [sweepActive, setSweepActive] = useState(false);
 
+  const scrollToRegister = () => {
+    document
+      .getElementById("placement-register")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -45,9 +51,11 @@ const HeroPlacement = () => {
         </p>
 
         <button
+          type="button"
           ref={btnRef}
           className="placement-hero-register-btn mx-auto d-block ph-slide-up"
           style={{ transitionDelay: '0.4s' }}
+          onClick={scrollToRegister}
         >
           Register
         </button>

@@ -8,7 +8,7 @@ const AUTOPLAY_MS = 8500;
 const SLIDE_DURATION = 0.78;
 const SLIDE_EASE = [0.25, 0.1, 0.25, 1];
 
-const WhyChooseUs = () => {
+const WhyChooseUs = ({ showWhyChoose = true, showProvide = true }) => {
   const reduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
   const [slideDir, setSlideDir] = useState("next");
@@ -160,92 +160,96 @@ const WhyChooseUs = () => {
   return (
     <section className="py-5 why-choose-section">
       <div className="container">
-        <h2
-          ref={(el) => (titleRefs.current[0] = el)}
-          className={`section-title section-title--compact ${visibleTitles.includes(0) ? "title-sweep" : ""}`}
-        >
-          Why Choose Us
-        </h2>
-
-        <p className="why-choose-lead">
-          One clear reason at a time — swipe through what makes Jobzenter different.
-        </p>
-
-        <div className="why-choose-carousel" ref={carouselRef}>
-          <div className="why-choose-stage" aria-roledescription="carousel">
-            <div className="why-choose-stage__row">
-              <button
-                type="button"
-                className="why-choose-stage__arrow why-choose-stage__arrow--prev"
-                onClick={goPrev}
-                aria-label="Previous reason"
-              >
-                <i className="bi bi-chevron-left" aria-hidden />
-              </button>
-
-              <div className="why-choose-stage__viewport">
-                <AnimatePresence mode="wait" initial={false} custom={dirSign}>
-                  <motion.article
-                    key={activeIndex}
-                    role="tabpanel"
-                    aria-live="polite"
-                    custom={dirSign}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{
-                      duration: reduceMotion ? 0.15 : SLIDE_DURATION,
-                      ease: SLIDE_EASE,
-                    }}
-                    className="why-choose-pro-card"
-                  >
-                    <div className="why-choose-pro-card__badge">
-                      <i className="bi bi-star-fill why-choose-pro-card__badge-icon" aria-hidden />
-                      <span>
-                        {String(activeIndex + 1).padStart(2, "0")} of {String(total).padStart(2, "0")}
-                      </span>
-                    </div>
-                    <h3 className="why-choose-pro-card__title">{current.title}</h3>
-                    <p className="why-choose-pro-card__body">{current.text}</p>
-                  </motion.article>
-                </AnimatePresence>
-              </div>
-
-              <button
-                type="button"
-                className="why-choose-stage__arrow why-choose-stage__arrow--next"
-                onClick={goNext}
-                aria-label="Next reason"
-              >
-                <i className="bi bi-chevron-right" aria-hidden />
-              </button>
-            </div>
-
-            <div
-              className="why-choose-stage__dots"
-              role="tablist"
-              aria-label="Why choose us slides"
+        {showWhyChoose && (
+          <>
+            <h2
+              ref={(el) => (titleRefs.current[0] = el)}
+              className={`section-title section-title--compact ${visibleTitles.includes(0) ? "title-sweep" : ""}`}
             >
-              {whyChooseData.map((item, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === activeIndex}
-                  aria-label={`${i + 1}: ${item.title}`}
-                  className={`why-choose-stage__dot ${i === activeIndex ? "is-active" : ""}`}
-                  onClick={() => {
-                    if (i === activeIndex) return;
-                    goTo(i, i > activeIndex ? "next" : "prev");
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+              Why Choose Us
+            </h2>
 
-        <div className="section-gap provide-section-outer">
+            <p className="why-choose-lead">
+              One clear reason at a time — swipe through what makes Jobzenter different.
+            </p>
+
+            <div className="why-choose-carousel" ref={carouselRef}>
+              <div className="why-choose-stage" aria-roledescription="carousel">
+                <div className="why-choose-stage__row">
+                  <button
+                    type="button"
+                    className="why-choose-stage__arrow why-choose-stage__arrow--prev"
+                    onClick={goPrev}
+                    aria-label="Previous reason"
+                  >
+                    <i className="bi bi-chevron-left" aria-hidden />
+                  </button>
+
+                  <div className="why-choose-stage__viewport">
+                    <AnimatePresence mode="wait" initial={false} custom={dirSign}>
+                      <motion.article
+                        key={activeIndex}
+                        role="tabpanel"
+                        aria-live="polite"
+                        custom={dirSign}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                          duration: reduceMotion ? 0.15 : SLIDE_DURATION,
+                          ease: SLIDE_EASE,
+                        }}
+                        className="why-choose-pro-card"
+                      >
+                        <div className="why-choose-pro-card__badge">
+                          <i className="bi bi-star-fill why-choose-pro-card__badge-icon" aria-hidden />
+                          <span>
+                            {String(activeIndex + 1).padStart(2, "0")} of {String(total).padStart(2, "0")}
+                          </span>
+                        </div>
+                        <h3 className="why-choose-pro-card__title">{current.title}</h3>
+                        <p className="why-choose-pro-card__body">{current.text}</p>
+                      </motion.article>
+                    </AnimatePresence>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="why-choose-stage__arrow why-choose-stage__arrow--next"
+                    onClick={goNext}
+                    aria-label="Next reason"
+                  >
+                    <i className="bi bi-chevron-right" aria-hidden />
+                  </button>
+                </div>
+
+                <div
+                  className="why-choose-stage__dots"
+                  role="tablist"
+                  aria-label="Why choose us slides"
+                >
+                  {whyChooseData.map((item, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      role="tab"
+                      aria-selected={i === activeIndex}
+                      aria-label={`${i + 1}: ${item.title}`}
+                      className={`why-choose-stage__dot ${i === activeIndex ? "is-active" : ""}`}
+                      onClick={() => {
+                        if (i === activeIndex) return;
+                        goTo(i, i > activeIndex ? "next" : "prev");
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+
+        {showProvide && <div className="section-gap provide-section-outer">
           <div className="provide-section-header text-center">
             <h2
               ref={(el) => (titleRefs.current[1] = el)}
@@ -274,7 +278,7 @@ const WhyChooseUs = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div>}
       </div>
     </section>
   );

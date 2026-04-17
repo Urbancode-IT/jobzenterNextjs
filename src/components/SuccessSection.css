@@ -29,7 +29,7 @@
 }
 
 .success-main-title {
-  font-size: 2.8rem;
+  font-size: 2.55rem;
   font-weight: 600;
   line-height: 1;
   color: #000000;
@@ -169,7 +169,7 @@
 
 .quote__mark {
   color: var(--theme-yellow);
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 900;
   position: absolute;
   left: -8px;
@@ -233,5 +233,5 @@
 @media (max-width: 900px) {
   .success { padding: 60px 24px; }
   .success__grid { grid-template-columns: 1fr; }
-  .success-main-title { font-size: 32px; }
+  .success-main-title { font-size: 30px; }
 }

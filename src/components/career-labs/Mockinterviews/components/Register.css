@@ -4,6 +4,7 @@
   justify-content: center;
   padding: 60px 20px;
   background: transparent;
+  scroll-margin-top: 96px; /* clear fixed navbar when scrolling from Enroll now */
 }
 
 /* CONTAINER */
@@ -21,7 +22,7 @@
 .register-title {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 2.4rem;
+  font-size: 2.15rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: #000;
@@ -254,7 +255,7 @@
   }
 
   .register-title {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .subtext {
@@ -292,7 +293,7 @@
 /* Extra Small */
 @media (max-width: 360px) {
   .register-title {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .subtext {

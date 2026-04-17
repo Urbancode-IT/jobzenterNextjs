@@ -1,12 +1,14 @@
+/* Match resume building hero (ResumeHero.css .hero) */
 .placement-hero-bg {
-  padding: 60px 0 120px;
-  background: linear-gradient(180deg, #f7ee87 0%, #ffffff 100%);
+  padding-top: 40px;
+  padding-bottom: 80px;
+  background: linear-gradient(180deg, #f9f697ac 0%, #ffffff 78.85%);
 }
 
 .placement-hero-heading {
   font-family: Inter, sans-serif;
   font-weight: 600;
-  font-size: 2.4rem;
+  font-size: 2.15rem;
   color: #000;
   margin-bottom: 20px;
   display: block;

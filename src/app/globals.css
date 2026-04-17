@@ -12,10 +12,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Match "90% zoom" feel on laptop/desktop at normal zoom */
+html {
+  font-size: 15px;
+}
+
+@media (max-width: 1399.98px) {
+  html {
+    font-size: 14.5px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Global Content Font Style (Reach Us content style) */
@@ -32,6 +57,115 @@ h1, h2, h3, h4, h5, h6 {
   color: #2f2f2f;
   font-weight: 600;
   line-height: 1.2;
+}
+
+/* ── Global heading scale: one step smaller than Bootstrap defaults ── */
+h1,
+.h1 {
+  font-size: calc(1.375rem + 1.5vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  h1,
+  .h1 {
+    font-size: calc(2.5rem - 0.25rem);
+  }
+}
+
+h2,
+.h2 {
+  font-size: calc(1.325rem + 0.9vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  h2,
+  .h2 {
+    font-size: calc(2rem - 0.25rem);
+  }
+}
+
+h3,
+.h3 {
+  font-size: calc(1.3rem + 0.6vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  h3,
+  .h3 {
+    font-size: calc(1.75rem - 0.25rem);
+  }
+}
+
+h4,
+.h4 {
+  font-size: calc(1.275rem + 0.3vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  h4,
+  .h4 {
+    font-size: calc(1.5rem - 0.25rem);
+  }
+}
+
+h5,
+.h5 {
+  font-size: calc(1.25rem - 0.125rem);
+}
+
+h6,
+.h6 {
+  font-size: calc(1rem - 0.125rem);
+}
+
+.display-1 {
+  font-size: calc(1.625rem + 4.5vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  .display-1 {
+    font-size: calc(5rem - 0.25rem);
+  }
+}
+
+.display-2 {
+  font-size: calc(1.575rem + 3.9vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  .display-2 {
+    font-size: calc(4.5rem - 0.25rem);
+  }
+}
+
+.display-3 {
+  font-size: calc(1.525rem + 3.3vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  .display-3 {
+    font-size: calc(4rem - 0.25rem);
+  }
+}
+
+.display-4 {
+  font-size: calc(1.475rem + 2.7vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  .display-4 {
+    font-size: calc(3.5rem - 0.25rem);
+  }
+}
+
+.display-5 {
+  font-size: calc(1.425rem + 2.1vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  .display-5 {
+    font-size: calc(3rem - 0.25rem);
+  }
+}
+
+.display-6 {
+  font-size: calc(1.375rem + 1.5vw - 0.25rem);
+}
+@media (min-width: 1200px) {
+  .display-6 {
+    font-size: calc(2.5rem - 0.25rem);
+  }
 }
 
 /* --------------------------------------------- */

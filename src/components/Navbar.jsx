@@ -169,8 +169,7 @@ const Navbar = () => {
           <img
             src="/logo.png"
             alt="Jobzenter Logo"
-            className="img-fluid"
-            style={{ width: 227, height: 52, objectFit: "contain" }}
+            className="img-fluid navbar-logo"
           />
         </Link>
 

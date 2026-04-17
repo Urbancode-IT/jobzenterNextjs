@@ -54,7 +54,7 @@ const FutureSection = () => {
             ref={titleRef}
             className={`future-title ${titleVisible ? "title-sweep" : ""}`}
           >
-            Where Your Future Begins
+            {"Let's Explore the Course"}
           </h2>
           <p className="future-subtitle">
             Master the most demanded skills in the industry. Learn from experts and build a successful career with hands-on training.

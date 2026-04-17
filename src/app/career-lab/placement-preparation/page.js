@@ -6,6 +6,7 @@ import WhatWeOffer from "@/components/placement/WhatWe";
 import WhoIsThisFor from "@/components/placement/WhoIsThisFor";
 import HeroPlacement from "@/components/placement/HeroPlacement";
 import Questions from "@/components/courses/Questions";
+import ResumeRegister from "@/components/resumeBuild/components/ResumeRegister";
 
 const placementFaqData = [
   {
@@ -34,6 +35,9 @@ const placementFaqData = [
   },
 ];
 
+const placementRegisterSubtext =
+  "Register for placement preparation support — fill out the form and our team will contact you with next steps, guidance, and program details.";
+
 export default function PlacementPreparationPage() {
   return (
     <>
@@ -42,6 +46,12 @@ export default function PlacementPreparationPage() {
       <InterviewOffers />
       <WhatWeOffer />
       <WhoIsThisFor />
+      <ResumeRegister
+        sectionId="placement-register"
+        emailVia="Placement preparation page Registration"
+        title="Register Using The Form"
+        subtext={placementRegisterSubtext}
+      />
       <Questions data={placementFaqData} />
     </>
   );

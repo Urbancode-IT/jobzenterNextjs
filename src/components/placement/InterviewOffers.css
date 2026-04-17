@@ -9,7 +9,7 @@
 .interview-offers-title {
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 2.4rem;
+  font-size: 2.15rem;
   color: #000;
   margin-bottom: 34px;
   display: inline-block;
@@ -56,6 +56,8 @@
   gap: 10px;
   cursor: pointer;
   transition: all 0.25s ease;
+  font-family: inherit;
+  font-weight: 400;
 }
 
 .interview-offers-option:hover {
@@ -80,7 +82,7 @@
   background: #f7f1ba;
   color: #5a4b00;
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .interview-offers-option.is-active .interview-offers-option-index {
@@ -92,7 +94,7 @@
   font-size: 0.95rem;
   line-height: 1.4;
   color: #1f2937;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .interview-offers-option-icon {
@@ -119,7 +121,7 @@
 .interview-offers-detail-label {
   margin: 0 0 8px 0;
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #7b6800;
@@ -130,7 +132,7 @@
   font-size: 1.15rem;
   line-height: 1.4;
   color: #171717;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .interview-offers-detail-list {
@@ -148,6 +150,7 @@
   color: #2f2f2f;
   font-size: 0.95rem;
   line-height: 1.55;
+  font-weight: 400;
 }
 
 .detail-bullet {

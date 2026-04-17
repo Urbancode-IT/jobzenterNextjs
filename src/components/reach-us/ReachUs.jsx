@@ -6,6 +6,10 @@ import Swal from "sweetalert2";
 import confetti from "canvas-confetti";
 import "./style.css";
 
+const WHATSAPP_HREF = "https://wa.me/919057770577";
+const CONTACT_EMAIL = "jobzenter24@gmail.com";
+const MAILTO_HREF = `mailto:${CONTACT_EMAIL}`;
+
 const ReachUs = () => {
 
   const [form, setForm] = useState({
@@ -194,12 +198,19 @@ const ReachUs = () => {
         to guide you, answer your questions, and connect you with the right opportunities.
       </p>
       <div className="hero-badges">
-        <span className="hero-badge">
-          <i className="bi bi-clock"></i> Response within 24 hours
-        </span>
-        <span className="hero-badge">
-          <i className="bi bi-whatsapp"></i> Support over call & chat
-        </span>
+        <a
+          className="hero-badge"
+          href={WHATSAPP_HREF}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="bi bi-whatsapp" aria-hidden />
+          WhatsApp
+        </a>
+        <a className="hero-badge" href={MAILTO_HREF}>
+          <i className="bi bi-envelope-fill" aria-hidden />
+          {CONTACT_EMAIL}
+        </a>
       </div>
     </div>
 

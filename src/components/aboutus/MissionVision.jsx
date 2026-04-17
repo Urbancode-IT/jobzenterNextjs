@@ -224,7 +224,7 @@ export default function MissionVision() {
             <div className="mv-foundation__stat">
               <dt className="sr-only">Years of excellence</dt>
               <dd>
-                <span className="mv-foundation__stat-num">10+</span>
+                <span className="mv-foundation__stat-num">3+</span>
                 <span className="mv-foundation__stat-label">Years of Excellence</span>
               </dd>
             </div>

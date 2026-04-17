@@ -6,7 +6,7 @@
 }
 
 .faq-title {
-  font-size: 2.8rem;
+  font-size: 2.55rem;
   font-weight: 600;
   color: #1a1a1a;
   margin: 10px 0 70px;
@@ -359,7 +359,7 @@
   }
 
   .faq-toggle-plus {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .faq-question {

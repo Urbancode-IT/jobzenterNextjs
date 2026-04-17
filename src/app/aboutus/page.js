@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "@/components/aboutus/HeroAbout";
 import WhoWeAre from "@/components/aboutus/WhoWeAre";
 import MissionVision from "@/components/aboutus/MissionVision";
+import FutureSection from "@/components/FutureSection";
 import WhyChooseUs from "@/components/aboutus/WhyChooseUs";
 import Questions from "@/components/courses/Questions";
 
@@ -33,7 +34,8 @@ export default function AboutUsPage() {
       <HeroSection />
       <WhoWeAre />
       <MissionVision />
-      <WhyChooseUs />
+      <WhyChooseUs showWhyChoose={false} />
+      <FutureSection />
       <Questions data={aboutFaqData} />
     </>
   );

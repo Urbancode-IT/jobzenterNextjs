@@ -1,5 +1,6 @@
 import CoursesPage from "@/components/courses/CoursesPage";
 import Script from "next/script";
+import { Suspense } from "react";
 
 // ---------------- SEO Metadata ----------------
 export const metadata = {
@@ -90,7 +91,9 @@ export default function Courses() {
         }}
       />
 
-      <CoursesPage />
+      <Suspense fallback={null}>
+        <CoursesPage />
+      </Suspense>
     </>
   );
 }

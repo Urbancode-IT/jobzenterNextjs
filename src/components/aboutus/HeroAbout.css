@@ -168,7 +168,7 @@
 .hero-about-heading {
   font-family: Inter, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 2.8rem;
+  font-size: 2.55rem;
   line-height: 1.02;
   letter-spacing: -0.045em;
   color: #0a0a0a;
@@ -549,7 +549,7 @@
 
   .hero-quote-mark {
     right: 0.75rem;
-    font-size: 3.5rem;
+    font-size: 3.25rem;
   }
 }
 

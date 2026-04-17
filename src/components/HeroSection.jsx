@@ -1,92 +1,109 @@
 "use client";
 
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./HeroSection.css";
+import EnquiryFormModal from "./enquiryForm/EnquiryFormModal";
 
 const HeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <section className="hero-wrapper d-flex align-items-center position-relative">
-      
-      <img src="/Background.png" alt="" className="hero-overlay" />
-      <div className="container">
-        <div className="row align-items-center g-4 py-sm-5 py-1">
+    <section className="hero-centered-wrapper position-relative text-center">
+      <div className="hero-gradient-overlay" />
+      <div className="container position-relative z-3">
+        {/* Top Badge */}
+        <div className="d-flex justify-content-center">
+          <div className="hero-top-badge fade-up mt-2 mt-md-3">
+            Made by Industry Experts, for Future Professionals
+          </div>
+        </div>
 
-          {/* TEXT CONTENT */}
-          <div className="col-lg-6 col-md-6 col-12 hero-text ">
-            <h1 className=" fw-bold display-3 mb-5 line" >
-              Learn, Upskill & <br/>
-              <span className="animate-line">
-   <span className="highlight-animate">Get placed</span>
-   </span>
-            </h1>
-{/* ✅ REPLACE your existing hero-quote-block with this */}
-<div className="hero-quote-block fade-up-delay-1">
-  <p className="hero-quote-text">
-    "Every student who walks through our doors carries a dream —
-    we make sure they walk out with the skills, confidence,
-    and offer letter to live it."
-  </p>
-  <div className="hero-impact-points fade-up-delay-2">
-    <Link href="/reach-us" className="impact-chip">✦ Live Expert Classes</Link>
-    <Link href="/reach-us" className="impact-chip">✦ Real Projects</Link>
-    <Link href="/reach-us" className="impact-chip">✦ Placement Support</Link>
-  </div>
-</div>
-            <div className="d-flex gap-3 mt-5">
-              <Link href="/courses" className="btn hero-btn-primary">
-                Explore courses
-              </Link>
+        {/* Headings */}
+        <h1 className="hero-centered-title fw-medium mt-4 mb-3 fade-up-delay-1">
+          Learn In-Demand Skills. <br />
+          <span className="get-placed-animate">Get Placed</span> Faster.
+        </h1>
 
-              <Link href="/reach-us" className="btn hero-btn-secondary">
-                Talk to us
-              </Link>
-            </div>
+        {/* Subtitle */}
+        <p className="hero-centered-subtitle mx-auto fade-up-delay-2">
+          Master in-demand software skills with practical training, real projects, and placement support.
+        </p>
+
+        {/* Buttons */}
+        <div className="d-flex justify-content-center gap-3 mt-4 fade-up-delay-3">
+          <button onClick={() => setIsModalOpen(true)} className="btn hero-btn-dark">
+            Enroll now
+          </button>
+          <Link href="/courses" className="btn hero-btn-outline">
+            Explore courses
+          </Link>
+        </div>
+
+        {/* Floating Graphics & Image */}
+        <div className="hero-graphics-container mt-5 fade-up-delay-4">
+          
+          {/* Main Character Image Wrap */}
+          <div className="hero-character-wrap">
+            <div className="hero-orange-bg"></div>
+            <Image
+              src="/hero-boy.jpg"
+              alt="Student"
+              width={400}
+              height={450}
+              className="hero-main-student-image"
+              priority
+            />
           </div>
 
-          {/* IMAGE SIDE */}
-          <div className="col-lg-6 col-md-6 col-12 text-center hero-image-wrap">
-            <div className="hero-image-container position-relative">
-              <Image
-                src="/circle.webp"
-                alt="Background Shape"
-                width={100}
-                height={100}
-                className="circle-image-down position-absolute "
-              />
-              <Image
-                src="/outlineCircle.webp"
-                alt="Background Shape"
-                width={100}
-                height={100}
-                className="circle-image-down position-absolute rotating "
-              />
-              <Image
-                src="/circle.webp"
-                alt="Background Shape"
-                width={120}
-                height={120}
-                className="circle-image-up position-absolute"
-              />
-              <Image
-                src="/outlineCircle.webp"
-                alt="Background Shape"
-                width={120}
-                height={120}
-                className="circle-image-up position-absolute rotating "
-              />
+          {/* Left Floating Card & Arrow */}
+          <div className="hero-float-group left-group">
+            <div className="float-card glass-dark-card position-relative">
+              {/* Sparkle Burst */}
+              <svg width="40" height="40" viewBox="0 0 40 40" style={{ position: "absolute", top: "-20px", right: "-10px", zIndex: -1 }}>
+                <line x1="5" y1="25" x2="15" y2="15" stroke="#aaa" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="20" y1="12" x2="25" y2="0" stroke="#aaa" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="25" y1="25" x2="35" y2="18" stroke="#aaa" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+              <h3 className="mb-1">100%</h3>
+              <p className="mb-0">Career-Focused Training</p>
+            </div>
+            {/* Arrow SVG pointing to left card */}
+            <svg className="curved-arrow left-arrow d-none d-lg-block" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 55 5 Q 35 20 5 20" stroke="#888" strokeWidth="1.2"/>
+              <path d="M 15 15 L 5 20 L 15 25" stroke="#888" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
 
-              <Image
-                src="/Girl.webp" fill sizes="100vw"
-                alt="Student image-fluid"
-                className="hero-main-image"
-              />
-              
+          {/* Right Floating Card & Arrow */}
+          <div className="hero-float-group right-group">
+            {/* Arrow SVG pointing to right card */}
+            <svg className="curved-arrow right-arrow d-none d-lg-block" viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 5 45 Q 35 25 75 25" stroke="#888" strokeWidth="1.2"/>
+              <path d="M 65 20 L 75 25 L 65 30" stroke="#888" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div className="float-card glass-gold-card">
+              <h3 className="mb-1">500+</h3>
+              <p className="mb-2 text-muted">Students Trained</p>
+              <div className="d-flex align-items-center gap-2 placement-row">
+                 <span className="placement-text fw-medium">Placed in Top IT Companies</span>
+                 <div className="profiles-stack d-flex">
+                    <span className="profile-dot c-1"></span>
+                    <span className="profile-dot c-2"></span>
+                    <span className="profile-dot c-3"></span>
+                 </div>
+              </div>
             </div>
           </div>
 
         </div>
       </div>
+
+      {/* Enquiry Modal */}
+      <EnquiryFormModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 };

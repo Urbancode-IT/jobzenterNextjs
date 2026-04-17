@@ -21,7 +21,7 @@
 }
 
 .sectionTitle {
-    font-size: 2.4rem;
+    font-size: 2.15rem;
     font-weight: 600;
     line-height: 1.2;
     color: #1a1a1a;
@@ -347,6 +347,11 @@
     opacity: 0.3;
 }
 
+/* Hero placement: same card, spacing after intro (replaces old program-card gap) */
+.footerBanner.footerBannerTop {
+    margin-top: 3rem;
+}
+
 .bannerContent {
     flex: 1.2;
     display: flex;
@@ -359,7 +364,7 @@
 
 .bannerTitle {
     font-size: clamp(28px, 4vw, 38px);
-    font-weight: 800;
+    font-weight: 600;
     color: #111827;
     line-height: 1.1;
     margin: 0;
@@ -799,6 +804,6 @@
         padding: 32px 18px;
     }
     .bannerTitle {
-        font-size: 32px;
+        font-size: 30px;
     }
 }

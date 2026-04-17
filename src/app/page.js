@@ -5,7 +5,7 @@ import FaqSection from "@/components/FaqSection";
 import HeroSection from "@/components/HeroSection";
 import StudentReviews from "@/components/StudentReviews";
 import TopRatedCourses from "@/components/TopRatedCourse";
-import FutureSection from "@/components/FutureSection";
+import WhyChooseUs from "@/components/aboutus/WhyChooseUs";
 import SuccessSection from "@/components/SuccessSection";
 import Script from "next/script";
 
@@ -75,7 +75,7 @@ export default function Home() {
       <AboutSection />
       <TopRatedCourses />
       {/* <Steps /> */}
-      <FutureSection />
+      <WhyChooseUs showProvide={false} />
       <SuccessSection />
       <StudentReviews />
       <FaqSection />

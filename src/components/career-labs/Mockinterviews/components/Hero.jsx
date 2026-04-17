@@ -6,6 +6,12 @@ const Hero = () => {
   const headingRef = useRef(null);
   const [sweepActive, setSweepActive] = useState(false);
 
+  const scrollToRegister = () => {
+    document
+      .getElementById("mock-interview-register")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   useEffect(() => {
     if (!headingRef.current) return;
     const observer = new IntersectionObserver(([entry]) => {
@@ -39,7 +45,13 @@ const Hero = () => {
               Practice real interviews with expert guidance to boost your
             
              confidence and performance.</p>
-            <button className="btn btn-enroll">Enroll now</button>
+            <button
+              type="button"
+              className="btn btn-enroll"
+              onClick={scrollToRegister}
+            >
+              Enroll now
+            </button>
           </div>
 
           <div className="program-img">

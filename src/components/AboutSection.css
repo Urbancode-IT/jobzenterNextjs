@@ -10,7 +10,7 @@
 }
 
 .about-demand-header .about-demand-title {
-  font-size: 2.8rem;
+  font-size: 2.55rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 0.5rem;
@@ -216,7 +216,7 @@
 /* RESPONSIVE */
 @media (max-width: 991px) {
   .about-demand-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
   .about-image-container {
     height: 350px;

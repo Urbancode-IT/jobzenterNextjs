@@ -2,7 +2,7 @@
 
 .navbar-custom {
   background-color: #fdf894; /* Matching the vibrant yellow from your screenshot */
-  min-height: 89px;
+  min-height: 72px;
   height: auto;
   opacity: 1;
   z-index: 50;
@@ -10,8 +10,14 @@
 }
 
 .navbar-inner-container {
-  max-width: 1400px;
-  padding: 0 60px;
+  max-width: 1240px;
+  padding: 0 28px;
+}
+
+.navbar-logo {
+  width: clamp(138px, 13.5vw, 190px);
+  height: auto;
+  object-fit: contain;
 }
 
 .navbar-toggler-custom {
@@ -37,9 +43,9 @@
 .navbar-custom .nav-links {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 26px;
   font-family: "Inter", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400 !important;
   line-height: 1;
   color: #000;
@@ -72,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 92px;
+  min-width: auto;
   height: auto;
   text-align: center;
   overflow: visible;
@@ -112,7 +118,7 @@
 }
 
 .navbar-custom .nav-item.career-lab {
-  min-width: 120px;
+  min-width: auto;
 }
 
 .navbar-custom .nav-link {
@@ -282,8 +288,32 @@
 }
 
 @media (max-width: 1199.98px) {
+  .navbar-custom {
+    min-height: 78px;
+  }
+
   .navbar-inner-container {
-    padding: 0 32px;
+    padding: 0 24px;
+  }
+
+  .navbar-custom .nav-links {
+    gap: 22px;
+    font-size: 13px;
+  }
+
+  .navbar-custom .nav-item,
+  .navbar-custom .nav-item.career-lab {
+    min-width: auto;
+  }
+
+  .call-button {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .navbar-custom .navbar-collapse-custom {
+    gap: 14px;
   }
 }
 

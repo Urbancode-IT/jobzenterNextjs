@@ -60,7 +60,7 @@ const CoursesPage = () => {
         <div className="position-relative" style={{ zIndex: 2 }}>
           <h1
             className="display-4 fw-bold text-white"
-            style={{ textShadow: "2px 2px 15px rgba(0,0,0,0.9)", fontSize: "3.8rem", marginBottom: "8px" }}
+            style={{ textShadow: "2px 2px 15px rgba(0,0,0,0.9)", fontSize: "3.55rem", marginBottom: "8px" }}
           >
             Explore Courses
           </h1>

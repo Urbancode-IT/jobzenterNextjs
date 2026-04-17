@@ -38,18 +38,24 @@ const ChatbotWidget = () => {
 
   return (
     <>
-      {/* Chatbot Trigger */}
+      {/* Chatbot Trigger + teaser (Urbancode-style bubble above icon) */}
       <div id="chatbot-trigger" className="chatbot-trigger">
-        <div className="chatbot-icon">
-          <Image
-            src="/bee.jpg"
-            width={60}
-            height={60}
-            alt="Chat with us"
-            className="rounded-circle"
-          />
+        <div className="chatbot-offer-bubble" aria-live="polite">
+          <span className="chatbot-offer-line1">🎉 Exciting offers are live!</span>
+          <span className="chatbot-offer-line2">Enroll in a course today.</span>
         </div>
-        <span className="chatbot-pulse"></span>
+        <div className="chatbot-icon-stack">
+          <div className="chatbot-icon">
+            <Image
+              src="/bee.jpg"
+              width={60}
+              height={60}
+              alt="Chat with us"
+              className="rounded-circle"
+            />
+          </div>
+          <span className="chatbot-pulse" aria-hidden />
+        </div>
       </div>
 
       {/* Chatbot Container */}
