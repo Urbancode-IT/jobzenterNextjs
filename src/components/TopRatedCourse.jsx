@@ -46,7 +46,7 @@ const TopRatedCourses = () => {
       description: "MERN Stack is a powerful full-stack JavaScript technology for building modern web applications.",
       img: "/courses/mern.webp",
       slug: "mern-stack-development",
-      icons: [<SiMongodb key="m" style={{ color: '#47A248' }} />, <SiExpress key="e" style={{ color: '#0f172a' }} />, <SiReact key="r" style={{ color: '#61DAFB' }} />, <SiNodedotjs key="n" style={{ color: '#339933' }} />]
+      icons: [<SiMongodb key="m" style={{ color: '#47A248' }} />, <SiExpress key="e" style={{ color: '#fff' }} />, <SiReact key="r" style={{ color: '#61DAFB' }} />, <SiNodedotjs key="n" style={{ color: '#339933' }} />]
     },
     {
       id: 2,
@@ -105,6 +105,8 @@ const TopRatedCourses = () => {
   const totalPages = Math.ceil(courses.length / cardsPerPage);
   const startIndex = currentPage * cardsPerPage;
   const visibleCourses = courses.slice(startIndex, startIndex + cardsPerPage);
+  const courseColClass =
+    cardsPerPage === 1 ? "col-lg-12" : cardsPerPage === 2 ? "col-lg-6" : "col-lg-4";
 
   const handleNext = () => {
     if (currentPage < totalPages - 1) {
@@ -139,7 +141,7 @@ const TopRatedCourses = () => {
 
         <div className="row g-4 justify-content-center mt-4">
           {visibleCourses.map((course) => (
-            <div key={course.id} className={`col-lg-${12 / cardsPerPage} col-md-6 d-flex justify-content-center`}>
+            <div key={course.id} className={`${courseColClass} col-md-6 d-flex justify-content-center`}>
               <Link href={`/courses/${course.slug}`} className="course-card-link w-100">
                 <div className="modern-course-card" style={{ backgroundImage: `url(${course.img})` }}>
                   <div className="modern-course-overlay"></div>
@@ -150,13 +152,7 @@ const TopRatedCourses = () => {
                       </span>
                     </div>
                     <div className="glass-body">
-                      <div
-                        className={
-                          course.slug === "mern-stack-development"
-                            ? "tech-icons tech-icons--mern"
-                            : "tech-icons"
-                        }
-                      >
+                      <div className="tech-icons">
                         {course.icons}
                       </div>
                       <h4 className="course-title">{course.title}</h4>
