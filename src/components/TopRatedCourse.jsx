@@ -46,7 +46,7 @@ const TopRatedCourses = () => {
       description: "MERN Stack is a powerful full-stack JavaScript technology for building modern web applications.",
       img: "/courses/mern.webp",
       slug: "mern-stack-development",
-      icons: [<SiMongodb key="m" style={{ color: '#47A248' }} />, <SiExpress key="e" style={{ color: '#fff' }} />, <SiReact key="r" style={{ color: '#61DAFB' }} />, <SiNodedotjs key="n" style={{ color: '#339933' }} />]
+      icons: [<SiMongodb key="m" style={{ color: '#47A248' }} />, <SiExpress key="e" style={{ color: '#0f172a' }} />, <SiReact key="r" style={{ color: '#61DAFB' }} />, <SiNodedotjs key="n" style={{ color: '#339933' }} />]
     },
     {
       id: 2,
@@ -150,7 +150,13 @@ const TopRatedCourses = () => {
                       </span>
                     </div>
                     <div className="glass-body">
-                      <div className="tech-icons">
+                      <div
+                        className={
+                          course.slug === "mern-stack-development"
+                            ? "tech-icons tech-icons--mern"
+                            : "tech-icons"
+                        }
+                      >
                         {course.icons}
                       </div>
                       <h4 className="course-title">{course.title}</h4>
