@@ -1,6 +1,47 @@
 
 
 /* Chatbot Trigger Styles */
+.quick-contact-float {
+    position: fixed;
+    left: 16px;
+    bottom: 64px;
+    z-index: 9997;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quick-contact-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.quick-contact-btn.whatsapp {
+    background: #25d366;
+}
+
+.quick-contact-btn.phone {
+    background: #444;
+}
+
+.quick-contact-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+}
+
+.quick-contact-btn i {
+    font-size: 16px;
+    line-height: 1;
+}
+
 .chatbot-trigger {
     position: fixed;
     bottom: 24px;
@@ -172,6 +213,16 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .quick-contact-float {
+        left: 10px;
+        bottom: 72px;
+    }
+
+    .quick-contact-btn {
+        width: 34px;
+        height: 34px;
+    }
+
     .chatbot-container {
         width: 100%;
         height: 100%;

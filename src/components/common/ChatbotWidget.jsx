@@ -38,6 +38,26 @@ const ChatbotWidget = () => {
 
   return (
     <>
+      {/* Quick contact icons (WhatsApp + Phone) */}
+      <div className="quick-contact-float" aria-label="Quick contact">
+        <a
+          href="https://wa.me/919057770577"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="quick-contact-btn whatsapp"
+          aria-label="Chat on WhatsApp"
+        >
+          <i className="bi bi-whatsapp" />
+        </a>
+        <a
+          href="tel:+919057770577"
+          className="quick-contact-btn phone"
+          aria-label="Call us"
+        >
+          <i className="bi bi-telephone-fill" />
+        </a>
+      </div>
+
       {/* Chatbot Trigger + teaser (Urbancode-style bubble above icon) */}
       <div id="chatbot-trigger" className="chatbot-trigger">
         <div className="chatbot-offer-bubble" aria-live="polite">
