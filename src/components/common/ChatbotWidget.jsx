@@ -1,40 +1,97 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import "./Chatbot.css"; // move your CSS here
 import Chatbot from "./Chatbot";
+import EnquiryFormModal from "../enquiryForm/EnquiryFormModal";
 
 const ChatbotWidget = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
+  const [demoPosition, setDemoPosition] = useState({ x: 0, y: 0 });
+
+  const chatbotTriggerRef = useRef(null);
+  const chatbotContainerRef = useRef(null);
+  const dragStateRef = useRef({
+    isDragging: false,
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    initialX: 0,
+    initialY: 0,
+    moved: false,
+  });
+
   useEffect(() => {
-    const chatbotTrigger = document.getElementById("chatbot-trigger");
-    const chatbotContainer = document.getElementById("chatbot-container");
-    const chatbotClose = document.querySelector(".chatbot-close");
+    if (typeof window === "undefined") return;
+    setDemoPosition({
+      x: Math.max(16, window.innerWidth - 230),
+      y: Math.max(140, window.innerHeight - 170),
+    });
+  }, []);
 
-    if (!chatbotTrigger || !chatbotContainer || !chatbotClose) return;
-
-    const toggleChat = () => chatbotContainer.classList.toggle("active");
-    const closeChat = () => chatbotContainer.classList.remove("active");
-
+  useEffect(() => {
     const handleOutsideClick = (event) => {
       if (
-        chatbotContainer.classList.contains("active") &&
-        !chatbotContainer.contains(event.target) &&
-        !chatbotTrigger.contains(event.target)
+        isChatOpen &&
+        chatbotContainerRef.current &&
+        chatbotTriggerRef.current &&
+        !chatbotContainerRef.current.contains(event.target) &&
+        !chatbotTriggerRef.current.contains(event.target)
       ) {
-        closeChat();
+        setIsChatOpen(false);
       }
     };
 
-    chatbotTrigger.addEventListener("click", toggleChat);
-    chatbotClose.addEventListener("click", closeChat);
     document.addEventListener("click", handleOutsideClick);
-
     return () => {
-      chatbotTrigger.removeEventListener("click", toggleChat);
-      chatbotClose.removeEventListener("click", closeChat);
       document.removeEventListener("click", handleOutsideClick);
     };
-  }, []);
+  }, [isChatOpen]);
+
+  const clampPosition = (x, y) => {
+    if (typeof window === "undefined") return { x, y };
+    const widgetWidth = 210;
+    const widgetHeight = 56;
+    return {
+      x: Math.min(Math.max(12, x), window.innerWidth - widgetWidth - 12),
+      y: Math.min(Math.max(80, y), window.innerHeight - widgetHeight - 12),
+    };
+  };
+
+  const handleDemoPointerDown = (event) => {
+    const dragState = dragStateRef.current;
+    dragState.isDragging = true;
+    dragState.pointerId = event.pointerId;
+    dragState.startX = event.clientX;
+    dragState.startY = event.clientY;
+    dragState.initialX = demoPosition.x;
+    dragState.initialY = demoPosition.y;
+    dragState.moved = false;
+  };
+
+  const handleDemoPointerMove = (event) => {
+    const dragState = dragStateRef.current;
+    if (!dragState.isDragging || dragState.pointerId !== event.pointerId) return;
+
+    const deltaX = event.clientX - dragState.startX;
+    const deltaY = event.clientY - dragState.startY;
+    const next = clampPosition(dragState.initialX + deltaX, dragState.initialY + deltaY);
+    dragState.moved = dragState.moved || Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5;
+    setDemoPosition(next);
+  };
+
+  const handleDemoPointerUp = (event) => {
+    const dragState = dragStateRef.current;
+    if (dragState.pointerId !== event.pointerId) return;
+    dragState.isDragging = false;
+    dragState.pointerId = null;
+  };
+
+  const handleDemoClick = () => {
+    if (dragStateRef.current.moved) return;
+    setIsDemoOpen(true);
+  };
 
   return (
     <>
@@ -59,10 +116,15 @@ const ChatbotWidget = () => {
       </div>
 
       {/* Chatbot Trigger + teaser (Urbancode-style bubble above icon) */}
-      <div id="chatbot-trigger" className="chatbot-trigger">
+      <div
+        id="chatbot-trigger"
+        ref={chatbotTriggerRef}
+        className="chatbot-trigger"
+        onClick={() => setIsChatOpen((prev) => !prev)}
+      >
         <div className="chatbot-offer-bubble" aria-live="polite">
           <span className="chatbot-offer-line1">🎉 Exciting offers are live!</span>
-          <span className="chatbot-offer-line2">Enroll in a course today.</span>
+          {/* <span className="chatbot-offer-line2">Enroll in a course today.</span> */}
         </div>
         <div className="chatbot-icon-stack">
           <div className="chatbot-icon">
@@ -79,8 +141,18 @@ const ChatbotWidget = () => {
       </div>
 
       {/* Chatbot Container */}
-      <div id="chatbot-container" className="chatbot-container">
-        <div className="chatbot-close">
+      <div
+        id="chatbot-container"
+        ref={chatbotContainerRef}
+        className={`chatbot-container ${isChatOpen ? "active" : ""}`}
+      >
+        <div
+          className="chatbot-close"
+          onClick={() => setIsChatOpen(false)}
+          role="button"
+          aria-label="Close chat"
+          tabIndex={0}
+        >
           <svg
             width="20"
             height="20"
@@ -104,6 +176,24 @@ const ChatbotWidget = () => {
         ></iframe> */}
         <Chatbot />
       </div>
+
+      {/* Draggable Book a Demo CTA */}
+      <button
+        type="button"
+        className="book-demo-float"
+        style={{ left: `${demoPosition.x}px`, top: `${demoPosition.y}px` }}
+        onPointerDown={handleDemoPointerDown}
+        onPointerMove={handleDemoPointerMove}
+        onPointerUp={handleDemoPointerUp}
+        onPointerCancel={handleDemoPointerUp}
+        onClick={handleDemoClick}
+        aria-label="Book your free demo session"
+      >
+        <i className="bi bi-calendar2-check-fill" aria-hidden />
+        <span>Book a Demo</span>
+      </button>
+
+      <EnquiryFormModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
     </>
   );
 };

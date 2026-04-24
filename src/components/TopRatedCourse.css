@@ -69,11 +69,19 @@
   z-index: 2;
   isolation: isolate;
   border-radius: 18px;
-  /* Default: readable without backdrop (Safari/older browsers, or when blur fails with overflow:hidden). */
-  background: rgba(18, 20, 28, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  /*
+    Keep a glass look even when backdrop-filter is weak/unsupported in production.
+    This layered gradient fallback prevents the card from turning into a flat dark box.
+  */
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 0.10)),
+    linear-gradient(180deg, rgba(17, 24, 39, 0.20), rgba(17, 24, 39, 0.35));
+  backdrop-filter: blur(18px) saturate(165%);
+  -webkit-backdrop-filter: blur(18px) saturate(165%);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30);
   padding: 16px 20px;
   display: flex;
   flex-direction: column;
@@ -84,9 +92,11 @@
 
 @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
   .glass-detail-box {
-    background: rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.09)),
+      linear-gradient(180deg, rgba(17, 24, 39, 0.16), rgba(17, 24, 39, 0.30));
+    backdrop-filter: blur(20px) saturate(175%);
+    -webkit-backdrop-filter: blur(20px) saturate(175%);
   }
 }
 

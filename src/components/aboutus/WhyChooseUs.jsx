@@ -1,23 +1,20 @@
 "use client";
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./WhyChooseUs.css";
 
-const AUTOPLAY_MS = 8500;
-const SLIDE_DURATION = 0.78;
-const SLIDE_EASE = [0.25, 0.1, 0.25, 1];
+const ROW_SWAP_MS = 11000;
 
 const WhyChooseUs = ({ showWhyChoose = true, showProvide = true }) => {
   const reduceMotion = useReducedMotion();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [slideDir, setSlideDir] = useState("next");
+  const [highlightIndex, setHighlightIndex] = useState(0);
   const [visibleProvide, setVisibleProvide] = useState([]);
   const [visibleTitles, setVisibleTitles] = useState([]);
+  const [isOthersHovered, setIsOthersHovered] = useState(false);
 
   const provideRefs = useRef([]);
   const titleRefs = useRef([]);
-  const carouselRef = useRef(null);
 
 
   // Why Choose Us Data
@@ -71,53 +68,49 @@ const WhyChooseUs = ({ showWhyChoose = true, showProvide = true }) => {
     { icon: "bi-lightning-charge", text: "Continuous Skill Development + Soft Skills Training" },
   ];
 
-  const total = whyChooseData.length;
-  const current = whyChooseData[activeIndex];
-  const dirSign = slideDir === "next" ? 1 : -1;
-
-  const slideVariants = useMemo(
-    () => ({
-      enter: (dir) => ({
-        x: reduceMotion ? 0 : dir * 48,
-        opacity: 0,
-      }),
-      center: { x: 0, opacity: 1 },
-      exit: (dir) => ({
-        x: reduceMotion ? 0 : dir * -40,
-        opacity: 0,
-      }),
-    }),
-    [reduceMotion]
-  );
-
-  const goTo = useCallback(
-    (index, dir) => {
-      const next = ((index % total) + total) % total;
-      setSlideDir(dir);
-      setActiveIndex(next);
+  const compareData = [
+    {
+      ours: "Transparent guidance with realistic approval support",
+      others: "Paid services with low approval chances",
     },
-    [total]
-  );
-
-  const goNext = useCallback(() => {
-    goTo(activeIndex + 1, "next");
-  }, [activeIndex, goTo]);
-
-  const goPrev = useCallback(() => {
-    goTo(activeIndex - 1, "prev");
-  }, [activeIndex, goTo]);
+    {
+      ours: "Strong partner network for smoother loan support",
+      others: "Very few tie-ups with banks",
+    },
+    {
+      ours: "Flexible options based on profile and repayment comfort",
+      others: "Loan options are not flexible",
+    },
+    {
+      ours: "Affordable EMI planning with clear cost visibility",
+      others: "Expensive EMI rates",
+    },
+    {
+      ours: "Repayment plans designed around learner timelines",
+      others: "Inflexible repayment terms",
+    },
+    {
+      ours: "Fair and student-friendly interest structures",
+      others: "High interest rates",
+    },
+    {
+      ours: "Digital-first, simple, assisted application workflow",
+      others: "Manual and paperwork-heavy application process",
+    },
+    {
+      ours: "Fast support and timely follow-up till completion",
+      others: "Delay in loan processing",
+    },
+  ];
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) return;
-
+    if (reduceMotion) return;
     const id = window.setInterval(() => {
       if (document.hidden) return;
-      setSlideDir("next");
-      setActiveIndex((i) => (i + 1) % total);
-    }, AUTOPLAY_MS);
+      setHighlightIndex((prev) => (prev + 1) % compareData.length);
+    }, ROW_SWAP_MS);
     return () => window.clearInterval(id);
-  }, [total]);
+  }, [compareData.length, reduceMotion]);
 
   useEffect(() => {
     const observers = [];
@@ -170,79 +163,66 @@ const WhyChooseUs = ({ showWhyChoose = true, showProvide = true }) => {
             </h2>
 
             <p className="why-choose-lead">
-              One clear reason at a time — swipe through what makes Jobzenter different.
+              A transparent side-by-side look at what makes Jobzenter different from typical training providers.
             </p>
 
-            <div className="why-choose-carousel" ref={carouselRef}>
-              <div className="why-choose-stage" aria-roledescription="carousel">
-                <div className="why-choose-stage__row">
-                  <button
-                    type="button"
-                    className="why-choose-stage__arrow why-choose-stage__arrow--prev"
-                    onClick={goPrev}
-                    aria-label="Previous reason"
-                  >
-                    <i className="bi bi-chevron-left" aria-hidden />
-                  </button>
-
-                  <div className="why-choose-stage__viewport">
-                    <AnimatePresence mode="wait" initial={false} custom={dirSign}>
-                      <motion.article
-                        key={activeIndex}
-                        role="tabpanel"
-                        aria-live="polite"
-                        custom={dirSign}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{
-                          duration: reduceMotion ? 0.15 : SLIDE_DURATION,
-                          ease: SLIDE_EASE,
-                        }}
-                        className="why-choose-pro-card"
+            <div className="why-compare-wrap">
+              <div className={`why-compare-grid ${isOthersHovered ? "is-swapped" : ""}`}>
+                <div
+                  className="why-compare-card why-compare-card--ours"
+                  onMouseEnter={() => setIsOthersHovered(false)}
+                  onFocus={() => setIsOthersHovered(false)}
+                >
+                  <h3 className="why-compare-card__title">What We Give</h3>
+                  <ul className={`why-compare-list ${isOthersHovered ? "why-compare-list--icons-only" : ""}`}>
+                    {compareData.map((item, index) => (
+                      <motion.li
+                        key={`ours-${index}`}
+                        className={`why-compare-list__item ${
+                          highlightIndex === index ? "is-highlighted" : ""
+                        }`}
+                        initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                        whileInView={reduceMotion ? {} : { opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.35, delay: index * 0.05 }}
                       >
-                        <div className="why-choose-pro-card__badge">
-                          <i className="bi bi-star-fill why-choose-pro-card__badge-icon" aria-hidden />
-                          <span>
-                            {String(activeIndex + 1).padStart(2, "0")} of {String(total).padStart(2, "0")}
-                          </span>
-                        </div>
-                        <h3 className="why-choose-pro-card__title">{current.title}</h3>
-                        <p className="why-choose-pro-card__body">{current.text}</p>
-                      </motion.article>
-                    </AnimatePresence>
-                  </div>
-
-                  <button
-                    type="button"
-                    className="why-choose-stage__arrow why-choose-stage__arrow--next"
-                    onClick={goNext}
-                    aria-label="Next reason"
-                  >
-                    <i className="bi bi-chevron-right" aria-hidden />
-                  </button>
+                        <i
+                          className={`bi ${
+                            isOthersHovered ? "bi-x-circle-fill item-icon--swap" : "bi-check-circle-fill item-icon--good"
+                          } item-icon`}
+                          aria-hidden
+                        />
+                        <span className="item-text item-text--ours">{item.ours}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
 
                 <div
-                  className="why-choose-stage__dots"
-                  role="tablist"
-                  aria-label="Why choose us slides"
+                  className="why-compare-card why-compare-card--others"
+                  onMouseEnter={() => setIsOthersHovered(true)}
+                  onMouseLeave={() => setIsOthersHovered(false)}
+                  onFocus={() => setIsOthersHovered(true)}
+                  onBlur={() => setIsOthersHovered(false)}
                 >
-                  {whyChooseData.map((item, i) => (
-                    <button
-                      key={i}
-                      type="button"
-                      role="tab"
-                      aria-selected={i === activeIndex}
-                      aria-label={`${i + 1}: ${item.title}`}
-                      className={`why-choose-stage__dot ${i === activeIndex ? "is-active" : ""}`}
-                      onClick={() => {
-                        if (i === activeIndex) return;
-                        goTo(i, i > activeIndex ? "next" : "prev");
-                      }}
-                    />
-                  ))}
+                  <h3 className="why-compare-card__title">Others </h3>
+                  <ul className={`why-compare-list ${!isOthersHovered ? "why-compare-list--icons-only" : ""}`}>
+                    {compareData.map((item, index) => (
+                      <motion.li
+                        key={`others-${index}`}
+                        className={`why-compare-list__item why-compare-list__item--others ${
+                          highlightIndex === index ? "is-highlighted" : ""
+                        }`}
+                        initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                        whileInView={reduceMotion ? {} : { opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.35, delay: index * 0.05 }}
+                      >
+                        <i className="bi bi-x-circle-fill item-icon item-icon--bad" aria-hidden />
+                        <span className="item-text item-text--others">{item.others}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
