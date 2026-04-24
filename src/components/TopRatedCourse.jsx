@@ -1,9 +1,8 @@
 'use client';
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import "./TopRatedCourse.css";
-import { IoArrowForward, IoChevronBack, IoChevronForward } from "react-icons/io5";
+import { IoArrowForward, IoChevronBack, IoChevronForward, IoPeople } from "react-icons/io5";
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiAmazonwebservices, SiMysql, SiSpringboot, SiCisco, SiPython } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
@@ -12,7 +11,6 @@ const TopRatedCourses = () => {
   const [cardsPerPage, setCardsPerPage] = useState(3);
   const [titleVisible, setTitleVisible] = useState(false);
   const titleRef = useRef(null);
-  const router = useRouter();
 
   useEffect(() => {
     if (!titleRef.current) return;
@@ -148,7 +146,7 @@ const TopRatedCourses = () => {
                   <div className="glass-detail-box">
                     <div className="glass-header">
                       <span className="enrollment-badge">
-                        <i className="bi bi-people-fill me-1"></i> {course.enrollment}
+                        <IoPeople className="enrollment-icon" aria-hidden="true" /> {course.enrollment}
                       </span>
                     </div>
                     <div className="glass-body">

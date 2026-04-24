@@ -79,11 +79,14 @@
   flex-direction: column;
   gap: 12px;
   transform: translateZ(0);
+  overflow: hidden;
 }
 
 @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
   .glass-detail-box {
-    background: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
   }
 }
 
@@ -103,6 +106,13 @@
   font-weight: 500;
   display: flex;
   align-items: center;
+  gap: 6px;
+}
+
+.trending-section .enrollment-icon {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  color: #ffffff;
 }
 
 .tech-icons {
@@ -111,9 +121,11 @@
   margin-bottom: 4px;
 }
 
-.tech-icons svg {
+.trending-section .tech-icons svg {
   color: #fff;
   font-size: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
