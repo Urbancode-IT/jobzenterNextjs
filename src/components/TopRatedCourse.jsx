@@ -141,7 +141,13 @@ const TopRatedCourses = () => {
           {visibleCourses.map((course) => (
             <div key={course.id} className={`${courseColClass} col-md-6 d-flex justify-content-center`}>
               <Link href={`/courses/${course.slug}`} className="course-card-link w-100">
-                <div className="modern-course-card" style={{ backgroundImage: `url(${course.img})` }}>
+                <div
+                  className="modern-course-card"
+                  style={{
+                    backgroundImage: `url(${course.img})`,
+                    "--course-bg": `url(${course.img})`,
+                  }}
+                >
                   <div className="modern-course-overlay"></div>
                   <div className="glass-detail-box">
                     <div className="glass-header">

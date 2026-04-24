@@ -90,6 +90,27 @@
   overflow: hidden;
 }
 
+.glass-detail-box::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  /* Deterministic glass layer: works even when backdrop-filter is weak in production browsers. */
+  background-image: var(--course-bg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(14px) saturate(125%);
+  transform: scale(1.08);
+  z-index: -2;
+}
+
+.glass-detail-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.06));
+  z-index: -1;
+}
+
 @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
   .glass-detail-box {
     background:
