@@ -18,6 +18,7 @@ const Navbar = () => {
   const navItems = [
     { label: "Courses", path: "/courses", hasDropdown: false },
     { label: "About Us", path: "/aboutus", hasDropdown: false },
+    { label: "Compiler", path: "/compiler", hasDropdown: false },
 
     {
       label: "Career Lab",
