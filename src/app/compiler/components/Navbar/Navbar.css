@@ -1,0 +1,111 @@
+.compiler-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+    height: 72px;
+    background-color: #fdf894;
+    border-bottom: 1px solid #ebe07a;
+    color: #111111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
+}
+
+.compiler-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    background: #111111;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fdf894;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(139, 138, 138, 0.3);
+}
+
+.compiler-navbar-brand h1 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #111111;
+    letter-spacing: -0.02em;
+}
+
+.compiler-navbar-brand h1 span {
+    color: #2f2f2f;
+    font-weight: 400;
+    margin-left: 2px;
+}
+
+.compiler-navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.compiler-nav-link {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.compiler-nav-link:hover {
+    color: #111111;
+    background-color: #f3eb8e;
+}
+
+.compiler-nav-link.active {
+    color: #111111;
+    background-color: #efe57b;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.compiler-nav-link svg {
+    opacity: 0.7;
+}
+
+.compiler-nav-link.active svg {
+    opacity: 1;
+    color: #111111;
+}
+
+@media (max-width: 768px) {
+    .compiler-navbar {
+        padding: 0 16px;
+        height: 64px;
+    }
+
+    .compiler-navbar-brand h1 {
+        font-size: 1.1rem;
+    }
+
+    .compiler-navbar-nav {
+        gap: 4px;
+    }
+
+    .compiler-nav-link span {
+        display: none;
+    }
+
+    .compiler-nav-link {
+        padding: 10px;
+    }
+}
