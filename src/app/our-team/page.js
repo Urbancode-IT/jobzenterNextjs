@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -9,17 +9,17 @@ const teamHighlights = [
   {
     name: "Siva",
     role: "Senior Mentor",
-    image: "/team/siva sir.PNG",
+    image: "/team/siva-sir.png",
   },
   {
     name: "Pushparaj",
     role: "Lead Educator",
-    image: "/team/pushparajjj.PNG",
+    image: "/team/pushparajjj.png",
   },
   {
     name: "Sankara Pandian",
     role: "Success Lead",
-    image: "/team/sangu.PNG",
+    image: "/team/sangu.png",
   },
 ];
 
@@ -154,9 +154,9 @@ const skillForgeCycle = [
 ];
 
 const centerTeamMembers = [
-  { name: "Siva", image: "/team/siva sir.PNG" },
-  { name: "Pushparaj", image: "/team/pushparajjj.PNG" },
-  { name: "Sankara Pandian", image: "/team/sangu.PNG" },
+  { name: "Siva", image: "/team/siva-sir.png" },
+  { name: "Pushparaj", image: "/team/pushparajjj.png" },
+  { name: "Sankara Pandian", image: "/team/sangu.png" },
   { name: "Mukesh", image: "/team/mukesh.jpg" },
   { name: "Sanjay", image: "/team/sanjay.jpg" },
 ];
