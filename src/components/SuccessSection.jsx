@@ -19,7 +19,7 @@ const SUCCESS_STORIES = [
     name: "Priya Sundaram",
     role: "Data Analyst",
     company: "Capgemini",
-    quote: "Data Analytics course was incredibly hands-on. The Power BI projects we built directly helped me in my interviews. Urbancode's placement support is unmatched.",
+    quote: "Data Analytics course was incredibly hands-on. The Power BI projects we built directly helped me in my interviews. Jobzenter's placement support is unmatched.",
     batch: "Data Analytics — 2024 Batch",
     package: "₹7.2 LPA"
   },
@@ -29,7 +29,7 @@ const SUCCESS_STORIES = [
     name: "Rahul Vijayan",
     role: "Cloud DevOps Engineer",
     company: "Infosys",
-    quote: "AWS DevOps certification from Urbancode opened doors I never imagined. The live project experience gave me a real edge over other candidates in the interview.",
+    quote: "AWS DevOps certification from Jobzenter opened doors I never imagined. The live project experience gave me a real edge over other candidates in the interview.",
     batch: "AWS DevOps — 2023 Batch",
     package: "₹9.0 LPA"
   },
@@ -39,7 +39,7 @@ const SUCCESS_STORIES = [
     name: "Meena Nair",
     role: "QA Automation Engineer",
     company: "TCS",
-    quote: "I had zero programming background before joining Urbancode. The Automation Testing course made me completely job-ready. Got placed in TCS in the first attempt!",
+    quote: "I had zero programming background before joining Jobzenter. The Automation Testing course made me completely job-ready. Got placed in TCS in the first attempt!",
     batch: "Automation Testing — 2024 Batch",
     package: "₹6.5 LPA"
   },
@@ -49,7 +49,7 @@ const SUCCESS_STORIES = [
     name: "Suresh Kumar",
     role: "AI/ML Engineer",
     company: "Amazon",
-    quote: "The AI/ML course at Urbancode was industry-level. Working on TensorFlow projects during training helped me crack Amazon's technical interview with confidence.",
+    quote: "The AI/ML course at Jobzenter was industry-level. Working on TensorFlow projects during training helped me crack Amazon's technical interview with confidence.",
     batch: "AI / ML — 2024 Batch",
     package: "₹12 LPA"
   },
@@ -59,7 +59,7 @@ const SUCCESS_STORIES = [
     name: "Divya Anand",
     role: "Python Developer",
     company: "Freshworks",
-    quote: "Switched from non-IT to IT through Urbancode's Python Full Stack course. The career guidance and mock interview sessions were game-changers for my transition.",
+    quote: "Switched from non-IT to IT through Jobzenter's Python Full Stack course. The career guidance and mock interview sessions were game-changers for my transition.",
     batch: "Python Full Stack — 2024 Batch",
     package: "₹7.8 LPA"
   }

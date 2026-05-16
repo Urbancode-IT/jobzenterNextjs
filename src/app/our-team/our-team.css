@@ -1,0 +1,203 @@
+.our-team-page { background: #f8f8f7; }
+.our-team-hero { padding: 16px 0 0; }
+.our-team-hero-panel { background: linear-gradient(155deg, #fffef7 0%, #fff9df 48%, #fff5c8 100%); color: #0f172a; border-radius: 14px; padding: 34px; display: grid; grid-template-columns: 1.2fr 0.9fr; gap: 28px; border: 1px solid rgba(244, 234, 23, 0.35); box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06); }
+.hero-chip { display: inline-block; font-size: 12px; font-family: "Inter", system-ui, -apple-system, sans-serif; border-radius: 999px; border: 1px solid rgba(15, 23, 42, 0.14); color: #7c5a00; background: #fff8d1; padding: 5px 10px; margin-bottom: 14px; font-weight: 500; letter-spacing: 0.01em; }
+.resume-like-heading { font-family: "Inter", system-ui, -apple-system, sans-serif; font-size: 2.15rem; font-weight: 600; line-height: 1.1; letter-spacing: 0; color: #111827; margin-bottom: 10px; }
+.resume-sweep {
+  background: linear-gradient(90deg, #1a1a1a 0%, #1a1a1a 18%, #fdf001 50%, #1a1a1a 82%, #1a1a1a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: resumeGradientSweep 1.5s ease forwards;
+}
+@keyframes resumeGradientSweep {
+  0% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+.hero-copy h1.resume-like-heading { max-width: 22ch; }
+.hero-copy p { font-family: "Inter", system-ui, -apple-system, sans-serif; color: #475569; max-width: 56ch; line-height: 1.65; margin-bottom: 18px; font-size: clamp(1rem, 1.2vw, 1.12rem); }
+.hero-actions .btn { font-family: "Inter", system-ui, -apple-system, sans-serif; font-weight: 500; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-cards-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; min-height: 340px; }
+.big-card, .mini-card { border-radius: 14px; padding: 14px; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid rgba(15, 23, 42, 0.1); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); position: relative; overflow: hidden; }
+.big-card { grid-row: 1 / 3; background: linear-gradient(165deg, #ffffff, #f9fafb); }
+.mini-card.pink { background: linear-gradient(165deg, #fff8dc, #fff2b9); }
+.mini-card.green { background: linear-gradient(165deg, #f4f7ff, #e6eeff); }
+.team-photo { object-fit: cover; object-position: center 18%; }
+.big-card .team-photo { object-position: center 10%; }
+.mini-card .team-photo { object-position: center 12%; }
+.photo-meta { position: relative; z-index: 2; width: fit-content; max-width: calc(100% - 8px); background: rgba(15, 23, 42, 0.78); color: #fff; padding: 7px 10px; border-radius: 8px; backdrop-filter: blur(3px); margin-top: auto; margin-left: 2px; }
+.photo-meta strong { display: block; font-size: 0.9rem; line-height: 1.1; }
+.photo-meta small { display: block; margin-top: 2px; color: #e2e8f0; font-size: 11px; }
+.our-team-stats { background: transparent; padding: 14px 0 8px; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.stat-card { padding: 16px 12px; text-align: center; border-radius: 12px; background: linear-gradient(160deg, #ffffff 0%, #fffdf1 100%); border: 1px solid rgba(15, 23, 42, 0.08); box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05); }
+.stat-card h3 { margin: 0; font-size: clamp(1.55rem, 2.3vw, 2rem); font-weight: 700; line-height: 1.05; color: #111827; }
+.stat-card p { margin: 6px 0 0; color: #6b7280; font-size: 12px; letter-spacing: 0.02em; text-transform: uppercase; }
+.journey-section { background: transparent; }
+.journey-full { width: 100%; padding: 0 10px; }
+.journey-header { max-width: 780px; margin: 0 auto 18px; }
+.journey-chip { display: inline-block; margin-bottom: 8px; font-size: 12px; font-weight: 600; color: #7c5a00; background: #fff3c3; border: 1px solid #f2df8f; border-radius: 999px; padding: 5px 12px; }
+.journey-header h2.resume-like-heading { max-width: 30ch; margin: 0 auto 8px; }
+.journey-header p { color: #64748b; margin-bottom: 0; font-size: 1.02rem; }
+.journey-lifecycle { position: relative; margin: 30px auto 6px; min-height: 860px; width: 100%; max-width: 1160px; }
+.journey-ring { position: absolute; top: 50%; left: 50%; width: 620px; height: 620px; transform: translate(-50%, -50%); border-radius: 50%; border: 2px dashed #e7c86f; opacity: 0.9; }
+.journey-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #fff6d2, #f7d67a); border: 3px solid #ddb44d; box-shadow: 0 14px 32px rgba(201, 158, 49, 0.35); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 18px; z-index: 2; }
+.journey-center span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #6b4d00; font-weight: 700; }
+.journey-center strong { margin-top: 6px; font-size: 1.1rem; color: #1f2937; line-height: 1.2; }
+.journey-center small { margin-top: 6px; color: #475569; font-size: 0.78rem; }
+.journey-orbit { position: absolute; inset: 0; z-index: 3; }
+.journey-orbit-slot { position: absolute; }
+.journey-orbit-slot--01 { top: 20px; left: calc(50% - 120px); }
+.journey-orbit-slot--02 { top: 170px; right: 70px; }
+.journey-orbit-slot--03 { top: 470px; right: 70px; }
+.journey-orbit-slot--04 { top: 620px; left: calc(50% - 120px); }
+.journey-orbit-slot--05 { top: 470px; left: 70px; }
+.journey-orbit-slot--06 { top: 170px; left: 70px; }
+.journey-step-rotator { animation: none; transform-origin: center; }
+.journey-step { width: 240px; text-align: left; animation: journeyPop 0.6s ease both; background: linear-gradient(155deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 253, 244, 0.97) 100%); border: 1px solid #eee4cc; border-radius: 8px; padding: 12px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); transition: transform 0.28s ease, box-shadow 0.28s ease; overflow: hidden; isolation: isolate; }
+.journey-step:hover { transform: translateY(-6px); box-shadow: 0 18px 34px rgba(15, 23, 42, 0.15); }
+.journey-step-bg { position: absolute; inset: auto -16px -24px auto; width: 108px; height: 108px; border-radius: 999px; background: radial-gradient(circle, rgba(244, 234, 23, 0.24) 0%, rgba(244, 234, 23, 0) 72%); z-index: 1; pointer-events: none; }
+.journey-step-watermark { position: absolute; right: -8px; bottom: -10px; width: 72px; height: 72px; border-radius: 14px; overflow: hidden; opacity: 0.2; border: 1px solid rgba(15, 23, 42, 0.08); z-index: 1; pointer-events: none; }
+.journey-step-watermark-image { object-fit: cover; object-position: center top; }
+.journey-step-top, .journey-step-image-wrap, .journey-step h3, .journey-step p { position: relative; z-index: 2; }
+.journey-step-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.journey-node { width: 50px; height: 50px; margin: 0; border-radius: 50%; border: 2px solid #d3a92f; background: radial-gradient(circle at 30% 30%, #ffe8a5, #efc14f); color: #503500; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 18px rgba(211, 169, 47, 0.35); }
+.journey-step-icon { width: 36px; height: 36px; border-radius: 50%; background: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; color: #374151; font-size: 15px; flex-shrink: 0; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08); }
+.journey-step-image-wrap { position: relative; width: 58px; height: 58px; border-radius: 12px; overflow: hidden; border: 1px solid #e6e8ec; margin-bottom: 8px; box-shadow: 0 8px 14px rgba(15, 23, 42, 0.1); }
+.journey-step-image { object-fit: cover; object-position: center top; }
+.journey-step h3 { font-size: 0.98rem; color: #1f2937; margin: 0 0 6px; font-weight: 700; }
+.journey-step p { margin: 0; font-size: 0.82rem; line-height: 1.42; color: #64748b; }
+@keyframes journeyPop {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.our-family-section { background: transparent; }
+.our-family-header { max-width: 760px; margin: 0 auto 18px; }
+.family-chip { display: inline-block; margin-bottom: 10px; font-size: 12px; font-weight: 600; color: #7c5a00; background: #fff3c3; border: 1px solid #f2df8f; border-radius: 999px; padding: 5px 12px; }
+.our-family-header h2 { color: #0f172a; margin-bottom: 10px; }
+.our-family-header p { margin-bottom: 0; color: #475569; line-height: 1.7; }
+.our-family-stage { margin-top: 18px; border-radius: 24px; padding: 24px 20px 16px; border: 1px solid #ebeef3; background: radial-gradient(circle at 18% 10%, #fff5cc 0%, #ffffff 36%), linear-gradient(180deg, #ffffff 0%, #fbfcff 100%); box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08); position: relative; overflow: hidden; }
+.our-family-stage::before { content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%; background: rgba(255, 219, 104, 0.28); top: -120px; right: -80px; filter: blur(2px); }
+.our-family-stage::after { content: ""; position: absolute; width: 160px; height: 160px; border-radius: 50%; background: rgba(99, 102, 241, 0.08); bottom: -80px; left: -50px; }
+.our-family-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; justify-items: center; align-items: center; }
+.family-card { width: 100%; max-width: 112px; padding: 4px; border-radius: 18px; background: linear-gradient(155deg, rgba(255,255,255,0.95), rgba(245,248,255,0.95)); border: 1px solid #e7eaf0; box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1); transform: none; opacity: 1; animation: none; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.family-card:hover { transform: translateY(-6px) scale(1.07); box-shadow: 0 16px 30px rgba(15, 23, 42, 0.18); }
+.family-photo-wrap { position: relative; aspect-ratio: 1 / 1; border-radius: 14px; background: #f8fafc; overflow: hidden; }
+.family-photo { object-fit: cover; object-position: center top; transition: transform 0.45s ease, filter 0.45s ease; }
+.family-card:hover .family-photo { transform: scale(1.1); filter: saturate(1.08); }
+.family-trust-strip { position: relative; z-index: 1; margin-top: 16px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.family-trust-strip span { font-size: 12px; font-weight: 600; color: #334155; padding: 6px 10px; border-radius: 999px; border: 1px solid #e5e7eb; background: #ffffffd6; backdrop-filter: blur(2px); }
+.placement-dark-section { background: transparent; }
+.placement-dark-panel { border-radius: 24px; background: radial-gradient(circle at 14% 16%, rgba(244, 234, 23, 0.18) 0%, #fff8e0 38%, #fffdf5 100%); border: 1px solid rgba(244, 234, 23, 0.3); box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08); padding: clamp(20px, 3.2vw, 34px); color: #1f2937; overflow: hidden; }
+.placement-dark-chip { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #7c5a00; border: 1px solid rgba(180, 83, 9, 0.3); border-radius: 999px; padding: 6px 12px; margin-bottom: 14px; background: rgba(254, 240, 138, 0.55); }
+.placement-main-heading { margin: 0 0 18px; line-height: 1.05; letter-spacing: -0.02em; color: #111827; }
+.placement-dark-right h3 { margin: 0 0 12px; font-size: clamp(1.1rem, 1.8vw, 1.5rem); font-weight: 700; color: #111827; }
+.placement-flow-wrap { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; padding-top: 10px; }
+.placement-flow-line { position: absolute; left: 5%; right: 5%; top: 38px; height: 3px; border-radius: 999px; background: linear-gradient(90deg, #84cc16 0%, #06b6d4 25%, #8b5cf6 50%, #f97316 75%, #ef4444 100%); opacity: 0.8; }
+.placement-flow-item { position: relative; z-index: 1; text-align: center; padding: 0 4px; }
+.placement-flow-icon { width: 58px; height: 58px; margin: 0 auto 10px; border-radius: 50%; border: 2px solid rgba(244, 234, 23, 0.55); background: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; color: #334155; box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08); }
+.placement-flow-item h4 { margin: 0; font-size: 0.95rem; color: #111827; line-height: 1.25; }
+.placement-flow-item p { margin: 6px 0 0; color: #64748b; font-size: 0.76rem; line-height: 1.35; min-height: 34px; }
+.placement-week-pill { display: inline-block; margin-top: 6px; font-size: 0.7rem; font-weight: 700; color: #7c5a00; padding: 3px 8px; border-radius: 999px; border: 1px solid rgba(245, 158, 11, 0.35); background: rgba(254, 240, 138, 0.6); }
+.placement-flow-index { position: absolute; top: 2px; right: 18px; width: 20px; height: 20px; border-radius: 50%; background: #111827; color: #f8fafc; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.skillforge-cycle-section { background: transparent; padding-left: 0 !important; padding-right: 0 !important; }
+.skillforge-panel { width: 100%; border-radius: 0; padding: 26px 20px 18px; background: radial-gradient(circle at 14% 12%, #fff7d7 0%, #fffdf4 38%, #ffffff 100%); border-top: 1px solid rgba(244, 234, 23, 0.32); border-bottom: 1px solid rgba(244, 234, 23, 0.32); box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08); color: #1f2937; }
+.skillforge-head { max-width: 740px; margin: 0 auto 24px; }
+.skillforge-chip { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #7c5a00; border: 1px solid rgba(245, 158, 11, 0.38); border-radius: 999px; padding: 5px 12px; background: rgba(254, 240, 138, 0.6); margin-bottom: 12px; }
+.skillforge-head h2 { margin: 0; line-height: 0.95; color: #111827; }
+.skillforge-head h2 span { color: #f59e0b; font-style: normal; }
+.skillforge-head p { margin: 14px auto 0; color: #64748b; max-width: 56ch; line-height: 1.6; }
+.skillforge-orbit-wrap { position: relative; min-height: 760px; max-width: 980px; margin: 0 auto; }
+.skillforge-orbit-ring { position: absolute; top: 50%; left: 50%; width: 520px; height: 520px; transform: translate(-50%, -50%); border-radius: 50%; border: 2px dashed rgba(245, 158, 11, 0.48); box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.16); }
+.skillforge-orbit-glow { position: absolute; top: 50%; left: 50%; width: 360px; height: 360px; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(254, 240, 138, 0.28) 0%, rgba(251, 191, 36, 0.18) 48%, rgba(255, 255, 255, 0) 74%); }
+.skillforge-center-core { position: absolute; top: 50%; left: 50%; width: 188px; height: 188px; transform: translate(-50%, -50%); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 2px solid rgba(245, 158, 11, 0.45); background: radial-gradient(circle at 30% 30%, rgba(254, 240, 138, 0.85), rgba(245, 158, 11, 0.25)); box-shadow: inset 0 0 26px rgba(245, 158, 11, 0.16), 0 8px 20px rgba(245, 158, 11, 0.22); }
+.skillforge-center-core strong { font-size: 1.45rem; letter-spacing: 0.02em; color: #111827; }
+.skillforge-center-core small { color: #475569; font-size: 0.82rem; }
+.center-team-stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; width: 124px; margin: 0 auto 10px; justify-items: center; }
+.center-team-avatar { position: relative; width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 2px solid #ffffff; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); background: #fff; }
+.center-team-avatar:nth-child(4) { grid-column: 1 / 2; transform: translateX(20px); }
+.center-team-avatar:nth-child(5) { grid-column: 3 / 4; transform: translateX(-20px); }
+.center-team-avatar-image { object-fit: cover; object-position: center top; }
+.skillforge-node { position: absolute; width: 170px; text-align: center; padding: 10px 8px; }
+.skillforge-node-icon { width: 56px; height: 56px; margin: 0 auto 8px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.3rem; color: #111827; border: 1px solid rgba(245, 158, 11, 0.45); background: #fff8dd; box-shadow: 0 0 14px rgba(245, 158, 11, 0.16); }
+.skillforge-node-step { position: absolute; top: 2px; right: 36px; width: 22px; height: 22px; border-radius: 50%; font-size: 11px; font-weight: 700; color: #111827; display: flex; align-items: center; justify-content: center; background: #f4ea17; border: 2px solid #ffffff; }
+.skillforge-node h3 { margin: 0; font-size: 1.05rem; color: #111827; line-height: 1.2; }
+.skillforge-node p { margin: 6px 0 0; color: #64748b; font-size: 0.8rem; line-height: 1.35; }
+.skillforge-node--1 { top: 54px; left: calc(50% - 85px); }
+.skillforge-node--2 { top: 180px; right: 56px; }
+.skillforge-node--3 { bottom: 190px; right: 56px; }
+.skillforge-node--4 { bottom: 58px; left: calc(50% - 85px); }
+.skillforge-node--5 { bottom: 190px; left: 56px; }
+.skillforge-node--6 { top: 180px; left: 56px; }
+@keyframes familyFadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes familyFloat {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-7px) rotate(1deg); }
+}
+@keyframes familyFloatAlt {
+  0%, 100% { transform: translateY(-2px) rotate(1deg); }
+  50% { transform: translateY(6px) rotate(-1deg); }
+}
+@keyframes familyRotate {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(2deg); }
+  75% { transform: translateY(4px) rotate(-2deg); }
+}
+@media (max-width: 991px) {
+  .our-team-hero-panel { grid-template-columns: 1fr; padding: 24px; }
+  .hero-cards-grid { gap: 12px; min-height: 300px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .journey-lifecycle { min-height: auto; max-width: 100%; }
+  .journey-ring, .journey-center { display: none; }
+  .journey-orbit { position: static; inset: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .journey-orbit-slot { position: relative; top: auto; left: auto; transform: none; }
+  .journey-step-rotator { animation: none; }
+  .journey-step { width: auto; transform: none; margin-bottom: 0; }
+  .journey-step:hover { transform: translateY(-4px); }
+  .our-family-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .our-family-stage { padding: 20px 14px 14px; border-radius: 18px; }
+  .placement-flow-wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 18px; }
+  .placement-flow-line { display: none; }
+  .skillforge-orbit-wrap { min-height: 920px; }
+  .skillforge-orbit-ring { width: 420px; height: 420px; }
+  .skillforge-node { width: 154px; }
+  .skillforge-node--2 { right: 8px; }
+  .skillforge-node--3 { right: 8px; bottom: 210px; }
+  .skillforge-node--5 { left: 8px; bottom: 210px; }
+  .skillforge-node--6 { left: 8px; }
+}
+@media (max-width: 575px) {
+  .our-team-nav-pills .pill { font-size: 11px; padding: 5px 10px; }
+  .resume-like-heading { font-size: 1.75rem; }
+  .hero-actions .btn { width: 100%; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .journey-full { padding: 0 4px; }
+  .journey-orbit { grid-template-columns: 1fr; gap: 10px; }
+  .journey-step { padding: 12px 10px; }
+  .journey-node { width: 42px; height: 42px; margin: 0; font-size: 0.85rem; }
+  .journey-step h3 { font-size: 0.9rem; }
+  .journey-step p { font-size: 0.8rem; }
+  .our-family-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .family-card { max-width: 90px; border-radius: 14px; }
+  .family-trust-strip span { font-size: 11px; padding: 5px 9px; }
+  .placement-dark-panel { padding: 16px; }
+  .placement-flow-wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 8px; }
+  .placement-flow-icon { width: 52px; height: 52px; font-size: 1.1rem; }
+  .placement-flow-item p { min-height: auto; }
+  .skillforge-panel { padding: 18px 10px 14px; border-radius: 16px; }
+  .resume-like-heading { font-size: 1.5rem; }
+  .skillforge-head h2 { line-height: 1.02; }
+  .skillforge-orbit-wrap { min-height: auto; }
+  .skillforge-orbit-ring, .skillforge-orbit-glow, .skillforge-center-core { display: none; }
+  .skillforge-node { position: relative; width: 100%; left: auto !important; right: auto !important; top: auto !important; bottom: auto !important; margin-bottom: 10px; border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; background: rgba(255, 255, 255, 0.82); }
+  .skillforge-node-step { right: 12px; top: 10px; }
+}

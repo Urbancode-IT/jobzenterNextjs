@@ -2,9 +2,14 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import emailjs from "@emailjs/browser";
 import "./ConsultationSection.css";
 
 const ConsultationSection = () => {
+  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  const EMAILJS_AUTO_REPLY_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_AUTO_REPLY_TEMPLATE_ID;
   const formRef = useRef(null);
   const cardRef = useRef(null);
   const [cardVisible, setCardVisible] = useState(false);
@@ -51,6 +56,14 @@ const ConsultationSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setStatus({
+        type: "error",
+        message:
+          "Mail setup missing. Add NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY.",
+      });
+      return;
+    }
     setLoading(true);
     setStatus({ type: "loading", message: "Sending..." });
     const fullMessage = [
@@ -64,22 +77,43 @@ const ConsultationSection = () => {
       "", "Message / Query:", formData.message || "-",
     ].join("\n");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          first_name: formData.name, last_name: "",
-          email: formData.email, phone: formData.phone,
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          first_name: formData.name,
+          last_name: "",
+          from_email: formData.email,
+          phone: formData.phone,
           subject: "Study Abroad - Free Consultation",
-          message: fullMessage, source: "consultation",
-          country: formData.preferredCountry || null,
-          education_level: formData.educationLevel || null,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setStatus({ type: "error", message: data.error || data.errors?.join(" ") || "Could not send. Try again." });
-        return;
+          message: fullMessage,
+          source: "consultation",
+          country: formData.preferredCountry || "-",
+          education_level: formData.educationLevel || "-",
+          preferred_course: formData.preferredCourse || "-",
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      if (EMAILJS_AUTO_REPLY_TEMPLATE_ID) {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_AUTO_REPLY_TEMPLATE_ID,
+          {
+            to_email: formData.email,
+            to_name: formData.name,
+            first_name: formData.name,
+            last_name: "",
+            from_email: formData.email,
+            phone: formData.phone,
+            subject: "Study Abroad - Free Consultation",
+            message: fullMessage,
+            source: "consultation",
+            country: formData.preferredCountry || "-",
+            education_level: formData.educationLevel || "-",
+            preferred_course: formData.preferredCourse || "-",
+          },
+          { publicKey: EMAILJS_PUBLIC_KEY }
+        );
       }
       setStatus({ type: "success", message: "Thank you! Our study abroad experts will contact you within 24 hours." });
       setFormData({ name: "", email: "", phone: "", preferredCountry: "", educationLevel: "", preferredCourse: "", message: "" });

@@ -45,7 +45,7 @@ const Footer = () => {
     { label: "JAVA Fullstack", href: "/courses/java-fullstack-development" },
     { label: "Python Fullstack", href: "/courses/python-fullstack-development" },
     { label: "CCNA Networking", href: "/courses/ccna" },
-    { label: "Software Testing", href: "/courses/software-testing" },
+    { label: "Software Testing", href: "/courses?category=Testing#course-list" },
   ];
 
   const quickLinks = [
@@ -64,8 +64,8 @@ const Footer = () => {
   const contactDetails = [
     {
       icon: Mail,
-      label: "jobzenter24@gmail.com",
-      href: "mailto:jobzenter24@gmail.com",
+      label: "admin@jobzenter.in",
+      href: "mailto:admin@jobzenter.in",
     },
     {
       icon: Phone,

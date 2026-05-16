@@ -228,44 +228,6 @@ const courses = [
 
     // TESTING
     {
-        id: 2,
-        title: "Software Testing",
-        slug: "software-testing",
-        category: "Testing",
-        description: "Software Testing is the process of evaluating software to identify defects and ensure it meets the required quality standards.",
-        img: "/courses/softwareTesting.webp",
-        rating: "4.7",
-        students: "850",
-        locked: true,
-        aboutData: {
-            topic: "Become a Quality Assurance Expert",
-            content1: "In today’s fast-paced digital ecosystem, delivering high-quality, bug-free applications is no longer optional—it’s a necessity. Our Automation Testing program is designed to equip professionals with industry-relevant skills in Selenium, Playwright, TypeScript, and API Testing, enabling scalable, efficient, and reliable software validation",
-            content2: "Learn industry-standard tools like Selenium, JIRA, and TestNG."
-        },
-        whatYouLearnData: [
-            { title: "Manual Testing", desc: "Test cases, scenarios, and bug reporting.", icon: "bi bi-clipboard-check" },
-            { title: "Automation Testing", desc: "Selenium WebDriver with Java/Python.", icon: "bi bi-robot" },
-            { title: "API Testing", desc: "Postman and REST Assured.", icon: "bi bi-globe" },
-            { title: "Performance Testing", desc: "JMeter basics.", icon: "bi bi-speedometer" },
-            { title: "Test Management", desc: "JIRA and Agile methodologies.", icon: "bi bi-kanban" },
-            { title: "CI/CD Integration", desc: "Jenkins and continuous testing.", icon: "bi bi-arrow-repeat" }
-        ],
-        courseContentData: [
-            { id: "st1", title: "Introduction to Software Testing", icon: "bi bi-info-circle", defaultOpen: true, items: ["Understanding the importance of software testing", "Different types of testing: Manual vs. Automated", "Key testing concepts: test case, bug, defect, and testing life cycle", "Testing methodologies: Waterfall, Agile, V-Model, DevOps"] },
-            { id: "st2", title: "Manual Testing", icon: "bi bi-clipboard-check", items: ["Writing effective test cases and test plans", "Functional vs. Non-functional testing", "Exploratory testing and its techniques", "Regression, Smoke, and Sanity Testing", "Reporting and managing defects using tools like JIRA"] },
-            { id: "st3", title: "Automated Testing", icon: "bi bi-robot", items: ["Introduction to test automation frameworks (Selenium, Playwright)", "Writing automated test scripts using Selenium WebDriver (Java, JavaScript)", "BDD frameworks (Cucumber, SpecFlow)", "TestNG and JUnit for managing test cases and reporting", "Continuous Integration with Jenkins for automated testing"] },
-            { id: "st4", title: "API Testing", icon: "bi bi-globe", items: ["Introduction to API testing concepts (REST, SOAP)", "Tools for API testing: Postman, Rest Assured, SoapUI", "Validating API responses and error handling", "Automating API tests with Rest Assured or Postman Collections", "Performance and load testing using tools like JMeter"] },
-            { id: "st5", title: "Performance & Security Testing", icon: "bi bi-shield-lock", items: ["Introduction to performance testing concepts (load, stress, scalability)", "Tools for performance testing: JMeter, LoadRunner", "Security testing: Understanding vulnerabilities, OWASP top 10", "Security testing tools: Burp Suite, OWASP ZAP", "Best practices for optimizing test coverage and defect prevention"] }
-        ],
-        faqData: [
-            { question: "What is Software Testing?", answer: "Software Testing is the process of evaluating a software application to identify defects and ensure it meets specified requirements and quality standards before release." },
-            { question: "Why is Software Testing important?", answer: "Software Testing helps ensure that the application works as expected, is free of bugs, and provides a good user experience, which is critical for customer satisfaction and software reliability." },
-            { question: "What types of Software Testing are there?", answer: "There are various types of Software Testing, including Manual Testing, Automated Testing, Unit Testing, Integration Testing, System Testing, and User Acceptance Testing (UAT), each with specific goals and techniques." },
-            { question: "What skills are required for Software Testing?", answer: "Key skills include an understanding of test case design, bug tracking tools like JIRA, knowledge of SDLC (Software Development Life Cycle), and familiarity with test management tools." },
-            { question: "What career opportunities can I pursue in Software Testing?", answer: "Roles include Software Tester, Quality Assurance (QA) Engineer, Test Lead, and Automation Tester. Software testers are in high demand in industries like IT, e-commerce, healthcare, and finance." }
-        ]
-    },
-    {
         id: 35,
         title: "Manual Testing",
         slug: "manual-testing",
@@ -339,6 +301,158 @@ const courses = [
             { question: "What tools are used in Automation Testing?", answer: "Common tools include Selenium WebDriver, JUnit, TestNG, Appium, and Cucumber, which help automate functional, regression, and load testing in software development." },
             { question: "Can I use Automation Testing for all types of applications?", answer: "Automation Testing is best suited for repetitive tasks and applications that require frequent testing. It works well for web and mobile applications but may not be ideal for exploratory or usability testing." },
             { question: "What job roles can I pursue after learning Automation Testing?", answer: "After completing an Automation Testing course, you can pursue roles such as Test Automation Engineer, Quality Assurance Engineer, or Software Tester, with opportunities in various industries." }
+        ]
+    },
+    {
+        id: 44,
+        title: "Java",
+        slug: "java-for-test-automation",
+        category: "Testing",
+        description: "Learn core Java the way automation engineers use it—OOP, collections, and patterns that power Selenium, TestNG, and CI-ready test code.",
+        img: "/courses/javaFullstack.webp",
+        rating: "4.7",
+        students: "720",
+        locked: true,
+        aboutData: {
+            topic: "Java for Test Automation",
+            content1: "Build a solid Java foundation focused on readable, maintainable automation: classes, interfaces, exceptions, and collections applied to real test scenarios—not generic theory.",
+            content2: "Pair this track with Selenium or Playwright courses to move from scripts to frameworks."
+        },
+        whatYouLearnData: [
+            { title: "Java Basics", desc: "Syntax, loops, methods, and packages.", icon: "bi bi-braces" },
+            { title: "OOP", desc: "Classes, inheritance, polymorphism.", icon: "bi bi-diagram-3" },
+            { title: "Collections", desc: "Lists, maps, and iterators for test data.", icon: "bi bi-collection" },
+            { title: "Exceptions", desc: "Try/catch and meaningful failures.", icon: "bi bi-exclamation-triangle" },
+            { title: "Build Tools", desc: "Maven basics for test projects.", icon: "bi bi-box-seam" },
+            { title: "TestNG Intro", desc: "Annotations and test structure.", icon: "bi bi-play-circle" }
+        ],
+        courseContentData: [
+            { id: "jt1", title: "Java Fundamentals for QA", icon: "bi bi-info-circle", defaultOpen: true, items: ["Setting up JDK, IDE, and project structure for automation", "Variables, data types, operators, and control flow", "Methods, constructors, and code organization", "Packages, access modifiers, and clean coding habits", "Debugging techniques for failing tests"] },
+            { id: "jt2", title: "Object-Oriented Programming", icon: "bi bi-box", items: ["Classes, objects, encapsulation, and reusability", "Inheritance and polymorphism in test utilities", "Interfaces and abstract classes for frameworks", "Design patterns commonly used in automation (e.g., Singleton, Factory)", "Refactoring duplicated test code"] },
+            { id: "jt3", title: "Collections & Data Handling", icon: "bi bi-list-ul", items: ["Lists, Sets, and Maps for parameterized tests", "Reading test data from CSV, Excel, or JSON", "Iterators and streams for batch validations", "Comparing expected vs. actual collections", "Avoiding brittle hard-coded data"] },
+            { id: "jt4", title: "Exceptions, Logging & Reporting Hooks", icon: "bi bi-bug", items: ["Try/catch/finally in automation flows", "Custom exceptions for clearer failures", "Logging meaningful steps (SLF4J / Log4j basics)", "Integrating with reporting libraries", "Best practices for failure screenshots and traces"] },
+            { id: "jt5", title: "Maven, TestNG & Git Basics", icon: "bi bi-git", items: ["Maven project layout for test suites", "Dependencies: Selenium, TestNG, drivers", "TestNG annotations, suites, and parallel hints", "Git workflow for test code reviews", "Running tests from CLI and CI shells"] }
+        ],
+        faqData: [
+            { question: "Is this Java course only for testers?", answer: "Yes—the emphasis is on Java skills directly used in test automation: readable structure, data handling, and integration with tools like TestNG and Selenium." },
+            { question: "Do I need prior programming experience?", answer: "Basic logical thinking helps; we start from core syntax and build toward automation-oriented examples." },
+            { question: "How does this relate to Selenium?", answer: "Selenium WebDriver scripts are usually written in Java; this course gives you the language foundation before or alongside Selenium training." },
+            { question: "Will I build projects?", answer: "You will practice with exercises modeled on real QA scenarios: utilities, data-driven patterns, and maintainable test modules." },
+            { question: "What roles does this support?", answer: "QA Automation Engineer, SDET, and Test Engineer roles that expect Java-based frameworks." }
+        ]
+    },
+    {
+        id: 45,
+        title: "Selenium",
+        slug: "selenium",
+        category: "Testing",
+        description: "Hands-on Selenium WebDriver—locators, waits, actions, Page Object Model, and scalable browser automation for regression suites.",
+        img: "/courses/Automation.webp",
+        rating: "4.8",
+        students: "880",
+        locked: true,
+        aboutData: {
+            topic: "Selenium WebDriver Deep Dive",
+            content1: "From first script to maintainable framework pieces: master locators, synchronization, cross-browser runs, and reporting so your suites stay stable as the UI changes.",
+            content2: "Pairs naturally with our Java and TypeScript tracks for stronger typed automation."
+        },
+        whatYouLearnData: [
+            { title: "Locators", desc: "CSS, XPath, and resilient strategies.", icon: "bi bi-bullseye" },
+            { title: "Waits", desc: "Implicit, explicit, fluent patterns.", icon: "bi bi-hourglass-split" },
+            { title: "Actions", desc: "Keyboard, mouse, and frames.", icon: "bi bi-hand-index" },
+            { title: "POM", desc: "Page Object and reusable layers.", icon: "bi bi-layout-text-window" },
+            { title: "Grid", desc: "Selenium Grid / parallel basics.", icon: "bi bi-grid-3x3" },
+            { title: "CI Runs", desc: "Headless and pipeline-friendly execution.", icon: "bi bi-arrow-repeat" }
+        ],
+        courseContentData: [
+            { id: "se1", title: "Selenium Setup & First Scripts", icon: "bi bi-info-circle", defaultOpen: true, items: ["WebDriver architecture and browser drivers", "Opening URLs, navigation, and basic interactions", "Finding elements: ID, name, class, link text", "Taking screenshots on failure", "Project layout for growing test suites"] },
+            { id: "se2", title: "Advanced Locators & Synchronization", icon: "bi bi-search", items: ["CSS selectors vs. XPath: when to use which", "Handling dynamic IDs and shadow DOM awareness", "Explicit waits and expected conditions", "Avoiding flaky tests with timing discipline", "iframes, alerts, and multiple windows"] },
+            { id: "se3", title: "Actions, Forms & Data-Driven Tests", icon: "bi bi-input-cursor-text", items: ["Actions API for hover, drag-drop, keyboard", "Working with dropdowns, calendars, and uploads", "Parameterizing tests with external data", "Assertions that explain failures clearly", "Tagging and grouping scenarios"] },
+            { id: "se4", title: "Framework Patterns", icon: "bi bi-boxes", items: ["Page Object Model structure", "Base classes and driver management", "Listeners and hooks for reporting", "Parallel execution considerations", "Integrating with TestNG or JUnit"] },
+            { id: "se5", title: "Cross-Browser, Grid & Maintenance", icon: "bi bi-globe2", items: ["Cross-browser configuration", "Introduction to Selenium Grid concepts", "Retry strategies and stability checks", "Version control hygiene for locators", "CI-friendly headless execution"] }
+        ],
+        faqData: [
+            { question: "Is Selenium still relevant?", answer: "Yes—many teams still rely on Selenium WebDriver for mature browser automation, especially with Java ecosystems and large legacy suites." },
+            { question: "Java or TypeScript with Selenium?", answer: "Java is still dominant in enterprise QA; TypeScript is growing with modern stacks. Choose based on your stack—or learn both over time." },
+            { question: "Do you cover Selenium 4?", answer: "Content is aligned with current Selenium 4 concepts including improved W3C WebDriver usage and modern driver management." },
+            { question: "What if my application is highly dynamic?", answer: "We focus on resilient locators, waits, and framework patterns to reduce breakage when the UI changes." },
+            { question: "Career outcomes?", answer: "Roles such as Automation Tester, QA Automation Engineer, and SDET frequently expect strong Selenium skills." }
+        ]
+    },
+    {
+        id: 46,
+        title: "Playwright",
+        slug: "playwright",
+        category: "Testing",
+        description: "Fast, reliable end-to-end tests with Playwright—multi-browser, auto-waiting, traces, and CI-ready pipelines.",
+        img: "/courses/softwareTesting.webp",
+        rating: "4.8",
+        students: "640",
+        locked: true,
+        aboutData: {
+            topic: "Modern E2E with Playwright",
+            content1: "Learn Playwright’s developer-friendly API, built-in waits, tracing, and codegen—so you ship stable tests without fighting synchronization edge cases.",
+            content2: "Ideal alongside TypeScript for strongly typed specs and scalable fixtures."
+        },
+        whatYouLearnData: [
+            { title: "Core API", desc: "Pages, contexts, and fixtures.", icon: "bi bi-window" },
+            { title: "Selectors", desc: "Role, text, and resilient queries.", icon: "bi bi-funnel" },
+            { title: "Tracing", desc: "Screenshots, video, and debug.", icon: "bi bi-camera-video" },
+            { title: "Parallelism", desc: "Workers and sharding basics.", icon: "bi bi-lightning" },
+            { title: "API Testing", desc: "Combine UI + API checks.", icon: "bi bi-plug" },
+            { title: "CI/CD", desc: "Docker-friendly test runs.", icon: "bi bi-cloud-arrow-up" }
+        ],
+        courseContentData: [
+            { id: "pw1", title: "Playwright Basics", icon: "bi bi-info-circle", defaultOpen: true, items: ["Installing Playwright and browsers", "First test: navigation, clicks, and assertions", "Auto-wait architecture vs. manual sleeps", "Project structure and configuration", "Running tests in headed and headless modes"] },
+            { id: "pw2", title: "Selectors, Fixtures & POM", icon: "bi bi-layout-text-window", items: ["Recommended selector strategies for stability", "Fixtures for login and shared setup", "Page objects without brittleness", "Parameterized tests and data tables", "Handling multiple tabs and popups"] },
+            { id: "pw3", title: "Debugging & Reporting", icon: "bi bi-bug", items: ["Trace viewer and step-through debugging", "Screenshots and video on failure", "HTML report overview", "Annotating tests for clarity", "Flake reduction checklist"] },
+            { id: "pw4", title: "API & Network", icon: "bi bi-wifi", items: ["Mocking and intercepting network calls", "Combining API checks with UI flows", "Basic performance awareness in E2E", "Environment-specific configs", "Secrets and config hygiene"] },
+            { id: "pw5", title: "CI, Parallelism & Best Practices", icon: "bi bi-stars", items: ["Parallel workers and sharding concepts", "Docker and CI pipeline integration", "Tagging smoke vs. regression", "Versioning tests with application releases", "Maintaining fast feedback loops"] }
+        ],
+        faqData: [
+            { question: "Playwright vs. Selenium?", answer: "Playwright offers a modern unified API, strong auto-waiting, and excellent diagnostics; Selenium remains widespread in Java shops. Many teams use both over time." },
+            { question: "Do I need TypeScript?", answer: "Not strictly—Playwright supports JavaScript—but TypeScript improves maintainability for larger suites." },
+            { question: "Can I test mobile web?", answer: "Playwright targets browsers; mobile native apps are out of scope here, but responsive web testing is covered." },
+            { question: "Is this suitable for beginners?", answer: "Basic HTML/DOM awareness helps. We start from first scripts and progress to patterns." },
+            { question: "Job relevance?", answer: "Playwright is in strong demand for SDET and modern QA automation roles." }
+        ]
+    },
+    {
+        id: 47,
+        title: "TypeScript",
+        slug: "typescript",
+        category: "Testing",
+        description: "TypeScript essentials for test engineers—types, interfaces, async/await, and patterns that make Playwright and modern automation suites maintainable.",
+        img: "/courses/mern.webp",
+        rating: "4.7",
+        students: "590",
+        locked: true,
+        aboutData: {
+            topic: "TypeScript for Test Code",
+            content1: "Write safer automation with static typing: catch mistakes before runtime, document intent with interfaces, and scale fixtures across large Playwright or JS-based test repos.",
+            content2: "Designed to pair with Playwright and JavaScript-first automation stacks."
+        },
+        whatYouLearnData: [
+            { title: "Types & Interfaces", desc: "Shape data and API contracts.", icon: "bi bi-braces" },
+            { title: "Async/Await", desc: "Clean asynchronous tests.", icon: "bi bi-arrow-left-right" },
+            { title: "Modules", desc: "Imports, exports, and structure.", icon: "bi bi-folder2-open" },
+            { title: "Generics", desc: "Reusable helpers for test data.", icon: "bi bi-boxes" },
+            { title: "Tooling", desc: "tsconfig, ESLint basics.", icon: "bi bi-gear" },
+            { title: "Patterns", desc: "Fixtures and test doubles intro.", icon: "bi bi-puzzle" }
+        ],
+        courseContentData: [
+            { id: "ts1", title: "TypeScript Foundations", icon: "bi bi-info-circle", defaultOpen: true, items: ["JS vs. TS for automation teams", "Installing and compiling TypeScript", "Basic types, unions, and literals", "Functions and arrow syntax in tests", "Strict mode mindset"] },
+            { id: "ts2", title: "Interfaces, Types & Classes", icon: "bi bi-filetype-ts", items: ["Interfaces for API response shapes", "Type aliases vs. interfaces", "Classes and dependency-friendly design", "Enums and const maps for test states", "Avoiding any in production test code"] },
+            { id: "ts3", title: "Async Testing Patterns", icon: "bi bi-hourglass-split", items: ["Promises and async/await in specs", "Error handling that preserves traces", "Sequential vs. parallel safe patterns", "Timeouts and retries concepts", "Working with Playwright Test types"] },
+            { id: "ts4", title: "Modules, Tooling & Quality", icon: "bi bi-wrench", items: ["ES modules in test repos", "tsconfig paths for helpers", "ESLint + TypeScript basics", "Formatting and team conventions", "Refactoring safely with the compiler"] },
+            { id: "ts5", title: "Scaling Test Suites", icon: "bi bi-diagram-3", items: ["Shared fixtures and typed context", "Generic utilities for data builders", "Mocking boundaries with types", "Documentation through types", "Preparing for CI type-check gates"] }
+        ],
+        faqData: [
+            { question: "I know JavaScript—is this redundant?", answer: "TypeScript adds structure that pays off in larger automation codebases; you’ll move faster with fewer runtime surprises." },
+            { question: "Is this only for Playwright?", answer: "Patterns apply to any TypeScript test stack; examples align with modern E2E tooling." },
+            { question: "Do I need OOP in JS first?", answer: "We cover what you need for typed tests; heavy app development patterns are out of scope." },
+            { question: "Compiler vs. runtime errors?", answer: "You’ll learn to let the compiler flag contract mismatches between helpers, fixtures, and API payloads." },
+            { question: "Career benefit?", answer: "Teams hiring SDETs for JS/TS stacks expect solid TypeScript fundamentals." }
         ]
     },
     // HEALTHCARE
@@ -843,7 +957,6 @@ const preferredCourseOrder = [
     "Dot Net Fullstack Development",
     "MERN Stack Development",
     "Automation Testing",
-    "Software Testing",
     "AWS",
     "Cisco Certified Network Associate (CCNA)",
     "MEAN Stack Development",

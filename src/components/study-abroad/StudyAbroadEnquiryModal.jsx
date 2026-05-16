@@ -3,9 +3,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import emailjs from "@emailjs/browser";
 import "./StudyAbroadEnquiryModal.css";
 
 const StudyAbroadEnquiryModal = ({ isOpen, onClose, selectedCountry }) => {
+  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  const EMAILJS_AUTO_REPLY_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_AUTO_REPLY_TEMPLATE_ID;
   const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -49,6 +54,14 @@ const StudyAbroadEnquiryModal = ({ isOpen, onClose, selectedCountry }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setStatus({
+        type: "error",
+        message:
+          "Mail setup missing. Add NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY.",
+      });
+      return;
+    }
 
     setLoading(true);
     setStatus({ type: "loading", message: "Sending your enquiry..." });
@@ -63,28 +76,41 @@ const StudyAbroadEnquiryModal = ({ isOpen, onClose, selectedCountry }) => {
     ].join("\n");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
           first_name: formData.name,
           last_name: "",
-          email: formData.email,
+          from_email: formData.email,
           phone: formData.phone,
           subject: "Study Abroad Enquiry",
           message: fullMessage,
           source: "StudyAbroadEnquiry",
-          country: formData.country || null,
-          education_level: formData.educationLevel || null,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setStatus({
-          type: "error",
-          message: data.error || data.errors?.join(" ") || "Something went wrong. Please try again.",
-        });
-        return;
+          country: formData.country || "-",
+          education_level: formData.educationLevel || "-",
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      if (EMAILJS_AUTO_REPLY_TEMPLATE_ID) {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_AUTO_REPLY_TEMPLATE_ID,
+          {
+            to_email: formData.email,
+            to_name: formData.name,
+            first_name: formData.name,
+            last_name: "",
+            from_email: formData.email,
+            phone: formData.phone,
+            subject: "Study Abroad Enquiry",
+            message: fullMessage,
+            source: "StudyAbroadEnquiry",
+            country: formData.country || "-",
+            education_level: formData.educationLevel || "-",
+          },
+          { publicKey: EMAILJS_PUBLIC_KEY }
+        );
       }
       setStatus({
         type: "success",

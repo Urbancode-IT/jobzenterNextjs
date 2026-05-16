@@ -17,9 +17,17 @@ const Navbar = () => {
 
   const navItems = [
     { label: "Courses", path: "/courses", hasDropdown: false },
-    { label: "About Us", path: "/aboutus", hasDropdown: false },
+    {
+      label: "Services",
+      path: "#",
+      hasDropdown: true,
+      dropdownItems: [
+        { label: "About Us", path: "/aboutus" },
+        { label: "Our Team", path: "/our-team" },
+        { label: "Our Students", path: "/our-students" },
+      ],
+    },
     { label: "Compiler", path: "/compiler", hasDropdown: false },
-
     {
       label: "Career Lab",
       path: "#",
@@ -117,7 +125,11 @@ const Navbar = () => {
   const handleDropdownClose = (event, label) => {
     if (!isDesktop) return;
     const relatedTarget = event?.relatedTarget;
-    if (relatedTarget && relatedTarget.closest(`[data-dropdown="${label}"]`)) {
+    // relatedTarget can be a Text node (no .closest) when the pointer moves onto link text
+    if (
+      relatedTarget instanceof Element &&
+      relatedTarget.closest(`[data-dropdown="${label}"]`)
+    ) {
       return;
     }
     closeDropdownTimer.current = setTimeout(() => {
@@ -214,7 +226,7 @@ const Navbar = () => {
 
               return (
                 <li
-                  key={item.path}
+                  key={`${item.label}-${item.path}`}
                   className={`nav-item d-flex align-items-center ${item.hasDropdown ? "has-dropdown" : ""} ${item.label === "Career Lab" ? "career-lab" : ""
                     } ${isDropdownOpen ? "dropdown-open" : ""}`}
                   data-dropdown={item.label}

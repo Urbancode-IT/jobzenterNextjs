@@ -7,7 +7,7 @@ const courses = [
   {
     title: "Software Testing",
     category: "Testing",
-    desc: "In today's fast-paced digital ecosystem, delivering high-quality, bug-free applications is no longer optional-it's a necessity. Our Automation Testing program is designed to equip professionals with industry-relevant skills in Selenium, Playwright, TypeScript, and API Testing, enabling scalable, efficient, and reliable software validation.",
+    desc: "Hands-on tracks in manual QA plus Java, Selenium, Playwright, and TypeScript—aligned with how modern teams ship quality software.",
   },
   {
     title: "Full Stack Development",
@@ -54,7 +54,7 @@ const AboutSection = () => {
   }, []);
 
   const cardImages = [
-    "/courses/softwareTesting.webp",
+    "/courses/Automation.webp",
     "/courses/mean.jpg",
     "/courses/ccna.webp",
     "/courses/aws.webp",

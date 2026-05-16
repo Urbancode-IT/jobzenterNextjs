@@ -20,6 +20,11 @@ const nextConfig = {
         destination: "/aboutus", 
         permanent: true 
       },
+      {
+        source: "/courses/software-testing",
+        destination: "/courses?category=Testing",
+        permanent: true,
+      },
 
       // 2. Force www → non-www
       {

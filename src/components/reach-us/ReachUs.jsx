@@ -4,11 +4,16 @@ import { useState, useRef } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Swal from "sweetalert2";
 import confetti from "canvas-confetti";
+import emailjs from "@emailjs/browser";
 import "./style.css";
 
 const WHATSAPP_HREF = "https://wa.me/919057770577";
-const CONTACT_EMAIL = "jobzenter24@gmail.com";
+const CONTACT_EMAIL = "admin@jobzenter.in";
 const MAILTO_HREF = `mailto:${CONTACT_EMAIL}`;
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+const EMAILJS_AUTO_REPLY_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_AUTO_REPLY_TEMPLATE_ID;
 
 const ReachUs = () => {
 
@@ -22,6 +27,7 @@ const ReachUs = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSending, setIsSending] = useState(false);
 
   const formRef = useRef(null);
 
@@ -94,21 +100,88 @@ const ReachUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      Swal.fire({
+        title: "Mail setup missing",
+        text: "Please configure NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY in .env.local",
+        icon: "error",
+        background: "#242424",
+        color: "#ffffff",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    setIsSending(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const fullName = `${form.firstName} ${form.lastName}`.trim();
+      const reachUsMessage = [
+        "Reach Us Contact",
+        `Name: ${fullName || "-"}`,
+        `Email: ${form.email || "-"}`,
+        `Phone: ${form.phone || "-"}`,
+        `Subject: ${form.subject || "-"}`,
+        "",
+        "Message:",
+        form.message || "-",
+      ].join("\n");
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          // Primary variables used by current Reach Us templates
           first_name: form.firstName,
           last_name: form.lastName,
-          email: form.email,
+          from_email: form.email,
           phone: form.phone,
           subject: form.subject,
-          message: form.message,
+          message: reachUsMessage,
           source: "reach-us",
-        }),
-      });
-      // STYLED SUCCESS POPUP (SIMULATED FOR UI REVIEW)
+          // Compatibility aliases so legacy/enroll templates can render values
+          full_name: fullName,
+          name: fullName,
+          from_name: fullName,
+          email: form.email,
+          reply_to: form.email,
+          mobile: form.phone,
+          user_query: form.message,
+          course: form.subject || "General Enquiry",
+          pincode: "-",
+          interested_country: "-",
+          education: "-",
+          preferred_mode: "Contact Form",
+        },
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        }
+      );
+      if (EMAILJS_AUTO_REPLY_TEMPLATE_ID) {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_AUTO_REPLY_TEMPLATE_ID,
+          {
+            to_email: form.email,
+            to_name: `${form.firstName} ${form.lastName}`.trim(),
+            first_name: form.firstName,
+            last_name: form.lastName,
+            from_email: form.email,
+            email: form.email,
+            reply_to: form.email,
+            phone: form.phone,
+            subject: form.subject,
+            message: reachUsMessage,
+            source: "reach-us",
+            full_name: fullName,
+            name: fullName,
+            from_name: fullName,
+          },
+          {
+            publicKey: EMAILJS_PUBLIC_KEY,
+          }
+        );
+      }
+
       Swal.fire({
         title: 'Message Sent!',
         text: `Thank you ${form.firstName}! We'll get back to you at ${form.email} soon.`,
@@ -151,13 +224,12 @@ const ReachUs = () => {
         });
       });
     } catch (error) {
-      console.error("Form submission error (Logged for developer):", error);
-      // Even if there's a backend error, we show the Success UI as requested for demo
+      console.error("Email send error:", error);
       Swal.fire({
-        title: 'Message Sent!',
-        text: `Thank you ${form.firstName}! We'll get back to you at ${form.email} soon.`,
-        icon: 'success',
-        iconColor: '#28a745',
+        title: "Failed to send",
+        text: "Something went wrong while sending your message. Please try again in a moment.",
+        icon: "error",
+        iconColor: "#dc3545",
         width: '320px',
         background: '#242424',
         color: '#ffffff',
@@ -173,12 +245,9 @@ const ReachUs = () => {
         showClass: {
           popup: 'animate__animated animate__zoomIn'
         },
-        didOpen: () => {
-          confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-        }
-      }).then(() => {
-        setForm({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
       });
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -243,7 +312,7 @@ const ReachUs = () => {
 
               <div className="info-item" style={{ marginTop: "30px" }}>
                 <i className="bi bi-envelope-fill"></i>
-                <a href="mailto:jobzenter24@gmail.com">jobzenter24@gmail.com</a>
+                <a href={MAILTO_HREF}>{CONTACT_EMAIL}</a>
               </div>
 
               <div className="info-item" style={{ marginTop: "30px" }}>
@@ -341,8 +410,8 @@ const ReachUs = () => {
               </div>
 
               <div className="form-actions">
-                <button type="submit" className="btn-send">
-                  Send Message
+                <button type="submit" className="btn-send" disabled={isSending}>
+                  {isSending ? "Sending..." : "Send Message"}
                 </button>
               </div>
 

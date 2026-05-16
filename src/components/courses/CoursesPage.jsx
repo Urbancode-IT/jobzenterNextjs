@@ -105,7 +105,7 @@ const CoursesPage = () => {
               {
                 tag: "Quality Assurance",
                 title: "Software Testing",
-                desc: "Build reliable software with Selenium, Playwright, and API Testing for modern Agile environments.",
+                desc: "Java, Selenium, Playwright, and TypeScript—plus manual QA—for confident releases in Agile teams.",
                 icon: "bi bi-shield-check",
                 delay: 0.3
               },

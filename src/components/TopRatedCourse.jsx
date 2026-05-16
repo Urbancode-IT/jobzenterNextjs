@@ -30,11 +30,11 @@ const TopRatedCourses = () => {
   const courses = [
     {
       id: 6,
-      title: "Software Testing",
+      title: "Automation Testing",
       enrollment: "3.2k+",
-      description: "Learn manual and automated testing to ensure software quality and defect-free delivery.",
-      img: "/courses/softwareTesting.webp",
-      slug: "software-testing",
+      description: "Build Selenium and framework skills for reliable regression suites and faster releases.",
+      img: "/courses/Automation.webp",
+      slug: "automation-testing",
       icons: [<FaJava key="j" style={{ color: '#007396' }} />, <SiSpringboot key="s" style={{ color: '#6DB33F' }} />]
     },
     {

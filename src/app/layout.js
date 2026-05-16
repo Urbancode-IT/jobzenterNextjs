@@ -15,7 +15,7 @@ import Script from "next/script";
 export const metadata = {
   title: "Jobzenter | IT Training, Full Stack Development, AWS & Devops, Power BI, Software Testing & 100% Placement Support",
   description:
-    "Jobzenter provides hands-on IT training and placement support in Software Testing, Java, AWS & Devops, Power BI, and Full Stack Development. Join us to kickstart your IT career.",
+    "Jobzenter provides hands-on IT training and placement support in Software Testing (Java, Selenium, Playwright, TypeScript), AWS & Devops, Power BI, and Full Stack Development. Join us to kickstart your IT career.",
   keywords:
     "jobzenter, software training, placements, IT courses, resume building, interview preparation, placement services, Python, Java, AWS & Devops, Power BI, Full Stack Development, Software Development, SQL, Business Intelligence, AWS DevOps, IT professional training, career counselling",
   authors: [{ name: "Jobzenter" }],
@@ -96,7 +96,7 @@ export default function RootLayout({ children }) {
                 "@type": "Course",
                 "name": "Software Testing",
                 "description":
-                  "Hands-on training in manual and automation testing using Selenium, Java, TestNG, and real-time project scenarios.",
+                  "Hands-on training across manual testing, Java for automation, Selenium, Playwright, TypeScript, and real-time project scenarios.",
                 "provider": {
                   "@type": "Organization",
                   "name": "Jobzenter",

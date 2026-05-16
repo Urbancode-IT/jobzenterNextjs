@@ -8,7 +8,8 @@ import EnquiryFormModal from "../enquiryForm/EnquiryFormModal";
 const ChatbotWidget = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
-  const [demoPosition, setDemoPosition] = useState({ x: 0, y: 0 });
+  const [demoPosition, setDemoPosition] = useState(null);
+  const hasUserDraggedDemoRef = useRef(false);
 
   const chatbotTriggerRef = useRef(null);
   const chatbotContainerRef = useRef(null);
@@ -22,12 +23,45 @@ const ChatbotWidget = () => {
     moved: false,
   });
 
+  const clampPosition = (x, y) => {
+    if (typeof window === "undefined") return { x, y };
+    const widgetWidth = 210;
+    const widgetHeight = 56;
+    return {
+      x: Math.min(Math.max(12, x), window.innerWidth - widgetWidth - 12),
+      y: Math.min(Math.max(80, y), window.innerHeight - widgetHeight - 12),
+    };
+  };
+
+  const getInitialDemoPosition = () => {
+    if (typeof window === "undefined") return { x: 0, y: 0 };
+
+    const titleEl = document.querySelector(".hero-centered-title");
+    if (titleEl) {
+      const rect = titleEl.getBoundingClientRect();
+      const anchorX = rect.left + rect.width * 0.86;
+      const anchorY = rect.top + rect.height * 0.58;
+      return clampPosition(anchorX, anchorY);
+    }
+
+    return clampPosition(window.innerWidth - 230, window.innerHeight - 170);
+  };
+
   useEffect(() => {
     if (typeof window === "undefined") return;
-    setDemoPosition({
-      x: Math.max(16, window.innerWidth - 230),
-      y: Math.max(140, window.innerHeight - 170),
-    });
+
+    const setHeroAnchoredPosition = () => {
+      if (hasUserDraggedDemoRef.current) return;
+      setDemoPosition(getInitialDemoPosition());
+    };
+
+    const rafId = window.requestAnimationFrame(setHeroAnchoredPosition);
+    window.addEventListener("resize", setHeroAnchoredPosition);
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", setHeroAnchoredPosition);
+    };
   }, []);
 
   useEffect(() => {
@@ -49,24 +83,14 @@ const ChatbotWidget = () => {
     };
   }, [isChatOpen]);
 
-  const clampPosition = (x, y) => {
-    if (typeof window === "undefined") return { x, y };
-    const widgetWidth = 210;
-    const widgetHeight = 56;
-    return {
-      x: Math.min(Math.max(12, x), window.innerWidth - widgetWidth - 12),
-      y: Math.min(Math.max(80, y), window.innerHeight - widgetHeight - 12),
-    };
-  };
-
   const handleDemoPointerDown = (event) => {
     const dragState = dragStateRef.current;
     dragState.isDragging = true;
     dragState.pointerId = event.pointerId;
     dragState.startX = event.clientX;
     dragState.startY = event.clientY;
-    dragState.initialX = demoPosition.x;
-    dragState.initialY = demoPosition.y;
+    dragState.initialX = demoPosition?.x ?? 0;
+    dragState.initialY = demoPosition?.y ?? 0;
     dragState.moved = false;
   };
 
@@ -78,6 +102,9 @@ const ChatbotWidget = () => {
     const deltaY = event.clientY - dragState.startY;
     const next = clampPosition(dragState.initialX + deltaX, dragState.initialY + deltaY);
     dragState.moved = dragState.moved || Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5;
+    if (dragState.moved) {
+      hasUserDraggedDemoRef.current = true;
+    }
     setDemoPosition(next);
   };
 
@@ -178,20 +205,22 @@ const ChatbotWidget = () => {
       </div>
 
       {/* Draggable Book a Demo CTA */}
-      <button
-        type="button"
-        className="book-demo-float"
-        style={{ left: `${demoPosition.x}px`, top: `${demoPosition.y}px` }}
-        onPointerDown={handleDemoPointerDown}
-        onPointerMove={handleDemoPointerMove}
-        onPointerUp={handleDemoPointerUp}
-        onPointerCancel={handleDemoPointerUp}
-        onClick={handleDemoClick}
-        aria-label="Book your free demo session"
-      >
-        <i className="bi bi-calendar2-check-fill" aria-hidden />
-        <span>Book a Demo</span>
-      </button>
+      {demoPosition && (
+        <button
+          type="button"
+          className="book-demo-float"
+          style={{ left: `${demoPosition.x}px`, top: `${demoPosition.y}px` }}
+          onPointerDown={handleDemoPointerDown}
+          onPointerMove={handleDemoPointerMove}
+          onPointerUp={handleDemoPointerUp}
+          onPointerCancel={handleDemoPointerUp}
+          onClick={handleDemoClick}
+          aria-label="Book your free demo session"
+        >
+          <i className="bi bi-calendar2-check-fill" aria-hidden />
+          <span>Book a Demo</span>
+        </button>
+      )}
 
       <EnquiryFormModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
     </>

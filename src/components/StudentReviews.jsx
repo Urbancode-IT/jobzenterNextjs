@@ -199,7 +199,7 @@ const StudentReviews = () => {
   };
 
   return (
-    <section className="student-reviews-section">
+    <section id="what-our-students-say" className="student-reviews-section">
       <div className="student-reviews-container">
         <header className="student-reviews-header">
           <h2
