@@ -278,7 +278,7 @@ const ReachUs = () => {
         </a>
         <a className="hero-badge" href={MAILTO_HREF}>
           <i className="bi bi-envelope-fill" aria-hidden />
-          {CONTACT_EMAIL}
+          Email
         </a>
       </div>
     </div>
@@ -310,12 +310,12 @@ const ReachUs = () => {
                 <span>+91 90577 70577</span>
               </div>
 
-              <div className="info-item" style={{ marginTop: "30px" }}>
+              <div className="info-item">
                 <i className="bi bi-envelope-fill"></i>
                 <a href={MAILTO_HREF}>{CONTACT_EMAIL}</a>
               </div>
 
-              <div className="info-item" style={{ marginTop: "30px" }}>
+              <div className="info-item">
                 <i className="bi bi-geo-alt-fill"></i>
                 <span>
                   9/29, 5th St, Kamakoti Nagar,<br />
@@ -340,23 +340,23 @@ const ReachUs = () => {
 
               <div className="input-row">
                 <div className="input-box">
-                  <label>First Name</label>
                   <input
                     type="text"
                     name="firstName"
                     value={form.firstName}
                     onChange={handleChange}
+                    placeholder="First Name"
                   />
                   {errors.firstName && <small style={{ color: "red" }}>{errors.firstName}</small>}
                 </div>
 
                 <div className="input-box">
-                  <label>Last Name</label>
                   <input
                     type="text"
                     name="lastName"
                     value={form.lastName}
                     onChange={handleChange}
+                    placeholder="Last Name"
                   />
                   {errors.lastName && <small style={{ color: "red" }}>{errors.lastName}</small>}
                 </div>
@@ -364,47 +364,46 @@ const ReachUs = () => {
 
               <div className="input-row">
                 <div className="input-box">
-                  <label>Email</label>
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
+                    placeholder="Email"
                   />
                   {errors.email && <small style={{ color: "red" }}>{errors.email}</small>}
                 </div>
 
                 <div className="input-box">
-                  <label>Phone Number</label>
                   <input
                     type="text"
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
+                    placeholder="Phone Number"
                   />
                   {errors.phone && <small style={{ color: "red" }}>{errors.phone}</small>}
                 </div>
               </div>
 
               <div className="input-box">
-                <label>Subject</label>
                 <input
                   type="text"
                   name="subject"
                   value={form.subject}
                   onChange={handleChange}
+                  placeholder="Subject"
                 />
                 {errors.subject && <small style={{ color: "red" }}>{errors.subject}</small>}
               </div>
 
-              <div className="text-area" style={{ marginTop: "40px", marginBottom: "20px" }}>
-                <label>Message</label>
+              <div className="text-area">
                 <textarea
                   rows="2"
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="Write your message"
+                  placeholder="Message"
                 ></textarea>
                 {errors.message && <small style={{ color: "red" }}>{errors.message}</small>}
               </div>

@@ -199,7 +199,7 @@ a.hero-badge:hover {
 
 /* CONTACT SECTION  */
 .contact-page .contact-section {
-  padding: 80px 5%;
+  padding: 50px 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -210,12 +210,13 @@ a.hero-badge:hover {
 .contact-page .contact-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  align-items: flex-start;
+  gap: 28px;
   background: #fff;
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
   border-radius: 40px;
   padding: 15px;
-  max-width: 1100px; /* Constrain width for better centering */
+  max-width: 1100px;
   width: 100%;
 }
 
@@ -277,23 +278,22 @@ a.hero-badge:hover {
 }
 
 .contact-page .contact-info p {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   color: #585858;
 }
 
-.contact-page .big-info{
-  margin-top: 100px;
-
+.contact-page .big-info {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .contact-page .info-item {
   display: flex;
   align-items: flex-start;
-  margin-top: 20px;
-  margin-bottom: 18px;
+  margin: 0;
   font-size: 0.95rem;
-  
-  
 }
 
 .contact-page .info-item i {
@@ -351,8 +351,8 @@ a.hero-badge:hover {
 /* Right Side - Contact Form */
 .contact-page .contact-form {
   flex: 1 1 500px;
-  margin-top: 20px;
-  padding: 15px;
+  margin-top: 0;
+  padding: 8px 15px 0;
 }
 
 .contact-page .input-row {
@@ -364,30 +364,33 @@ a.hero-badge:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
-.text-area {
+
+.contact-page .text-area {
   display: flex;
   flex-direction: column;
-  margin-bottom: 18px;
+  margin-top: 4px;
+  margin-bottom: 12px;
 }
 
-.contact-page label {
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-  color: #555;
-}
-
-.contact-page input, .contact-page textarea {
+.contact-page input,
+.contact-page textarea {
   padding: 12px 15px;
-  margin-top: 8px;
+  margin-top: 0;
   border: none;
   border-radius: 8px;
   outline: none;
   font-size: 0.95rem;
-  background: #eef4ff; /* Light blue/gray background from screenshot */
+  background: #eef4ff;
   color: #2f2f2f;
   transition: background 0.3s ease;
+}
+
+.contact-page input::placeholder,
+.contact-page textarea::placeholder {
+  color: #6b7280;
+  opacity: 1;
 }
 
 .contact-page input:focus, .contact-page textarea:focus {
@@ -396,8 +399,7 @@ a.hero-badge:hover {
 
 .contact-page textarea {
   resize: none;
-    min-height: 50px;
-  
+  min-height: 80px;
 }
 
 .contact-page .btn-send {
@@ -443,6 +445,7 @@ a.hero-badge:hover {
 .contact-page .form-actions {
   display: flex;
   justify-content: flex-end;
+  margin-top: 28px;
 }
 
 .contact-page .form-bottom-social {
@@ -450,7 +453,8 @@ a.hero-badge:hover {
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 18px;
+  margin-bottom: 0;
 }
 
 .contact-page .form-bottom-social i,
@@ -465,10 +469,8 @@ a.hero-badge:hover {
   justify-content: center;
   width: 30px;
   height: 30px;
+  margin: 0;
   transition: color 150ms ease, transform 150ms ease;
-  margin-left: 20px; /* move left */
-  margin-top: 20px;  /* move down */
-
 }
 
 .contact-page .form-bottom-social a:hover i,
@@ -478,7 +480,7 @@ a.hero-badge:hover {
 }
 
 .contact-page .map-wrap {
-  margin-top: 22px;
+  margin-top: 16px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
@@ -613,6 +615,7 @@ a.hero-badge:hover {
 .contact-page .form-actions {
   display: flex;
   justify-content: flex-end;
+  margin-top: 28px;
 }
 
 .contact-page .form-bottom-social {
@@ -620,7 +623,8 @@ a.hero-badge:hover {
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 18px;
+  margin-bottom: 0;
 }
 
 .contact-page .form-bottom-social i,
@@ -635,10 +639,8 @@ a.hero-badge:hover {
   justify-content: center;
   width: 30px;
   height: 30px;
+  margin: 0;
   transition: color 150ms ease, transform 150ms ease;
-  margin-left: 20px; /* move left */
-  margin-top: 20px;  /* move down */
-
 }
 
 .contact-page .form-bottom-social a:hover i,
@@ -648,7 +650,7 @@ a.hero-badge:hover {
 }
 
 .contact-page .map-wrap {
-  margin-top: 22px;
+  margin-top: 16px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);

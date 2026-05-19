@@ -17,7 +17,7 @@ const teamHighlights = [
     image: "/team/pushparajjj.png",
   },
   {
-    name: "Sankara Pandian",
+    name: "Siva Sankara Pandian",
     role: "Success Lead",
     image: "/team/sangu.png",
   },
@@ -156,7 +156,7 @@ const skillForgeCycle = [
 const centerTeamMembers = [
   { name: "Siva", image: "/team/siva-sir.png" },
   { name: "Pushparaj", image: "/team/pushparajjj.png" },
-  { name: "Sankara Pandian", image: "/team/sangu.png" },
+  { name: "Siva Sankara Pandian", image: "/team/sangu.png" },
   { name: "Mukesh", image: "/team/mukesh.jpg" },
   { name: "Sanjay", image: "/team/sanjay.jpg" },
 ];

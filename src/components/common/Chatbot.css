@@ -61,12 +61,12 @@
 
 /* Promo bubble above the avatar (similar to Urbancode widget) */
 .chatbot-offer-bubble {
-    max-width: 220px;
-    padding: 12px 16px;
+    max-width: 240px;
+    padding: 14px 18px;
     background: #ffffff;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
-    text-align: center;
+    text-align: left;
     font-family: "Inter", system-ui, sans-serif;
     border: 1px solid rgba(0, 0, 0, 0.06);
     animation: chatbotBubbleIn 0.5s ease-out both;
@@ -74,19 +74,31 @@
 
 .chatbot-offer-line1 {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #111827;
-    line-height: 1.35;
+    line-height: 1.4;
 }
 
-.chatbot-offer-line2 {
+.chatbot-offer-cta {
     display: block;
-    margin-top: 4px;
-    font-size: 0.8rem;
-    font-weight: 400;
-    color: #4b5563;
+    margin-top: 8px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #eab308;
     line-height: 1.4;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.18s ease;
+}
+
+.chatbot-offer-cta:hover {
+    color: #ca8a04;
+    text-decoration: underline;
 }
 
 @keyframes chatbotBubbleIn {
@@ -301,8 +313,8 @@
         font-size: 0.82rem;
     }
 
-    .chatbot-offer-line2 {
-        font-size: 0.75rem;
+    .chatbot-offer-cta {
+        font-size: 0.82rem;
     }
 
     .chatbot-icon-stack {

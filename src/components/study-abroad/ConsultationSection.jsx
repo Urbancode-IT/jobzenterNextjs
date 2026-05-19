@@ -188,33 +188,55 @@ const ConsultationSection = () => {
               <div className="study-abroad-form-fields">
 
                 <div className="study-abroad-form-group study-abroad-form-group-full">
-                  <label className="study-abroad-form-label">Full Name</label>
-                  <input type="text" name="name" value={formData.name} onChange={handleChange}
-                    className="study-abroad-form-input" placeholder="John Doe" />
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="study-abroad-form-input"
+                    placeholder="Full Name"
+                    aria-label="Full Name"
+                  />
                   {errors.name && <small className="study-abroad-form-error">{errors.name}</small>}
                 </div>
 
                 <div className="study-abroad-form-row">
                   <div className="study-abroad-form-group">
-                    <label className="study-abroad-form-label">Email Address</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleChange}
-                      className="study-abroad-form-input" placeholder="john@example.com" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="study-abroad-form-input"
+                      placeholder="Email Address"
+                      aria-label="Email Address"
+                    />
                     {errors.email && <small className="study-abroad-form-error">{errors.email}</small>}
                   </div>
                   <div className="study-abroad-form-group">
-                    <label className="study-abroad-form-label">Phone Number</label>
-                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
-                      className="study-abroad-form-input" placeholder="+1 (555) 000-0000" />
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="study-abroad-form-input"
+                      placeholder="Phone Number"
+                      aria-label="Phone Number"
+                    />
                     {errors.phone && <small className="study-abroad-form-error">{errors.phone}</small>}
                   </div>
                 </div>
 
                 <div className="study-abroad-form-row">
                   <div className="study-abroad-form-group">
-                    <label className="study-abroad-form-label">Preferred Country</label>
-                    <select name="preferredCountry" value={formData.preferredCountry} onChange={handleChange}
-                      className="study-abroad-form-input study-abroad-form-select">
-                      <option value="">Select Country</option>
+                    <select
+                      name="preferredCountry"
+                      value={formData.preferredCountry}
+                      onChange={handleChange}
+                      className={`study-abroad-form-input study-abroad-form-select${!formData.preferredCountry ? " is-placeholder" : ""}`}
+                      aria-label="Preferred Country"
+                    >
+                      <option value="">Preferred Country</option>
                       <option value="USA">United States</option>
                       <option value="UK">United Kingdom</option>
                       <option value="Canada">Canada</option>
@@ -226,10 +248,14 @@ const ConsultationSection = () => {
                     </select>
                   </div>
                   <div className="study-abroad-form-group">
-                    <label className="study-abroad-form-label">Education Level</label>
-                    <select name="educationLevel" value={formData.educationLevel} onChange={handleChange}
-                      className="study-abroad-form-input study-abroad-form-select">
-                      <option value="">Select Level</option>
+                    <select
+                      name="educationLevel"
+                      value={formData.educationLevel}
+                      onChange={handleChange}
+                      className={`study-abroad-form-input study-abroad-form-select${!formData.educationLevel ? " is-placeholder" : ""}`}
+                      aria-label="Education Level"
+                    >
+                      <option value="">Education Level</option>
                       <option value="Undergraduate">Undergraduate</option>
                       <option value="Postgraduate">Postgraduate</option>
                       <option value="PhD">PhD</option>
@@ -239,16 +265,27 @@ const ConsultationSection = () => {
                 </div>
 
                 <div className="study-abroad-form-group study-abroad-form-group-full">
-                  <label className="study-abroad-form-label">Preferred Course</label>
-                  <input type="text" name="preferredCourse" value={formData.preferredCourse} onChange={handleChange}
-                    className="study-abroad-form-input" placeholder="e.g. Computer Science, MBA" />
+                  <input
+                    type="text"
+                    name="preferredCourse"
+                    value={formData.preferredCourse}
+                    onChange={handleChange}
+                    className="study-abroad-form-input"
+                    placeholder="Preferred Course"
+                    aria-label="Preferred Course"
+                  />
                 </div>
 
                 <div className="study-abroad-form-group study-abroad-form-group-full">
-                  <label className="study-abroad-form-label">Message / Query</label>
-                  <textarea name="user_query" value={formData.message} onChange={handleChange}
+                  <textarea
+                    name="user_query"
+                    value={formData.message}
+                    onChange={handleChange}
                     className="study-abroad-form-input study-abroad-form-textarea"
-                    rows={4} placeholder="Tell us about your requirements..." />
+                    rows={4}
+                    placeholder="Message / Query"
+                    aria-label="Message / Query"
+                  />
                 </div>
 
               </div>

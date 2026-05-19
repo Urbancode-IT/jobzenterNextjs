@@ -347,7 +347,7 @@ const courses = [
         slug: "selenium",
         category: "Testing",
         description: "Hands-on Selenium WebDriver—locators, waits, actions, Page Object Model, and scalable browser automation for regression suites.",
-        img: "/courses/Automation.webp",
+        img: "/courses/selenium.png",
         rating: "4.8",
         students: "880",
         locked: true,

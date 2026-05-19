@@ -190,83 +190,93 @@ const StudyAbroadEnquiryModal = ({ isOpen, onClose, selectedCountry }) => {
 
             <form ref={formRef} onSubmit={handleSubmit} className="study-abroad-enquiry-form">
               <div className="study-abroad-enquiry-field">
-                <i className="bi bi-person study-abroad-enquiry-icon" aria-hidden />
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Full Name"
-                  className="study-abroad-enquiry-input"
-                />
+                <div className="study-abroad-enquiry-input-wrap">
+                  <i className="bi bi-person study-abroad-enquiry-icon" aria-hidden />
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Full Name"
+                    className="study-abroad-enquiry-input"
+                  />
+                </div>
                 {errors.name && (
                   <span className="study-abroad-enquiry-error">{errors.name}</span>
                 )}
               </div>
 
               <div className="study-abroad-enquiry-field">
-                <i className="bi bi-telephone study-abroad-enquiry-icon" aria-hidden />
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Mobile Number"
-                  className="study-abroad-enquiry-input"
-                />
+                <div className="study-abroad-enquiry-input-wrap">
+                  <i className="bi bi-telephone study-abroad-enquiry-icon" aria-hidden />
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Mobile Number"
+                    className="study-abroad-enquiry-input"
+                  />
+                </div>
                 {errors.phone && (
                   <span className="study-abroad-enquiry-error">{errors.phone}</span>
                 )}
               </div>
 
               <div className="study-abroad-enquiry-field">
-                <i className="bi bi-globe study-abroad-enquiry-icon" aria-hidden />
-                <select
-                  name="country"
-                  value={formData.country}
-                  onChange={handleChange}
-                  className="study-abroad-enquiry-input study-abroad-enquiry-select"
-                >
-                  <option value="">Select Country</option>
-                  {countries.map((c) => (
-                    <option key={c} value={c}>{c}</option>
-                  ))}
-                </select>
-                <i className="bi bi-chevron-down study-abroad-enquiry-chevron" aria-hidden />
+                <div className="study-abroad-enquiry-input-wrap">
+                  <i className="bi bi-globe study-abroad-enquiry-icon" aria-hidden />
+                  <select
+                    name="country"
+                    value={formData.country}
+                    onChange={handleChange}
+                    className="study-abroad-enquiry-input study-abroad-enquiry-select"
+                  >
+                    <option value="">Select Country</option>
+                    {countries.map((c) => (
+                      <option key={c} value={c}>{c}</option>
+                    ))}
+                  </select>
+                  <i className="bi bi-chevron-down study-abroad-enquiry-chevron" aria-hidden />
+                </div>
                 {errors.country && (
                   <span className="study-abroad-enquiry-error">{errors.country}</span>
                 )}
               </div>
 
               <div className="study-abroad-enquiry-field">
-                <i className="bi bi-mortarboard study-abroad-enquiry-icon" aria-hidden />
-                <select
-                  name="educationLevel"
-                  value={formData.educationLevel}
-                  onChange={handleChange}
-                  className="study-abroad-enquiry-input study-abroad-enquiry-select"
-                >
-                  <option value="">Education Level</option>
-                  {educationLevels.map((l) => (
-                    <option key={l} value={l}>{l}</option>
-                  ))}
-                </select>
-                <i className="bi bi-chevron-down study-abroad-enquiry-chevron" aria-hidden />
+                <div className="study-abroad-enquiry-input-wrap">
+                  <i className="bi bi-mortarboard study-abroad-enquiry-icon" aria-hidden />
+                  <select
+                    name="educationLevel"
+                    value={formData.educationLevel}
+                    onChange={handleChange}
+                    className="study-abroad-enquiry-input study-abroad-enquiry-select"
+                  >
+                    <option value="">Education Level</option>
+                    {educationLevels.map((l) => (
+                      <option key={l} value={l}>{l}</option>
+                    ))}
+                  </select>
+                  <i className="bi bi-chevron-down study-abroad-enquiry-chevron" aria-hidden />
+                </div>
                 {errors.educationLevel && (
                   <span className="study-abroad-enquiry-error">{errors.educationLevel}</span>
                 )}
               </div>
 
               <div className="study-abroad-enquiry-field">
-                <i className="bi bi-envelope study-abroad-enquiry-icon" aria-hidden />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email ID"
-                  className="study-abroad-enquiry-input"
-                />
+                <div className="study-abroad-enquiry-input-wrap">
+                  <i className="bi bi-envelope study-abroad-enquiry-icon" aria-hidden />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email ID"
+                    className="study-abroad-enquiry-input"
+                  />
+                </div>
                 {errors.email && (
                   <span className="study-abroad-enquiry-error">{errors.email}</span>
                 )}

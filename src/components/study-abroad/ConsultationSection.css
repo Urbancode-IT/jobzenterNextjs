@@ -148,6 +148,10 @@
   padding-right: 36px;
 }
 
+.study-abroad-form-select.is-placeholder {
+  color: #9ca3af;
+}
+
 .study-abroad-form-textarea {
   resize: vertical;
   min-height: 100px;

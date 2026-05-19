@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import "./coursePage.css";
 import courses from "./coursesData";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const CoursesPage = () => {
@@ -14,6 +15,10 @@ const CoursesPage = () => {
   const [isSweepActive, setIsSweepActive] = useState(false);
 
   const categories = ["All", "Development", "Testing", "Healthcare", "CCNA", "Cloud"];
+
+  const categoryLabels = {
+    CCNA: "CCNA & Networking",
+  };
 
   useEffect(() => {
     if (queryCategory && categories.includes(queryCategory)) {
@@ -32,47 +37,31 @@ const CoursesPage = () => {
     <div>
 
       {/* Hero Section */}
-      <div
-        className="text-center text-white py-5 position-relative mb-5"
-        style={{
-          height: "400px",
-          display: "flex",
-          alignItems: "flex-start",
-          justifyContent: "center",
-          paddingTop: "50px",
-          overflow: "hidden"
-        }}
-      >
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100"
-          style={{
-            backgroundImage: "url('/courses/Hero.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "brightness(1.2)",
-            zIndex: 0
-          }}
-        ></div>
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.15)", zIndex: 1 }}
-        ></div>
-        <div className="position-relative" style={{ zIndex: 2 }}>
-          <h1
-            className="display-4 fw-bold text-white"
-            style={{ textShadow: "2px 2px 15px rgba(0,0,0,0.9)", fontSize: "3.55rem", marginBottom: "8px" }}
-          >
-            Explore Courses
-          </h1>
-          <p className="lead text-white px-3" style={{ textShadow: "1px 1px 10px rgba(0,0,0,0.9)", fontSize: "1.4rem", fontWeight: "600" }}>Exploring paths to learn, grow, and achieve more.</p>
+      <section className="courses-hero" aria-label="Explore courses">
+        <div className="courses-hero-media" aria-hidden>
+          <Image
+            src="/courses/Hero.webp"
+            alt="Students learning together at Jobzenter"
+            fill
+            priority
+            sizes="100vw"
+            className="courses-hero-image"
+          />
+          <div className="courses-hero-overlay" />
         </div>
-      </div>
+        <div className="container courses-hero-content">
+          <h1 className="courses-hero-title">Explore Courses</h1>
+          <p className="courses-hero-subtitle">
+            Exploring paths to learn, grow, and achieve more.
+          </p>
+        </div>
+      </section>
 
       {/* Core Programs Section (Replaces Why Choose Us) */}
       <section className="programs-section">
         <div className="container">
-          <div className="text-center mb-5">
-            <motion.h2 
+          <div className="text-center mb-5 programs-intro">
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               onViewportEnter={() => setIsSweepActive(true)}
@@ -82,7 +71,7 @@ const CoursesPage = () => {
             >
               Our Core Specializations
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -100,6 +89,7 @@ const CoursesPage = () => {
                 title: "Full Stack Development",
                 desc: "Master versatile development across .NET, MERN, MEAN, React Native, Java, and Python ecosystems.",
                 icon: "bi bi-layers",
+                category: "Development",
                 delay: 0.2
               },
               {
@@ -107,6 +97,7 @@ const CoursesPage = () => {
                 title: "Software Testing",
                 desc: "Java, Selenium, Playwright, and TypeScript—plus manual QA—for confident releases in Agile teams.",
                 icon: "bi bi-shield-check",
+                category: "Testing",
                 delay: 0.3
               },
               {
@@ -114,6 +105,7 @@ const CoursesPage = () => {
                 title: "CCNA Networking",
                 desc: "Design, configure, and troubleshoot modern enterprise networks with routing and security expertise.",
                 icon: "bi bi-diagram-3",
+                category: "CCNA",
                 delay: 0.4
               },
               {
@@ -121,24 +113,34 @@ const CoursesPage = () => {
                 title: "AWS DevOps",
                 desc: "Scale cloud architectures and automate delivery pipelines using AWS, Docker, and CI/CD tools.",
                 icon: "bi bi-cloud-arrow-up",
+                category: "Cloud",
                 delay: 0.5
               }
             ].map((program, index) => (
-              <div className="col-lg-3 col-md-6" key={index}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: program.delay }}
-                  viewport={{ once: true }}
-                  className="program-feature-card"
+              <div className="col-lg-3 col-md-6" key={program.title}>
+                <Link
+                  href={`/courses?category=${program.category}#course-list`}
+                  className="program-feature-card-link"
+                  onClick={() => {
+                    setSelectedCategory(program.category);
+                    document.getElementById("course-list")?.scrollIntoView({ behavior: "smooth" });
+                  }}
                 >
-                  <div className="program-tag">{program.tag}</div>
-                  <div className="program-icon-box">
-                    <i className={program.icon}></i>
-                  </div>
-                  <h3 className="program-title">{program.title}</h3>
-                  <p className="program-desc">{program.desc}</p>
-                </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: program.delay }}
+                    viewport={{ once: true }}
+                    className="program-feature-card"
+                  >
+                    <div className="program-tag">{program.tag}</div>
+                    <div className="program-icon-box">
+                      <i className={program.icon}></i>
+                    </div>
+                    <h3 className="program-title">{program.title}</h3>
+                    <p className="program-desc">{program.desc}</p>
+                  </motion.div>
+                </Link>
               </div>
             ))}
           </div>
@@ -156,7 +158,7 @@ const CoursesPage = () => {
             onClick={() => setSelectedCategory(cat)}
             style={{ borderRadius: "20px", padding: "8px 25px" }}
           >
-            {cat}
+            {categoryLabels[cat] ?? cat}
           </button>
         ))}
       </div>
@@ -166,8 +168,8 @@ const CoursesPage = () => {
         <div className="row g-5 mt-md-3 mt-1">
           {filteredCourses.map((course) => (
             <div className="col-md-4" key={course.id}>
-              <Link href={`/courses/${course.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <div className="card course-card h-100 shadow-sm border-0 p-3" style={{ cursor: 'pointer' }}>
+              <Link href={`/courses/${course.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                <div className="card course-card h-100 shadow-sm border-0 p-3" style={{ cursor: "pointer" }}>
                   <div className="circle"></div>
                   <img
                     src={course.img}

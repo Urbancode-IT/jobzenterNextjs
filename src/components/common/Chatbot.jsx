@@ -13,6 +13,7 @@ const courses = [
   'Data Analysis',
   'Programming Languages',
   'Software Testing',
+  'CCNA & Networking',
   'Kids',
   'Internship',
   'Other',

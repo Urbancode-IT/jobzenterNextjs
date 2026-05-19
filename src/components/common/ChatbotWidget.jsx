@@ -150,8 +150,17 @@ const ChatbotWidget = () => {
         onClick={() => setIsChatOpen((prev) => !prev)}
       >
         <div className="chatbot-offer-bubble" aria-live="polite">
-          <span className="chatbot-offer-line1">🎉 Exciting offers are live!</span>
-          {/* <span className="chatbot-offer-line2">Enroll in a course today.</span> */}
+          <span className="chatbot-offer-line1">How may I assist you today?</span>
+          <button
+            type="button"
+            className="chatbot-offer-cta"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsDemoOpen(true);
+            }}
+          >
+            Book a demo now →
+          </button>
         </div>
         <div className="chatbot-icon-stack">
           <div className="chatbot-icon">

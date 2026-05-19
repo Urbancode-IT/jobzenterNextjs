@@ -71,10 +71,23 @@
   gap: 0;
 }
 
-.study-abroad-enquiry-icon {
+.study-abroad-enquiry-input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.study-abroad-enquiry-input-wrap .study-abroad-enquiry-icon {
   position: absolute;
   left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
   font-size: 18px;
+  line-height: 1;
   color: #888;
   pointer-events: none;
   z-index: 1;
@@ -83,20 +96,28 @@
 .study-abroad-enquiry-input,
 .study-abroad-enquiry-select {
   width: 100%;
-  padding: 12px 14px 12px 44px;
+  height: 48px;
+  padding: 0 14px 0 44px;
   border: 1px solid #d4d4d4;
   border-radius: 12px;
   background: #fff;
   font-size: 14px;
+  line-height: 1.25;
   font-family: "Inter", sans-serif;
   color: #2b2b2b;
   outline: none;
+  box-sizing: border-box;
   transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.study-abroad-enquiry-input {
+  display: block;
+  padding: 13px 14px 13px 44px;
 }
 
 .study-abroad-enquiry-select {
   appearance: none;
-  padding-right: 40px;
+  padding: 0 40px 0 44px;
   cursor: pointer;
 }
 
@@ -110,12 +131,21 @@
   box-shadow: 0 0 0 2px rgba(253, 240, 1, 0.25);
 }
 
-.study-abroad-enquiry-chevron {
+.study-abroad-enquiry-input-wrap .study-abroad-enquiry-chevron {
   position: absolute;
   right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
   font-size: 14px;
+  line-height: 1;
   color: #888;
   pointer-events: none;
+  z-index: 1;
 }
 
 .study-abroad-enquiry-error {
@@ -152,11 +182,16 @@
 .study-abroad-enquiry-submit {
   width: 100%;
   margin-top: 8px;
-  padding: 14px 24px;
+  min-height: 48px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #fdf001;
   color: #2b2b2b;
   font-size: 16px;
   font-weight: 700;
+  line-height: 1.2;
   font-family: "Inter", sans-serif;
   border: none;
   border-radius: 12px;

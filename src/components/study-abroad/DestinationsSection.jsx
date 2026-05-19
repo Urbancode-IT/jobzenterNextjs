@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import StudyAbroadEnquiryModal from "./StudyAbroadEnquiryModal";
@@ -51,7 +52,14 @@ const AnimatedCard = ({ country, index, onEnquire }) => {
     >
       <div className="study-abroad-destination-card">
         <div className="study-abroad-destination-img-wrap">
-          <img src={country.image} alt={country.name} className="study-abroad-destination-img" />
+          <Image
+            src={country.image}
+            alt={country.name}
+            fill
+            sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, (max-width: 1200px) 33vw, 25vw"
+            quality={92}
+            className="study-abroad-destination-img"
+          />
         </div>
         <div className="study-abroad-destination-content">
           <h3 className="study-abroad-destination-name">{country.name}</h3>

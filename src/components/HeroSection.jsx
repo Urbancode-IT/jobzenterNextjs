@@ -22,7 +22,7 @@ const HeroSection = () => {
         {/* Headings */}
         <h1 className="hero-centered-title fw-medium mt-4 mb-3 fade-up-delay-1">
           Learn In-Demand Skills. <br />
-          <span className="get-placed-animate">Get Placed</span> Faster.
+          Get Trained. <span className="get-placed-animate">Get Placed</span>.
         </h1>
 
         {/* Subtitle */}
@@ -83,16 +83,7 @@ const HeroSection = () => {
               <path d="M 65 20 L 75 25 L 65 30" stroke="#888" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <div className="float-card glass-gold-card">
-              <h3 className="mb-1">500+</h3>
-              <p className="mb-2 text-muted">Students Trained</p>
-              <div className="d-flex align-items-center gap-2 placement-row">
-                 <span className="placement-text fw-medium">Placed in Top IT Companies</span>
-                 <div className="profiles-stack d-flex">
-                    <span className="profile-dot c-1"></span>
-                    <span className="profile-dot c-2"></span>
-                    <span className="profile-dot c-3"></span>
-                 </div>
-              </div>
+              <h3 className="mb-0">500+</h3>
             </div>
           </div>
 
