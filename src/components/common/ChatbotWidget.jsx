@@ -181,6 +181,8 @@ const ChatbotWidget = () => {
         id="chatbot-container"
         ref={chatbotContainerRef}
         className={`chatbot-container ${isChatOpen ? "active" : ""}`}
+        onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
       >
         <div
           className="chatbot-close"

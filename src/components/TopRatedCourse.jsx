@@ -35,7 +35,10 @@ const TopRatedCourses = () => {
       description: "Build Selenium and framework skills for reliable regression suites and faster releases.",
       img: "/courses/Automation.webp",
       slug: "automation-testing",
-      icons: [<FaJava key="j" style={{ color: '#007396' }} />, <SiSpringboot key="s" style={{ color: '#6DB33F' }} />]
+      icons: [
+        <span key="j" className="tech-icon-pill"><FaJava style={{ color: '#5382a1' }} aria-hidden /></span>,
+        <span key="s" className="tech-icon-pill"><SiSpringboot style={{ color: '#6DB33F' }} aria-hidden /></span>,
+      ]
     },
     {
       id: 1,
@@ -44,7 +47,12 @@ const TopRatedCourses = () => {
       description: "MERN Stack is a powerful full-stack JavaScript technology for building modern web applications.",
       img: "/courses/mern.webp",
       slug: "mern-stack-development",
-      icons: [<SiMongodb key="m" style={{ color: '#47A248' }} />, <SiExpress key="e" style={{ color: '#fff' }} />, <SiReact key="r" style={{ color: '#61DAFB' }} />, <SiNodedotjs key="n" style={{ color: '#339933' }} />]
+      icons: [
+        <span key="m" className="tech-icon-pill"><SiMongodb style={{ color: '#47A248' }} aria-hidden /></span>,
+        <span key="e" className="tech-icon-pill"><SiExpress style={{ color: '#1a1a1a' }} aria-hidden /></span>,
+        <span key="r" className="tech-icon-pill"><SiReact style={{ color: '#61DAFB' }} aria-hidden /></span>,
+        <span key="n" className="tech-icon-pill"><SiNodedotjs style={{ color: '#339933' }} aria-hidden /></span>,
+      ]
     },
     {
       id: 2,
@@ -53,7 +61,9 @@ const TopRatedCourses = () => {
       description: "AWS is a cloud platform that provides scalable computing, storage, and services to build and deploy applications.",
       img: "/courses/aws.webp",
       slug: "aws",
-      icons: [<SiAmazonwebservices key="a" style={{ color: '#FF9900' }} />]
+      icons: [
+        <span key="a" className="tech-icon-pill"><SiAmazonwebservices style={{ color: '#FF9900' }} aria-hidden /></span>,
+      ]
     },
     {
       id: 3,
@@ -62,7 +72,11 @@ const TopRatedCourses = () => {
       description: "Full Stack Development covers both frontend and backend to build complete, scalable web applications.",
       img: "/courses/javaFullstack.webp",
       slug: "java-fullstack-development",
-      icons: [<FaJava key="j" style={{ color: '#007396' }} />, <SiSpringboot key="s" style={{ color: '#6DB33F' }} />, <SiMysql key="my" style={{ color: '#4479A1' }} />]
+      icons: [
+        <span key="j" className="tech-icon-pill"><FaJava style={{ color: '#5382a1' }} aria-hidden /></span>,
+        <span key="s" className="tech-icon-pill"><SiSpringboot style={{ color: '#6DB33F' }} aria-hidden /></span>,
+        <span key="my" className="tech-icon-pill"><SiMysql style={{ color: '#4479A1' }} aria-hidden /></span>,
+      ]
     },
     {
       id: 4,
@@ -71,7 +85,9 @@ const TopRatedCourses = () => {
       description: "Learn Python for data science, web development, and automation with hands-on projects.",
       img: "/courses/python.jpg",
       slug: "python-fullstack-development",
-      icons: [<SiPython key="p" style={{ color: '#3776AB' }} />]
+      icons: [
+        <span key="p" className="tech-icon-pill"><SiPython style={{ color: '#3776AB' }} aria-hidden /></span>,
+      ]
     },
     {
       id: 5,
@@ -80,7 +96,9 @@ const TopRatedCourses = () => {
       description: "Master networking essentials and prepare for CCNA certification with Cisco technologies.",
       img: "/courses/ccna.webp",
       slug: "ccna",
-      icons: [<SiCisco key="c" style={{ color: '#1BA0D7' }} />]
+      icons: [
+        <span key="c" className="tech-icon-pill"><SiCisco style={{ color: '#1BA0D7' }} aria-hidden /></span>,
+      ]
     }
   ];
 

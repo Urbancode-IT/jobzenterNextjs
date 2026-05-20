@@ -148,16 +148,28 @@
 
 .tech-icons {
   display: flex;
-  gap: 8px;
-  margin-bottom: 4px;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
-.trending-section .tech-icons svg {
-  color: #fff;
-  font-size: 1.2rem;
-  width: 1.2rem;
-  height: 1.2rem;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+.trending-section .tech-icon-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.trending-section .tech-icon-pill svg {
+  font-size: 1.35rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  filter: none;
 }
 
 .trending-section .course-title {

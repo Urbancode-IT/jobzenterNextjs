@@ -64,11 +64,16 @@ function Chatbot() {
     setMessages(msgs => [...msgs, { role, content, timestamp: new Date() }]);
   };
 
+  const scrollToBottom = () => {
+    requestAnimationFrame(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    });
+  };
+
   useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [messages, showThankYou]);
+    const timer = setTimeout(scrollToBottom, 80);
+    return () => clearTimeout(timer);
+  }, [messages, showThankYou, step]);
 
   // Validation functions
   const validateName = (name) => {
@@ -226,12 +231,15 @@ function Chatbot() {
     }
   };
 
-  const handleCourseSelect = async (c) => {
+  const handleCourseSelect = (c, event) => {
+    event?.preventDefault();
+    event?.stopPropagation();
     setCourse(c);
     addMessage('user', c);
-    addMessage('bot', 'Please share your contact number to get call from our Course coordinators.');
+    addMessage('bot', 'Please share your contact number to get a call from our course coordinators.');
     setStep(3);
     setInput('');
+    setTimeout(scrollToBottom, 150);
   };
 
   return (
@@ -304,43 +312,64 @@ function Chatbot() {
               {error && <div className="error-message">{error}</div>}
             </div>
           )}
+          {step === 2 && !showThankYou && (
+            <div className="course-selection-inline">
+              <p className="instruction">Please select your course:</p>
+              <div className="course-options">
+                {courses.map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    className={`course-option ${course === c ? 'selected' : ''}`}
+                    onClick={(e) => handleCourseSelect(c, e)}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div ref={messagesEndRef} />
         </div>
 
-        {!showThankYou && (
+        {!showThankYou && step !== 2 && (
           <div className="chatbot-input-container">
-            {step === 2 ? (
-              <div className="course-selection">
-                <p className="instruction">Please select your course:</p>
-                <div className="course-options">
-                  {courses.map(c => (
-                    <button
-                      key={c}
-                      className={`course-option ${course === c ? 'selected' : ''}`}
-                      onClick={() => handleCourseSelect(c)}
-                    >
-                      {c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <div className="input-group">
-                <input
-                  type={step === 1 ? 'email' : step === 3 ? 'tel' : 'text'}
-                  value={input}
-                  onChange={e => setInput(e.target.value)}
-                  placeholder={step === 0 ? "Please enter your name..." : step === 1 ? "Please enter your email..." : "Please enter your phone number..."}
-                  onKeyDown={e => e.key === 'Enter' && handleSend()}
-                  className="chat-input"
-                />
-                <button onClick={handleSend} className="send-button" disabled={!input.trim()}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-              </div>
+            {step === 3 && (
+              <p className="chat-step-hint">Enter your phone number (+91 and 10 digits)</p>
             )}
+            <div className="input-group">
+              <input
+                type={step === 1 ? 'email' : step === 3 ? 'tel' : 'text'}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder={
+                  step === 0
+                    ? 'Please enter your name...'
+                    : step === 1
+                      ? 'Please enter your email...'
+                      : 'Please enter your phone number...'
+                }
+                onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                className="chat-input"
+              />
+              <button
+                type="button"
+                onClick={handleSend}
+                className="send-button"
+                disabled={!input.trim()}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {!showThankYou && step === 2 && (
+          <div className="chatbot-input-container chatbot-input-container--course-hint">
+            <p className="chat-step-hint">Select a course above to continue</p>
           </div>
         )}
       </div>

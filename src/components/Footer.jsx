@@ -41,7 +41,7 @@ const Footer = () => {
 
   const courses = [
     { label: "MERN Stack", href: "/courses/mern-stack-development" },
-    { label: "AWS & DevOps", href: "/courses/aws" },
+    { label: "Cloud", href: "/courses/aws" },
     { label: "JAVA Fullstack", href: "/courses/java-fullstack-development" },
     { label: "Python Fullstack", href: "/courses/python-fullstack-development" },
     { label: "CCNA Networking", href: "/courses/ccna" },

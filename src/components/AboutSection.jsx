@@ -20,9 +20,9 @@ const courses = [
     desc: "In today's hyper-connected digital world, networking forms the backbone of all IT infrastructures. Our CCNA (Cisco Certified Network Associate) Networking program is designed to equip learners with in-demand skills required to design, configure, manage, and troubleshoot modern enterprise networks.",
   },
   {
-    title: "AWS & Devops",
+    title: "Cloud",
     category: "Cloud",
-    desc: "In the era of cloud-native applications, organizations demand faster, reliable, and scalable software delivery. Our AWS DevOps Training program is designed to equip learners with cutting-edge skills in cloud infrastructure, continuous integration, continuous deployment (CI/CD), and automation using Amazon Web Services.",
+    desc: "In the era of cloud-native applications, organizations demand reliable and scalable software delivery. Our Cloud training program equips learners with skills in cloud infrastructure, CI/CD, and automation using AWS, Docker, and modern DevOps tools.",
   },
 ];
 

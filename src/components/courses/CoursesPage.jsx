@@ -110,7 +110,7 @@ const CoursesPage = () => {
               },
               {
                 tag: "Automation",
-                title: "AWS DevOps",
+                title: "Cloud",
                 desc: "Scale cloud architectures and automate delivery pipelines using AWS, Docker, and CI/CD tools.",
                 icon: "bi bi-cloud-arrow-up",
                 category: "Cloud",

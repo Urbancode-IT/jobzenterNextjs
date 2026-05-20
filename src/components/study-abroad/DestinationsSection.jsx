@@ -2,21 +2,12 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { studyAbroadDestinations } from "@/data/studyAbroadDestinations";
 import StudyAbroadEnquiryModal from "./StudyAbroadEnquiryModal";
 import "./DestinationsSection.css";
-
-const countries = [
-  { name: "United States", description: "Land of Opportunity", universities: "120+ Universities", image: "/Study-Abroad/USA.png" },
-  { name: "United Kingdom", description: "World-Class Education", universities: "90+ Universities", image: "/Study-Abroad/UK.png" },
-  { name: "Canada", description: "Quality Living & Learning", universities: "100+ Universities", image: "/Study-Abroad/canada.png" },
-  { name: "Australia", description: "Innovation & Research", universities: "80+ Universities", image: "/Study-Abroad/Australia.png" },
-  { name: "Germany", description: "Tuition-Free Excellence", universities: "70+ Universities", image: "/Study-Abroad/Germany.png" },
-  { name: "Ireland", description: "Tech Hub of Europe", universities: "30+ Universities", image: "/Study-Abroad/Ireland.png" },
-  { name: "New Zealand", description: "Safe & Welcoming", universities: "25+ Universities", image: "/Study-Abroad/Newzealand.png" },
-  { name: "Singapore", description: "Asia's Education Hub", universities: "35+ Universities", image: "/Study-Abroad/Singapore.png" },
-];
 
 const AnimatedCard = ({ country, index, onEnquire }) => {
   const ref = useRef(null);
@@ -24,7 +15,12 @@ const AnimatedCard = ({ country, index, onEnquire }) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.unobserve(entry.target); } },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
       { threshold: 0.1 }
     );
     if (ref.current) observer.observe(ref.current);
@@ -50,31 +46,42 @@ const AnimatedCard = ({ country, index, onEnquire }) => {
         transition: `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`,
       }}
     >
-      <div className="study-abroad-destination-card">
-        <div className="study-abroad-destination-img-wrap">
-          <Image
-            src={country.image}
-            alt={country.name}
-            fill
-            sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, (max-width: 1200px) 33vw, 25vw"
-            quality={92}
-            className="study-abroad-destination-img"
-          />
-        </div>
-        <div className="study-abroad-destination-content">
-          <h3 className="study-abroad-destination-name">{country.name}</h3>
-          <p className="study-abroad-destination-desc">{country.description}</p>
-          <span className="study-abroad-destination-universities-pill">{country.universities}</span>
-          <button
-            type="button"
-            className="study-abroad-destination-btn"
-            onClick={() => onEnquire(country.name)}
-          >
-            Enquire Now
-            <i className="bi bi-arrow-up-right" aria-hidden />
-          </button>
-        </div>
-      </div>
+      <Link
+        href={`/study-abroad/${country.slug}`}
+        className="study-abroad-destination-card-link"
+      >
+        <article className="study-abroad-destination-card">
+          <div className="study-abroad-destination-img-wrap">
+            <Image
+              src={country.image}
+              alt={country.name}
+              fill
+              sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, (max-width: 1200px) 33vw, 25vw"
+              quality={92}
+              className="study-abroad-destination-img"
+            />
+          </div>
+          <div className="study-abroad-destination-content">
+            <h3 className="study-abroad-destination-name">{country.name}</h3>
+            <p className="study-abroad-destination-desc">{country.description}</p>
+            <span className="study-abroad-destination-universities-pill">
+              {country.universities}
+            </span>
+            <button
+              type="button"
+              className="study-abroad-destination-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onEnquire(country.name);
+              }}
+            >
+              Enquire Now
+              <i className="bi bi-arrow-up-right" aria-hidden />
+            </button>
+          </div>
+        </article>
+      </Link>
     </div>
   );
 };
@@ -135,9 +142,9 @@ const DestinationsSection = () => {
           Explore top-ranked universities in the world&apos;s most popular study destinations.
         </p>
         <div className="row g-4">
-          {countries.map((country, index) => (
+          {studyAbroadDestinations.map((country, index) => (
             <AnimatedCard
-              key={country.name}
+              key={country.slug}
               country={country}
               index={index}
               onEnquire={openEnquiry}
