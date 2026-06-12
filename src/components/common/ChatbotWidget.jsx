@@ -159,7 +159,7 @@ const ChatbotWidget = () => {
               setIsDemoOpen(true);
             }}
           >
-            Book a demo now →
+            Please ask here →
           </button>
         </div>
         <div className="chatbot-icon-stack">
@@ -215,7 +215,7 @@ const ChatbotWidget = () => {
         <Chatbot />
       </div>
 
-      {/* Draggable Book a Demo CTA */}
+      {/* Draggable Book demo CTA */}
       {demoPosition && (
         <button
           type="button"
@@ -226,10 +226,10 @@ const ChatbotWidget = () => {
           onPointerUp={handleDemoPointerUp}
           onPointerCancel={handleDemoPointerUp}
           onClick={handleDemoClick}
-          aria-label="Book your free demo session"
+          aria-label="Book demo"
         >
           <i className="bi bi-calendar2-check-fill" aria-hidden />
-          <span>Book a Demo</span>
+          <span>Book a demo</span>
         </button>
       )}
 

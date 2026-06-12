@@ -13,7 +13,7 @@ const Navbar = () => {
                     <FaTerminal />
                 </div>
                 <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <h1>Koder<span>Platform</span></h1>
+                    <h1>Jobzenter<span>Platform</span></h1>
                 </Link>
             </div>
             <div className="compiler-navbar-nav">
