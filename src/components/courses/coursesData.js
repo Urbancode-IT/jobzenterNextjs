@@ -189,7 +189,7 @@ const courses = [
     },
     {
         id: 43,
-        title: "Dot Net Fullstack Development",
+        title: ".Net Fullstack Development",
         slug: "dotnet-fullstack-development",
         category: "Development",
         description: "Master .NET technologies to build robust and scalable enterprise-level applications using C#, ASP.NET Core, and SQL Server.",
@@ -954,7 +954,7 @@ const courses = [
 ];
 
 const preferredCourseOrder = [
-    "Dot Net Fullstack Development",
+    ".Net Fullstack Development",
     "MERN Stack Development",
     "Automation Testing",
     "AWS",

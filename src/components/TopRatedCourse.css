@@ -172,6 +172,18 @@
   filter: none;
 }
 
+.trending-section .tech-icon-pill--logo {
+  padding: 6px;
+  background: #ffffff;
+}
+
+.trending-section .tech-logo-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
 .trending-section .course-title {
   color: #ffffff;
   font-size: 1.4rem;

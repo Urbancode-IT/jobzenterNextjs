@@ -84,9 +84,6 @@ function Chatbot() {
     if (trimmedName.length < 2) {
       return "Name must be at least 2 characters long.";
     }
-    if (!/^[a-zA-Z\s]+$/.test(trimmedName)) {
-      return "Name should only contain letters and spaces.";
-    }
     return null;
   };
 
@@ -141,59 +138,60 @@ function Chatbot() {
     return phone; // Return as-is if invalid (validation should catch this)
   };
 
-  const handleSend = async () => {
-    if (!input.trim()) return;
+  const handleSend = async (valueOverride) => {
+    const currentInput = (valueOverride ?? input).trim();
+    if (!currentInput || sending) return;
 
     // Wrap the entire flow in a try/catch to capture unexpected errors
     try {
       if (step === 0) {
-        const nameError = validateName(input);
+        const nameError = validateName(currentInput);
         if (nameError) {
-          addMessage('user', input);
+          addMessage('user', currentInput);
           addMessage('bot', `❌ ${nameError}`);
           setInput('');
           return;
         }
 
-        setName(input.trim());
-        addMessage('user', input);
+        setName(currentInput);
+        addMessage('user', currentInput);
         addMessage('bot', 'Please enter your email address..');
         setStep(1);
         setInput('');
 
       } else if (step === 1) {
-        const emailError = validateEmail(input);
+        const emailError = validateEmail(currentInput);
         if (emailError) {
-          addMessage('user', input);
+          addMessage('user', currentInput);
           addMessage('bot', `❌ ${emailError}`);
           setInput('');
           return;
         }
 
-        setEmail(input.trim());
-        addMessage('user', input);
+        setEmail(currentInput);
+        addMessage('user', currentInput);
         addMessage('bot', 'Please Select your course');
         setStep(2);
         setInput('');
 
       } else if (step === 2) {
-        setCourse(input);
-        addMessage('user', input);
+        setCourse(currentInput);
+        addMessage('user', currentInput);
         addMessage('bot', 'Please share your contact number to get call from our Course coordinators.');
         setStep(3);
         setInput('');
 
       } else if (step === 3) {
-        const phoneError = validatePhone(input);
+        const phoneError = validatePhone(currentInput);
         if (phoneError) {
-          addMessage('user', input);
+          addMessage('user', currentInput);
           addMessage('bot', `❌ ${phoneError}`);
           setInput('');
           return;
         }
 
-        const formattedPhone = formatPhone(input);
-        addMessage('user', input);
+        const formattedPhone = formatPhone(currentInput);
+        addMessage('user', currentInput);
         setShowThankYou(true);
         setStep(4);
         setInput('');
@@ -231,21 +229,44 @@ function Chatbot() {
     }
   };
 
-  const handleCourseSelect = (c, event) => {
-    event?.preventDefault();
-    event?.stopPropagation();
-    setCourse(c);
-    addMessage('user', c);
-    addMessage('bot', 'Please share your contact number to get a call from our course coordinators.');
-    setStep(3);
+  const handleCourseSelect = (selectedCourse) => {
+    if (sending || step !== 2 || showThankYou) return;
+
+    setCourse(selectedCourse);
     setInput('');
+    setStep(3);
+    setMessages((msgs) => [
+      ...msgs,
+      { role: 'user', content: selectedCourse, timestamp: new Date() },
+      {
+        role: 'bot',
+        content: 'Please share your contact number to get a call from our course coordinators.',
+        timestamp: new Date(),
+      },
+    ]);
     setTimeout(scrollToBottom, 150);
+  };
+
+  const stopChatEvent = (event) => {
+    event.stopPropagation();
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const value = e.currentTarget.querySelector('.chat-input')?.value ?? input;
+    handleSend(value);
+  };
+
+  const handleInputKeyDown = (e) => {
+    if (e.key !== 'Enter' || e.nativeEvent.isComposing || e.shiftKey) return;
+    e.preventDefault();
+    handleSend(e.currentTarget.value);
   };
 
   return (
     <>
 
-      <div className="chatbot-window-modern">
+      <div className="chatbot-window-modern" data-chatbot-ui="window">
         <div className="chatbot-header-modern">
           <div className="chatbot-header-left">
             <div className="chatbot-avatar-modern">
@@ -313,7 +334,7 @@ function Chatbot() {
             </div>
           )}
           {step === 2 && !showThankYou && (
-            <div className="course-selection-inline">
+            <div className="course-selection-inline" data-chatbot-ui="courses">
               <p className="instruction">Please select your course:</p>
               <div className="course-options">
                 {courses.map((c) => (
@@ -321,7 +342,11 @@ function Chatbot() {
                     key={c}
                     type="button"
                     className={`course-option ${course === c ? 'selected' : ''}`}
-                    onClick={(e) => handleCourseSelect(c, e)}
+                    onPointerDown={stopChatEvent}
+                    onClick={(e) => {
+                      stopChatEvent(e);
+                      handleCourseSelect(c);
+                    }}
                   >
                     {c}
                   </button>
@@ -333,12 +358,15 @@ function Chatbot() {
           <div ref={messagesEndRef} />
         </div>
 
-        {!showThankYou && step !== 2 && (
+        {!showThankYou && (
           <div className="chatbot-input-container">
+            {step === 2 && (
+              <p className="chat-step-hint">Select a course above or type one below and press Enter</p>
+            )}
             {step === 3 && (
               <p className="chat-step-hint">Enter your phone number (+91 and 10 digits)</p>
             )}
-            <div className="input-group">
+            <form className="input-group" onSubmit={handleFormSubmit}>
               <input
                 type={step === 1 ? 'email' : step === 3 ? 'tel' : 'text'}
                 value={input}
@@ -348,30 +376,29 @@ function Chatbot() {
                     ? 'Please enter your name...'
                     : step === 1
                       ? 'Please enter your email...'
-                      : 'Please enter your phone number...'
+                      : step === 2
+                        ? 'Or type your course here...'
+                        : 'Please enter your phone number...'
                 }
-                onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                onKeyDown={handleInputKeyDown}
                 className="chat-input"
+                disabled={sending}
+                enterKeyHint={step === 3 ? 'done' : 'next'}
+                autoComplete={step === 0 ? 'name' : step === 1 ? 'email' : step === 3 ? 'tel' : 'off'}
               />
               <button
-                type="button"
-                onClick={handleSend}
+                type="submit"
                 className="send-button"
-                disabled={!input.trim()}
+                disabled={!input.trim() || sending}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
-            </div>
+            </form>
           </div>
         )}
 
-        {!showThankYou && step === 2 && (
-          <div className="chatbot-input-container chatbot-input-container--course-hint">
-            <p className="chat-step-hint">Select a course above to continue</p>
-          </div>
-        )}
       </div>
 
     </>

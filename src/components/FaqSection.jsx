@@ -4,28 +4,28 @@ import "./FaqSection.css";
 
 const QA = [
   {
-    q: "What is JobZenter and how does it help job seekers?",
-    a: "JobZenter is a professional placement training and career development platform that helps students and job seekers enhance their skills, build strong resumes, and prepare for interviews. Our industry-focused training ensures better job opportunities and faster placements.",
+    q: "What services does Jobzenter provide for career-focused learners?",
+    a: "Jobzenter is a professional IT training and placement institute offering industry-aligned programmes, resume building, interview preparation, and dedicated career support. We help learners develop job-ready skills and connect with the right employment opportunities.",
   },
   {
-    q: " Do I need any prior coding knowledge to join?",
-    a: "No, prior coding knowledge is not required. Training starts from the basics and gradually moves to advanced concepts, making it suitable even for beginners.",
+    q: "Are your programmes suitable for beginners without prior technical experience?",
+    a: "Yes. Our curriculum is structured to support learners at every level—from foundational concepts to advanced, job-ready skills. No prior coding or technical background is required to get started.",
   },
   {
-    q: "Will I get real-time project experience during the course?",
-    a: "Yes, students work on real-time projects that simulate actual industry work. This helps in gaining hands-on experience and building a strong portfolio.",
+    q: "Do your courses include hands-on, industry-relevant project work?",
+    a: "Absolutely. Every programme incorporates practical assignments and real-world projects that mirror current industry standards, helping you build confidence, technical depth, and a portfolio employers value.",
   },
   {
-    q: "What makes JobZenter different from other training institutes?",
-    a: "JobZenter focuses more on practical learning, personal mentoring, and industry-relevant skills rather than just theory, which helps students get placed faster.",
+    q: "How does Jobzenter stand apart from other IT training providers?",
+    a: "We combine expert-led instruction, personalised mentoring, and a practical-first approach focused on employability. Our emphasis on live projects, interview readiness, and placement support sets us apart from theory-heavy alternatives.",
   },
   {
-    q: "Does JobZenter offer online or offline classes?",
-    a: "Yes. JobZenter provides both online and offline training, allowing learners to choose flexible, convenient learning options based on their schedule and location.",
+    q: "What learning modes do you offer—online, offline, or hybrid?",
+    a: "Jobzenter offers flexible online and offline classroom options, allowing you to choose a format that fits your schedule, location, and learning preferences without compromising on quality.",
   },
   {
-    q: "Does JobZenter provide placement assistance?",
-    a: "Yes. JobZenter offers 100% placement assistance, including mock interviews, job referrals, HR interaction sessions, resume optimization, and continuous career guidance until placement.",
+    q: "What placement support is included after course completion?",
+    a: "We provide comprehensive placement assistance, including mock interviews, HR preparation sessions, resume optimisation, job referrals, and ongoing career guidance until you secure a suitable role.",
   },
 ];
 
@@ -92,7 +92,6 @@ export default function FaqSection() {
                   className="faq-toggle d-flex align-items-center"
                   aria-expanded={active}
                 >
-                  <span className="faq-toggle-plus">+</span>
                   <span className="faq-question flex-grow-1">
                     {item.q}
                   </span>
@@ -134,14 +133,14 @@ export default function FaqSection() {
             </div>
           </div>
 
-          <h3 className="faq-side-title text-center">Any question?</h3>
+          <h3 className="faq-side-title text-center">Have a question?</h3>
           <p className="faq-side-text text-center">
-            You can ask anything you want to know about our courses and
-            services.
+            Reach out to learn more about our courses, schedules, and placement
+            support—we&apos;re happy to help.
           </p>
 
           <div className="faq-input-group d-flex flex-column">
-            <label className="faq-input-label">Let us know</label>
+            <label className="faq-input-label">Your question</label>
             <div className="faq-input-wrapper d-flex align-items-center">
               <input
                 type="text"

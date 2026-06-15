@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import "./TopRatedCourse.css";
 import { IoArrowForward, IoChevronBack, IoChevronForward, IoPeople } from "react-icons/io5";
-import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiAmazonwebservices, SiMysql, SiSpringboot, SiCisco, SiPython } from "react-icons/si";
+import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiMysql, SiSpringboot, SiCisco, SiPython } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
 const TopRatedCourses = () => {
@@ -61,9 +61,7 @@ const TopRatedCourses = () => {
       description: "AWS is a cloud platform that provides scalable computing, storage, and services to build and deploy applications.",
       img: "/courses/aws.webp",
       slug: "aws",
-      icons: [
-        <span key="a" className="tech-icon-pill"><SiAmazonwebservices style={{ color: '#FF9900' }} aria-hidden /></span>,
-      ]
+      logoSrc: "/courses/aws-logo.png",
     },
     {
       id: 3,
@@ -175,7 +173,17 @@ const TopRatedCourses = () => {
                     </div>
                     <div className="glass-body">
                       <div className="tech-icons">
-                        {course.icons}
+                        {course.logoSrc ? (
+                          <span className="tech-icon-pill tech-icon-pill--logo">
+                            <img
+                              src={course.logoSrc}
+                              alt={`${course.title} logo`}
+                              className="tech-logo-img"
+                            />
+                          </span>
+                        ) : (
+                          course.icons
+                        )}
                       </div>
                       <h4 className="course-title">{course.title}</h4>
                       <p className="course-description">{course.description}</p>

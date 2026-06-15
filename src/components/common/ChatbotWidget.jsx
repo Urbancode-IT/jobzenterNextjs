@@ -64,22 +64,31 @@ const ChatbotWidget = () => {
     };
   }, []);
 
+  const isClickInsideChatbot = (event) => {
+    const target = event.target;
+    if (!(target instanceof Node)) return false;
+
+    if (chatbotContainerRef.current?.contains(target)) return true;
+    if (chatbotTriggerRef.current?.contains(target)) return true;
+
+    const path = typeof event.composedPath === "function" ? event.composedPath() : [];
+    return path.some(
+      (node) =>
+        node === chatbotContainerRef.current ||
+        node === chatbotTriggerRef.current ||
+        (node instanceof Element && node.closest?.("[data-chatbot-ui]"))
+    );
+  };
+
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (
-        isChatOpen &&
-        chatbotContainerRef.current &&
-        chatbotTriggerRef.current &&
-        !chatbotContainerRef.current.contains(event.target) &&
-        !chatbotTriggerRef.current.contains(event.target)
-      ) {
-        setIsChatOpen(false);
-      }
+    const handleOutsidePointerDown = (event) => {
+      if (!isChatOpen || isClickInsideChatbot(event)) return;
+      setIsChatOpen(false);
     };
 
-    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener("pointerdown", handleOutsidePointerDown);
     return () => {
-      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener("pointerdown", handleOutsidePointerDown);
     };
   }, [isChatOpen]);
 
@@ -147,7 +156,10 @@ const ChatbotWidget = () => {
         id="chatbot-trigger"
         ref={chatbotTriggerRef}
         className="chatbot-trigger"
-        onClick={() => setIsChatOpen((prev) => !prev)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsChatOpen((prev) => !prev);
+        }}
       >
         <div className="chatbot-offer-bubble" aria-live="polite">
           <span className="chatbot-offer-line1">How may I assist you today?</span>
@@ -180,9 +192,11 @@ const ChatbotWidget = () => {
       <div
         id="chatbot-container"
         ref={chatbotContainerRef}
+        data-chatbot-ui="container"
         className={`chatbot-container ${isChatOpen ? "active" : ""}`}
         onClick={(e) => e.stopPropagation()}
         onMouseDown={(e) => e.stopPropagation()}
+        onPointerDown={(e) => e.stopPropagation()}
       >
         <div
           className="chatbot-close"

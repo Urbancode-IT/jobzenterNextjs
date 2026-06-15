@@ -77,7 +77,7 @@ const Carousel = () => {
           <div className="placement-stats-row">
             <div className="placement-stat-item">
               <h3>
-                500<span>+</span>
+                200<span>+</span>
               </h3>
               <p>Students Placed</p>
             </div>

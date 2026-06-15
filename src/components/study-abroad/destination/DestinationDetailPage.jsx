@@ -45,11 +45,17 @@ export default function DestinationDetailPage({ destination }) {
               style={{ objectPosition: destination.heroImagePosition ?? "center center" }}
             />
             <div className="dest-hero-banner-overlay" aria-hidden />
-            <div className="dest-hero-banner-text">
-              <h1>
-                Study in <span className="dest-accent">{destination.shortName}</span>
-              </h1>
-              <p>{destination.heroSubtitle}</p>
+            <div className="dest-hero-banner-content">
+              <div className="dest-hero-copy">
+                <h1>
+                  Study in <span className="dest-accent">{destination.shortName}</span>
+                </h1>
+                <p>{destination.heroSubtitle}</p>
+              </div>
+              <button type="button" className="dest-hero-cta" onClick={openEnquiry}>
+                <i className="bi bi-calendar2-check" aria-hidden />
+                Book a demo
+              </button>
             </div>
           </div>
         </div>

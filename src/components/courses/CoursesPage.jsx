@@ -48,12 +48,74 @@ const CoursesPage = () => {
             className="courses-hero-image"
           />
           <div className="courses-hero-overlay" />
+          <div className="courses-hero-glow" aria-hidden />
         </div>
+
         <div className="container courses-hero-content">
-          <h1 className="courses-hero-title">Explore Courses</h1>
-          <p className="courses-hero-subtitle">
-            Exploring paths to learn, grow, and achieve more.
-          </p>
+          <motion.div
+            className="courses-hero-panel"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+          >
+            <span className="courses-hero-badge">Industry-Ready Programmes</span>
+            <h1 className="courses-hero-title">
+              Explore <span className="courses-hero-accent">Courses</span>
+            </h1>
+            <p className="courses-hero-subtitle">
+              Build job-ready skills with expert-led training, live projects, and
+              dedicated placement support across development, testing, cloud, and more.
+            </p>
+
+            <div className="courses-hero-stats" role="list">
+              <div className="courses-hero-stat" role="listitem">
+                <strong>25+</strong>
+                <span>Specialised courses</span>
+              </div>
+              <div className="courses-hero-stat-divider" aria-hidden />
+              <div className="courses-hero-stat" role="listitem">
+                <strong>100%</strong>
+                <span>Placement support</span>
+              </div>
+              <div className="courses-hero-stat-divider" aria-hidden />
+              <div className="courses-hero-stat" role="listitem">
+                <strong>Expert</strong>
+                <span>Industry mentors</span>
+              </div>
+            </div>
+
+            <div className="courses-hero-actions">
+              <button
+                type="button"
+                className="courses-hero-btn courses-hero-btn-primary"
+                onClick={() => {
+                  document.getElementById("course-list")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Browse Programmes
+                <i className="bi bi-arrow-down-short" aria-hidden />
+              </button>
+              <Link href="/reach-us" className="courses-hero-btn courses-hero-btn-outline">
+                Get Free Counselling
+              </Link>
+            </div>
+
+            <div className="courses-hero-chips">
+              {categories.filter((cat) => cat !== "All").map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  className={`courses-hero-chip ${selectedCategory === cat ? "active" : ""}`}
+                  onClick={() => {
+                    setSelectedCategory(cat);
+                    document.getElementById("course-list")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  {categoryLabels[cat] ?? cat}
+                </button>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

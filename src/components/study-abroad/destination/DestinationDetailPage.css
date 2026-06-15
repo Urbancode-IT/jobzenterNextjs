@@ -18,18 +18,16 @@
 
 /* Hero */
 .dest-hero-wrap {
-  padding: 1rem 0 0;
+  padding: 1.25rem 0 0;
   background: #fff;
-  margin-bottom: 0;
 }
 
 .dest-hero-banner {
   position: relative;
-  min-height: clamp(300px, 42vh, 400px);
+  min-height: clamp(280px, 36vw, 360px);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: none;
-  border: none;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
 }
 
 .dest-hero-banner-img {
@@ -39,76 +37,83 @@
 .dest-hero-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.62) 0%,
-    rgba(0, 0, 0, 0.38) 42%,
-    rgba(0, 0, 0, 0.15) 100%
-  );
-}
-
-.dest-hero-banner-text {
-  position: relative;
   z-index: 1;
-  padding: 2.25rem 2rem;
-  max-width: 540px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: inherit;
-}
-
-/* Soft backlight behind text for readability */
-.dest-hero-banner-text::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 120%;
-  height: 140%;
-  background: radial-gradient(
-    ellipse at 20% 50%,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.25) 45%,
-    transparent 72%
-  );
-  z-index: -1;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(8, 20, 48, 0.78) 0%,
+      rgba(10, 35, 80, 0.52) 42%,
+      rgba(15, 45, 95, 0.22) 72%,
+      rgba(0, 0, 0, 0.08) 100%
+    );
   pointer-events: none;
 }
 
-/* Override global h1/p dark colors on hero */
-.dest-hero-banner-text h1 {
-  font-size: clamp(1.35rem, 2.8vw, 1.75rem);
-  font-weight: 600;
-  margin: 0 0 0.6rem;
-  line-height: 1.25;
-  color: #ffffff;
-  text-shadow:
-    0 0 18px rgba(255, 255, 255, 0.4),
-    0 0 32px rgba(255, 255, 255, 0.15),
-    0 2px 6px rgba(0, 0, 0, 0.85),
-    0 4px 14px rgba(0, 0, 0, 0.55);
+.dest-hero-banner-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 2.75rem);
 }
 
-.dest-hero-banner-text h1 .dest-accent {
+.dest-hero-copy {
+  flex: 1;
+  min-width: 0;
+  max-width: 640px;
+}
+
+.dest-hero-copy h1 {
+  font-size: clamp(1.75rem, 3.8vw, 2.65rem);
+  font-weight: 800;
+  margin: 0 0 0.65rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.dest-hero-copy h1 .dest-accent {
   color: #fdf001;
-  text-shadow:
-    0 0 16px rgba(253, 240, 1, 0.95),
-    0 0 30px rgba(253, 240, 1, 0.55),
-    0 0 48px rgba(255, 204, 0, 0.25),
-    0 2px 6px rgba(0, 0, 0, 0.75);
 }
 
-.dest-hero-banner-text p {
+.dest-hero-copy p {
   margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: #ffffff;
-  text-shadow:
-    0 0 14px rgba(255, 255, 255, 0.3),
-    0 1px 4px rgba(0, 0, 0, 0.8),
-    0 2px 10px rgba(0, 0, 0, 0.5);
+  max-width: 520px;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  line-height: 1.65;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dest-hero-cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fdf001 0%, #f9f58b 45%, #ffcc00 100%);
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(253, 240, 1, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dest-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(253, 240, 1, 0.45);
+}
+
+.dest-hero-cta i {
+  font-size: 1.05rem;
 }
 
 /* Journey — merged with hero (no gap line) */
@@ -506,11 +511,18 @@
 
 @media (max-width: 767px) {
   .dest-hero-banner {
-    min-height: 260px;
+    min-height: 300px;
   }
 
-  .dest-hero-banner-text {
-    padding: 1.75rem 1.25rem;
+  .dest-hero-banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1.5rem;
+  }
+
+  .dest-hero-cta {
+    width: 100%;
   }
 
   .dest-pathway-grid {

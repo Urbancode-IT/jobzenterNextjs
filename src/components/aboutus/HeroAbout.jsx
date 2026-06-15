@@ -103,15 +103,15 @@ const HeroSection = () => {
 
               <div className="hero-about-stats" role="group" aria-label="Impact highlights">
                 <div className="hero-stat">
-                  <span className="hero-stat-value">1000+</span>
+                  <span className="hero-stat-value">100+</span>
                   <span className="hero-stat-label">Students placed</span>
                 </div>
                 <div className="hero-stat">
-                  <span className="hero-stat-value">99%</span>
+                  <span className="hero-stat-value">100%</span>
                   <span className="hero-stat-label">Placement rate</span>
                 </div>
                 <div className="hero-stat">
-                  <span className="hero-stat-value">50+</span>
+                  <span className="hero-stat-value">30+</span>
                   <span className="hero-stat-label">Partner companies</span>
                 </div>
               </div>
