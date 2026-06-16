@@ -16,11 +16,6 @@ const teamHighlights = [
     role: "Lead Educator",
     image: "/team/pushparajjj.png",
   },
-  {
-    name: "Siva Sankara Pandian",
-    role: "Success Lead",
-    image: "/team/sangu.png",
-  },
 ];
 
 const teamStats = [
@@ -207,19 +202,6 @@ export default function OurTeamPage() {
                 <div className="photo-meta">
                   <strong>{teamHighlights[1].name}</strong>
                   <small>{teamHighlights[1].role}</small>
-                </div>
-              </div>
-              <div className="mini-card green">
-                <Image
-                  src={teamHighlights[2].image}
-                  alt={teamHighlights[2].name}
-                  fill
-                  sizes="(max-width: 991px) 100vw, 16vw"
-                  className="team-photo"
-                />
-                <div className="photo-meta">
-                  <strong>{teamHighlights[2].name}</strong>
-                  <small>{teamHighlights[2].role}</small>
                 </div>
               </div>
             </div>
