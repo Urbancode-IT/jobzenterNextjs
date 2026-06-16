@@ -243,7 +243,7 @@ const ChatbotWidget = () => {
           aria-label="Book demo"
         >
           <i className="bi bi-calendar2-check-fill" aria-hidden />
-          <span>Book a demo</span>
+          <span>Book a Demo</span>
         </button>
       )}
 
