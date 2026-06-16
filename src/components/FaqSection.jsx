@@ -134,22 +134,6 @@ export default function FaqSection() {
           </div>
 
           <h3 className="faq-side-title text-center">Have a question?</h3>
-          <p className="faq-side-text text-center">
-            Reach out to learn more about our courses, schedules, and placement
-            support—we&apos;re happy to help.
-          </p>
-
-          <div className="faq-input-group d-flex flex-column">
-            <label className="faq-input-label">Your question</label>
-            <div className="faq-input-wrapper d-flex align-items-center">
-              <input
-                type="text"
-                placeholder="Ask a question"
-                className="faq-input"
-              />
-              <span className="faq-input-clear">×</span>
-            </div>
-          </div>
         </div>
       </div>
       {/* Particles */}
