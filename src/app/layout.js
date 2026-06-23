@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ConditionalQuestions from "@/components/courses/ConditionalQuestions";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "flag-icons/css/flag-icons.min.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;

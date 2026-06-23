@@ -1,6 +1,8 @@
 import React from "react";
 import StudyAbroadHero from "@/components/study-abroad/StudyAbroadHero";
 import DestinationsSection from "@/components/study-abroad/DestinationsSection";
+import MbbsAbroadSection from "@/components/study-abroad/MbbsAbroadSection";
+import MbbsDestinationsSection from "@/components/study-abroad/MbbsDestinationsSection";
 import ServicesSection from "@/components/study-abroad/ServicesSection";
 import ConsultationSection from "@/components/study-abroad/ConsultationSection";
 import TestimonialsSection from "@/components/study-abroad/TestimonialsSection";
@@ -34,6 +36,8 @@ export default function StudyAbroadPage() {
 
       <StudyAbroadHero />
       <DestinationsSection />
+      <MbbsAbroadSection />
+      <MbbsDestinationsSection />
       <ServicesSection />
       <ConsultationSection />
       <TestimonialsSection />

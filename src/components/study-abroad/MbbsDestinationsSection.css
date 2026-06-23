@@ -1,0 +1,49 @@
+/* Card country-name heading — matches .study-abroad-destination-name in
+   DestinationsSection.css. Defined as a plain rule (not a Tailwind utility)
+   because Bootstrap's own unlayered h3 rule otherwise wins over Tailwind's
+   layered text-size and font-weight utilities. */
+.mbbs-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* Exact same heading style as "Premium Services for Your Success"
+   (.study-abroad-section-title in ServicesSection.css). */
+.mbbs-dest-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+/* Same gradient color-sweep effect as "Premium Services for Your Success"
+   (.title-sweep in ServicesSection.css), scoped here so it loads regardless
+   of import order. */
+.title-sweep {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #1a1a1a 20.21%,
+    #fdf001 50%,
+    #1a1a1a 79.79%,
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientSweep 1.5s ease forwards;
+}
+
+@keyframes gradientSweep {
+  0% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}

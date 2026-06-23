@@ -46,42 +46,41 @@ const AnimatedCard = ({ country, index, onEnquire }) => {
         transition: `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`,
       }}
     >
-      <Link
-        href={`/study-abroad/${country.slug}`}
-        className="study-abroad-destination-card-link"
-      >
-        <article className="study-abroad-destination-card">
-          <div className="study-abroad-destination-img-wrap">
-            <Image
-              src={country.image}
-              alt={country.name}
-              fill
-              sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, (max-width: 1200px) 33vw, 25vw"
-              quality={92}
-              className="study-abroad-destination-img"
-            />
-          </div>
-          <div className="study-abroad-destination-content">
-            <h3 className="study-abroad-destination-name">{country.name}</h3>
-            <p className="study-abroad-destination-desc">{country.description}</p>
-            <span className="study-abroad-destination-universities-pill">
-              {country.universities}
-            </span>
+      <article className="study-abroad-destination-card">
+        <div className="study-abroad-destination-img-wrap">
+          <Image
+            src={country.image}
+            alt={country.name}
+            fill
+            sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, (max-width: 1200px) 33vw, 25vw"
+            quality={92}
+            className="study-abroad-destination-img"
+          />
+        </div>
+        <div className="study-abroad-destination-content">
+          <h3 className="study-abroad-destination-name">{country.name}</h3>
+          <p className="study-abroad-destination-desc">{country.description}</p>
+          <span className="study-abroad-destination-universities-pill">
+            {country.universities}
+          </span>
+          <div className="study-abroad-destination-actions">
             <button
               type="button"
-              className="study-abroad-destination-btn"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onEnquire(country.name);
-              }}
+              className="study-abroad-destination-btn study-abroad-destination-btn-primary"
+              onClick={() => onEnquire(country.name)}
             >
               Enquire Now
-              <i className="bi bi-arrow-up-right" aria-hidden />
             </button>
+            <Link
+              href={`/study-abroad/${country.slug}`}
+              className="study-abroad-destination-btn study-abroad-destination-btn-outline"
+            >
+              View Details
+              <i className="bi bi-arrow-up-right" aria-hidden />
+            </Link>
           </div>
-        </article>
-      </Link>
+        </div>
+      </article>
     </div>
   );
 };

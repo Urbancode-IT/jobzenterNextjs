@@ -52,10 +52,6 @@ export default function DestinationDetailPage({ destination }) {
                 </h1>
                 <p>{destination.heroSubtitle}</p>
               </div>
-              <button type="button" className="dest-hero-cta" onClick={openEnquiry}>
-                <i className="bi bi-calendar2-check" aria-hidden />
-                Book a demo
-              </button>
             </div>
           </div>
         </div>

@@ -146,6 +146,12 @@ const StudyAbroadEnquiryModal = ({ isOpen, onClose, selectedCountry }) => {
     "Ireland",
     "New Zealand",
     "Singapore",
+    "Russia",
+    "Georgia",
+    "Kazakhstan",
+    "Uzbekistan",
+    "Kyrgyzstan",
+    "Philippines",
   ];
 
   const educationLevels = [

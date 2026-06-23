@@ -113,8 +113,8 @@ const ServicesSection = () => {
           Premium Services for Your Success
         </h2>
         <p className="study-abroad-section-subtitle text-center">
-          We provide end-to-end support to ensure your study abroad journey is
-          smooth and successful.
+          We provide end-to-end support that looks and feels like the Urbancode
+          Study Abroad theme, with bold yellow accents and easy-to-read text.
         </p>
         <div className="study-abroad-services-grid">
           {services.map((service, index) => (

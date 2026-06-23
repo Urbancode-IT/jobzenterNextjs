@@ -29,10 +29,12 @@ html {
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@layer base {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 img,
@@ -241,4 +243,29 @@ a {
 
 button {
   font-family: "Inter", sans-serif;
+}
+
+.title-sweep-benefits {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #1a1a1a 20%,
+    #fdf001 50%,
+    #1a1a1a 80%,
+    #1a1a1a 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: benefitsTitleSweep 1.5s ease forwards;
+}
+
+@keyframes benefitsTitleSweep {
+  0% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
 }
