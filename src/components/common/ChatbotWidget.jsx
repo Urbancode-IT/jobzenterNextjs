@@ -8,7 +8,7 @@ import EnquiryFormModal from "../enquiryForm/EnquiryFormModal";
 const ChatbotWidget = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isDemoOpen, setIsDemoOpen] = useState(false);
-  const [demoPosition, setDemoPosition] = useState(null);
+  const [demoPosition, setDemoPosition] = useState({ x: 24, y: 180 });
   const hasUserDraggedDemoRef = useRef(false);
 
   const chatbotTriggerRef = useRef(null);
@@ -35,6 +35,13 @@ const ChatbotWidget = () => {
 
   const getInitialDemoPosition = () => {
     if (typeof window === "undefined") return { x: 0, y: 0 };
+
+    // On mobile, the hero-anchored position can drift down into the
+    // chatbot trigger + offer bubble (bottom-right), which then renders
+    // on top and hides the demo button. Keep it pinned near the top instead.
+    if (window.innerWidth < 992) {
+      return clampPosition(window.innerWidth - 230, 90);
+    }
 
     const titleEl = document.querySelector(".hero-centered-title");
     if (titleEl) {
@@ -101,6 +108,7 @@ const ChatbotWidget = () => {
     dragState.initialX = demoPosition?.x ?? 0;
     dragState.initialY = demoPosition?.y ?? 0;
     dragState.moved = false;
+    event.currentTarget.setPointerCapture?.(event.pointerId);
   };
 
   const handleDemoPointerMove = (event) => {

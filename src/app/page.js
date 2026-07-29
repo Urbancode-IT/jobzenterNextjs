@@ -7,6 +7,7 @@ import StudentReviews from "@/components/StudentReviews";
 import TopRatedCourses from "@/components/TopRatedCourse";
 import WhyChooseUs from "@/components/aboutus/WhyChooseUs";
 import SuccessSection from "@/components/SuccessSection";
+import InDemandTools from "@/components/InDemandTools";
 import Script from "next/script";
 
 // ---------------- SEO Metadata ----------------
@@ -78,6 +79,7 @@ export default function Home() {
       <WhyChooseUs showProvide={false} />
       <SuccessSection />
       <StudentReviews />
+      <InDemandTools />
       <FaqSection />
     </>
   );

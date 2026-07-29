@@ -15,14 +15,19 @@ const courses = [
     desc: "In the evolving landscape of modern software engineering, full stack developers are the backbone of scalable, high-performance applications. Our Full Stack Development program is designed to transform learners into versatile developers with expertise across frontend, backend, databases, and deployment ecosystems.",
   },
   {
-    title: "CCNA Networking",
-    category: "CCNA",
-    desc: "In today's hyper-connected digital world, networking forms the backbone of all IT infrastructures. Our CCNA (Cisco Certified Network Associate) Networking program is designed to equip learners with in-demand skills required to design, configure, manage, and troubleshoot modern enterprise networks.",
+    title: "Data Analytics",
+    category: "Data Analytics",
+    desc: "Master data analytics with Python, Excel, SQL, and Power BI—learn to clean, analyze, visualize data and build dashboards for business intelligence roles.",
   },
   {
     title: "Cloud",
     category: "Cloud",
     desc: "In the era of cloud-native applications, organizations demand reliable and scalable software delivery. Our Cloud training program equips learners with skills in cloud infrastructure, CI/CD, and automation using AWS, Docker, and modern DevOps tools.",
+  },
+  {
+    title: "CCNA Networking",
+    category: "CCNA",
+    desc: "In today's hyper-connected digital world, networking forms the backbone of all IT infrastructures. Our CCNA (Cisco Certified Network Associate) Networking program is designed to equip learners with in-demand skills required to design, configure, manage, and troubleshoot modern enterprise networks.",
   },
 ];
 
@@ -55,9 +60,10 @@ const AboutSection = () => {
 
   const cardImages = [
     "/courses/Automation.webp",
-    "/courses/mean.jpg",
-    "/courses/ccna.webp",
+    "/courses/javaFullstack.webp",
+    "/courses/data-analytics-python.png",
     "/courses/aws.webp",
+    "/courses/ccna.webp",
   ];
 
   return (

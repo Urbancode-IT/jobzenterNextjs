@@ -54,47 +54,43 @@
 .placement-hero-register-btn {
   margin-top: 35px;
   padding: 10px 40px;
-  background: linear-gradient(90deg, #f4ea17 0%, #ffffff 90%);
-  border: none;
-  border-radius: 10px;
-  font-family: Poppins, sans-serif;
-  font-weight: 700;
-  font-size: 16px;
+  border: 2px solid #000;
   color: #000;
+  background: transparent;
+  border-radius: 20px;
   cursor: pointer;
   display: inline-block;
   position: relative;
   overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.placement-hero-register-btn:hover {
+  background: #000;
+  color: #fff;
 }
 
 /* Shine Animation */
-.placement-hero-register-btn::after {
+.placement-hero-register-btn::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -120%;
-  width: 60%;
+  left: -75%;
+  width: 50%;
   height: 100%;
   background: linear-gradient(
     120deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.7) 50%,
-    transparent 100%
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.1) 100%
   );
-  transform: skewX(-20deg);
-  animation: shine 2.3s infinite;
+  transform: skewX(-25deg);
+  animation: btnShine 2.5s linear infinite;
 }
 
-@keyframes shine {
-  0% {
-    left: -120%;
-  }
-  60% {
-    left: 130%;
-  }
-  100% {
-    left: 130%;
-  }
+@keyframes btnShine {
+  0% { left: -75%; }
+  100% { left: 125%; }
 }
 /* Animations */
 .ph-slide-down {

@@ -68,8 +68,36 @@
   background: #fff;
 }
 .rb-card:hover {
-  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
-  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1), 0 0 0 2px #f4ea17;
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Hover effect for BlogCard components */
+.blog-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.blog-card:hover {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1), 0 0 0 2px #f4ea17 !important;
+  transform: translateY(-3px) scale(1.02) !important;
+}
+
+/* Image zoom effect on hover for BlogCard */
+.blog-card img {
+  transition: transform 0.4s ease !important;
+}
+.blog-card:hover img {
+  transform: scale(1.04) !important;
+}
+
+/* Arrow effect on hover for BlogCard */
+.bc-arrow {
+  display: inline-block;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease !important;
+}
+.blog-card:hover .bc-arrow {
+  color: #f4ea17 !important; /* Theme yellow */
+  text-shadow: 0 0 8px rgba(244, 234, 23, 0.8) !important;
+  transform: translate(2px, -2px) !important; /* Slight jump up-right */
 }
 
 /* Large featured card — vertical (img top, content bottom) */

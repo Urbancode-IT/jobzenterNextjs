@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 import "./Register.css";
 import { sendEmail } from '../../../../lib/emailjsClient';
@@ -141,8 +142,8 @@ const Register = () => {
               />
               <label htmlFor="agree">
                 I’ve read and agree to Jobzenter’s{" "}
-                <a href="#" className="link">Privacy Policy</a> and{" "}
-                <a href="#" className="link">Terms & Conditions</a>.
+                <Link href="/privacy-policy" className="link">Privacy Policy</Link> and{" "}
+                <Link href="/terms-conditions" className="link">Terms & Conditions</Link>.
               </label>
             </div>
 

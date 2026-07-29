@@ -18,7 +18,7 @@ const Navbar = () => {
   const navItems = [
     { label: "Courses", path: "/courses", hasDropdown: false },
     {
-      label: "Services",
+      label: "Our Journey",
       path: "#",
       hasDropdown: true,
       dropdownItems: [
@@ -94,6 +94,11 @@ const Navbar = () => {
 
   useEffect(() => {
     if (!isOpen) setOpenDropdown(null);
+  }, [isOpen]);
+
+  useEffect(() => {
+    document.body.classList.toggle("mobile-nav-open", isOpen);
+    return () => document.body.classList.remove("mobile-nav-open");
   }, [isOpen]);
 
   useEffect(() => {

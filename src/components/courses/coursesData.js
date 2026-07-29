@@ -228,82 +228,6 @@ const courses = [
 
     // TESTING
     {
-        id: 35,
-        title: "Manual Testing",
-        slug: "manual-testing",
-        category: "Testing",
-        description: "Focus on the core concepts of manual software testing, bug reporting, and test case design without any coding.",
-        img: "/courses/manualTesting.webp",
-        rating: "4.6",
-        students: "600",
-        locked: true,
-        aboutData: {
-            topic: "Foundations of Manual Testing",
-            content1: "Learn how to find bugs effectively by understanding the software development lifecycle and testing methodologies.",
-            content2: "Master the art of writing clear test cases and reporting defects in tools like JIRA."
-        },
-        whatYouLearnData: [
-            { title: "SDLC & STLC", desc: "Development and Testing life cycles.", icon: "bi bi-arrow-repeat" },
-            { title: "Test Planning", desc: "Creating test strategies and plans.", icon: "bi bi-file-earmark-text" },
-            { title: "Bug Reporting", desc: "Writing effective bug reports in JIRA.", icon: "bi bi-bug" },
-            { title: "Black Box Testing", desc: "Functional and non-functional testing.", icon: "bi bi-box" },
-            { title: "Regression Testing", desc: "Ensuring changes don't break existing features.", icon: "bi bi-arrow-clockwise" },
-            { title: "Agile Testing", desc: "Testing in Scrum and Kanban environments.", icon: "bi bi-kanban" }
-        ],
-        courseContentData: [
-            { id: "mt1", title: "Introduction to Manual Testing", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of Software Testing and its importance", "Manual vs. Automated Testing", "Different types of testing (Functional, Non-Functional)", "Testing Life Cycle: Requirement Analysis, Test Planning, Test Execution, Defect Reporting", "Testing methodologies (Waterfall, Agile, V-Model)"] },
-            { id: "mt2", title: "Test Case Design & Execution", icon: "bi bi-pencil-square", items: ["Writing effective test cases: Structure, test case ID, description, steps, expected results", "Understanding test scenarios and acceptance criteria", "Types of test cases: Positive, Negative, Boundary Value, and Edge Cases", "Executing test cases and capturing results", "Traceability Matrix: Mapping test cases to requirements"] },
-            { id: "mt3", title: "Defect Reporting & Management", icon: "bi bi-bug", items: ["Introduction to defect lifecycle: Identification, Logging, Prioritization, Retesting", "Tools for defect tracking: JIRA, Bugzilla, TestRail", "Writing clear and effective bug reports (description, steps to reproduce, screenshots)", "Severity vs. Priority: Understanding the difference", "Managing and following up on reported defects"] },
-            { id: "mt4", title: "Types of Manual Testing", icon: "bi bi-clipboard-check", items: ["Functional Testing: Verification of features and functionality", "Non-Functional Testing: Usability, Compatibility, and Performance testing", "Regression Testing: Ensuring that new changes don’t break existing functionality", "Smoke & Sanity Testing: Quick checks to verify core functionality", "Exploratory Testing: Simultaneous learning, test design, and execution"] },
-            { id: "mt5", title: "Test Reporting & Documentation", icon: "bi bi-journal-text", items: ["Test Summary Report: Communicating the overall testing status", "Metrics and KPIs in testing: Test coverage, defect density, test execution progress", "Importance of documentation: Test plans, test cases, and defect logs", "Best practices for writing and maintaining test documentation"] }
-        ],
-        faqData: [
-            { question: "What is Manual Testing?", answer: "Manual Testing is the process of manually evaluating a software application by executing test cases without the use of automation tools, focusing on verifying that the software behaves as expected." },
-            { question: "What is the importance of Manual Testing?", answer: "Manual Testing is crucial for exploratory testing, usability testing, and cases where automation is not feasible. It ensures that the software meets end-user expectations and functionality." },
-            { question: "How do I get started with Manual Testing?", answer: "To get started, you should understand the Software Development Life Cycle (SDLC), test case design, bug reporting, and the use of tools like JIRA for managing test cases and defects." },
-            { question: "When is Manual Testing preferred over Automation?", answer: "Manual Testing is preferred when performing usability testing, ad-hoc testing, or when dealing with frequent changes in the UI or functionality, where writing and maintaining automation scripts would not be cost-effective." },
-            { question: "What career opportunities are there in Manual Testing?", answer: "After completing a Manual Testing course, you can pursue roles such as Manual Tester, Quality Analyst, Test Engineer, or QA Engineer in various domains like software development, e-commerce, and banking." }
-        ]
-    },
-    {
-        id: 14,
-        title: "Automation Testing",
-        slug: "automation-testing",
-        category: "Testing",
-        description: "Master automation testing using Selenium WebDriver with Java to build powerful and reusable test frameworks.",
-        img: "/courses/Automation.webp",
-        rating: "4.8",
-        students: "950",
-        locked: true,
-        aboutData: {
-            topic: "Build Automation Frameworks",
-            content1: "Our curriculum also covers Playwright automation, a modern end-to-end testing framework that supports fast, reliable cross-browser testing across Chromium, Firefox, and WebKit. With TypeScript integration, learners develop strongly typed, scalable test scripts, improving code quality and debugging efficiency.",
-            content2: "Master Selenium, TestNG, Maven, and Page Object Model for professional-grade automation."
-        },
-        whatYouLearnData: [
-            { title: "Selenium WebDriver", desc: "Automating browser actions.", icon: "bi bi-robot" },
-            { title: "Java for Testers", desc: "Essential Java for automation scripts.", icon: "bi bi-code-slash" },
-            { title: "Framework Design", desc: "POM and Data Driven frameworks.", icon: "bi bi-diagram-3" },
-            { title: "CI/CD Integration", desc: "Running tests in Jenkins pipelines.", icon: "bi bi-arrow-repeat" },
-            { title: "Git & GitHub", desc: "Version control for test scripts.", icon: "bi bi-git" },
-            { title: "Reporting", desc: "Generating Extent and Allure reports.", icon: "bi bi-file-bar-graph" }
-        ],
-        courseContentData: [
-            { id: "at1", title: "Introduction to Automation Testing", icon: "bi bi-info-circle", defaultOpen: true, items: ["What is Automation Testing and its benefits", "Manual vs. Automated Testing: When to choose automation", "Overview of automation tools: Selenium, Playwright, TestNG, Appium", "The Automation Testing life cycle: Planning, Scripting, Execution, Reporting", "Setting up the automation environment (IDE, drivers, frameworks)"] },
-            { id: "at2", title: "Selenium WebDriver Basics", icon: "bi bi-play", items: ["Introduction to Selenium WebDriver and its components", "Setting up Selenium WebDriver with Java or JavaScript", "Automating web browsers with Selenium commands (click, type, select)", "Locators in Selenium (ID, Name, XPath, CSS Selector, etc.)", "Handling dynamic elements, wait conditions, and synchronization"] },
-            { id: "at3", title: "Test Automation Frameworks", icon: "bi bi-boxes", items: ["Introduction to Automation Frameworks: Benefits and Design Patterns", "Types of frameworks: Linear, Modular, Data-Driven, Keyword-Driven, Hybrid", "Understanding Page Object Model (POM) for maintaining reusable test scripts", "TestNG for organizing and managing test cases", "Generating reports: Extent Reports, Allure Reports, or JUnit Reports"] },
-            { id: "at4", title: "Advanced Automation Topics", icon: "bi bi-gear", items: ["Automating API testing with RestAssured or Postman", "Implementing Continuous Integration (CI) with Jenkins for automation scripts", "Cross-browser testing with Selenium Grid or BrowserStack", "Parallel Test Execution and managing test data", "Automating mobile testing with Appium (Android & iOS)"] },
-            { id: "at5", title: "Best Practices & Optimization in Automation Testing", icon: "bi bi-stars", items: ["Writing maintainable and reusable test scripts", "Strategies for managing and organizing automation test cases", "Handling challenges: Dynamic content, synchronization issues, flaky tests", "Optimizing test execution: Parallel execution, avoiding redundant tests", "Continuous feedback and integration: Implementing CI/CD pipelines for automated testing"] }
-        ],
-        faqData: [
-            { question: "What is Automation Testing?", answer: "Automation Testing involves using tools like Selenium WebDriver and Java to automate repetitive test cases, reducing manual effort and ensuring consistent, error-free execution of test scenarios." },
-            { question: "Why should I learn Automation Testing?", answer: "Learning Automation Testing helps you build efficient, reusable test scripts, improving testing speed, accuracy, and scalability, especially for complex applications requiring frequent regression tests." },
-            { question: "What tools are used in Automation Testing?", answer: "Common tools include Selenium WebDriver, JUnit, TestNG, Appium, and Cucumber, which help automate functional, regression, and load testing in software development." },
-            { question: "Can I use Automation Testing for all types of applications?", answer: "Automation Testing is best suited for repetitive tasks and applications that require frequent testing. It works well for web and mobile applications but may not be ideal for exploratory or usability testing." },
-            { question: "What job roles can I pursue after learning Automation Testing?", answer: "After completing an Automation Testing course, you can pursue roles such as Test Automation Engineer, Quality Assurance Engineer, or Software Tester, with opportunities in various industries." }
-        ]
-    },
-    {
         id: 44,
         title: "Java",
         slug: "java-for-test-automation",
@@ -569,49 +493,11 @@ const courses = [
     // },
     // CCNA
     {
-        id: 13,
-        title: "Cisco Certified Network Associate (CCNA)",
-        slug: "ccna",
-        category: "CCNA",
-        description: "CCNA validates essential networking skills for configuring and troubleshooting modern computer networks.",
-        img: "/courses/ccna.webp",
-        rating: "4.9",
-        students: "1400",
-        locked: true,
-        aboutData: {
-            topic: "Master Networking with Cisco",
-            content1: "In today’s hyper-connected digital world, networking forms the backbone of all IT infrastructures. Our CCNA (Cisco Certified Network Associate) Networking program is designed to equip learners with in-demand skills required to design, configure, manage, and troubleshoot modern enterprise networks.",
-            content2: "Prepare for the CCNA 200-301 exam and start a career as a Network Engineer."
-        },
-        whatYouLearnData: [
-            { title: "Network Fundas", desc: "Routers, Switches, and OSI Model.", icon: "bi bi-diagram-2" },
-            { title: "IP Connectivity", desc: "Routing protocols like OSPF.", icon: "bi bi-share" },
-            { title: "Security Fundas", desc: "VPNs, Firewalls, and Access Control.", icon: "bi bi-shield-lock" },
-            { title: "IP Services", desc: "DHCP, DNS, and NAT.", icon: "bi bi-cloud" },
-            { title: "Automation", desc: "Network programmability basics.", icon: "bi bi-robot" },
-            { title: "Wireless Access", desc: "WLAN and wireless security.", icon: "bi bi-wifi" }
-        ],
-        courseContentData: [
-            { id: "cc1", title: "Introduction to Networking and CCNA Overview", icon: "bi bi-info-circle", defaultOpen: true, items: ["Understanding networking fundamentals: Networks, devices, and protocols", "Overview of the CCNA certification and its role in networking careers", "The OSI model and TCP/IP model: Layers, functions, and protocols", "Types of networks: LAN, WAN, MAN, and wireless networks", "Networking devices: Routers, switches, hubs, bridges, and access points"] },
-            { id: "cc2", title: "IP Addressing and Subnetting", icon: "bi bi-diagram-3", items: ["Understanding IPv4 and IPv6 addressing", "IP address classes and subnet masks", "Subnetting concepts: Calculating subnets, host ranges, and broadcast addresses", "VLSM (Variable Length Subnet Mask) and CIDR (Classless Inter-Domain Routing)", "IP Addressing schemes: Public vs. private IP addresses, NAT (Network Address Translation)"] },
-            { id: "cc3", title: "Routing and Switching Concepts", icon: "bi bi-arrow-left-right", items: ["Introduction to routing: Static and dynamic routing protocols", "Routing protocols: RIP, OSPF, EIGRP, and BGP", "Switching concepts: Ethernet, VLANs (Virtual LANs), and trunking", "Spanning Tree Protocol (STP) and its importance in network redundancy", "Inter-VLAN routing and router-on-a-stick configuration"] },
-            { id: "cc4", title: "Network Security and Access Control", icon: "bi bi-shield-lock", items: ["Introduction to network security fundamentals", "Configuring and securing Cisco routers and switches", "Access Control Lists (ACLs): Standard and extended ACLs", "Port security, DHCP snooping, and dynamic ARP inspection", "VPN (Virtual Private Network) basics: Types of VPNs, VPN protocols (IPSec, PPTP)"] },
-            { id: "cc5", title: "Wireless Networking and Troubleshooting", icon: "bi bi-wifi", items: ["Wireless networking fundamentals: Wi-Fi standards (802.11 a/b/g/n/ac/ax)", "Configuring wireless routers and access points", "Troubleshooting network connectivity issues using Cisco tools (ping, traceroute, show commands)", "Network performance optimization and error detection", "Implementing redundancy and high availability in networking (HSRP, VRRP)"] }
-        ],
-        faqData: [
-            { question: "What is CCNA certification?", answer: "CCNA validates your skills in configuring, managing, and troubleshooting modern computer networks. It is an entry-level certification that provides a solid foundation in networking concepts." },
-            { question: "Why should I learn CCNA?", answer: "CCNA is essential for networking professionals. It provides the knowledge required to work with network devices, manage routers, switches, and troubleshoot network issues, which are key skills in any IT infrastructure." },
-            { question: "What topics are covered in the CCNA course?", answer: "The CCNA course covers topics such as IP addressing, routing protocols, LAN and WAN concepts, security fundamentals, and network troubleshooting." },
-            { question: "How does CCNA help in career growth?", answer: "CCNA opens doors for roles such as Network Engineer, System Administrator, or IT Support Specialist, offering excellent career opportunities in the networking field." },
-            { question: "What are the prerequisites for the CCNA course?", answer: "There are no formal prerequisites, but basic knowledge of networking concepts and computer fundamentals can be helpful when starting the course." }
-        ]
-    },
-    {
         id: 40,
-        title: "CCNP Network",
+        title: "CCNA Network",
         slug: "ccnp-network",
         category: "CCNA",
-        description: "Master advanced routing and switching. Prepare for the CCNP Enterprise certification.",
+        description: "Master advanced routing and switching. Prepare for the CCNA Enterprise certification.",
         img: "/courses/ccnp.jpg",
         rating: "4.9",
         students: "300",
@@ -642,44 +528,6 @@ const courses = [
             { question: "Why should I pursue CCNP Network certification?", answer: "CCNP certification demonstrates expertise in managing complex networks, which is highly sought after by organizations looking for skilled network engineers." },
             { question: "What are the career benefits of CCNP certification?", answer: "After completing CCNP Network, you can advance to roles like Senior Network Engineer, Network Architect, or Network Consultant, enhancing career prospects in enterprise networking." },
             { question: "What are the prerequisites for the CCNP Network course?", answer: "Before starting CCNP, it's recommended to have a CCNA certification or equivalent knowledge in networking concepts." }
-        ]
-    },
-    {
-        id: 41,
-        title: "Network Security",
-        slug: "network-security",
-        category: "CCNA",
-        description: "Protect your infrastructure. Learn to implement and manage firewalls, IPS, and secure access.",
-        img: "/courses/networkSecurity.webp",
-        rating: "4.8",
-        students: "450",
-        locked: true,
-        aboutData: {
-            topic: "Securing Modern Networks",
-            content1: "Learn the strategies and tools used to protect enterprise data and systems from unauthorized access.",
-            content2: "Master Cisco ASA firewalls, VPNs, and secure network management."
-        },
-        whatYouLearnData: [
-            { title: "Firewalls", desc: "Configuring ASA and Next-Gen firewalls.", icon: "bi bi-shield-shaded" },
-            { title: "IPS/IDS", desc: "Intrusion prevention and detection.", icon: "bi bi-eye" },
-            { title: "Secure VPNs", desc: "Implementing AnyConnect and IPsec.", icon: "bi bi-lock" },
-            { title: "AAA Framework", desc: "Authentication, Authorization, Accounting.", icon: "bi bi-key" },
-            { title: "Web Security", desc: "Content filtering and protection.", icon: "bi bi-globe" },
-            { title: "Endpoint Security", desc: "Protecting devices on the network.", icon: "bi bi-laptop" }
-        ],
-        courseContentData: [
-            { id: "ns1", title: "Introduction to Network Security", icon: "bi bi-info-circle", defaultOpen: true, items: ["Overview of network security and its importance in protecting IT infrastructure", "Common network security threats: Malware, Phishing, Denial of Service (DoS), Man-in-the-Middle attacks", "Network security layers: Perimeter, internal network, and endpoint security", "Security policies, risk management, and compliance frameworks (NIST, ISO 27001)", "Security best practices and defense in depth strategy"] },
-            { id: "ns2", title: "Firewalls and Intrusion Detection/Prevention Systems (IDS/IPS)", icon: "bi bi-shield", items: ["Understanding firewall technologies: Stateful inspection, packet filtering, proxy, and next-gen firewalls", "Configuring and managing firewalls (Cisco ASA, Palo Alto Networks)", "Intrusion Detection Systems (IDS) vs. Intrusion Prevention Systems (IPS): Differences and use cases", "Deploying IDS/IPS solutions for threat detection and response", "Advanced threat detection with IDS/IPS signature-based and anomaly-based detection"] },
-            { id: "ns3", title: "VPNs and Remote Access Security", icon: "bi bi-lock", items: ["Understanding Virtual Private Networks (VPNs) and their role in securing remote connections", "VPN types: Site-to-site VPN, remote-access VPN, SSL VPN, and MPLS VPN", "VPN protocols: PPTP, L2TP, IPsec, SSL, and IKEv2", "Configuring and securing VPNs using Cisco AnyConnect, IPsec VPNs, and SSL VPNs", "Best practices for securing remote access: Authentication, authorization, encryption"] },
-            { id: "ns4", title: "Network Access Control (NAC) and Authentication Systems", icon: "bi bi-key", items: ["Network Access Control (NAC): Principles and implementation for securing access to network resources", "802.1X Authentication: Configuring and deploying port-based network access control", "Role-based access control (RBAC) for controlling user access to network devices and services", "Multi-factor authentication (MFA) for enhanced security", "Single Sign-On (SSO) and its role in user authentication"] },
-            { id: "ns5", title: "Advanced Security Concepts and Threat Mitigation", icon: "bi bi-stars", items: ["Network segmentation and isolation: Using VLANs, firewalls, and DMZs for security", "Advanced persistent threats (APTs) and advanced malware protection (AMP)", "Distributed Denial of Service (DDoS) attacks: Prevention and mitigation techniques", "Security Information and Event Management (SIEM) for monitoring and incident response", "Best practices for patch management, vulnerability scanning, and system hardening"] }
-        ],
-        faqData: [
-            { question: "What is Network Security?", answer: "Network Security involves protecting computer networks from unauthorized access, misuse, and attacks. It includes securing firewalls, intrusion detection systems (IDS), and virtual private networks (VPNs)." },
-            { question: "Why is Network Security important?", answer: "Network Security is critical for protecting sensitive data and ensuring that systems remain operational. It helps defend against cyber threats, data breaches, and service disruptions." },
-            { question: "What topics are covered in Network Security?", answer: "This course covers topics such as firewall management, network encryption, VPN configuration, IDS/IPS systems, and securing wireless networks." },
-            { question: "How does Network Security impact career growth?", answer: "Professionals with network security skills are in high demand, and this certification can lead to roles like Security Analyst, Network Security Engineer, or Cybersecurity Consultant." },
-            { question: "What skills are required for Network Security?", answer: "Basic knowledge of networking and IT fundamentals is essential. Familiarity with tools like Wireshark, Nessus, and firewalls is also beneficial." }
         ]
     },
     {
@@ -949,6 +797,160 @@ const courses = [
             { question: "What tools are used in Cloud DevOps?", answer: "Common tools include AWS, Terraform, Docker, Kubernetes, Jenkins, Ansible, and Git for managing and automating deployments, testing, and infrastructure provisioning in cloud environments." },
             { question: "What is the career growth potential in Cloud DevOps?", answer: "With Cloud DevOps skills, you can work as a DevOps Engineer, Cloud Engineer, or Cloud Architect, with opportunities in companies adopting cloud infrastructure and automation practices for scalable applications." },
             { question: "How does Cloud DevOps differ from traditional DevOps?", answer: "Cloud DevOps focuses specifically on the cloud environment, leveraging tools and practices designed for cloud infrastructure, whereas traditional DevOps may work in on-premise or hybrid environments." }
+        ]
+    },
+
+    // DATA ANALYTICS
+    {
+        id: 48,
+        title: "Python",
+        slug: "python-for-data-analytics",
+        category: "Data Analytics",
+        description: "Learn Python for data analytics—pandas, NumPy, data cleaning, visualization, and real-world analysis workflows from scratch.",
+        img: "/courses/data-analytics-python.png",
+        rating: "4.8",
+        students: "820",
+        locked: true,
+        aboutData: {
+            topic: "Python for Data Analytics",
+            content1: "Build a job-ready Python foundation for analytics: import and clean datasets, explore patterns with pandas, and communicate insights with charts and summaries.",
+            content2: "Hands-on exercises mirror real business scenarios—sales trends, customer segmentation, and operational reporting."
+        },
+        whatYouLearnData: [
+            { title: "Python Basics", desc: "Syntax, variables, loops, and functions.", icon: "bi bi-braces" },
+            { title: "pandas & NumPy", desc: "DataFrames, filtering, and aggregation.", icon: "bi bi-table" },
+            { title: "Data Cleaning", desc: "Handle missing values and outliers.", icon: "bi bi-funnel" },
+            { title: "Visualization", desc: "Matplotlib and Seaborn charts.", icon: "bi bi-bar-chart-line" },
+            { title: "Exploratory Analysis", desc: "Summaries, correlations, and trends.", icon: "bi bi-search" },
+            { title: "Mini Projects", desc: "End-to-end analysis case studies.", icon: "bi bi-folder-check" }
+        ],
+        courseContentData: [
+            { id: "pda1", title: "Python Foundations for Analysts", icon: "bi bi-info-circle", defaultOpen: true, items: ["Setting up Python, Jupyter, and virtual environments", "Variables, data types, operators, and control flow", "Functions, modules, and readable script structure", "Working with files: CSV, Excel, and JSON imports", "Debugging and validating analysis outputs"] },
+            { id: "pda2", title: "pandas for Data Manipulation", icon: "bi bi-table", items: ["Creating and indexing DataFrames", "Filtering, sorting, and grouping data", "Merging, joining, and reshaping datasets", "Handling missing and duplicate records", "Applying transformations with apply/map"] },
+            { id: "pda3", title: "NumPy & Statistical Basics", icon: "bi bi-calculator", items: ["Arrays, vectorized operations, and broadcasting", "Descriptive statistics for business metrics", "Correlation and distribution awareness", "Sampling and basic hypothesis intuition", "Performance tips for larger datasets"] },
+            { id: "pda4", title: "Data Visualization", icon: "bi bi-bar-chart-line", items: ["Line, bar, scatter, and histogram charts", "Customizing labels, colors, and layouts", "Seaborn for statistical plots", "Choosing the right chart for the story", "Exporting visuals for reports and decks"] },
+            { id: "pda5", title: "Analytics Projects & Best Practices", icon: "bi bi-stars", items: ["End-to-end EDA on sales and marketing data", "Documenting assumptions and limitations", "Reproducible notebooks and naming conventions", "Presenting findings to non-technical stakeholders", "Preparing for SQL, Excel, and BI tool integration"] }
+        ],
+        faqData: [
+            { question: "Do I need prior programming experience?", answer: "No—we start from Python basics and progress toward analytics-focused examples suitable for beginners and career switchers." },
+            { question: "Is this only for data analyst roles?", answer: "Python analytics skills are valuable for Data Analyst, Business Analyst, and BI Developer paths—and complement SQL, Excel, and Power BI." },
+            { question: "Which libraries are covered?", answer: "Core focus is pandas and NumPy with Matplotlib/Seaborn for visualization—the standard stack for entry-level analytics work." },
+            { question: "Will I work on real datasets?", answer: "Yes—exercises use realistic business-style datasets for cleaning, exploration, and reporting practice." },
+            { question: "What should I learn next?", answer: "Pair Python with SQL for querying and Power BI for dashboard delivery to become a well-rounded analyst." }
+        ]
+    },
+    {
+        id: 49,
+        title: "Excel",
+        slug: "excel-for-data-analytics",
+        category: "Data Analytics",
+        description: "Master Excel for data analytics—formulas, PivotTables, Power Query, dashboards, and business reporting used by analysts every day.",
+        img: "/courses/data-analytics-excel.png",
+        rating: "4.7",
+        students: "960",
+        locked: true,
+        aboutData: {
+            topic: "Excel for Data Analytics",
+            content1: "Go beyond basic spreadsheets: build dynamic reports, automate repetitive tasks, and analyze large datasets with PivotTables and Power Query.",
+            content2: "Ideal for students, finance teams, and aspiring analysts who want practical Excel skills employers expect on day one."
+        },
+        whatYouLearnData: [
+            { title: "Advanced Formulas", desc: "XLOOKUP, INDEX-MATCH, and logic.", icon: "bi bi-calculator" },
+            { title: "PivotTables", desc: "Summarize and slice business data.", icon: "bi bi-grid-3x3" },
+            { title: "Power Query", desc: "Import, clean, and transform data.", icon: "bi bi-arrow-repeat" },
+            { title: "Charts & Dashboards", desc: "Visual KPI tracking in Excel.", icon: "bi bi-pie-chart" },
+            { title: "Data Validation", desc: "Quality checks and error control.", icon: "bi bi-shield-check" },
+            { title: "Automation Intro", desc: "Macros and repeatable workflows.", icon: "bi bi-lightning" }
+        ],
+        courseContentData: [
+            { id: "eda1", title: "Excel Essentials for Analysts", icon: "bi bi-info-circle", defaultOpen: true, items: ["Workbook structure, tables, and named ranges", "Essential formulas: SUMIFS, COUNTIFS, AVERAGEIFS", "Logical functions: IF, IFS, AND, OR", "Lookup techniques: VLOOKUP, XLOOKUP, INDEX-MATCH", "Formatting for readable management reports"] },
+            { id: "eda2", title: "PivotTables & PivotCharts", icon: "bi bi-grid-3x3", items: ["Building PivotTables from raw data", "Grouping dates, categories, and numeric bins", "Calculated fields and value summaries", "Slicers, timelines, and interactive filters", "Designing PivotCharts for stakeholder reviews"] },
+            { id: "eda3", title: "Power Query & Data Transformation", icon: "bi bi-arrow-repeat", items: ["Connecting to CSV, Excel, and folder sources", "Removing duplicates and splitting columns", "Unpivoting and merging queries", "Refreshable data models for recurring reports", "Error handling in import pipelines"] },
+            { id: "eda4", title: "Dashboards & Business Reporting", icon: "bi bi-speedometer2", items: ["KPI layout and chart selection", "Conditional formatting for exceptions", "Combining charts, tables, and slicers", "Printing and sharing report templates", "Storytelling with numbers for decision makers"] },
+            { id: "eda5", title: "Productivity & Intro to Automation", icon: "bi bi-lightning", items: ["Keyboard shortcuts for analyst speed", "Data validation and drop-down controls", "Intro to recording simple macros", "Best practices for audit-friendly models", "Bridging Excel outputs to SQL and Power BI"] }
+        ],
+        faqData: [
+            { question: "Is advanced Excel still in demand?", answer: "Yes—Excel remains a core tool for analysts, finance teams, and managers. Power Query and Pivot skills are frequently listed in job descriptions." },
+            { question: "Do I need Microsoft 365?", answer: "Modern Excel with Power Query is recommended; core topics work on recent desktop versions used in most workplaces." },
+            { question: "Can beginners join?", answer: "We cover fundamentals first, then move to PivotTables and Power Query with guided exercises." },
+            { question: "How is this different from Power BI?", answer: "Excel excels at ad-hoc analysis and spreadsheet modeling; Power BI is for scalable dashboards. Many analysts use both." },
+            { question: "Career paths?", answer: "Business Analyst, Data Analyst, MIS Executive, and finance reporting roles commonly require strong Excel skills." }
+        ]
+    },
+    {
+        id: 50,
+        title: "SQL",
+        slug: "sql-for-data-analytics",
+        category: "Data Analytics",
+        description: "Query and analyze data with SQL—SELECT, JOINs, aggregations, subqueries, and reporting queries used in analytics and BI roles.",
+        img: "/courses/data-analytics-sql.png",
+        rating: "4.8",
+        students: "1100",
+        locked: true,
+        aboutData: {
+            topic: "SQL for Data Analytics",
+            content1: "Learn to extract answers from databases confidently: write clean queries, combine tables, aggregate metrics, and prepare datasets for Excel or Power BI.",
+            content2: "Practice on realistic schemas—customers, orders, products, and campaigns—so you can speak the language of data teams."
+        },
+        whatYouLearnData: [
+            { title: "SELECT & Filtering", desc: "Retrieve and filter rows precisely.", icon: "bi bi-funnel" },
+            { title: "JOINs", desc: "Combine tables for richer analysis.", icon: "bi bi-diagram-3" },
+            { title: "Aggregations", desc: "GROUP BY, HAVING, and metrics.", icon: "bi bi-bar-chart" },
+            { title: "Subqueries & CTEs", desc: "Readable multi-step logic.", icon: "bi bi-layers" },
+            { title: "Window Functions", desc: "Rankings, running totals, trends.", icon: "bi bi-window" },
+            { title: "Analytics Queries", desc: "Cohort, funnel, and KPI SQL.", icon: "bi bi-graph-up" }
+        ],
+        courseContentData: [
+            { id: "sda1", title: "SQL Foundations", icon: "bi bi-info-circle", defaultOpen: true, items: ["Relational databases and table relationships", "SELECT, WHERE, ORDER BY, and LIMIT", "Data types, NULL handling, and aliases", "Inserting sample data and exploring schemas", "Query formatting and readability habits"] },
+            { id: "sda2", title: "JOINs & Multi-Table Analysis", icon: "bi bi-diagram-3", items: ["INNER, LEFT, RIGHT, and FULL joins", "Primary/foreign keys in practice", "Avoiding duplicate rows and fan-out traps", "Combining sales, customer, and product data", "Validating join results"] },
+            { id: "sda3", title: "Aggregations & Grouping", icon: "bi bi-bar-chart", items: ["COUNT, SUM, AVG, MIN, MAX patterns", "GROUP BY with multiple dimensions", "HAVING vs. WHERE filters", "Date truncations and time-based rollups", "Building executive summary queries"] },
+            { id: "sda4", title: "Subqueries, CTEs & Window Functions", icon: "bi bi-layers", items: ["Subqueries in SELECT and WHERE clauses", "Common Table Expressions for clarity", "ROW_NUMBER, RANK, and DENSE_RANK", "Running totals and moving averages", "Refactoring complex logic step by step"] },
+            { id: "sda5", title: "Analytics Use Cases & BI Handoff", icon: "bi bi-graph-up", items: ["Cohort and retention-style queries", "Funnel and conversion analysis SQL", "Preparing datasets for Excel/Power BI", "Performance basics: indexes awareness", "Interview-style SQL problem practice"] }
+        ],
+        faqData: [
+            { question: "Which SQL dialect is taught?", answer: "Concepts apply across PostgreSQL, MySQL, and SQL Server; examples use widely compatible ANSI-style SQL." },
+            { question: "Do I need a database installed?", answer: "We use browser-friendly or local practice environments so you can run queries from day one." },
+            { question: "Is SQL required for data analysts?", answer: "SQL is one of the most requested skills for Data Analyst, BI Developer, and Analytics Engineer roles." },
+            { question: "Can I learn SQL without Python?", answer: "Yes—SQL stands alone for querying. Pairing with Python or Power BI later makes you more versatile." },
+            { question: "What jobs does this support?", answer: "Data Analyst, BI Analyst, Reporting Analyst, and junior Analytics Engineer positions." }
+        ]
+    },
+    {
+        id: 51,
+        title: "Power BI",
+        slug: "power-bi",
+        category: "Data Analytics",
+        description: "Build interactive Power BI dashboards—data modeling, DAX, visuals, and publish-ready reports for business intelligence roles.",
+        img: "/courses/data-analytics-power-bi.png",
+        rating: "4.9",
+        students: "1300",
+        locked: true,
+        aboutData: {
+            topic: "Power BI for Business Intelligence",
+            content1: "Transform raw data into executive-ready dashboards: connect sources, model relationships, write DAX measures, and design clear visuals that drive decisions.",
+            content2: "Includes portfolio-style projects you can showcase in interviews for Data Analyst and BI Developer roles."
+        },
+        whatYouLearnData: [
+            { title: "Data Import", desc: "Excel, SQL, and web sources.", icon: "bi bi-cloud-download" },
+            { title: "Data Modeling", desc: "Star schema and relationships.", icon: "bi bi-diagram-2" },
+            { title: "DAX Measures", desc: "KPIs, ratios, and time intelligence.", icon: "bi bi-calculator" },
+            { title: "Visual Design", desc: "Charts, maps, and drill-through.", icon: "bi bi-pie-chart" },
+            { title: "Filters & Slicers", desc: "Interactive report navigation.", icon: "bi bi-sliders" },
+            { title: "Publishing", desc: "Share reports via Power BI Service.", icon: "bi bi-share" }
+        ],
+        courseContentData: [
+            { id: "pbi1", title: "Power BI Overview & Setup", icon: "bi bi-info-circle", defaultOpen: true, items: ["Power BI Desktop vs. Service vs. Mobile", "Connecting to Excel, CSV, and SQL sources", "Power Query transformations in BI", "Understanding report, data, and model views", "Saving, versioning, and organizing projects"] },
+            { id: "pbi2", title: "Data Modeling & Relationships", icon: "bi bi-diagram-2", items: ["Fact and dimension table concepts", "Creating and managing relationships", "Cardinality, active paths, and role-playing dates", "Calculated columns vs. measures overview", "Building a clean star schema"] },
+            { id: "pbi3", title: "DAX for Analytics", icon: "bi bi-calculator", items: ["SUM, CALCULATE, and FILTER patterns", "Ratio and percentage KPI measures", "Time intelligence: YTD, MTD, prior period", "Handling blanks and divide-by-zero safely", "Debugging DAX with performance awareness"] },
+            { id: "pbi4", title: "Visuals, UX & Interactivity", icon: "bi bi-pie-chart", items: ["Choosing effective chart types", "Slicers, bookmarks, and drill-through pages", "Tooltips, conditional formatting, and themes", "Mobile layout considerations", "Accessibility and clarity for executives"] },
+            { id: "pbi5", title: "Publishing & Portfolio Projects", icon: "bi bi-share", items: ["Publishing to Power BI Service workspaces", "Row-level security introduction", "Scheduled refresh and gateway basics", "Capstone dashboard from raw to published report", "Presenting BI work in interviews"] }
+        ],
+        faqData: [
+            { question: "Do I need SQL or Excel first?", answer: "Basic Excel helps; SQL is useful but not mandatory to start. We cover imports and transformations inside Power BI." },
+            { question: "Is Power BI free to practice?", answer: "Power BI Desktop is free for learning; Service features for sharing may require a license in corporate settings." },
+            { question: "Will I learn DAX?", answer: "Yes—practical DAX for KPIs, ratios, and time comparisons is a core part of the curriculum." },
+            { question: "Can I build a portfolio?", answer: "Capstone-style projects help you demonstrate dashboard design, modeling, and DAX skills to employers." },
+            { question: "Career outcomes?", answer: "Power BI skills align with Data Analyst, BI Developer, MIS Analyst, and reporting-focused business roles." }
         ]
     }
 ];

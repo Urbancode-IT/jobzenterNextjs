@@ -10,7 +10,7 @@ const BlogCard = ({ image, date, title, description, tags, link, author = "Admin
       style={{ textDecoration: "none", color: "inherit", display: "block", height: "100%" }}
     >
       <div
-        className="d-flex flex-column h-100"
+        className="blog-card d-flex flex-column h-100"
         style={{
           cursor: "pointer",
           borderRadius: "16px",
@@ -19,18 +19,6 @@ const BlogCard = ({ image, date, title, description, tags, link, author = "Admin
           padding: "12px",
           transition: "box-shadow 0.3s ease, transform 0.3s ease",
           boxShadow: "0 2px 10px rgba(0,0,0,0.02)"
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow = "0 8px 30px rgba(0,0,0,0.08)";
-          e.currentTarget.style.transform = "translateY(-4px)";
-          const arrow = e.currentTarget.querySelector(".bc-arrow");
-          if(arrow) arrow.style.color = "#6b7280";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.boxShadow = "0 2px 10px rgba(0,0,0,0.02)";
-          e.currentTarget.style.transform = "translateY(0px)";
-          const arrow = e.currentTarget.querySelector(".bc-arrow");
-          if(arrow) arrow.style.color = "#999";
         }}
       >
         {/* Image Container */}

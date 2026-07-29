@@ -70,36 +70,44 @@ const WhyChooseUs = ({ showWhyChoose = true, showProvide = true }) => {
 
   const compareData = [
     {
-      ours: "Transparent guidance with realistic approval support",
-      others: "Paid services with low approval chances",
+      ours: "100% Live Interactive Classes",
+      others: "Pre-recorded Video Classes",
     },
     {
-      ours: "Strong partner network for smoother loan support",
-      others: "Very few tie-ups with banks",
+      ours: " No Recorded Sessions",
+      others: " Limited Trainer Interaction",
     },
     {
-      ours: "Flexible options based on profile and repayment comfort",
-      others: "Loan options are not flexible",
+      ours: " Learn Directly from Industry Experts",
+      others: " Theory-Based Learning",
     },
     {
-      ours: "Affordable EMI planning with clear cost visibility",
-      others: "Expensive EMI rates",
+      ours: "Real-Time Project Experience",
+      others: " Generic Course Content",
     },
     {
-      ours: "Repayment plans designed around learner timelines",
-      others: "Inflexible repayment terms",
+      ours: " Daily Doubt Clearing Support",
+      others: " Little or No Mentor Support",
     },
     {
-      ours: "Fair and student-friendly interest structures",
-      others: "High interest rates",
+      ours: "One-to-One Mentor Guidance",
+      others: " Basic or Outdated Projects",
     },
     {
-      ours: "Digital-first, simple, assisted application workflow",
-      others: "Manual and paperwork-heavy application process",
+      ours: "Resume & Profile Optimization",
+      others: " Limited Interview Practice",
     },
     {
-      ours: "Fast support and timely follow-up till completion",
-      others: "Delay in loan processing",
+      ours: " Mock HR & Technical Interviews",
+      others: " Placement Support Ends After Course",
+    },
+     {
+      ours: " Placement Support Until You Get Hired in Top Companys",
+      others: " Large Batch Sizes",
+    },
+     {
+      ours: "  Small Batches for Personalized Learning",
+      others: "  Slow Doubt Resolution",
     },
   ];
 

@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .navbar-custom {
-  background-color: #fdf894; /* Matching the vibrant yellow from your screenshot */
-  min-height: 72px;
+  background-color: #fdf894;
+  /* Matching the vibrant yellow from your screenshot */
+  min-height: 58px;
   height: auto;
   padding: 0;
   opacity: 1;
@@ -13,7 +14,7 @@
 .navbar-inner-container {
   max-width: 1240px;
   padding: 0 28px;
-  min-height: 72px;
+  min-height: 58px;
   display: flex;
   align-items: center;
 }
@@ -146,7 +147,7 @@
   color: #000000;
   white-space: nowrap;
   padding: 0;
-  transition: color 0.25s cubic-bezier(0.4,0,0.2,1), background 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1);
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
@@ -223,10 +224,13 @@
   gap: 8px;
   min-width: 220px;
   padding: 16px;
-  background-color: #fdf894; /* Matching the vibrant navbar yellow from your screenshot */
-  border: 1px solid rgba(0, 0, 0, 0.08); /* Softer border */
+  background-color: #fdf894;
+  /* Matching the vibrant navbar yellow from your screenshot */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  /* Softer border */
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
-  border-radius: 24px; /* Matches the prominent rounding in your screenshot */
+  border-radius: 24px;
+  /* Matches the prominent rounding in your screenshot */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -251,19 +255,19 @@
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 8px;
-  transition: background-color 0.25s cubic-bezier(0.4,0,0.2,1), color 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1);
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: left;
   white-space: nowrap;
   cursor: pointer;
 }
 
 .dropdown-item-custom:hover,
-  .dropdown-item-custom:focus-visible {
+.dropdown-item-custom:focus-visible {
   background-color: rgba(252, 246, 138, 0.4);
   color: #1a1a1a;
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  transition: background-color 0.25s cubic-bezier(0.4,0,0.2,1), color 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dropdown-item-custom.active {
@@ -355,9 +359,10 @@
 
   .navbar-custom .navbar-collapse-custom {
     background-color: #ffffff;
-    padding: 16px 0 8px;
+    padding: 16px 24px 8px;
     display: none;
-    width: 100%;
+    width: calc(100% + 48px);
+    margin: 16px -24px -16px;
   }
 
   .navbar-custom .navbar-collapse-custom.show {
@@ -429,10 +434,10 @@
     flex-direction: column;
     gap: 8px;
     align-items: stretch;
-    animation: dropdownPanelFade 0.25s cubic-bezier(0.4,0,0.2,1) forwards;
+    animation: dropdownPanelFade 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     opacity: 0;
     transform: translateY(12px);
-    transition: opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1);
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .mobile-dropdown-panel.show {
@@ -440,6 +445,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+
   .mobile-dropdown-panel.show {
     display: flex;
   }
@@ -456,7 +462,7 @@
     color: #000000;
     padding: 8px 12px;
     border-radius: 8px;
-    transition: background-color 0.25s cubic-bezier(0.4,0,0.2,1), color 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1);
+    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: left;
     width: 100%;
     display: flex;
@@ -469,11 +475,11 @@
 
   .mobile-dropdown-item:hover,
   .mobile-dropdown-item:focus-visible {
-    background-color: rgba(252,246,138,0.18);
+    background-color: rgba(252, 246, 138, 0.18);
     color: #1a1a1a;
     transform: scale(1.03);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    transition: background-color 0.25s cubic-bezier(0.4,0,0.2,1), color 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .mobile-dropdown-item.active {

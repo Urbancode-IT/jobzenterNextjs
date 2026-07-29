@@ -14,7 +14,7 @@ const CoursesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isSweepActive, setIsSweepActive] = useState(false);
 
-  const categories = ["All", "Development", "Testing", "Healthcare", "CCNA", "Cloud"];
+    const categories = ["All", "Development", "Testing", "Healthcare", "CCNA", "Cloud", "Data Analytics"];
 
   const categoryLabels = {
     CCNA: "CCNA & Networking",

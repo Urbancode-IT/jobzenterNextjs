@@ -30,11 +30,11 @@ const TopRatedCourses = () => {
   const courses = [
     {
       id: 6,
-      title: "Automation Testing",
+      title: "Selenium Testing",
       enrollment: "3.2k+",
-      description: "Build Selenium and framework skills for reliable regression suites and faster releases.",
-      img: "/courses/Automation.webp",
-      slug: "automation-testing",
+      description: "Master Selenium WebDriver, Page Object Model, and build reliable automation testing frameworks.",
+      img: "/courses/selenium.png",
+      slug: "selenium",
       icons: [
         <span key="j" className="tech-icon-pill"><FaJava style={{ color: '#5382a1' }} aria-hidden /></span>,
         <span key="s" className="tech-icon-pill"><SiSpringboot style={{ color: '#6DB33F' }} aria-hidden /></span>,
@@ -89,11 +89,11 @@ const TopRatedCourses = () => {
     },
     {
       id: 5,
-      title: "Cisco Networking",
+      title: "CCNA Network",
       enrollment: "1.5k+",
-      description: "Master networking essentials and prepare for CCNA certification with Cisco technologies.",
-      img: "/courses/ccna.webp",
-      slug: "ccna",
+      description: "Master advanced routing, switching, and prepare for CCNA Enterprise certification.",
+      img: "/courses/ccnp.jpg",
+      slug: "ccnp-network",
       icons: [
         <span key="c" className="tech-icon-pill"><SiCisco style={{ color: '#1BA0D7' }} aria-hidden /></span>,
       ]

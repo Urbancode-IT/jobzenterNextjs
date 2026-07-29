@@ -1,73 +1,105 @@
 'use client';
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { FaGraduationCap, FaStar } from "react-icons/fa";
 import "./SuccessSection.css";
 
 const SUCCESS_STORIES = [
   {
     id: 1,
-    initials: "AK",
-    name: "Arjun Krishnan",
-    role: "Full Stack Developer",
-    company: "Zoho Corporation",
-    quote: "The MERN Stack course completely transformed my career. I went from a basic web developer to landing a role at Zoho within 3 months of completing the course.",
-    batch: "MERN Stack — 2024 Batch",
-    package: "₹8.5 LPA"
+    name: "Divyabharathi",
+    role: "Frontend Developer",
+    ctc: "7.0 LPA",
+    companyLogo: "/mncs/tcs.png",
+    company: "TCS",
+    review: "Jobzenter's guidance and real-time projects boosted my confidence."
   },
   {
     id: 2,
-    initials: "PS",
-    name: "Priya Sundaram",
-    role: "Data Analyst",
-    company: "Capgemini",
-    quote: "Data Analytics course was incredibly hands-on. The Power BI projects we built directly helped me in my interviews. Jobzenter's placement support is unmatched.",
-    batch: "Data Analytics — 2024 Batch",
-    package: "₹7.2 LPA"
+    name: "Sindhu",
+    role: "System Engineer",
+    ctc: "15.0 LPA",
+    companyLogo: "/mncs/infosys.png",
+    company: "Infosys",
+    review: "Best learning experience with amazing placement support team!"
   },
   {
     id: 3,
-    initials: "RV",
-    name: "Rahul Vijayan",
-    role: "Cloud DevOps Engineer",
-    company: "Infosys",
-    quote: "AWS DevOps certification from Jobzenter opened doors I never imagined. The live project experience gave me a real edge over other candidates in the interview.",
-    batch: "AWS DevOps — 2023 Batch",
-    package: "₹9.0 LPA"
+    name: "Prakash",
+    role: "Data Analyst",
+    ctc: "13.0 LPA",
+    companyLogo: "/mncs/wipro.svg",
+    company: "Wipro",
+    review: "The mock interviews and mentor support were game changers!"
   },
   {
     id: 4,
-    initials: "MN",
-    name: "Meena Nair",
-    role: "QA Automation Engineer",
-    company: "TCS",
-    quote: "I had zero programming background before joining Jobzenter. The Automation Testing course made me completely job-ready. Got placed in TCS in the first attempt!",
-    batch: "Automation Testing — 2024 Batch",
-    package: "₹6.5 LPA"
+    name: "Anitha",
+    role: "DevOps Engineer",
+    ctc: "9.0 LPA",
+    companyLogo: "/mncs/capgemini.png",
+    company: "Capgemini",
+    review: "The one-to-one mentor support and real-time projects helped me a lot in getting placed."
   },
   {
     id: 5,
-    initials: "SK",
-    name: "Suresh Kumar",
-    role: "AI/ML Engineer",
-    company: "Amazon",
-    quote: "The AI/ML course at Jobzenter was industry-level. Working on TensorFlow projects during training helped me crack Amazon's technical interview with confidence.",
-    batch: "AI / ML — 2024 Batch",
-    package: "₹12 LPA"
+    name: "latha",
+    role: "Software Engineer",
+    ctc: "8.5 LPA",
+    companyLogo: "/mncs/hcl.png",
+    company: "HCL",
+    review: "The structured curriculum and hands-on projects made me industry-ready."
   },
   {
     id: 6,
-    initials: "DA",
-    name: "Divya Anand",
-    role: "Python Developer",
+    name: "Sathish",
+    role: "Cloud Engineer",
+    ctc: "10.0 LPA",
+    companyLogo: "/mncs/zoho.png",
+    company: "Zoho",
+    review: "Excellent faculty and continuous placement assistance helped me land my dream job."
+  },
+  {
+    id: 7,
+    name: "Kishore",
+    role: "Data Analyst",
+    ctc: "17.5 LPA",
+    companyLogo: "/mncs/amazon.png",
+    company: "Amazon",
+    review: "Their focus on real-world skills is exactly what top companies look for."
+  },
+  {
+    id: 8,
+    name: "Shagul",
+    role: "BI developer",
+    ctc: "9.0 LPA",
+    companyLogo: "/mncs/ibm.png",
+    company: "IBM",
+    review: "A fantastic platform to upskill and connect with top recruiters seamlessly."
+  },
+  {
+    id: 9,
+    name: "Abisheka Arasu",
+    role: "QA Automation Engineer",
+    ctc: "18.5 LPA",
+    companyLogo: "/mncs/microsoft.png",
+    company: "Microsoft",
+    review: "From basics to advanced topics, everything was taught exceptionally well."
+  },
+  {
+    id: 10,
+    name: "Meena",
+    role: "Full Stack Developer",
+    ctc: "15.5 LPA",
+    companyLogo: "/mncs/freshworks.png",
     company: "Freshworks",
-    quote: "Switched from non-IT to IT through Jobzenter's Python Full Stack course. The career guidance and mock interview sessions were game-changers for my transition.",
-    batch: "Python Full Stack — 2024 Batch",
-    package: "₹7.8 LPA"
+    review: "The one-to-one mentor support and real-time projects helped me a lot in getting placed."
   }
 ];
 
 const SuccessSection = () => {
-  const [titleVisible, setTitleVisible] = useState(false);
   const titleRef = useRef(null);
+  const [titleVisible, setTitleVisible] = useState(false);
+  const [activeReviewIndex, setActiveReviewIndex] = useState(null);
 
   useEffect(() => {
     if (!titleRef.current) return;
@@ -84,53 +116,85 @@ const SuccessSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const marqueeStories = [...SUCCESS_STORIES, ...SUCCESS_STORIES, ...SUCCESS_STORIES];
+
   return (
-    <section className="success" id="success">
-      <div className="success__container">
-        <div className="success__header">
-          <h2 
+    <section className="ss-section" id="success">
+      <div className="ss-container">
+
+        {/* Left Content */}
+        <div className="ss-left">
+          <h2
             ref={titleRef}
-            className={`success-main-title ${titleVisible ? "title-sweep" : ""}`}
+            className={`ss-title ${titleVisible ? 'title-sweep' : ''}`}
           >
-            Success Stories
+            Success <span style={{ color: '#ffc928' }}>Stories</span>
           </h2>
-          <p className="success__desc">
-            Real students, real placements, real salary hikes. Their success is our greatest achievement.
+          <p className="ss-desc">
+            Hundreds of students are building their dream careers with Jobzenter.
           </p>
         </div>
 
-        <div className="success__grid">
-          {SUCCESS_STORIES.map((s) => (
-            <div key={s.id} className="success__card">
-              <div className="success__card-top">
-                <div className="success__avatar">{s.initials}</div>
-                <div className="success__info">
-                  <h3 className="success__name">{s.name}</h3>
-                  <p className="success__role">{s.role}</p>
-                  <div className="success__company">
-                    <span className="company__icon">🏢</span>
-                    {s.company}
+        {/* Right Carousel */}
+        <div className="ss-right">
+          <div className="ss-carousel-wrapper">
+            <div className={`ss-carousel ${activeReviewIndex !== null ? 'paused' : ''}`}>
+              {marqueeStories.map((story, index) => {
+                const isOpen = activeReviewIndex === index;
+                return (
+                  <div className={`ss-card-group ${isOpen ? 'review-open' : ''}`} key={`${story.id}-${index}`}>
+
+                    {/* Left Info Card */}
+                    <div className="ss-card ss-card-left">
+                      <div className="ss-card-top-center">
+                        <div className="ss-company-circle">
+                          <img src={story.companyLogo} alt="Company" className="ss-company-logo-circle" />
+                        </div>
+                      </div>
+                      <div className="ss-card-body-center">
+                        <h3 className="ss-name">{story.name}</h3>
+                        <p className="ss-role">{story.role}</p>
+                        <p className="ss-ctc">CTC: {story.ctc}</p>
+                        <div className="ss-placed-badge">
+                          <FaGraduationCap className="ss-placed-icon" /> Placed
+                        </div>
+                        <button
+                          className="ss-view-review-btn"
+                          onClick={() => setActiveReviewIndex(isOpen ? null : index)}
+                        >
+                          View Review
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Right Review Card */}
+                    <div className={`ss-card ss-card-right ${isOpen ? 'show' : ''}`}>
+                      <button
+                        className="ss-close-btn"
+                        aria-label="Close review"
+                        onClick={() => setActiveReviewIndex(null)}
+                      >
+                        &times;
+                      </button>
+                      {/* The pointer triangle to the left card */}
+                      <div className="ss-pointer"></div>
+                      <div className="ss-stars">
+                        <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+                      </div>
+                      <p className="ss-review-text">"{story.review}"</p>
+                      <div className="ss-reviewer-info">
+                        <p className="ss-reviewer-name">- {story.name}</p>
+                        <p className="ss-reviewer-company">Placed at {story.company}</p>
+                      </div>
+                    </div>
+
                   </div>
-                </div>
-              </div>
-              
-              <div className="success__quote">
-                <span className="quote__mark">"</span>
-                {s.quote}
-              </div>
-
-              <div className="success__batch">
-                <span className="batch__icon">📚</span>
-                {s.batch}
-              </div>
-
-              <div className="success__package-row">
-                <span className="package__label">Package secured</span>
-                <span className="package__value">{s.package}</span>
-              </div>
+                );
+              })}
             </div>
-          ))}
+          </div>
         </div>
+
       </div>
     </section>
   );

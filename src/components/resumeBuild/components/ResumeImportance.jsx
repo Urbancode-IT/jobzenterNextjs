@@ -43,13 +43,13 @@ const ResumeImportance = () => {
         <section className={styles.container}>
             <div className={styles.wrapper}>
                 {/* Header Section */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className={styles.sectionHeader}
                 >
-                    <h2 
+                    <h2
                         ref={headingRef}
                         className={`${styles.sectionTitle} ${titleVisible ? styles.titleSweep : ''}`}
                     >
@@ -70,7 +70,7 @@ const ResumeImportance = () => {
                 </motion.div>
 
                 {/* Stats Bar */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -95,7 +95,7 @@ const ResumeImportance = () => {
                 {/* Grid Section */}
                 <div className={styles.topGrid}>
                     {/* Card 01 - Skill Optimization */}
-                    <motion.div 
+                    <motion.div
                         custom={0}
                         initial="hidden"
                         whileInView="visible"
@@ -119,10 +119,10 @@ const ResumeImportance = () => {
                             <div className={styles.metricItem}>
                                 <div className={styles.metricHeader}>
                                     <span>ATS Match Score</span>
-                                    <span>92%</span>
+                                    <span>99%</span>
                                 </div>
                                 <div className={styles.progressBar}>
-                                    <motion.div 
+                                    <motion.div
                                         initial={{ width: 0 }}
                                         whileInView={{ width: '92%' }}
                                         transition={{ duration: 1, delay: 0.5 }}
@@ -133,10 +133,10 @@ const ResumeImportance = () => {
                             <div className={styles.metricItem}>
                                 <div className={styles.metricHeader}>
                                     <span>Keyword Density</span>
-                                    <span>85%</span>
+                                    <span>95%</span>
                                 </div>
                                 <div className={styles.progressBar}>
-                                    <motion.div 
+                                    <motion.div
                                         initial={{ width: 0 }}
                                         whileInView={{ width: '85%' }}
                                         transition={{ duration: 1, delay: 0.7 }}
@@ -148,7 +148,7 @@ const ResumeImportance = () => {
                     </motion.div>
 
                     {/* Card 02 - Experience */}
-                    <motion.div 
+                    <motion.div
                         custom={1}
                         initial="hidden"
                         whileInView="visible"
@@ -167,7 +167,7 @@ const ResumeImportance = () => {
                     </motion.div>
 
                     {/* Card 03 - Projects */}
-                    <motion.div 
+                    <motion.div
                         custom={2}
                         initial="hidden"
                         whileInView="visible"
@@ -188,7 +188,7 @@ const ResumeImportance = () => {
 
                 <div className={styles.bottomGrid}>
                     {/* Card 04 - Audit & Review (Dark) */}
-                    <motion.div 
+                    <motion.div
                         custom={3}
                         initial="hidden"
                         whileInView="visible"
@@ -207,7 +207,7 @@ const ResumeImportance = () => {
                     </motion.div>
 
                     {/* Card 05 - LinkedIn Profile */}
-                    <motion.div 
+                    <motion.div
                         custom={4}
                         initial="hidden"
                         whileInView="visible"
@@ -226,7 +226,7 @@ const ResumeImportance = () => {
                     </motion.div>
 
                     {/* Card 06 - Coaching (Greenish) */}
-                    <motion.div 
+                    <motion.div
                         custom={5}
                         initial="hidden"
                         whileInView="visible"

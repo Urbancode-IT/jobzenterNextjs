@@ -61,9 +61,9 @@
 }
 
 .interview-offers-option:hover {
-  transform: translateY(-2px);
-  border-color: #e8d860;
-  box-shadow: 0 10px 22px rgba(244, 234, 23, 0.18);
+  transform: translateY(-4px) scale(1.02);
+  border-color: #f4ea17;
+  box-shadow: 0 12px 28px rgba(244, 234, 23, 0.25), 0 0 0 2px #f4ea17;
 }
 
 .interview-offers-option.is-active {
@@ -116,6 +116,13 @@
   box-shadow: 0 12px 28px rgba(244, 234, 23, 0.18);
   position: sticky;
   top: 88px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interview-offers-detail:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #f4ea17;
+  box-shadow: 0 16px 36px rgba(244, 234, 23, 0.25), 0 0 0 2px #f4ea17;
 }
 
 .interview-offers-detail-label {

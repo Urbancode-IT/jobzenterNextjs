@@ -27,7 +27,7 @@ const placementFaqData = [
   },
   {
     question: "Is placement guaranteed?",
-    answer: "We provide 100% placement assistance — meaning we actively support you until you land a job. While we cannot guarantee a specific salary or company, we ensure you get maximum interview opportunities."
+    answer: "We provide 100% placement assistance  meaning we actively support you until you land a job. While we cannot guarantee a specific salary or company, we ensure you get maximum interview opportunities."
   },
   {
     question: "How do I register for placement services?",
@@ -36,7 +36,7 @@ const placementFaqData = [
 ];
 
 const placementRegisterSubtext =
-  "Register for placement preparation support — fill out the form and our team will contact you with next steps, guidance, and program details.";
+  "Register for placement preparation support  fill out the form and our team will contact you with next steps, guidance, and program details.";
 
 export default function PlacementPreparationPage() {
   return (

@@ -1,5 +1,13 @@
 
 
+/* Hide all floating widgets while the mobile nav menu is open, so they
+   don't overlap the menu items. */
+body.mobile-nav-open .quick-contact-float,
+body.mobile-nav-open .chatbot-trigger,
+body.mobile-nav-open .book-demo-float {
+    display: none !important;
+}
+
 /* Chatbot Trigger Styles */
 .quick-contact-float {
     position: fixed;
@@ -247,6 +255,7 @@
     animation: bookDemoFloat 2.2s ease-in-out infinite;
     cursor: grab;
     user-select: none;
+    touch-action: none;
     transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
 }
 
@@ -349,7 +358,6 @@
     .book-demo-float {
         min-width: 162px;
         padding: 9px 14px;
-        top: 120px !important;
     }
 
     .book-demo-float span {

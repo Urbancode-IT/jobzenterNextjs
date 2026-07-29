@@ -12,9 +12,19 @@ const teamHighlights = [
     image: "/team/siva-sir.png",
   },
   {
+    name: "Sanjai",
+    role: "Placement Head",
+    image: "/team/sanjai.jpg",
+  },
+  {
     name: "Pushparaj",
     role: "Lead Educator",
     image: "/team/pushparajjj.png",
+  },
+  {
+    name: "Atchaya",
+    role: "Lead Educator",
+    image: "/team/Atchaya.jpg.png",
   },
 ];
 
@@ -84,7 +94,7 @@ const placementTimeline = [
     icon: "bi-patch-check-fill",
   },
   {
-    title: "Resume & LinkedIn Build",
+    title: "Resume & Naukri and other profiles",
     description: "Our HR team creates ATS-friendly resume and LinkedIn profiles aligned to your target role.",
     week: "Week 1",
     icon: "bi-file-earmark-person-fill",
@@ -111,40 +121,64 @@ const placementTimeline = [
 
 const skillForgeCycle = [
   {
-    step: 1,
+    step: "01",
     title: "Enroll & Assess",
     subtitle: "Free skill test + batch placement",
     icon: "bi-bullseye",
+    color: "#eab308",
+    bgColor: "#fffbeb",
+    borderColor: "rgba(234, 179, 8, 0.25)",
+    badgeBg: "#eab308",
   },
   {
-    step: 2,
+    step: "02",
     title: "Live Training",
-    subtitle: "Industry trainers, real projects",
+    subtitle: "Industry trainers, real-time projects",
     icon: "bi-easel2-fill",
+    color: "#f97316",
+    bgColor: "#fff7ed",
+    borderColor: "rgba(249, 115, 22, 0.25)",
+    badgeBg: "#f97316",
   },
   {
-    step: 3,
+    step: "03",
     title: "Hands-on Labs",
     subtitle: "Build portfolio projects live",
     icon: "bi-tools",
+    color: "#22c55e",
+    bgColor: "#f0fdf4",
+    borderColor: "rgba(34, 197, 94, 0.25)",
+    badgeBg: "#22c55e",
   },
   {
-    step: 4,
-    title: "Assessments",
-    subtitle: "Mock tests + industry-level exams",
-    icon: "bi-bar-chart-fill",
+    step: "04",
+    title: "Projects & Placement",
+    subtitle: "Capstone projects + placement support",
+    icon: "bi-code-slash",
+    color: "#3b82f6",
+    bgColor: "#eff6ff",
+    borderColor: "rgba(59, 130, 246, 0.25)",
+    badgeBg: "#3b82f6",
   },
   {
-    step: 5,
+    step: "05",
     title: "Interview Prep",
     subtitle: "HR rounds, aptitude, coding",
     icon: "bi-mic-fill",
+    color: "#a855f7",
+    bgColor: "#faf5ff",
+    borderColor: "rgba(168, 85, 247, 0.25)",
+    badgeBg: "#a855f7",
   },
   {
-    step: 6,
+    step: "06",
     title: "Job Placement",
     subtitle: "Direct referrals to hiring partners",
     icon: "bi-briefcase-fill",
+    color: "#ef4444",
+    bgColor: "#fef2f2",
+    borderColor: "rgba(239, 68, 68, 0.25)",
+    badgeBg: "#ef4444",
   },
 ];
 
@@ -152,8 +186,8 @@ const centerTeamMembers = [
   { name: "Siva", image: "/team/siva-sir.png" },
   { name: "Pushparaj", image: "/team/pushparajjj.png" },
   { name: "Siva Sankara Pandian", image: "/team/sangu.png" },
-  { name: "Mukesh", image: "/team/mukesh.jpg" },
-  { name: "Sanjay", image: "/team/sanjay.jpg" },
+  { name: "Atchaya", image: "/team/Atchaya.jpg.png" },
+  { name: "Sanjai", image: "/team/sanjai.jpg" },
 ];
 
 export default function OurTeamPage() {
@@ -177,13 +211,13 @@ export default function OurTeamPage() {
               </div>
             </div>
 
-            <div className="hero-cards-grid" aria-hidden="true">
-              <div className="big-card">
+            <div className="hero-cards-grid hero-cards-grid-4" aria-hidden="true">
+              <div className="mini-card pink">
                 <Image
                   src={teamHighlights[0].image}
                   alt={teamHighlights[0].name}
                   fill
-                  sizes="(max-width: 991px) 100vw, 33vw"
+                  sizes="(max-width: 991px) 100vw, 16vw"
                   className="team-photo"
                 />
                 <div className="photo-meta">
@@ -202,6 +236,32 @@ export default function OurTeamPage() {
                 <div className="photo-meta">
                   <strong>{teamHighlights[1].name}</strong>
                   <small>{teamHighlights[1].role}</small>
+                </div>
+              </div>
+              <div className="mini-card pink">
+                <Image
+                  src={teamHighlights[2].image}
+                  alt={teamHighlights[2].name}
+                  fill
+                  sizes="(max-width: 991px) 100vw, 16vw"
+                  className="team-photo"
+                />
+                <div className="photo-meta">
+                  <strong>{teamHighlights[2].name}</strong>
+                  <small>{teamHighlights[2].role}</small>
+                </div>
+              </div>
+              <div className="mini-card pink">
+                <Image
+                  src={teamHighlights[3].image}
+                  alt={teamHighlights[3].name}
+                  fill
+                  sizes="(max-width: 991px) 100vw, 16vw"
+                  className="team-photo"
+                />
+                <div className="photo-meta">
+                  <strong>{teamHighlights[3].name}</strong>
+                  <small>{teamHighlights[3].role}</small>
                 </div>
               </div>
             </div>
@@ -316,52 +376,145 @@ export default function OurTeamPage() {
 
       <section className="skillforge-cycle-section py-5">
         <div className="skillforge-panel">
-            <div className="skillforge-head text-center">
-              <span className="skillforge-chip">How It Works</span>
-              <h2 className="resume-like-heading resume-sweep">
-                The <span>Jobzenter</span> cycle
-              </h2>
-              <p>
-                Every student goes through a proven, industry-aligned cycle from enrollment to job offer.
-              </p>
-            </div>
+          <div className="skillforge-head text-center">
+            <span className="skillforge-chip">THE JOBZENTER JOURNEY</span>
+            <h2 className="resume-like-heading resume-sweep">
+              From Learning to <span>Dream Career</span>
+            </h2>
+            <p>
+              Everything you need. One platform. Endless opportunities.
+            </p>
+          </div>
 
-            <div className="skillforge-orbit-wrap">
-              <div className="skillforge-orbit-ring" aria-hidden />
-              <div className="skillforge-orbit-glow" aria-hidden />
-              <div className="skillforge-center-core">
-                <div className="center-team-stack" aria-label="Our teammates">
-                  {centerTeamMembers.map((member) => (
-                    <div key={member.name} className="center-team-avatar">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        sizes="48px"
-                        className="center-team-avatar-image"
-                      />
+          {/* Wave Timeline container */}
+          <div className="jobzenter-wave-timeline-container d-none d-lg-block">
+            <svg className="timeline-wave-svg" viewBox="0 0 1200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 30,100 C 60,100 70,60 100,60 C 200,60 200,180 300,180 C 400,180 400,60 500,60 C 600,60 600,180 700,180 C 800,180 800,60 900,60 C 1000,60 1000,180 1100,180 C 1130,180 1140,140 1170,140" stroke="#e2e8f0" strokeWidth="3" strokeDasharray="6 6" fill="none" />
+              <circle cx="30" cy="100" r="5.5" fill="#eab308" stroke="#fff" strokeWidth="2.5" />
+              <circle cx="200" cy="120" r="5" fill="#cbd5e1" />
+              <circle cx="400" cy="120" r="5" fill="#cbd5e1" />
+              <circle cx="600" cy="120" r="5" fill="#cbd5e1" />
+              <circle cx="800" cy="120" r="5" fill="#cbd5e1" />
+              <circle cx="1000" cy="120" r="5" fill="#cbd5e1" />
+              <circle cx="1170" cy="140" r="5.5" fill="#334155" stroke="#fff" strokeWidth="2.5" />
+            </svg>
+
+            <div className="timeline-nodes-wrap">
+              {skillForgeCycle.map((item, index) => {
+                const isEven = index % 2 === 1;
+                return (
+                  <div
+                    key={item.title}
+                    className={`timeline-node-card ${isEven ? "node-even" : "node-odd"}`}
+                    style={{
+                      "--node-color": item.color,
+                      "--node-bg": item.bgColor,
+                      "--node-border": item.borderColor,
+                      "--badge-bg": item.badgeBg,
+                    }}
+                  >
+                    {!isEven && <span className="node-step-badge">{item.step}</span>}
+                    <div className="node-icon-glow">
+                      <div className="node-icon-inner">
+                        <i className={`bi ${item.icon}`} />
+                      </div>
                     </div>
-                  ))}
-                </div>
-                <strong>Our Team</strong>
-               
-              </div>
-
-              {skillForgeCycle.map((item, index) => (
-                <article
-                  key={item.title}
-                  className={`skillforge-node skillforge-node--${index + 1}`}
-                >
-                  <div className="skillforge-node-icon">
-                    <i className={`bi ${item.icon}`} />
+                    {isEven && <span className="node-step-badge">{item.step}</span>}
+                    <div className="node-text-content text-center">
+                      <h3>{item.title}</h3>
+                      <p>{item.subtitle}</p>
+                    </div>
                   </div>
-                  <span className="skillforge-node-step">{item.step}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.subtitle}</p>
-                </article>
-              ))}
+                );
+              })}
             </div>
           </div>
+
+          {/* Fallback layout for mobile/tablet */}
+          <div className="d-block d-lg-none mobile-timeline-wrap">
+            {skillForgeCycle.map((item, index) => (
+              <div
+                key={item.title}
+                className="mobile-timeline-node"
+                style={{
+                  "--node-color": item.color,
+                  "--node-bg": item.bgColor,
+                  "--node-border": item.borderColor,
+                  "--badge-bg": item.badgeBg,
+                }}
+              >
+                <div className="mobile-node-left">
+                  <div className="node-icon-glow">
+                    <div className="node-icon-inner">
+                      <i className={`bi ${item.icon}`} />
+                    </div>
+                  </div>
+                  <span className="mobile-node-badge">{item.step}</span>
+                </div>
+                <div className="mobile-node-right">
+                  <h3>{item.title}</h3>
+                  <p>{item.subtitle}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Our Team Card below */}
+          <div className="our-team-highlight-card container mt-5">
+            <div className="our-team-highlight-grid">
+              {/* Left Column: Mentors staggered grid */}
+              <div className="mentors-showcase-left">
+                <div className="mentors-staggered-container">
+                  <div className="mentor-row top-row">
+                    {centerTeamMembers.slice(0, 3).map((member, i) => (
+                      <div key={member.name} className={`mentor-circle mentor-circle-top-${i + 1}`}>
+                        <div className="mentor-img-wrapper">
+                          <Image
+                            src={member.image}
+                            alt={member.name}
+                            fill
+                            sizes="96px"
+                            className="mentor-avatar-img"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mentor-row bottom-row">
+                    {centerTeamMembers.slice(3, 5).map((member, i) => (
+                      <div key={member.name} className={`mentor-circle mentor-circle-bottom-${i + 1}`}>
+                        <div className="mentor-img-wrapper">
+                          <Image
+                            src={member.image}
+                            alt={member.name}
+                            fill
+                            sizes="96px"
+                            className="mentor-avatar-img"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Vertical divider on desktop */}
+              <div className="team-highlight-divider" />
+
+              {/* Right Column: Info and button */}
+              <div className="team-highlight-info-right">
+                <h2>Our Team</h2>
+                <div className="team-subtexts">
+                  <p className="team-subtext-main">Experienced Mentors.</p>
+                  <p className="team-subtext-sub">Real Guidance. Your Success.</p>
+                </div>
+                <Link href="/reach-us" className="btn-meet-our-mentors">
+                  Meet Our Mentors <span className="chevron">&gt;</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
     </main>

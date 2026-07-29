@@ -78,39 +78,8 @@ export default function FaqSection() {
         Frequently asked questions
       </h2>
 
-      <div className="faq-row d-flex flex-wrap align-items-start justify-content-between">
-        <div className="faq-list d-flex flex-column mt-auto">
-          {QA.map((item, index) => {
-            const active = open === index;
-            return (
-              <div
-                key={index}
-                className={`faq-card bg-white ${active ? "active" : ""}`}
-              >
-                <button
-                  onClick={() => setOpen(active ? null : index)}
-                  className="faq-toggle d-flex align-items-center"
-                  aria-expanded={active}
-                >
-                  <span className="faq-question flex-grow-1">
-                    {item.q}
-                  </span>
-                  <span className="faq-toggle-icon d-flex align-items-center justify-content-center">
-                    <span className="faq-toggle-icon-inner">
-                      {active ? "−" : "+"}
-                    </span>
-                  </span>
-                </button>
-
-                <div className={`faq-answer ${active ? "show" : ""}`}>
-                  <p>{item.a}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="faq-side d-flex flex-column align-items-center text-center">
+      <div className="faq-row">
+        <div className="faq-side">
           <div className="questions-image-section">
             {/* Circle wrapper */}
             <div className={`img-circle-wrapper ${imgVisible ? 'circles-visible' : ''}`}>
@@ -132,16 +101,32 @@ export default function FaqSection() {
               />
             </div>
           </div>
+        </div>
 
-          <h3 className="faq-side-title text-center">Have a question?</h3>
+        <div className="faq-list">
+          {QA.map((item, index) => {
+            const active = open === index;
+            return (
+              <div
+                key={index}
+                className={`faq-card bg-white ${active ? "active" : ""}`}
+                onClick={() => setOpen(active ? null : index)}
+              >
+                <div className="faq-toggle">
+                  <span className="faq-question">{item.q}</span>
+                  <span className="faq-toggle-icon">
+                    {active ? "−" : "+"}
+                  </span>
+                </div>
+
+                <div className={`faq-answer ${active ? "show" : ""}`}>
+                  <p>{item.a}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-      {/* Particles */}
-<div className="faq-particles">
-  {[...Array(12)].map((_, i) => (
-    <div key={i} className={`faq-particle p-${i + 1}`}></div>
-  ))}
-</div>
     </section>
   );
 }

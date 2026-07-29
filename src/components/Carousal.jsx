@@ -69,33 +69,9 @@ const Carousel = () => {
             Our Students in Top Companies
           </h2>
 
-          <p className="placement-quote">
-            "We go beyond conventional education, empowering you with the skills
-            to create a successful and sustainable career."
-          </p>
+          <p className="placement-quote">We go beyond conventional education</p>
 
-          <div className="placement-stats-row">
-            <div className="placement-stat-item">
-              <h3>
-                200<span>+</span>
-              </h3>
-              <p>Students Placed</p>
-            </div>
-            <div className="placement-stat-divider" />
-            <div className="placement-stat-item">
-              <h3>
-                50<span>+</span>
-              </h3>
-              <p>Partner Companies</p>
-            </div>
-            <div className="placement-stat-divider" />
-            <div className="placement-stat-item">
-              <h3>
-                100<span>%</span>
-              </h3>
-              <p>Placement Rate</p>
-            </div>
-          </div>
+
 
           <div className="placement-logo-train">
             {logoRows.map((row, rowIndex) => {
@@ -103,9 +79,8 @@ const Carousel = () => {
               return (
                 <div
                   key={`logo-row-${rowIndex}`}
-                  className={`placement-logo-row ${
-                    rowIndex % 2 === 1 ? "is-reverse" : ""
-                  }`}
+                  className={`placement-logo-row ${rowIndex % 2 === 1 ? "is-reverse" : ""
+                    }`}
                 >
                   <div className="placement-logo-track">
                     {scrollingRow.map((company, index) => (

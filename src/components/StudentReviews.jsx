@@ -6,39 +6,39 @@ import "./StudentReviewsCarousel.css";
 
 const reviews = [
   {
-    name: "Priyadarshini",
+    name: "Deepika D",
     role: "React Native Developer",
-    text: "Your patience and termination to teach kids ows how passionate you towards teaching. Such a immendable teacher you , I wish you all success...",
+    text: "The classroom vibes were super positive. Everyone was serious about learning but still friendly.",
     img: "/feed1.png",
   },
   {
     name: "Mohamed Haleelulla",
     role: "Fullstack Developer",
-    text: "What impressed me most was the placement assistance. The team constantly shared job updates, arranged mock interviews, and helped me tailor my resume. Highly recommend for career changers!",
+    text: "What impressed me most was the placement assistance. The team constantly shared job updates, arranged mock interviews, and helped me tailor my resume. Highly recommend for career changers! ",
     img: "/feed2.png",
   },
   {
-    name: "Akash",
+    name: "Fernandes Robert",
     role: "QA Engineer",
-    text: "Jobzenter offers a friendly and practical environment that made learning enjoyable. The hands-on experience was invaluable in preparing me for the real world..",
+    text: "Best For Playwright automation Training , the trainers are very friendly and well knowledged , To get placed in Top companies Must Join in this Institute !!",
     img: "/feed3.png",
   },
   {
-    name: "Deepak",
+    name: "Senthil Kumar",
     role: "Backend Developer",
-    text: "I was working with a minimum package, but after joining Jobzenter's placement support, my salary doubled. I now earn 2X thanks to their career coaching..",
+    text: "I recently completed the Full Stack Development program at jobzenter, and I can confidently say it was one of the best decisions I’ve made for my career. The curriculum was well-structured, covering both front-end and back-end technologies like HTML, CSS, JavaScript, React, Node.js, MongoDB, and more.",
     img: "/feed4.png",
   },
   {
-    name: "Kiran",
+    name: "Jack",
     role: "Frontend Developer",
-    text: "I was struggling with frontend frameworks before joining Jobzenter. Their step-by-step approach and project guidance made me interview-ready.",
+    text: "I had an excellent experience with this institute for Full Stack Development. The curriculum is comprehensive, covering everything from front end to back-end technologies, and the instructors are highly knowledgeable and supportive. The hands on projects and real-world examples helped me build practical skills, and the mentorship throughout the course was top-notch. I feel confident in my abilities now and ready to take on real projects. Highly recommend for anyone serious about becoming a full stack developer!",
     img: "/feed5.png",
   },
   {
-    name: "Manisha",
+    name: "Lavanya U",
     role: "Data Analyst",
-    text: "Jobzenter's Power BI course helped me land a data analytics role. The project-focused approach gave me strong visualization and DAX skills.",
+    text: "Nice Environment And Peoples to upskill your knowledge, I took Full stack Development course and it was a wonderful experience for me",
     img: "/feed6.png",
   },
 ];

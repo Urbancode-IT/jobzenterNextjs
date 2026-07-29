@@ -188,6 +188,12 @@
   text-align: left;
 }
 
+.bottom-right-group {
+  right: 0;
+  transform: translateY(110%); /* Lower, near the shirt hem */
+  text-align: left;
+}
+
 /* Card Styles */
 .float-card {
   padding: 16px 24px;
@@ -216,17 +222,31 @@
 }
 
 .glass-gold-card {
-  background: linear-gradient(135deg, rgba(255, 237, 185, 0.95), rgba(255, 246, 219, 0.95));
-  color: #333;
+  background: #ffd100;
+  color: #222;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  /* Solid offset shadow for 3D look */
-  box-shadow: -6px -5px 0px 0px #ffffff, 0 10px 30px rgba(0,0,0,0.08); 
+  /* Solid offset shadow for 3D look (visible two-tone layered effect) */
+  box-shadow: -6px -5px 0px 0px #e6bc00, 0 10px 30px rgba(0,0,0,0.08);
   backdrop-filter: blur(8px);
   padding: 20px 24px;
 }
 
 /* Right Card specific */
 .glass-gold-card h3 {
+  color: #222;
+}
+
+.glass-pale-gold-card {
+  background: #f9f58b;
+  color: #222;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* Solid offset shadow for 3D look (visible two-tone layered effect) */
+  box-shadow: -6px -5px 0px 0px #ffd100, 0 10px 30px rgba(0,0,0,0.08);
+  backdrop-filter: blur(8px);
+  padding: 20px 24px;
+}
+
+.glass-pale-gold-card h3 {
   color: #222;
 }
 
@@ -269,7 +289,16 @@
 }
 
 .right-arrow {
-  width: 80px; /* Extended to reach the neck */
+  width: 140px; /* Extended further so it visually touches the circle */
+  height: 50px;
+  right: auto;
+  left: -140px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bottom-right-arrow {
+  width: 80px;
   height: 50px;
   right: auto;
   left: -80px;
@@ -303,6 +332,9 @@
   .right-group {
     right: -20px;
   }
+  .bottom-right-group {
+    right: -20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -315,7 +347,7 @@
     transform: none;
     margin: 20px auto;
   }
-  .left-group, .right-group {
+  .left-group, .right-group, .bottom-right-group {
     left: 0;
     right: 0;
     text-align: center;

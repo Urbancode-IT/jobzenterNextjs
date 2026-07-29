@@ -33,7 +33,7 @@
   border-radius: 14px;
   padding: 34px;
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
+  grid-template-columns: 0.65fr 1.35fr;
   gap: 28px;
 }
 
@@ -74,6 +74,35 @@
   grid-template-rows: 1fr 1fr;
   gap: 10px;
   min-height: 320px;
+}
+
+.hero-cards-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.hero-cards-grid-4 .mini-card {
+  grid-row: auto !important;
+  height: 300px;
+  width: 100%;
+  border-radius: 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  background: #1e293b;
+}
+
+.hero-cards-grid-4 .mini-card.pink {
+  grid-row: auto !important;
+  background: #1e293b;
 }
 
 .big-card,

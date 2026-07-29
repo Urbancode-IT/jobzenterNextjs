@@ -19,7 +19,7 @@ const defaultFaqData = [
   },
   {
     question: "Which testing courses are available at Jobzenter?",
-    answer: "We offer Manual Testing, Automation Testing with Selenium, API Testing with Postman, and Performance Testing with JMeter. These courses cover all aspects of software quality assurance from beginner to advanced level."
+    answer: "We offer Selenium, Playwright, Java, and TypeScript for test automation. These courses cover all aspects of software quality assurance from beginner to advanced level."
   },
   {
     question: "What database courses can I learn at Jobzenter?",
@@ -27,7 +27,7 @@ const defaultFaqData = [
   },
   {
     question: "What networking and security courses does Jobzenter provide?",
-    answer: "We offer CCNA, CCNP, Network Security, Ethical Hacking, and Cyber Security courses. These are aligned with Cisco certifications and industry standards like CEH and CompTIA Security+."
+    answer: "We offer CCNP, Ethical Hacking, and Cyber Security courses. These are aligned with Cisco certifications and industry standards like CEH and CompTIA Security+."
   },
   {
     question: "What healthcare IT courses are available at Jobzenter?",

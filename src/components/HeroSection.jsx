@@ -42,7 +42,7 @@ const HeroSection = () => {
 
         {/* Floating Graphics & Image */}
         <div className="hero-graphics-container mt-5 fade-up-delay-4">
-          
+
           {/* Main Character Image Wrap */}
           <div className="hero-character-wrap">
             <div className="hero-orange-bg"></div>
@@ -70,7 +70,7 @@ const HeroSection = () => {
             </div>
             {/* Arrow SVG pointing to left card */}
             <svg className="curved-arrow left-arrow d-none d-lg-block" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 55 5 Q 35 20 5 20" stroke="#888" strokeWidth="1.2"/>
+              <path d="M 55 5 Q 35 20 5 20" stroke="#888" strokeWidth="1.2" />
               <path d="M 15 15 L 5 20 L 15 25" stroke="#888" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
@@ -78,12 +78,26 @@ const HeroSection = () => {
           {/* Right Floating Card & Arrow */}
           <div className="hero-float-group right-group">
             {/* Arrow SVG pointing to right card */}
-            <svg className="curved-arrow right-arrow d-none d-lg-block" viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 5 45 Q 35 25 75 25" stroke="#888" strokeWidth="1.2"/>
+            <svg className="curved-arrow right-arrow d-none d-lg-block" viewBox="0 0 140 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 5 45 Q 65 25 135 25" stroke="#888" strokeWidth="1.2" />
+              <path d="M 125 20 L 135 25 L 125 30" stroke="#888" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div className="float-card glass-pale-gold-card">
+              <h3 className="mb-1">100+</h3>
+              <p className="mb-0">Students Trained</p>
+            </div>
+          </div>
+
+          {/* Bottom-Right Floating Card & Arrow */}
+          <div className="hero-float-group bottom-right-group">
+            {/* Arrow SVG pointing to bottom-right card */}
+            <svg className="curved-arrow bottom-right-arrow d-none d-lg-block" viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 5 5 Q 35 25 75 25" stroke="#888" strokeWidth="1.2" />
               <path d="M 65 20 L 75 25 L 65 30" stroke="#888" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <div className="float-card glass-gold-card">
-              <h3 className="mb-0">500+</h3>
+              <h3 className="mb-1">50+</h3>
+              <p className="mb-0">Students Placed</p>
             </div>
           </div>
 
@@ -91,9 +105,9 @@ const HeroSection = () => {
       </div>
 
       {/* Enquiry Modal */}
-      <EnquiryFormModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <EnquiryFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
       />
     </section>
   );

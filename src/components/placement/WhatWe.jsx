@@ -31,7 +31,7 @@ const WhatWeOffer = () => {
     },
     {
       icon: "bi-file-earmark-person",
-      title: "Resume & Portfolio Building",
+      title: "Resume & Naukri and Other Profiles",
       text: "Our team trains students to build ATS-friendly resumes, LinkedIn profiles, and digital portfolios that highlight their skills effectively."
     },
     {
