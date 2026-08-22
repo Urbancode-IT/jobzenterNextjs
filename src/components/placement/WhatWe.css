@@ -117,3 +117,26 @@
 
 /* Animations - Removed moving animations as requested */
 /* Only color sweep remains */
+
+@media (max-width: 576px) {
+  .offer-section {
+    padding: 40px 0 56px;
+  }
+
+  .offer-main-title {
+    font-size: 1.75rem;
+  }
+
+  .offer-card {
+    padding: 24px 16px;
+  }
+
+  .offer-card-title {
+    font-size: 16px;
+    min-height: auto;
+  }
+
+  .offer-card-text {
+    font-size: 13px;
+  }
+}

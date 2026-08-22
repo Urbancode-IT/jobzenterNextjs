@@ -135,7 +135,11 @@ export default async function CourseInternalPage({ params }) {
                                             </li>
                                         </ul>
 
-                                        <EnquiryButton courseName={course.title} />
+                                        <EnquiryButton
+                                            courseName={course.title}
+                                            openBrochure
+                                            label="Get Brochure"
+                                        />
                                     </div>
                                 </div>
                             </div>

@@ -29,13 +29,19 @@ const QA = [
   },
 ];
 
+const PAGE_SIZE = 3;
+
 export default function FaqSection() {
   const [open, setOpen] = useState(null);
+  const [page, setPage] = useState(0);
   const [imgVisible, setImgVisible] = useState(false);
   const [titleVisible, setTitleVisible] = useState(false);
 
   const imgRef = useRef(null);
   const titleRef = useRef(null);
+
+  const totalPages = Math.max(1, Math.ceil(QA.length / PAGE_SIZE));
+  const pageItems = QA.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE);
 
   /* ── Image scroll observer ── */
   useEffect(() => {
@@ -69,6 +75,12 @@ export default function FaqSection() {
     return () => observer.disconnect();
   }, []);
 
+  const goToPage = (nextPage) => {
+    if (nextPage < 0 || nextPage >= totalPages) return;
+    setPage(nextPage);
+    setOpen(null);
+  };
+
   return (
     <section className="faq-section position-relative d-flex flex-column align-items-center">
       <h2
@@ -81,50 +93,79 @@ export default function FaqSection() {
       <div className="faq-row">
         <div className="faq-side">
           <div className="questions-image-section">
-            {/* Circle wrapper */}
-            <div className={`img-circle-wrapper ${imgVisible ? 'circles-visible' : ''}`}>
-              {/* Pulse glow ring */}
-              <div className="pulse-ring" />
-
-              {/* Rotating ring */}
-              <div className="rotating-ring" />
-
-              {/* Dashed border spin */}
-              <div className="dashed-ring" />
-
-              {/* Image */}
+            <div className="img-circle-wrapper">
               <img
                 ref={imgRef}
                 src="/faq_illustration..png"
                 alt="FAQ Illustration"
-                className={imgVisible ? 'img-visible' : 'img-hidden'}
+                className={imgVisible ? "img-visible" : "img-hidden"}
               />
             </div>
           </div>
         </div>
 
-        <div className="faq-list">
-          {QA.map((item, index) => {
-            const active = open === index;
-            return (
-              <div
-                key={index}
-                className={`faq-card bg-white ${active ? "active" : ""}`}
-                onClick={() => setOpen(active ? null : index)}
-              >
-                <div className="faq-toggle">
-                  <span className="faq-question">{item.q}</span>
-                  <span className="faq-toggle-icon">
-                    {active ? "−" : "+"}
-                  </span>
-                </div>
+        <div className="faq-list-panel">
+          <div className="faq-list" key={page}>
+            {pageItems.map((item, localIndex) => {
+              const index = page * PAGE_SIZE + localIndex;
+              const active = open === index;
+              return (
+                <div
+                  key={index}
+                  className={`faq-card bg-white ${active ? "active" : ""}`}
+                  onClick={() => setOpen(active ? null : index)}
+                >
+                  <div className="faq-toggle">
+                    <span className="faq-question">{item.q}</span>
+                    <span className="faq-toggle-icon">
+                      {active ? "−" : "+"}
+                    </span>
+                  </div>
 
-                <div className={`faq-answer ${active ? "show" : ""}`}>
-                  <p>{item.a}</p>
+                  <div className={`faq-answer ${active ? "show" : ""}`}>
+                    <p>{item.a}</p>
+                  </div>
                 </div>
+              );
+            })}
+          </div>
+
+          {totalPages > 1 && (
+            <div className="faq-carousel-nav" aria-label="FAQ pagination">
+              <button
+                type="button"
+                className="faq-nav-btn"
+                onClick={() => goToPage(page - 1)}
+                disabled={page === 0}
+                aria-label="Previous FAQ page"
+              >
+                ←
+              </button>
+
+              <div className="faq-dots">
+                {Array.from({ length: totalPages }).map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    className={`faq-dot ${i === page ? "active" : ""}`}
+                    onClick={() => goToPage(i)}
+                    aria-label={`Go to FAQ page ${i + 1}`}
+                    aria-current={i === page ? "true" : undefined}
+                  />
+                ))}
               </div>
-            );
-          })}
+
+              <button
+                type="button"
+                className="faq-nav-btn"
+                onClick={() => goToPage(page + 1)}
+                disabled={page === totalPages - 1}
+                aria-label="Next FAQ page"
+              >
+                →
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

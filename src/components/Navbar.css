@@ -347,6 +347,7 @@
   .navbar-custom {
     height: auto;
     padding: 16px 0;
+    overflow-x: hidden;
   }
 
   .navbar-inner-container {
@@ -357,12 +358,21 @@
     display: block;
   }
 
+  .navbar-custom .nav-link {
+    white-space: normal;
+    text-align: center;
+    word-break: break-word;
+  }
+
   .navbar-custom .navbar-collapse-custom {
     background-color: #ffffff;
-    padding: 16px 24px 8px;
+    padding: 16px 16px 8px;
     display: none;
-    width: calc(100% + 48px);
-    margin: 16px -24px -16px;
+    width: 100%;
+    max-width: 100%;
+    margin: 16px 0 -16px;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .navbar-custom .navbar-collapse-custom.show {
@@ -423,8 +433,11 @@
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
+    right: 0;
     margin-left: 0;
-    width: min(220px, calc(100vw - 48px));
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.10);
@@ -521,16 +534,32 @@
 @media (max-width: 575.98px) {
   .navbar-inner-container {
     padding: 0 16px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .navbar-logo {
+    width: clamp(118px, 36vw, 150px);
   }
 
   .navbar-custom .nav-links {
     gap: 20px;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mobile-dropdown-item {
+    font-size: 14px;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .social-icons {
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 

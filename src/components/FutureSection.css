@@ -1,6 +1,6 @@
 .future-section {
-  padding: 8rem 5%;
-  background-color: #ffffff; 
+  padding: 5rem 5% 3rem;
+  background: linear-gradient(180deg, #f8fdf9 0%, #ffffff 45%, #ffffff 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,15 +8,14 @@
 }
 
 .future-container {
-  max-width: 1060px; /* Reduced width */
+  max-width: 1180px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 2.75rem;
 }
 
-/* Top Content */
 .future-content {
   text-align: center;
   max-width: 700px;
@@ -38,7 +37,7 @@
 }
 
 .future-btn {
-  background: #fdf894; /* Matched to navbar color */
+  background: #fdf894;
   color: #000000;
   border: none;
   padding: 12px 30px;
@@ -56,145 +55,202 @@
   background: #fcf475;
 }
 
-/* 3D Carousel Layout */
-.future-carousel-container {
-  position: relative;
-  width: 100%;
-  height: 550px; /* Adjust based on card height */
-  perspective: 1200px; /* Adds the 3D depth effect */
+.future-slider-wrap {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 20px);
+  width: 100%;
+  max-width: 900px;
 }
 
-.future-card-3d {
-  position: absolute;
-  width: 350px; /* Slightly wider to fit Instagram embed cleanly */
-  height: 520px;
+.future-nav-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
   background: #ffffff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.3s ease, box-shadow 0.3s ease, z-index 0s;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
   cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.future-nav-btn:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+.future-video-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(16px, 2.5vw, 24px);
+  flex: 1;
+  min-width: 0;
+  padding: 10px 0 18px;
+}
+
+.future-video-card {
+  position: relative;
+  flex: 0 0 220px;
+  width: 220px;
+  aspect-ratio: 9 / 16;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.1);
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s ease;
+}
+
+.future-video-card.is-active {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
 }
 
 .video-container {
   width: 100%;
   height: 100%;
   position: relative;
-  z-index: 1;
-  background-color: #f9f9f9;
-  overflow: hidden; /* Ensure cropping works */
+  overflow: hidden;
+  border-radius: 18px;
+  background: #ffffff;
+  isolation: isolate;
+}
+
+.future-video-row.is-interacting .future-video-card {
+  transform: none !important;
+}
+
+.future-video-card.is-playing {
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
 }
 
 .future-video {
-  width: 100%;
-  height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
+  top: -16%;
+  left: 50%;
+  width: 172%;
+  height: 178%;
+  border: 0;
+  transform: translateX(-50%);
+  transform-origin: top center;
+}
+
+.future-video--preview {
+  pointer-events: none;
   z-index: 1;
-  /* Zoom in to hide all Instagram UI (header/footer) and fill the card frame */
-  transform: scale(1.5); 
-  transform-origin: center;
 }
 
-.click-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; /* Cover everything on side cards */
-  z-index: 50; 
-  background: rgba(0, 0, 0, 0.0);
-}
-
-/* For the center card, we MUST let the user click the video directly */
-.card-center .click-overlay {
-  display: none !important; /* Removed entirely so they can touch play/pause */
-}
-
-/* Center Card (Active) */
-.card-center {
-  transform: translateX(0) scale(1) translateZ(0px);
-  z-index: 3;
-  opacity: 1;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-}
-
-/* Right Card */
-.card-right {
-  transform: translateX(95%) scale(1) translateZ(-150px) rotateY(-12deg);
+.future-video--playing {
+  pointer-events: auto;
   z-index: 2;
-  opacity: 0.7;
 }
 
-/* Left Card */
-.card-left {
-  transform: translateX(-95%) scale(1) translateZ(-150px) rotateY(12deg);
-  z-index: 2;
-  opacity: 0.7;
-}
-
-.future-card-3d:hover {
-  opacity: 1;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .future-title {
-    font-size: 2.5rem;
-  }
-  .future-card-3d {
-    width: 260px;
-    height: 440px;
-  }
-  .future-carousel-container {
-    height: 480px;
-  }
-  .card-right {
-    transform: translateX(85%) scale(1) translateZ(-100px);
-  }
-  .card-left {
-    transform: translateX(-85%) scale(1) translateZ(-100px);
-  }
-}
-
-/* Small subtle corner link */
-.insta-corner-link {
+.video-tap-layer {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  z-index: 110;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 4px 10px;
-  border-radius: 4px;
+  inset: 0;
+  z-index: 10;
+  border: none;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.2s ease;
-  border: 1px solid #ddd;
+  background: transparent;
 }
 
-.insta-icon-mini {
-  width: 14px;
-  height: 14px;
+@media (max-width: 900px) {
+  .future-slider-wrap {
+    max-width: 100%;
+  }
+
+  .future-video-card {
+    flex: 0 0 200px;
+    width: 200px;
+  }
 }
 
-.insta-corner-link span {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #333;
+@media (max-width: 768px) {
+  .future-section {
+    padding: 4rem 4% 2.5rem;
+  }
+
+  .future-title {
+    font-size: 1.85rem;
+  }
+
+  .future-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .future-slider-wrap {
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 2px;
+  }
+
+  .future-nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  /* Mobile: show only the active video, centered between arrows */
+  .future-video-row {
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 10px 0 18px;
+    overflow: hidden;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .future-video-card {
+    display: none;
+    flex: 0 0 auto;
+    width: min(240px, calc(100vw - 110px));
+    aspect-ratio: 9 / 16;
+    transform: none;
+  }
+
+  .future-video-card.is-active,
+  .future-video-card.is-playing {
+    display: block;
+  }
+
+  .future-video-card.is-active {
+    transform: none;
+  }
 }
 
-.insta-corner-link:hover {
-  background: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+@media (max-width: 480px) {
+  .future-section {
+    padding: 3rem 3% 2rem;
+  }
+
+  .future-title {
+    font-size: 1.65rem;
+  }
+
+  .future-slider-wrap {
+    gap: 8px;
+  }
+
+  .future-nav-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .future-video-card {
+    width: min(220px, calc(100vw - 96px));
+  }
 }

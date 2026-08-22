@@ -284,3 +284,26 @@ button {
     background-position: 0% center;
   }
 }
+
+@media (max-width: 575.98px) {
+  .container,
+  .container-sm,
+  .container-md {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Blog post detail pages */
+  .container.py-5 > .mb-4[style*="position"] {
+    height: clamp(180px, 52vw, 260px) !important;
+  }
+
+  .container.py-5 h2.fw-bold {
+    font-size: 1.35rem;
+  }
+
+  .container.py-5 .d-flex.align-items-center.gap-3.mb-4 {
+    flex-wrap: wrap;
+    gap: 0.5rem !important;
+  }
+}

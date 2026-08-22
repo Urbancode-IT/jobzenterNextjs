@@ -133,7 +133,7 @@ body {
 
 @media (max-width: 768px) {
   .terms-wrapper {
-    padding: 50px 0;
+    padding: 50px 20px;
   }
   .terms-container {
     width: 94%;
@@ -148,12 +148,20 @@ body {
 
 @media (max-width: 480px) {
   .terms-wrapper {
-    padding: 40px 0;
+    padding: 40px 16px;
+    overflow-x: hidden;
+  }
+  .terms-container {
+    width: 100%;
   }
   .terms-container h1 {
     font-size: 1.6rem;
   }
   .terms-section p {
     font-size: 0.9rem;
+  }
+  .terms-section::before,
+  .diamond-right {
+    display: none;
   }
 }

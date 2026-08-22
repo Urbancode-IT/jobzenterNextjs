@@ -152,6 +152,7 @@
 @media (max-width: 576px) {
   .study-abroad-services {
     padding: 48px 0 64px;
+    overflow-x: clip;
   }
   .study-abroad-services .study-abroad-section-title {
     font-size: 26px;
@@ -162,5 +163,8 @@
   }
   .study-abroad-service-card {
     padding: 24px 20px;
+  }
+  .study-abroad-services-grid {
+    max-width: 100%;
   }
 }

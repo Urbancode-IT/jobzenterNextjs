@@ -54,7 +54,8 @@
   justify-content: center;
   flex: 1;
   gap: 25px;
-  min-width: 300px;
+  min-width: 0;
+  width: 100%;
 }
 
 .info-card {
@@ -85,7 +86,8 @@
 /* FORM */
 .register-form {
   flex: 1;
-  min-width: 300px;
+  min-width: 0;
+  width: 100%;
   max-width: 450px;
   display: flex;
   flex-direction: column;
@@ -194,8 +196,8 @@
    RESPONSIVE DESIGN
 ============================= */
 
-/* Tablets */
-@media (max-width: 992px) {
+/* Tablets only (keep 2-col; phones handled below) */
+@media (max-width: 992px) and (min-width: 769px) {
   .register-layout {
     flex-direction: column;
     align-items: center;
@@ -218,43 +220,77 @@
     width: 100%;
     max-width: 400px;
   }
+}
 
-  .checkbox-row {
-    flex-wrap: nowrap;
+@media (max-width: 992px) {
+  .register-layout {
+    flex-direction: column;
     align-items: center;
+    gap: 40px;
   }
 }
 
-/* Mobile */
-@media (max-width: 576px) {
-  .register-container {
-    padding: 30px 20px;
+/* Mobile — single column stack, no overlap */
+@media (max-width: 768px) {
+  .register-section {
+    padding: 40px 12px;
   }
 
-  .register-title {
-    font-size: 19px;
+  .register-container {
+    padding: 28px 16px;
   }
 
   .subtext {
+    margin-bottom: 28px;
     font-size: 15px;
     line-height: 22px;
-  }
-
-  .info-card {
-    width: 150px;
-    height: 140px;
+    padding: 0 4px;
   }
 
   .info-card-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .info-card {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    min-height: 0;
+    padding: 20px 18px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .info-card:nth-child(3) {
+    grid-column: auto;
+    justify-self: auto;
+  }
+
+  .info-text {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .icon {
+    font-size: 26px;
+    margin-bottom: 10px;
   }
 
   .checkbox-row {
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
     font-size: 12px;
     line-height: 15px;
+  }
+
+  .register-form {
+    width: 100%;
+    max-width: 100%;
   }
 
   .register-form input {
@@ -265,9 +301,18 @@
     width: 100%;
     max-width: 300px;
   }
+  .info-card:hover {
+    transform: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  }
 }
 
-/* Extra Small */
+@media (max-width: 576px) {
+  .register-title {
+    font-size: 19px;
+  }
+}
+
 @media (max-width: 360px) {
   .register-title {
     font-size: 17px;
@@ -277,19 +322,9 @@
     font-size: 14px;
   }
 
-  .info-card-wrapper {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
   .info-card {
-    width: 130px;
-    height: 130px;
-  }
-
-  .checkbox-row {
-    font-size: 12px;
-    line-height: 15px;
+    max-width: 100%;
+    padding: 16px 14px;
   }
 }
 /* Animations */

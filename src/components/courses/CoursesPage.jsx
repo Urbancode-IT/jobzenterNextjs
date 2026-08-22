@@ -1,24 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useEffect, useCallback } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import "./coursePage.css";
 import courses from "./coursesData";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+const categories = ["All", "Development", "Testing", "Healthcare", "CCNA", "Cloud", "Data Analytics"];
+
+const categoryLabels = {
+  CCNA: "CCNA & Networking",
+};
+
 const CoursesPage = () => {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
   const queryCategory = searchParams?.get("category");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isSweepActive, setIsSweepActive] = useState(false);
-
-    const categories = ["All", "Development", "Testing", "Healthcare", "CCNA", "Cloud", "Data Analytics"];
-
-  const categoryLabels = {
-    CCNA: "CCNA & Networking",
-  };
 
   useEffect(() => {
     if (queryCategory && categories.includes(queryCategory)) {
@@ -27,6 +29,25 @@ const CoursesPage = () => {
       setSelectedCategory("All");
     }
   }, [queryCategory]);
+
+  const selectCategory = useCallback(
+    (cat, { scroll = false } = {}) => {
+      setSelectedCategory(cat);
+      const params = new URLSearchParams(searchParams?.toString() || "");
+      if (cat === "All") {
+        params.delete("category");
+      } else {
+        params.set("category", cat);
+      }
+      const query = params.toString();
+      const hash = scroll ? "#course-list" : "";
+      router.replace(`${pathname}${query ? `?${query}` : ""}${hash}`, { scroll: false });
+      if (scroll) {
+        document.getElementById("course-list")?.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [pathname, router, searchParams]
+  );
 
   const filteredCourses = courses.filter((course) => {
     if (selectedCategory === "All") return true;
@@ -106,9 +127,9 @@ const CoursesPage = () => {
                   key={cat}
                   type="button"
                   className={`courses-hero-chip ${selectedCategory === cat ? "active" : ""}`}
-                  onClick={() => {
-                    setSelectedCategory(cat);
-                    document.getElementById("course-list")?.scrollIntoView({ behavior: "smooth" });
+                  onClick={(e) => {
+                    selectCategory(cat, { scroll: true });
+                    e.currentTarget.blur();
                   }}
                 >
                   {categoryLabels[cat] ?? cat}
@@ -178,7 +199,7 @@ const CoursesPage = () => {
                 category: "Cloud",
                 delay: 0.5
               }
-            ].map((program, index) => (
+            ].map((program) => (
               <div className="col-lg-3 col-md-6" key={program.title}>
                 <Link
                   href={`/courses?category=${program.category}#course-list`}
@@ -210,15 +231,19 @@ const CoursesPage = () => {
       </section>
 
       {/* Filter Buttons */}
-      <div className="text-center">
+      <div className="course-filter-buttons text-center">
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`btn m-md-3 btn-cat py-md-2 px-md-4 ${
+            type="button"
+            className={`btn btn-cat ${
               selectedCategory === cat ? "btn-active" : "btn-outline-dark"
             }`}
-            onClick={() => setSelectedCategory(cat)}
-            style={{ borderRadius: "20px", padding: "8px 25px" }}
+            onClick={(e) => {
+              selectCategory(cat);
+              e.currentTarget.blur();
+            }}
+            aria-pressed={selectedCategory === cat}
           >
             {categoryLabels[cat] ?? cat}
           </button>

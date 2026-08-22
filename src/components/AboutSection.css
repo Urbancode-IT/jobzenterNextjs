@@ -215,32 +215,98 @@
 
 /* RESPONSIVE */
 @media (max-width: 991px) {
-  .about-demand-title {
-    font-size: 2.25rem;
+  .about-section {
+    padding: 56px 0 72px;
+    overflow: visible;
   }
-  .about-image-container {
-    height: 350px;
-    margin-top: 30px;
+
+  .about-demand-header {
+    margin-bottom: 1.5rem;
   }
-  .course-item-title {
-    font-size: 1.4rem;
+
+  .about-demand-header .about-demand-title {
+    font-size: 2rem;
   }
+
+  .about-course-list {
+    height: auto;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 0;
+  }
+
   .about-course-item {
-    padding: 20px 0;
+    padding: 16px 18px;
+    margin-bottom: 0;
+    flex-shrink: 0;
   }
+
+  .course-item-content {
+    min-width: 0;
+    padding-right: 12px;
+  }
+
+  .course-item-title {
+    font-size: 1.15rem;
+    white-space: normal;
+    overflow: visible;
+    word-break: break-word;
+  }
+
   .about-image-sticky {
     position: static;
+    padding-left: 0;
+    margin-top: 8px;
   }
+
   .about-image-sticky::after {
     display: none;
+  }
+
+  .about-image-container {
+    height: 320px;
+    margin-top: 12px;
+    border-radius: 24px;
   }
 }
 
 @media (max-width: 576px) {
-  .about-image-container {
-    height: 280px;
+  .about-section {
+    padding: 40px 0 96px; /* extra bottom space so last card clears floating widgets */
   }
+
+  .about-demand-header .about-demand-title {
+    font-size: 1.75rem;
+  }
+
+  .about-demand-subtitle {
+    font-size: 0.88rem;
+    padding: 0 8px;
+  }
+
+  .about-course-item {
+    padding: 14px 16px;
+    border-radius: 16px;
+  }
+
+  .course-item-title {
+    font-size: 1.05rem;
+    margin-bottom: 0;
+  }
+
   .course-item-desc {
     display: none;
+  }
+
+  .course-item-arrow {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .about-image-container {
+    height: 220px;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }

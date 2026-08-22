@@ -90,3 +90,23 @@
   0%   { left: -75%; }
   100% { left: 125%; }
 }
+
+@media (max-width: 576px) {
+  .brochure-modal {
+    width: min(100%, 620px) !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    margin: 12px !important;
+    padding: 20px 16px !important;
+  }
+
+  .brochure-heading {
+    font-size: 18px;
+  }
+
+  .brochure-submit-btn {
+    width: 100%;
+    padding: 11px 20px !important;
+  }
+}

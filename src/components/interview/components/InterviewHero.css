@@ -233,12 +233,25 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .hero-title-main {
+    font-size: 2rem;
+    padding: 0 16px;
+  }
+
+  .hero-text {
+    font-size: 15px;
+    padding: 0 16px;
+  }
+
   .program-card {
     flex-direction: column;
-    width: 95%;
+    width: calc(100% - 32px);
+    max-width: 754px;
     height: auto;
     text-align: center;
     padding: 25px 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .program-img {
@@ -255,6 +268,41 @@
 
   .program-desc {
     white-space: normal;
+  }
+
+  .btn-enroll {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding-top: 40px;
+    padding-bottom: 56px;
+  }
+
+  .hero-title-main {
+    font-size: 1.75rem;
+  }
+
+  .program-title {
+    font-size: 22px;
+  }
+
+  .program-card {
+    padding: 20px 16px;
+  }
+
+  .program-img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .btn-enroll {
+    font-size: 16px;
+    padding: 10px 24px;
   }
 }
 

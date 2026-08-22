@@ -3,14 +3,18 @@
   background-color: #fcfcfc;
   font-family: inherit;
   overflow: hidden;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .ss-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 30px;
+  overflow-x: hidden;
 }
 
 /* Left Content */
@@ -100,6 +104,8 @@
   align-items: center;
   position: relative;
   min-width: 0;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .ss-carousel-wrapper {
@@ -458,6 +464,7 @@
 
   .ss-desc {
     margin: 0 auto 20px auto;
+    max-width: 100%;
   }
 
   .ss-right {
@@ -472,5 +479,111 @@
   .ss-timeline {
     left: 20px;
     right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ss-section {
+    padding: 48px 0 24px;
+    overflow-x: hidden;
+  }
+
+  .ss-container {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ss-title {
+    font-size: 1.85rem;
+  }
+
+  /* Sticky touch hover must NOT freeze the train — only .paused should stop it */
+  .ss-carousel:hover {
+    animation-play-state: running;
+  }
+
+  .ss-carousel.paused {
+    animation-play-state: paused;
+  }
+
+  .ss-carousel-wrapper {
+    overflow: hidden;
+    max-width: 100%;
+    width: 100%;
+    padding: 36px 0 16px;
+    mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  }
+
+  .ss-carousel {
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .ss-card-group {
+    flex-direction: column;
+    align-items: center;
+    width: min(300px, calc(100vw - 48px));
+  }
+
+  .ss-card {
+    min-width: min(300px, calc(100vw - 48px));
+    max-width: min(300px, calc(100vw - 48px));
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 28px;
+    padding: 28px 20px 20px;
+  }
+
+  /* Review opens BELOW profile card — never side-by-side on mobile */
+  .ss-card-right.show {
+    max-width: min(300px, calc(100vw - 48px));
+    min-width: min(300px, calc(100vw - 48px));
+    width: 100%;
+    margin-left: 0;
+    margin-top: 12px;
+    height: auto;
+    padding: 24px 20px 20px;
+    box-sizing: border-box;
+  }
+
+  .ss-pointer {
+    display: none;
+  }
+
+  .ss-card:hover {
+    transform: none;
+  }
+
+  .ss-name {
+    font-size: 16px;
+  }
+
+  .ss-role {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .ss-title {
+    font-size: 1.65rem;
+  }
+
+  .ss-left {
+    padding: 0 16px;
+  }
+
+  .ss-card-group,
+  .ss-card,
+  .ss-card-right.show {
+    width: min(280px, calc(100vw - 40px));
+    min-width: min(280px, calc(100vw - 40px));
+    max-width: min(280px, calc(100vw - 40px));
+  }
+
+  .ss-carousel-wrapper {
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 }

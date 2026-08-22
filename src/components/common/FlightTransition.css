@@ -59,3 +59,21 @@
   z-index: 11;
   opacity: 0.1;
 }
+
+@media (max-width: 768px) {
+  .cloud-1 { width: 45vw; height: 14vw; }
+  .cloud-2 { width: 55vw; height: 16vw; }
+  .cloud-3 { width: 40vw; height: 12vw; }
+  .cloud-4 { width: 50vw; height: 14vw; }
+  .cloud-5 { width: 65vw; height: 18vw; }
+  .cloud-6 { width: 35vw; height: 11vw; }
+}
+
+@media (max-width: 480px) {
+  .cloud-1 { width: 50vw; height: 16vw; }
+  .cloud-2 { width: 60vw; height: 18vw; }
+  .cloud-3 { width: 45vw; height: 14vw; }
+  .cloud-4 { width: 55vw; height: 16vw; }
+  .cloud-5 { width: 70vw; height: 20vw; }
+  .cloud-6 { width: 40vw; height: 13vw; }
+}

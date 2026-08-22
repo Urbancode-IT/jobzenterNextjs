@@ -95,4 +95,9 @@
   .mbbs-fact-grid {
     grid-template-columns: 1fr;
   }
+
+  .mbbs-hero-tag {
+    font-size: 11px;
+    padding: 0.35rem 0.7rem;
+  }
 }

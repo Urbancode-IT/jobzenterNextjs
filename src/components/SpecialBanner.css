@@ -4,6 +4,9 @@
   align-items: center;
   padding: 60px 20px;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
   background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
 }
 
@@ -34,5 +37,15 @@
   }
   .special-banner-img {
     border-radius: 12px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .special-banner-wrapper {
+    padding: 24px 16px;
+  }
+
+  .special-banner-img:hover {
+    transform: none;
   }
 }

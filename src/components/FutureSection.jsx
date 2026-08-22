@@ -1,25 +1,66 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import './FutureSection.css';
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import "./FutureSection.css";
+
+const REELS = [
+  {
+    embed: "https://www.instagram.com/reel/DWgpOk4kx6V/embed",
+    url: "https://www.instagram.com/reel/DWgpOk4kx6V/",
+    label: "Power BI",
+  },
+  {
+    embed: "https://www.instagram.com/reel/DWEWcFAk0sg/embed",
+    url: "https://www.instagram.com/reel/DWEWcFAk0sg/",
+    label: "Jobzenter",
+  },
+  {
+    embed: "https://www.instagram.com/reel/DUii4sjgj4O/embed",
+    url: "https://www.instagram.com/reel/DUii4sjgj4O/",
+    label: "CCNA",
+  },
+];
+
+const ROTATE_MS = 3500;
 
 const FutureSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [playingIndex, setPlayingIndex] = useState(null);
+  const [playerKey, setPlayerKey] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [titleVisible, setTitleVisible] = useState(false);
   const titleRef = useRef(null);
+  const carouselRef = useRef(null);
 
-  // Auto-swap every 4 seconds, but pause if hovering
+  const stopWatching = useCallback(() => {
+    setPlayingIndex(null);
+    setPlayerKey((k) => k + 1);
+  }, []);
+
   useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % 3);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [isHovered]);
+    if (isHovered || playingIndex !== null) return;
 
-  // Title sweep intersection observer
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % REELS.length);
+    }, ROTATE_MS);
+
+    return () => clearInterval(interval);
+  }, [isHovered, playingIndex]);
+
+  useEffect(() => {
+    if (playingIndex === null) return;
+
+    const onPointerDown = (e) => {
+      if (carouselRef.current?.contains(e.target)) return;
+      stopWatching();
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [playingIndex, stopWatching]);
+
   useEffect(() => {
     if (!titleRef.current) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -29,118 +70,130 @@ const FutureSection = () => {
       },
       { threshold: 0.3 }
     );
+
     observer.observe(titleRef.current);
     return () => observer.disconnect();
   }, []);
 
-  const handleCardClick = (index) => {
-    setActiveIndex(index);
+  const activateCard = (index, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (playingIndex === index) return;
+
+    if (playingIndex !== null) {
+      setPlayerKey((k) => k + 1);
+    }
+
+    setPlayingIndex(index);
+
+    if (playingIndex === null) {
+      setActiveIndex(index);
+    }
   };
 
-  const getCardClass = (index) => {
-    if (index === activeIndex) return 'card-center';
-    if (index === (activeIndex + 1) % 3) return 'card-right';
-    if (index === (activeIndex + 2) % 3) return 'card-left';
-    return '';
+  const goToSlide = (direction) => {
+    stopWatching();
+
+    setActiveIndex((prev) => {
+      if (direction === "prev") {
+        return (prev - 1 + REELS.length) % REELS.length;
+      }
+      return (prev + 1) % REELS.length;
+    });
   };
 
   return (
     <section className="future-section">
       <div className="future-container">
-        
-        {/* Top Centered Text Area */}
         <div className="future-content">
-          <h2 
+          <h2
             ref={titleRef}
             className={`future-title ${titleVisible ? "title-sweep" : ""}`}
           >
             {"Let's Explore the Course"}
           </h2>
           <p className="future-subtitle">
-            Master the most demanded skills in the industry. Learn from experts and build a successful career with hands-on training.
+            Master the most demanded skills in the industry. Learn from experts
+            and build a successful career with hands-on training.
           </p>
-          <button className="future-btn">Start Your Journey</button>
+          <button type="button" className="future-btn">
+            Start Your Journey
+          </button>
         </div>
 
-        {/* 3D Swapping Carousel */}
-        <div 
-          className="future-carousel-container"
+        <div
+          className="future-slider-wrap"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          
-          {/* Card 0: Power BI */}
-          <div 
-            className={`future-card-3d ${getCardClass(0)}`}
-            onClick={() => handleCardClick(0)}
+          <button
+            type="button"
+            className="future-nav-btn future-nav-btn--prev"
+            onClick={() => goToSlide("prev")}
+            aria-label="Previous video"
           >
-            <div className="video-container">
-              <iframe 
-                src="https://www.instagram.com/p/DWgpOk4kx6V/embed"
-                frameBorder="0" 
-                scrolling="no" 
-                allowtransparency="true"
-                allow="encrypted-media"
-                className="future-video"
-                style={{ border: 'none' }}
-              ></iframe>
-            </div>
-            {/* Small corner link */}
-            <div className="insta-corner-link" onClick={(e) => { e.stopPropagation(); window.open('https://www.instagram.com/reel/DWgpOk4kx6V/', '_blank'); }}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="IG" className="insta-icon-mini" />
-              <span>View</span>
-            </div>
-            <div className="click-overlay" onClick={() => handleCardClick(0)}></div>
+            <i className="bi bi-chevron-left" aria-hidden="true" />
+          </button>
+
+          <div
+            ref={carouselRef}
+            className={`future-video-row ${playingIndex !== null ? "is-interacting" : ""}`}
+          >
+            {REELS.map((reel, index) => {
+              const isCarouselActive =
+                playingIndex === null && index === activeIndex;
+              const isPlaying = playingIndex === index;
+
+              return (
+                <article
+                  key={reel.url}
+                  className={`future-video-card ${isCarouselActive ? "is-active" : ""} ${
+                    isPlaying ? "is-playing" : ""
+                  }`}
+                >
+                  <div className="video-container">
+                    <iframe
+                      src={reel.embed}
+                      title={`Course reel preview ${index + 1}`}
+                      scrolling="no"
+                      allow="encrypted-media"
+                      className="future-video future-video--preview"
+                      tabIndex={-1}
+                    />
+
+                    {isPlaying && (
+                      <iframe
+                        key={`player-${playerKey}`}
+                        src={reel.embed}
+                        title={`Course reel player ${index + 1}`}
+                        scrolling="no"
+                        allow="encrypted-media; autoplay"
+                        className="future-video future-video--playing"
+                      />
+                    )}
+                  </div>
+
+                  {!isPlaying && (
+                    <button
+                      type="button"
+                      className="video-tap-layer"
+                      onClick={(e) => activateCard(index, e)}
+                      aria-label={`Open course reel ${index + 1}`}
+                    />
+                  )}
+                </article>
+              );
+            })}
           </div>
 
-          {/* Card 1: React Native */}
-          <div 
-            className={`future-card-3d ${getCardClass(1)}`}
-            onClick={() => handleCardClick(1)}
+          <button
+            type="button"
+            className="future-nav-btn future-nav-btn--next"
+            onClick={() => goToSlide("next")}
+            aria-label="Next video"
           >
-            <div className="video-container">
-              <iframe 
-                src="https://www.instagram.com/p/DWEWcFAk0sg/embed"
-                frameBorder="0" 
-                scrolling="no" 
-                allowtransparency="true"
-                allow="encrypted-media"
-                className="future-video"
-                style={{ border: 'none' }}
-              ></iframe>
-            </div>
-            {/* Small corner link */}
-            <div className="insta-corner-link" onClick={(e) => { e.stopPropagation(); window.open('https://www.instagram.com/reel/DWEWcFAk0sg/', '_blank'); }}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="IG" className="insta-icon-mini" />
-              <span>View</span>
-            </div>
-            <div className="click-overlay" onClick={() => handleCardClick(1)}></div>
-          </div>
-
-          {/* Card 2: CCNA */}
-          <div 
-            className={`future-card-3d ${getCardClass(2)}`}
-            onClick={() => handleCardClick(2)}
-          >
-            <div className="video-container">
-              <iframe 
-                src="https://www.instagram.com/p/DUii4sjgj4O/embed"
-                frameBorder="0" 
-                scrolling="no" 
-                allowtransparency="true"
-                allow="encrypted-media"
-                className="future-video"
-                style={{ border: 'none' }}
-              ></iframe>
-            </div>
-            {/* Small corner link */}
-            <div className="insta-corner-link" onClick={(e) => { e.stopPropagation(); window.open('https://www.instagram.com/reel/DUii4sjgj4O/', '_blank'); }}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="IG" className="insta-icon-mini" />
-              <span>View</span>
-            </div>
-            <div className="click-overlay" onClick={() => handleCardClick(2)}></div>
-          </div>
-
+            <i className="bi bi-chevron-right" aria-hidden="true" />
+          </button>
         </div>
       </div>
     </section>

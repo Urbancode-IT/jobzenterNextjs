@@ -564,4 +564,28 @@
         font-size: 0.85rem;
         padding: 6px 2px;
     }
+
+    .single-coursepage h1 {
+        font-size: 1.45rem;
+    }
+
+    .single-coursepage h2 {
+        font-size: 1.25rem !important;
+    }
+
+    .single-coursepage .container,
+    .single-coursepage .container-fluid {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .single-coursepage h1 {
+        font-size: 1.3rem;
+    }
+
+    .single-coursepage .course-nav-link {
+        font-size: 0.8rem;
+    }
 }

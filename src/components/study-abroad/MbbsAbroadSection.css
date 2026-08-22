@@ -350,6 +350,7 @@
 @media (max-width: 576px) {
   .study-abroad-mbbs {
     padding: 48px 0 64px;
+    overflow-x: clip;
   }
 
   .study-abroad-mbbs-title {
@@ -362,6 +363,17 @@
 
   .study-abroad-mbbs-features-grid {
     margin-top: 40px;
+  }
+
+  .study-abroad-mbbs-stats-bar {
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .study-abroad-mbbs-stat-item {
+    min-width: 0;
+    width: 100%;
   }
 
   .study-abroad-mbbs-stat-item h3 {

@@ -130,8 +130,9 @@
 }
 
 .student-review-card {
-  width: 658px;
-  height: 251.04173278808594px;
+  width: min(100%, 658px);
+  height: auto;
+  min-height: 251px;
   position: relative;
   margin: 0 auto;
 }
@@ -363,18 +364,22 @@
   }
 
   .student-reviews-container {
-    height: 500px;
+    height: auto;
+    min-height: 420px;
     max-width: 100%;
+    overflow: visible;
   }
 
   .student-review-slide {
-    height: 250px;
+    height: auto;
+    min-height: 280px;
     padding: 15px 0;
   }
 
   .student-review-card {
     width: 95%;
     min-height: 180px;
+    height: auto;
   }
 
   .student-review-card::after {
@@ -385,26 +390,48 @@
   }
 
   .student-review-surface {
-    padding: 20px 20px 42px;
+    padding: 20px 20px 24px;
     border-radius: 30px 8px 8px 8px;
+    height: auto;
   }
 
   .student-review-text {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
     font-size: 15px;
     line-height: 24px;
+    margin: 0 0 12px 0;
+    overflow: visible;
+  }
+
+  .student-review-stars {
+    position: static;
+    margin: 0 0 8px 0;
   }
 
   .student-review-footer {
+    position: static;
+    bottom: auto;
+    left: auto;
     margin-top: 16px;
-    padding-left: 90px;
-    min-height: 70px;
+    padding-left: 0;
+    min-height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
   .student-review-avatar {
+    position: relative;
     width: 85px;
     height: 85px;
-    bottom: -28px;
-    left: -40px;
+    bottom: 0;
+    left: 0;
+    flex-shrink: 0;
   }
 
   .student-review-actions {

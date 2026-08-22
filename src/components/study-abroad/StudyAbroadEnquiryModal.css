@@ -209,3 +209,36 @@
   opacity: 0.8;
   cursor: not-allowed;
 }
+
+@media (max-width: 576px) {
+  .study-abroad-enquiry-overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .study-abroad-enquiry-modal {
+    max-width: 100%;
+    padding: 24px 20px 20px;
+    border-radius: 16px 16px 0 0;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+  }
+
+  .study-abroad-enquiry-title {
+    font-size: 20px;
+  }
+
+  .study-abroad-enquiry-subtitle {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 375px) {
+  .study-abroad-enquiry-overlay {
+    padding: 8px;
+  }
+
+  .study-abroad-enquiry-modal {
+    padding: 20px 16px 16px;
+  }
+}

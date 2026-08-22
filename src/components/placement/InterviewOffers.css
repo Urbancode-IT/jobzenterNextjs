@@ -170,6 +170,7 @@
 @media (max-width: 991px) {
   .interview-offers-layout {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .interview-offers-menu {
@@ -178,5 +179,37 @@
 
   .interview-offers-detail {
     position: static;
+  }
+}
+
+@media (max-width: 576px) {
+  .interview-offers-wrapper {
+    padding: 48px 0;
+  }
+
+  .interview-offers-title {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+
+  .interview-offers-option {
+    min-height: auto;
+    padding: 12px;
+  }
+
+  .interview-offers-option-title {
+    font-size: 0.9rem;
+  }
+
+  .interview-offers-detail {
+    padding: 16px;
+  }
+
+  .interview-offers-detail-title {
+    font-size: 1.05rem;
+  }
+
+  .interview-offers-detail-item {
+    font-size: 0.9rem;
   }
 }

@@ -510,8 +510,13 @@
 }
 
 @media (max-width: 767px) {
+  .destination-detail-page {
+    overflow-x: clip;
+  }
+
   .dest-hero-banner {
     min-height: 300px;
+    border-radius: 14px;
   }
 
   .dest-hero-banner-content {
@@ -523,9 +528,21 @@
 
   .dest-hero-cta {
     width: 100%;
+    white-space: normal;
+    text-align: center;
   }
 
   .dest-pathway-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dest-hero-copy h1 {
+    font-size: 1.5rem;
+  }
+
+  .dest-more-explore {
+    white-space: normal;
   }
 }

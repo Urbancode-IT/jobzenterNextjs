@@ -196,3 +196,63 @@
     font-size: 2rem;
   }
 }
+
+@media (max-width: 480px) {
+  .transition-travel-poster-img {
+    width: min(96vw, 320px);
+    border-radius: 12px;
+  }
+
+  .transition-country-cards {
+    top: 38%;
+    height: 140px;
+  }
+
+  .transition-country-card {
+    width: min(28vw, 90px);
+  }
+
+  .transition-country-card-img {
+    height: 58px;
+  }
+
+  .transition-country-card-title {
+    font-size: 0.55rem;
+    padding: 4px 4px 6px;
+  }
+
+  .country-name-text {
+    font-size: clamp(1.4rem, 8vw, 1.8rem);
+    letter-spacing: -0.25px;
+  }
+
+  .transition-subtext {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 0 12px;
+    text-align: center;
+  }
+
+  .country-ticker-container {
+    margin-top: 220px;
+    height: 70px;
+  }
+
+  .graduation-cap {
+    font-size: 1.5rem;
+  }
+
+  .transition-airplane-row {
+    width: min(42vw, 180px);
+  }
+}
+
+@media (max-width: 375px) {
+  .country-name-text {
+    font-size: 1.25rem;
+  }
+
+  .country-ticker-container {
+    margin-top: 200px;
+  }
+}

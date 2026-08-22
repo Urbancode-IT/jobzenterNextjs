@@ -143,3 +143,31 @@
   color: #676767;
   line-height: 24px;
 }
+
+@media (max-width: 576px) {
+  .who-wrapper {
+    padding: 40px 0;
+  }
+
+  .who-title {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+
+  .who-card {
+    padding: 24px 20px;
+  }
+
+  .num-text {
+    font-size: 28px;
+  }
+
+  .who-card-title {
+    font-size: 18px;
+  }
+
+  .who-card-desc {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

@@ -103,3 +103,24 @@
   font-size: 13px;
   color: #d9534f;
 }
+
+@media (max-width: 576px) {
+  .enquiry-overlay {
+    padding: 12px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .enquiry-modal {
+    width: min(100%, 600px);
+    max-width: calc(100vw - 24px);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px 16px;
+    margin: auto 0;
+  }
+
+  .enquiry-header h3 {
+    font-size: 1.1rem;
+  }
+}

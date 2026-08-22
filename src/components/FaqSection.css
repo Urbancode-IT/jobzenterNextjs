@@ -8,21 +8,21 @@
 
 .faq-title {
   text-align: center;
-  font-size: 34px;
-  font-weight: 700;
+  font-size: 2.55rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
   color: #2d2d2d;
   margin-bottom: 30px;
   font-family: 'Inter', sans-serif;
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: fit-content;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* --------------------------------------------- */
-/* HEADING GRADIENT COLOR SWEEP                  */
-/* --------------------------------------------- */
-.title-sweep {
+/* Same yellow gradient sweep as "Let's Explore the Course" */
+.faq-title.title-sweep {
   background: linear-gradient(
       90deg,
       #1a1a1a 0%,
@@ -35,10 +35,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientSweep 1.5s ease forwards;
+  animation: faqTitleSweep 1.5s ease forwards;
 }
 
-@keyframes gradientSweep {
+@keyframes faqTitleSweep {
   0%   { background-position: 100% center; }
   100% { background-position: 0% center; }
 }
@@ -48,17 +48,27 @@
   align-items: flex-start;
   justify-content: center;
   padding: 0 24px;
-  gap: 60px;
+  gap: 24px;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 }
 
-.faq-list {
+.faq-list-panel {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+  min-width: 0;
+  width: 100%;
+}
+
+.faq-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  align-content: start;
 }
 
 .faq-card {
@@ -68,6 +78,9 @@
   border: 1px solid transparent;
   overflow: hidden;
   transform: translateY(0);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   transition:
       box-shadow 0.3s ease,
       transform 0.3s ease,
@@ -94,8 +107,12 @@
   align-items: center;
   cursor: pointer;
   width: 100%;
+  height: 96px;
+  min-height: 96px;
   border: none;
   background-color: #ffffff;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .faq-question {
@@ -106,6 +123,12 @@
   font-family: 'Inter', sans-serif;
   transition: color 0.3s ease;
   text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+  padding-right: 16px;
 }
 
 .faq-card.active .faq-question {
@@ -167,8 +190,77 @@
   transform: translateY(0);
 }
 
+/* --------------------------------------------- */
+/* FAQ CAROUSEL NAV                              */
+/* --------------------------------------------- */
+.faq-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 4px;
+}
+
+.faq-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid #2a2727;
+  background: #2a2727;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+              transform 0.2s ease, opacity 0.2s ease;
+  padding: 0;
+}
+
+.faq-nav-btn:hover:not(:disabled) {
+  background: #f4ea17;
+  border-color: #f4ea17;
+  color: #1b1b1b;
+  transform: translateY(-1px);
+}
+
+.faq-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.faq-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.faq-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: #d0d0d0;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease, width 0.25s ease;
+}
+
+.faq-dot:hover {
+  background: #a8a8a8;
+}
+
+.faq-dot.active {
+  background: #f4ea17;
+  width: 22px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(244, 234, 23, 0.45);
+}
+
 .faq-side {
-  flex: 1.2;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,14 +273,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 0;
 }
 
 /* Circle wrapper */
 .img-circle-wrapper {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 400px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -247,35 +339,20 @@
 
 /* Image */
 .img-circle-wrapper img {
-  width: 85%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   position: relative; vertical-align: middle;
   z-index: 2;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.4s ease;
 }
 
 .img-hidden {
   opacity: 0;
-  transform: scale(0.8);
 }
 
 .img-visible {
   opacity: 1;
-  animation: imgBounceIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
-             imgFloat 3.5s ease-in-out 0.7s infinite;
-}
-
-@keyframes imgBounceIn {
-  0%   { opacity: 0; transform: scale(0.8); }
-  60%  { opacity: 1; transform: scale(1.08); }
-  80%  { transform: scale(0.97); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes imgFloat {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-14px); }
 }
 
 .faq-side-title {
@@ -347,7 +424,7 @@
 
 @media (max-width: 991.98px) {
   .faq-row {
-    gap: 60px;
+    gap: 28px;
     justify-content: center;
   }
 
@@ -366,6 +443,10 @@
     max-width: 100%;
   }
 
+  .faq-list-panel {
+    max-width: 100%;
+  }
+
   .faq-side {
     max-width: 100%;
   }
@@ -377,12 +458,14 @@
 
 @media (max-width: 575.98px) {
   .faq-title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .faq-toggle {
     padding: 20px 22px;
     gap: 14px;
+    height: 88px;
+    min-height: 88px;
   }
 
   .faq-question {
@@ -391,6 +474,16 @@
 
   .faq-answer p {
     font-size: 14px;
+  }
+
+  .faq-nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .faq-carousel-nav {
+    gap: 14px;
   }
 
   .faq-side-title {
@@ -403,6 +496,34 @@
 
   .faq-input-group {
     width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-row {
+    padding: 0 16px;
+  }
+
+  .img-circle-wrapper {
+    width: min(320px, 85vw);
+    height: min(320px, 85vw);
+    max-width: 100%;
+  }
+
+  .questions-image-section {
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+
+  .faq-side {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .faq-input-group {
+    width: 100%;
+    max-width: 100%;
   }
 }
 

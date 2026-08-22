@@ -208,7 +208,22 @@
   font-size: 10px;
 }
 
+@media (max-width: 767.98px) {
+  .study-abroad-destination-actions {
+    flex-wrap: wrap;
+  }
+
+  .study-abroad-destination-btn {
+    white-space: normal;
+    min-width: 0;
+  }
+}
+
 @media (max-width: 576px) {
+  .study-abroad-destinations {
+    overflow-x: clip;
+  }
+
   .study-abroad-section-title {
     font-size: 26px;
   }
@@ -216,5 +231,21 @@
   .study-abroad-section-subtitle {
     font-size: 14px;
     margin-bottom: 28px;
+  }
+
+  .study-abroad-destination-card {
+    min-height: 0;
+  }
+
+  .study-abroad-destination-actions {
+    flex-direction: column;
+  }
+
+  .study-abroad-destination-btn {
+    white-space: normal;
+    font-size: 12px;
+    padding: 10px 8px;
+    width: 100%;
+    flex: none;
   }
 }

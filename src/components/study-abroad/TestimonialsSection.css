@@ -154,6 +154,7 @@
 @media (max-width: 576px) {
   .study-abroad-testimonials {
     padding: 48px 0 60px;
+    overflow-x: clip;
   }
 
   .study-abroad-testimonials-title {
@@ -163,6 +164,10 @@
   .study-abroad-testimonials-subtitle {
     font-size: 15px;
     margin-bottom: 32px;
+  }
+
+  .study-abroad-testimonials-grid {
+    max-width: 100%;
   }
 
   .study-abroad-testimonial-card {

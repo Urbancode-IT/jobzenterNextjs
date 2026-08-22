@@ -246,9 +246,27 @@
   }
 }
 
+@media (max-width: 767.98px) {
+  .study-abroad-hero-right {
+    overflow-x: clip;
+    padding: 0 12px;
+  }
+
+  .study-abroad-card-visa {
+    right: -12px;
+    min-width: 0;
+  }
+
+  .study-abroad-card-rate {
+    left: -12px;
+    min-width: 0;
+  }
+}
+
 @media (max-width: 576px) {
   .study-abroad-hero {
     padding: 48px 0 60px;
+    overflow-x: clip;
   }
 
   .study-abroad-hero-title {
@@ -265,6 +283,26 @@
 
   .study-abroad-trusted {
     justify-content: center;
+  }
+
+  .study-abroad-hero-img-wrap {
+    max-width: min(100%, 340px);
+    overflow: visible;
+  }
+
+  .study-abroad-card-visa {
+    top: 4px;
+    right: -8px;
+    min-width: 0;
+    padding: 8px 10px;
+  }
+
+  .study-abroad-card-rate {
+    bottom: -6px;
+    left: -8px;
+    min-width: 0;
+    padding: 8px 12px;
+    gap: 8px;
   }
 
   .study-abroad-card-rate-value {

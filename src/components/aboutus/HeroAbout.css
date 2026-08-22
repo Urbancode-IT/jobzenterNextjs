@@ -609,5 +609,31 @@
   .hero-orbit-chip {
     font-size: 0.65rem;
     padding: 5px 9px 5px 7px;
+    white-space: normal;
+    max-width: 46%;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-about-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  .hero-about-heading {
+    font-size: 1.75rem;
+  }
+
+  .hero-orbit-stage {
+    max-width: 260px;
+  }
+
+  .hero-orbit-chip {
+    font-size: 0.6rem;
+    padding: 4px 7px;
+    max-width: 48%;
   }
 }

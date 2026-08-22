@@ -76,6 +76,7 @@ export default function OurStudentsPage() {
       <style jsx global>{`
         .students-hero {
           background: transparent;
+          overflow-x: hidden;
         }
         .students-hero-panel {
           position: relative;
@@ -240,13 +241,73 @@ export default function OurStudentsPage() {
           }
         }
         @media (max-width: 575px) {
-          .students-hero-left h1 {
-            font-size: 1.95rem;
-            line-height: 1;
+          .students-hero {
+            padding-bottom: 8px;
           }
+          .students-hero-left h1 {
+            font-size: 1.85rem;
+            line-height: 1.05;
+          }
+          .students-hero-left p {
+            margin-top: 12px;
+            font-size: 0.92rem;
+            line-height: 1.55;
+          }
+          .students-hero-actions {
+            flex-direction: column;
+          }
+          .students-hero-actions .btn {
+            width: 100%;
+            text-align: center;
+          }
+          .students-stats-row {
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+          }
+          .students-stats-row .students-mini-stat:last-child {
+            grid-column: 1 / -1;
+          }
+          .students-mini-stat {
+            padding: 10px 6px;
+          }
+          .students-mini-stat strong {
+            font-size: 0.98rem;
+          }
+          .students-mini-stat span {
+            font-size: 0.68rem;
+          }
+          .students-image-wrap {
+            min-height: 220px;
+            border-radius: 14px;
+          }
+          /* Keep badges as compact overlays — avoid static stacking over the image */
           .students-image-badge {
-            position: static;
-            margin: 10px;
+            position: absolute;
+            max-width: min(168px, 62%);
+            padding: 8px 10px;
+            border-radius: 10px;
+            margin: 0;
+          }
+          .students-image-badge strong {
+            font-size: 0.75rem;
+          }
+          .students-image-badge span {
+            font-size: 0.65rem;
+            line-height: 1.25;
+          }
+          .students-image-badge--top {
+            top: 10px;
+            left: 10px;
+          }
+          .students-image-badge--bottom {
+            right: 10px;
+            bottom: 10px;
+            left: auto;
+          }
+          .students-hero-panel {
+            padding: 16px 14px;
+            border-radius: 16px;
+            gap: 16px;
           }
         }
       `}</style>

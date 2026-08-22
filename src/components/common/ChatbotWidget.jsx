@@ -25,22 +25,24 @@ const ChatbotWidget = () => {
 
   const clampPosition = (x, y) => {
     if (typeof window === "undefined") return { x, y };
-    const widgetWidth = 210;
-    const widgetHeight = 56;
+    const isNarrow = window.innerWidth < 480;
+    const widgetWidth = isNarrow ? 155 : 210;
+    const widgetHeight = isNarrow ? 44 : 56;
     return {
-      x: Math.min(Math.max(12, x), window.innerWidth - widgetWidth - 12),
-      y: Math.min(Math.max(80, y), window.innerHeight - widgetHeight - 12),
+      x: Math.min(Math.max(8, x), window.innerWidth - widgetWidth - 8),
+      y: Math.min(Math.max(72, y), window.innerHeight - widgetHeight - 12),
     };
   };
 
   const getInitialDemoPosition = () => {
     if (typeof window === "undefined") return { x: 0, y: 0 };
 
-    // On mobile, the hero-anchored position can drift down into the
-    // chatbot trigger + offer bubble (bottom-right), which then renders
-    // on top and hides the demo button. Keep it pinned near the top instead.
+    // On mobile, pin below the navbar on the right so it stays visible
+    // and does not collide with WhatsApp / chatbot at the bottom.
     if (window.innerWidth < 992) {
-      return clampPosition(window.innerWidth - 230, 90);
+      const isNarrow = window.innerWidth < 480;
+      const widgetWidth = isNarrow ? 155 : 190;
+      return clampPosition(window.innerWidth - widgetWidth - 10, isNarrow ? 78 : 90);
     }
 
     const titleEl = document.querySelector(".hero-centered-title");

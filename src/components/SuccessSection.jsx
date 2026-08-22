@@ -116,6 +116,10 @@ const SuccessSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  const handleToggleReview = (index, isOpen) => {
+    setActiveReviewIndex(isOpen ? null : index);
+  };
+
   const marqueeStories = [...SUCCESS_STORIES, ...SUCCESS_STORIES, ...SUCCESS_STORIES];
 
   return (
@@ -160,9 +164,9 @@ const SuccessSection = () => {
                         </div>
                         <button
                           className="ss-view-review-btn"
-                          onClick={() => setActiveReviewIndex(isOpen ? null : index)}
+                          onClick={() => handleToggleReview(index, isOpen)}
                         >
-                          View Review
+                          {isOpen ? "Hide Review" : "View Review"}
                         </button>
                       </div>
                     </div>
@@ -172,7 +176,7 @@ const SuccessSection = () => {
                       <button
                         className="ss-close-btn"
                         aria-label="Close review"
-                        onClick={() => setActiveReviewIndex(null)}
+                        onClick={() => handleToggleReview(index, true)}
                       >
                         &times;
                       </button>

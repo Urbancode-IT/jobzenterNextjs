@@ -114,7 +114,7 @@ body {
 
 @media (max-width: 768px) {
   .privacy-wrapper {
-    padding: 50px 0;
+    padding: 50px 20px;
   }
   .privacy-container {
     width: 94%;
@@ -132,7 +132,11 @@ body {
 
 @media (max-width: 480px) {
   .privacy-wrapper {
-    padding: 40px 0;
+    padding: 40px 16px;
+    overflow-x: hidden;
+  }
+  .privacy-container {
+    width: 100%;
   }
   .privacy-container h1 {
     font-size: 1.6rem;
@@ -143,5 +147,9 @@ body {
   .privacy-section p,
   .privacy-section li {
     font-size: 0.9rem;
+  }
+  .privacy-section::before,
+  .diamond-right {
+    display: none;
   }
 }

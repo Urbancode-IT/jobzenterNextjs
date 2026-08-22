@@ -32,7 +32,7 @@
 /* LEFT SIDE */
 .yw-left {
   flex: 1;
-  min-width: 330px;
+  min-width: 0;
 }
 
 /* TITLE — with animation support */
@@ -87,7 +87,7 @@
 /* RIGHT SIDE */
 .yw-right {
   flex: 1;
-  min-width: 330px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -163,8 +163,54 @@
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .yw-container { flex-direction: column; }
+  .yw-wrapper {
+    padding: 80px 0;
+  }
+
+  .yw-container {
+    flex-direction: column;
+    gap: 28px;
+    width: 92%;
+  }
+
   .yw-right {
     margin-top: 1.75rem;
+  }
+
+  .yw-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .yw-wrapper {
+    padding: 56px 0;
+  }
+
+  .yw-container {
+    width: 100%;
+    padding: 0 16px;
+    gap: 20px;
+  }
+
+  .yw-title {
+    font-size: 1.7rem;
+    margin-bottom: 22px;
+  }
+
+  .yw-text {
+    font-size: 15px;
+  }
+
+  .highlight-card {
+    padding: 16px 18px;
+  }
+
+  .highlight-card h3 {
+    font-size: 17px;
+  }
+
+  .highlight-card p {
+    font-size: 14px;
   }
 }

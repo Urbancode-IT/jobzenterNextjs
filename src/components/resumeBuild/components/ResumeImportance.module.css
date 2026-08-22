@@ -805,11 +805,27 @@
         width: 132px;
         height: 186px;
     }
+
+    .topGrid,
+    .bottomGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 768px) {
     .mainGrid {
         grid-template-columns: 1fr;
+    }
+    .topGrid,
+    .bottomGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
+    }
+    .topGrid > div,
+    .bottomGrid > div {
+        padding: 20px 18px;
     }
     .statsBar {
         flex-direction: column;
@@ -826,5 +842,30 @@
     }
     .bannerTitle {
         font-size: 30px;
+    }
+    .cardTitle,
+    .cardTitleWhite {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 430px) {
+    .footerBanner {
+        padding: 24px 14px;
+        border-radius: 24px;
+    }
+    .bannerTitle {
+        font-size: 24px;
+    }
+    .resumeDeck {
+        width: 200px;
+        height: 200px;
+        transform: scale(0.9);
+    }
+    .startFreeBtn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 15px;
     }
 }

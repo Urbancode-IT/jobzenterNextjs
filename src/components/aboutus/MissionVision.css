@@ -533,6 +533,16 @@
   }
 }
 
+@media (max-width: 576px) {
+  .mv-foundation {
+    padding: 3rem 1rem;
+  }
+
+  .mv-foundation__title {
+    font-size: 1.75rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mv-foundation {
     animation: none;

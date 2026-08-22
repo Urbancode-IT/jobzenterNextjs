@@ -41,12 +41,59 @@
 
 .btn-cat {
     border-radius: 20px;
+    border: 1.5px solid #000 !important;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-active {
+/* Inactive: never stay black from Bootstrap :hover/:focus sticky state */
+.btn-cat.btn-outline-dark,
+.btn-cat.btn-outline-dark:hover,
+.btn-cat.btn-outline-dark:focus,
+.btn-cat.btn-outline-dark:active,
+.btn-cat.btn-outline-dark:focus-visible {
+    background-color: #fff !important;
+    color: #000 !important;
+    border-color: #000 !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Only the selected category is black */
+.btn-cat.btn-active,
+.btn-cat.btn-active:hover,
+.btn-cat.btn-active:focus,
+.btn-cat.btn-active:active,
+.btn-cat.btn-active:focus-visible {
     background-color: #000 !important;
     color: #fff !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-color: #000 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.course-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px 24px;
+}
+
+@media (max-width: 767.98px) {
+    .course-filter-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 8px 20px 28px;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .course-filter-buttons .btn-cat {
+        width: 100%;
+        margin: 0 !important;
+        padding: 10px 20px !important;
+    }
 }
 
 .view-details-btn {
@@ -514,5 +561,30 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 767px) {
+    .programs-header {
+        font-size: 1.75rem;
+    }
+
+    .programs-subtitle {
+        font-size: 1rem;
+        padding: 0 8px;
+    }
+
+    .programs-section .program-feature-card {
+        padding: 2rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .programs-header {
+        font-size: 1.5rem;
+    }
+
+    .programs-section {
+        padding: 2.5rem 0.75rem;
     }
 }

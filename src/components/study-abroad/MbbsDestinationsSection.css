@@ -47,3 +47,13 @@
     background-position: 0% center;
   }
 }
+
+@media (max-width: 576px) {
+  .mbbs-dest-title {
+    font-size: 26px;
+  }
+
+  .mbbs-card-title {
+    font-size: 18px;
+  }
+}

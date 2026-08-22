@@ -235,6 +235,34 @@
     border-radius: 22px;
     min-height: auto;
   }
+
+  .why-compare-card--ours,
+  .why-compare-grid.is-swapped .why-compare-card--ours,
+  .why-compare-card--others,
+  .why-compare-grid.is-swapped .why-compare-card--others {
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title,
+  .provide-title {
+    font-size: 1.75rem !important;
+    margin-bottom: 48px;
+  }
+
+  .why-compare-list__item {
+    font-size: 0.95rem;
+  }
+
+  .item-text {
+    white-space: normal;
+    overflow: visible;
+  }
+
+  .why-compare-card__title {
+    font-size: 1.35rem;
+  }
 }
 
 /* --------------------------------------------- */
