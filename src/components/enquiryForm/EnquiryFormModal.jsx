@@ -1,8 +1,10 @@
 'use client';
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sendForm } from '../../lib/emailjsClient';
 import "./EnquiryForm.css";
+
+const EXTRA_COURSE_OPTIONS = ["Help me choose my course", "Other"];
 
 const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
   const formRef = useRef(null);
@@ -13,6 +15,7 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
     phone: "",
     pincode: "",
     course: courseName || "",
+    courseId: "",
     message: "",
     mode: "",
   });
@@ -20,12 +23,135 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
+  const [courses, setCourses] = useState([]);
+  const [coursesLoading, setCoursesLoading] = useState(false);
+  const [coursesError, setCoursesError] = useState("");
+  const [isCourseOpen, setIsCourseOpen] = useState(false);
+  const courseDropdownRef = useRef(null);
+
+  useEffect(() => {
+    if (!courseName && courses.length === 0) return;
+
+    const match = courses.find((item) => {
+      const name = typeof item === "string" ? item : item?.name;
+      return name && name.toLowerCase().trim() === String(courseName || "").toLowerCase().trim();
+    });
+
+    setFormData((prev) => ({
+      ...prev,
+      course: (typeof match === "string" ? match : match?.name) || courseName || prev.course || "",
+      courseId: (typeof match === "object" && match?.id) || prev.courseId || "",
+    }));
+  }, [courseName, courses]);
+
+  useEffect(() => {
+    if (!isOpen) setIsCourseOpen(false);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isCourseOpen) return;
+
+    const handlePointerDown = (event) => {
+      if (!courseDropdownRef.current?.contains(event.target)) {
+        setIsCourseOpen(false);
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setIsCourseOpen(false);
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isCourseOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    let cancelled = false;
+
+    const loadCourses = async () => {
+      setCoursesLoading(true);
+      setCoursesError("");
+      try {
+        const res = await fetch("/api/external-courses");
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          throw new Error(data?.error || "Failed to load courses");
+        }
+        if (!cancelled) {
+          setCourses(Array.isArray(data?.courses) ? data.courses : []);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setCourses([]);
+          setCoursesError(err.message || "Failed to load courses");
+        }
+      } finally {
+        if (!cancelled) setCoursesLoading(false);
+      }
+    };
+
+    loadCourses();
+    return () => {
+      cancelled = true;
+    };
+  }, [isOpen]);
+
+  const courseOptions = useMemo(() => {
+    const merged = courses.map((item) =>
+      typeof item === "string"
+        ? { id: "", name: item, type: "" }
+        : {
+            id: item?.id || "",
+            name: item?.name || "",
+            type: item?.type || "",
+          }
+    ).filter((item) => item.name);
+
+    if (courseName && !merged.some((item) => item.name.toLowerCase() === courseName.toLowerCase())) {
+      merged.unshift({ id: "", name: courseName, type: "" });
+    }
+
+    EXTRA_COURSE_OPTIONS.forEach((option) => {
+      if (!merged.some((item) => item.name === option)) {
+        merged.push({ id: "", name: option, type: "" });
+      }
+    });
+
+    const nameCounts = merged.reduce((acc, item) => {
+      acc[item.name] = (acc[item.name] || 0) + 1;
+      return acc;
+    }, {});
+
+    return merged.map((item) => ({
+      ...item,
+      label:
+        nameCounts[item.name] > 1 && item.type
+          ? `${item.name} (${item.type})`
+          : item.name,
+    }));
+  }, [courses, courseName]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setErrors({ ...errors, [name]: "" });
     setStatus({ type: "", message: "" });
+  };
+
+  const selectCourse = (course) => {
+    setFormData((prev) => ({
+      ...prev,
+      course: course.name,
+      courseId: course.id || "",
+    }));
+    setErrors((prev) => ({ ...prev, course: "" }));
+    setStatus({ type: "", message: "" });
+    setIsCourseOpen(false);
   };
 
   const validateForm = () => {
@@ -44,46 +170,70 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setLoading(true);
     setStatus({ type: "loading", message: "Sending your enquiry..." });
 
-    sendForm(formRef.current)
-      .then(
-        () => {
-          setStatus({
-            type: "success",
-            message:
-              "Enquiry submitted successfully! Our team will get back to you soon.",
-          });
+    try {
+      const res = await fetch("/api/external-enrollment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          mobile_number: formData.phone.trim(),
+          pincode: formData.pincode.trim(),
+          course: formData.course,
+          course_id: formData.courseId || undefined,
+          mode: formData.mode,
+          message: formData.message.trim(),
+        }),
+      });
 
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            pincode: "",
-            course: courseName || "",
-            message: "",
-            mode: "",
-          });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === false) {
+        throw new Error(data.error || "Failed to submit enquiry");
+      }
 
-          setTimeout(() => {
-            setStatus({ type: "", message: "" });
-            onClose();
-          }, 1500);
-        },
-        () => {
-          setStatus({
-            type: "error",
-            message:
-              "Failed to submit enquiry. Please try again later.",
-          });
-        }
-      )
-      .finally(() => setLoading(false));
+      try {
+        await sendForm(formRef.current);
+      } catch {
+        // Enrollment API already saved the lead.
+      }
+
+      setStatus({
+        type: "success",
+        message:
+          "Enquiry submitted successfully! Our team will get back to you soon.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        pincode: "",
+        course: courseName || "",
+        courseId: "",
+        message: "",
+        mode: "",
+      });
+
+      setTimeout(() => {
+        setStatus({ type: "", message: "" });
+        onClose();
+      }, 1500);
+    } catch {
+      setStatus({
+        type: "error",
+        message: "Failed to submit enquiry. Please try again later.",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -159,26 +309,55 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
                   />
                 </div>
 
-                <div className="col-md-6">
-                  <input
-                    list="courses"
-                    className="form-control"
-                    name="course"
-                    value={formData.course}
-                    onChange={handleChange}
-                    placeholder="Select or type your course"
-                  />
-                  <datalist id="courses">
-                    <option value="Full Stack Development" />
-                    <option value="Data Science" />
-                    <option value="UI/UX Design" />
-                    <option value="Digital Marketing" />
-                    <option value="Cybersecurity" />
-                    <option value="Cloud Computing" />
-                    <option value="Help me choose my course" />
-                    <option value="Other" />
-                  </datalist>
+                <div className={`col-md-6 course-dropdown-col${isCourseOpen ? " is-open" : ""}`}>
+                  <div
+                    className={`course-dropdown${isCourseOpen ? " is-open" : ""}`}
+                    ref={courseDropdownRef}
+                  >
+                    <input type="hidden" name="course" value={formData.course} />
+                    <button
+                      type="button"
+                      className={`course-dropdown-trigger${formData.course ? "" : " is-placeholder"}`}
+                      onClick={() => {
+                        if (!coursesLoading) setIsCourseOpen((open) => !open);
+                      }}
+                      disabled={coursesLoading}
+                      aria-haspopup="listbox"
+                      aria-expanded={isCourseOpen}
+                    >
+                      <span>
+                        {coursesLoading
+                          ? "Loading courses..."
+                          : formData.course || "Select a course"}
+                      </span>
+                      <span className="course-dropdown-caret" aria-hidden />
+                    </button>
+                    {isCourseOpen && (
+                      <ul className="course-dropdown-menu" role="listbox">
+                        {courseOptions.map((course) => (
+                          <li key={course.id || course.label}>
+                            <button
+                              type="button"
+                              className={`course-dropdown-option${formData.courseId ? (formData.courseId === course.id ? " is-active" : "") : (formData.course === course.name ? " is-active" : "")}`}
+                              onClick={() => selectCourse(course)}
+                              role="option"
+                              aria-selected={
+                                formData.courseId
+                                  ? formData.courseId === course.id
+                                  : formData.course === course.name
+                              }
+                            >
+                              {course.label}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                   {errors.course && <small className="text-danger">{errors.course}</small>}
+                  {coursesError && !errors.course && (
+                    <small className="text-danger">Could not load courses. Please try again.</small>
+                  )}
                 </div>
 
                 <div className="col-md-6">

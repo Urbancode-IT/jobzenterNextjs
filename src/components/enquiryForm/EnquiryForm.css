@@ -18,6 +18,7 @@
   padding: 24px;
   position: relative;
   text-align: left;
+  overflow: visible;
 }
 
 .enquiry-header {
@@ -59,6 +60,93 @@
 .enquiry-modal select:focus {
   border-color: #e9e107;
   box-shadow: 0 0 3px rgba(182, 185, 16, 0.3);
+}
+
+.course-dropdown-col {
+  position: relative;
+}
+
+.course-dropdown-col.is-open {
+  z-index: 8;
+}
+
+.course-dropdown {
+  position: relative;
+}
+
+.course-dropdown-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #222;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+}
+
+.course-dropdown-trigger.is-placeholder {
+  color: #6c757d;
+}
+
+.course-dropdown-trigger:focus {
+  border-color: #e9e107;
+  box-shadow: 0 0 3px rgba(182, 185, 16, 0.3);
+  outline: none;
+}
+
+.course-dropdown-trigger:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.course-dropdown-caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #555;
+  flex-shrink: 0;
+}
+
+.course-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  max-height: 220px;
+  margin: 0;
+  padding: 6px 0;
+  overflow-y: auto;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.course-dropdown-option {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  color: #222;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.course-dropdown-option:hover,
+.course-dropdown-option.is-active {
+  background: #f5f1c8;
 }
 
 .enquiry-modal .submit-btn {
@@ -115,7 +203,7 @@
     width: min(100%, 600px);
     max-width: calc(100vw - 24px);
     max-height: 90vh;
-    overflow-y: auto;
+    overflow: visible;
     padding: 20px 16px;
     margin: auto 0;
   }
