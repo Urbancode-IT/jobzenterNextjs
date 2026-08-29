@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sendForm } from '../../lib/emailjsClient';
+import { findExternalCourse, formatEnrollmentError } from '../../lib/externalCourseAliases';
 import "./EnquiryForm.css";
 
 const EXTRA_COURSE_OPTIONS = ["Help me choose my course", "Other"];
@@ -32,14 +33,11 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
   useEffect(() => {
     if (!courseName && courses.length === 0) return;
 
-    const match = courses.find((item) => {
-      const name = typeof item === "string" ? item : item?.name;
-      return name && name.toLowerCase().trim() === String(courseName || "").toLowerCase().trim();
-    });
+    const match = findExternalCourse(courses, courseName);
 
     setFormData((prev) => ({
       ...prev,
-      course: (typeof match === "string" ? match : match?.name) || courseName || prev.course || "",
+      course: courseName || (typeof match === "string" ? match : match?.name) || prev.course || "",
       courseId: (typeof match === "object" && match?.id) || prev.courseId || "",
     }));
   }, [courseName, courses]);
@@ -112,8 +110,19 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
           }
     ).filter((item) => item.name);
 
-    if (courseName && !merged.some((item) => item.name.toLowerCase() === courseName.toLowerCase())) {
-      merged.unshift({ id: "", name: courseName, type: "" });
+    if (courseName) {
+      const matched = findExternalCourse(merged, courseName);
+      const hasDisplayOption = merged.some(
+        (item) => item.name.toLowerCase() === courseName.toLowerCase()
+      );
+
+      if (!hasDisplayOption) {
+        merged.unshift({
+          id: matched?.id || "",
+          name: courseName,
+          type: matched?.type || "",
+        });
+      }
     }
 
     EXTRA_COURSE_OPTIONS.forEach((option) => {
@@ -178,6 +187,13 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
     setStatus({ type: "loading", message: "Sending your enquiry..." });
 
     try {
+      const matchedCourse = findExternalCourse(courses, formData.course);
+      const courseId = formData.courseId || matchedCourse?.id || "";
+      const externalCourseName =
+        (typeof matchedCourse === "object" && matchedCourse?.name) ||
+        (typeof matchedCourse === "string" ? matchedCourse : "") ||
+        formData.course;
+
       const res = await fetch("/api/external-enrollment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -187,8 +203,8 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
           phone: formData.phone.trim(),
           mobile_number: formData.phone.trim(),
           pincode: formData.pincode.trim(),
-          course: formData.course,
-          course_id: formData.courseId || undefined,
+          course: externalCourseName,
+          course_id: courseId || undefined,
           mode: formData.mode,
           message: formData.message.trim(),
         }),
@@ -226,10 +242,10 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
         setStatus({ type: "", message: "" });
         onClose();
       }, 1500);
-    } catch {
+    } catch (err) {
       setStatus({
         type: "error",
-        message: "Failed to submit enquiry. Please try again later.",
+        message: formatEnrollmentError(err?.message),
       });
     } finally {
       setLoading(false);
@@ -397,7 +413,7 @@ const EnquiryFormModal = ({ isOpen, onClose, courseName }) => {
                   <button
                     type="submit"
                     className="btn btn-success px-5 py-2 rounded-pill submit-btn"
-                    disabled={loading}
+                    disabled={loading || coursesLoading}
                   >
                     {loading ? (
                       <span className="spinner-border spinner-border-sm me-2"></span>
